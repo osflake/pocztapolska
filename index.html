@@ -16,13 +16,28 @@
     <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
 
 <body class="bg-light p-0">
-  <header class="container-fluid p-0 bg-danger">
-    <div class="container position-relative p-3" style="z-index:1000;">
-        <div class="col-12 display-5 text-white">Baza aplikacji</div>
-        <div class="col-12 lead text-white mt-2 mb-2 small">narzędzie do weryfikacji i testowania aplikacji/rozwiązań w Poczcie Polskiej - <u>powered by Arkadiusz Śnieżek</u><br/>Chcąc korzystać z testowego środowiska, nalezy być w sieci wewnętrznej PPSA lub połączyć się przez VPN.</div>
+  <header class="container-fluid bg-dark text-dark shadow">
+    <div class="container position-relative bg-warning p-5 shadow" style="z-index:1000;">
+        <div class="col-12 display-5">Baza aplikacji</div>
+        <div class="col-12 lead small">narzędzia do weryfikacji i testowania aplikacji/rozwiązań w Poczcie Polskiej - <u><a class="text-dark" href="https://kartelmedia.co.uk/" target="_blank">powered by Arkadiusz Śnieżek</a></u><br/>Chcąc korzystać z testowego środowiska, nalezy być w sieci wewnętrznej PPSA lub połączyć się przez VPN.</div>
     </div>
   </header>
-  <main class="container bg-white">
-  
+  <main class="container bg-white border mx-auto p-5">
+    <lead>W celu pobrania aktualnej wersji wszystkich aplikacji należy uruchomić plik <code>git.bat</code> dostępny z folderze głównym a następnie odświeżyć stronę.</lead>
+    <h2 class="pt-4 pb-3 w-100">Wykaz aplikacji:</h2>
+
+    <div class="row g-4 row-cols-1 row-cols-md-3">
+        <div class="col">
+            <div class="card ">
+                <img src="./assets/images/emonitoring.png" class="card-img-top border-bottom shadow p-3" alt="...">
+                <div class="card-body">
+                <h3 class="card-title">eMonitoring</h3>
+                <p class="card-text">aplikacja pozwalająca weryfikować środowisko produkcyjne i testowe dla USS</p>
+                <a href="/emonitoring-by-osflake/" class="btn btn-outline-danger d-block">ZOBACZ</a>
+                </div>
+            </div>
+        </div>
+        
+    </div>  
   </main>
 </body>

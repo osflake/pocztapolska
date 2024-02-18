@@ -19,4 +19,4 @@ package-lock.json
 *.njsproj
 *.sln
 
-/emonitoring-by-osflake/config.json
+#/emonitoring-by-osflake/config.json

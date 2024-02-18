@@ -1,0 +1,10 @@
+{
+    "test": {
+      "url": "https://uss-test.poczta-polska.pl",
+      "token": "d+ExXtEMgMv4UwQFBpggyQuquSX1+bAcVkSLYc5tPrK806k9hz2kig1KrrVuXn2IY+JP6KlwvvDkn0bjTNlXzLNaDdMZ/vbhG5lQyIck0ZRR769+V9gzv4KPkXPqOWJltOvQtMh4St8aoloOY3RPXVW0MMQTEh4ZhMq+xq0lKBg=.MzZFREJGNzM2QUUxRkVFODkzMjg2NkU5Q0Q4Njk0NjBEMjlDRUNEMjM2QzQ0RTg5NTFBNTFDNjkyQzk0OTEzRg==.48ab7ef6fe564e61a9e4feadfbfd5098"
+    },
+    "prod": {
+      "url": "https://test.poczta-polska.pl",
+      "token": "BiGwVG2XHvXY+kPwJVPA8gnKchOFsyy39Thkyb1wAiWcKLQ1ICyLiCrxj1+vVGC+kQk3k0b74qkmt5/qVIzo7lTfXhfgJ72Iyzz05wH2XZI6AgXVDciX7G2jLCdoOEM6XegPsMJChiouWS2RZuf3eOXpK5RPl8Sy4pWj+b07MLg=.Mjg0Q0NFNzM0RTBERTIwOTNFOUYxNkYxMUY1NDZGMTA0NDMwQUIyRjg4REUxMjk5NDAyMkQ0N0VCNDgwNTc1NA==.b24415d1b30a456cb8ba187b34cb6a86"
+    }
+}

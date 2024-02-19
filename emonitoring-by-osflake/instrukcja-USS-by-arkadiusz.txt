@@ -1,0 +1,27 @@
+postępowanie w USS
+
+1. Po otrzymanym haśle na maila dokonujemy kodowania hasła:
+a) SHA256('hasło pierwsze')
+b) uppecase dla tego hasła
+c) SHA256(uppercase(SHA256('hasło pierwsze')))
+d) uppercase dla poprzedniego = czyli uppercase(SHA256(uppercase(SHA256('hasło pierwsze')))) dopiero wtedy można uzyć hasła
+
+
+2. POST https://uss-test.poczta-polska.pl/uss/v2.0/tracking/login
+w BODY!!!!
+
+{
+    "login": "kartelmedia",
+    "password": uppercase(SHA256(uppercase(SHA256('hasło pierwsze'))))
+}
+
+UWAGA: Otrxzymujemy token, który jest tymczasowym tokenem do zmiany hasła!!!!
+
+3. następnie zmieniamy hasło:
+POST https://uss-test.poczta-polska.pl/uss/v2.0/tracking/changepassword
+w headers dodajemy
+api_key:
+w BODY
+{
+    "password":"Start12345!" //nowe hasło w formie alfanumerycznej
+}

@@ -428,45 +428,62 @@ $("#sledzenie-subscription").on("click",function(){
 //przechwytywanie wysyłania formularza
 jQuery(document).on('submit','form#submitConfirmationForm', przygotujDanePZC);	
 	
-function responseConfirmation(data, status, xhr, params){
+function responseConfirmation(data, params){
     // console.log("Status połączenia: ")
     // console.log(status);
     jQuery(document).find("#errorResponse").empty().text( 
     function(s){
-      switch(data?.responseText){
+      switch(data?.statusText){
         case "badCaptcha": 
           return "Wprowadzony kod jest niepoprawny, spróbuj ponownie.";
         case "paymentNotFound":
           return "Nie znaleziono Poświadczonego Zgłoszenia Celnego dla wprowadzonych kryteriów";
         default:
-          return data?.responseText;
+          return data?.statusText;
       }
     });
 
-    if(xhr.status == 400 || xhr.status == 404){
+    if(data.status == 400 || data.status == 404){
       jQuery(document).find('#refreshGetToken').trigger('click');
     }
-    if(xhr.status == 200){
-      var blob = new Blob([data], { type: "application/octetstream" });
+    if(data.status == 200){
+      const blob = data.blob(); 
+//      var blob = new Blob([data], { type: "application/"+params['responseType'] });
       //Check the Browser type and download the File.
-      var isIE = false || !!document.documentMode;
-      if (isIE) {
-          window.navigator.msSaveBlob(blob, "pzc_"+params['parcelId']+"."+params['responseType']);
-      } else {
-          var url = window.URL || window.webkitURL;
-          link = url.createObjectURL(blob);
-          var a = $("<a />");
-          a.attr("download", "pzc_"+params['parcelId']+"."+params['responseType']);
-          a.attr("href", link);
-          $("body").append(a);
-          a[0].click();
-          $("body").remove(a);
-          $("#submitConfirmationForm").empty().html("<div class='h5'>Poświadczenie zgłoszenia celnego zostało wygenerowane i pobrane.</div>");
-          setTimeout(removeDiv("#submitConfirmationForm"),5000);
-      }
+      console.log("blob");
+      console.log(blob);
+      console.log("data");
+      console.log(data);
+      // var isIE = false || !!document.documentMode;
+      // if (isIE) {
+      //     window.navigator.msSaveBlob(blob, "pzc_"+params['parcelId']+"."+params['responseType']);
+      // } else {
+          const url = window.URL || window.webkitURL;
+          //link = url.createObjectURL(blob);
+
+          urlblob = url.createObjectURL(
+            blob
+          );
+          const link = document.createElement('a');
+          link.href = urlblob;
+          link.setAttribute('download', "PP_PZC_"+params['parcelId']+"."+params['responseType']);
+          document.body.appendChild(link);
+          link.click();
+          link.remove()
+          // var a = $("<a />");
+          // a.attr("download", "pzc_"+params['parcelId']+"."+params['responseType']);
+          // a.attr("href", link);
+          // //"data:application/"+params['responseType']+";charset=utf-8," + encodeURIComponent(data));
+          // $("body").append(a);
+          // a[0].click();
+          // $("body").remove(a);
+//          $("#submitConfirmationForm").empty().html("<div class='h5'>Poświadczenie zgłoszenia celnego zostało wygenerowane i pobrane.</div>");
+//          setTimeout(removeDiv("#submitConfirmationForm"),5000);
+          console.log(link);
+      // }
 
     }
-    console.log(a);
+    
 }
 
 function przygotujDanePZC(e){
@@ -479,6 +496,27 @@ function przygotujDanePZC(e){
 }
 
 async function sendRequest(params,endpoint,typ,callback,fwdparams){
+  const response = await fetch(
+    config[jQuery("input[name='uss_s']:checked").val()].url+"/uss/v"+jQuery("input[name='uss_v']:checked").val()+"/tracking/"+endpoint, {
+    method: typ, // *GET, POST, PUT, DELETE, etc.
+    mode: "cors", // no-cors, *cors, same-origin
+    cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: "same-origin", // include, *same-origin, omit
+    headers: {
+      // "Content-Type": "application/json",
+      "api_key": config[jQuery("input[name='uss_s']:checked").val()].token,
+    },
+    redirect: "follow", // manual, *follow, error
+    referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    // body: JSON.stringify(data), // body data type must match "Content-Type" header
+  });
+  console.log("ODP FETCH");
+  console.log(response);
+  return callback(response,fwdparams);
+  
+}
+
+async function sendRequest2(params,endpoint,typ,callback,fwdparams){
   jQuery.ajax({
     url: config[jQuery("input[name='uss_s']:checked").val()].url+"/uss/v"+jQuery("input[name='uss_v']:checked").val()+"/tracking/"+endpoint,
       beforeSend: function(xhrObj){
@@ -864,7 +902,7 @@ function generateState(st){
     jQuery(this).find("select").each(function () { 
         data[this.name] = parseInt(jQuery(this).find(":selected").val() );
     });
-        // console.log(data);
+        console.log(data);
         return data;
     };
   })(jQuery);

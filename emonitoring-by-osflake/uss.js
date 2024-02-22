@@ -428,38 +428,43 @@ $("#sledzenie-subscription").on("click",function(){
 //przechwytywanie wysyłania formularza
 jQuery(document).on('submit','form#submitConfirmationForm', przygotujDanePZC);	
 	
-function responseConfirmation(data, status, xhr){
+function responseConfirmation(data, status, xhr, params){
   //if(a.status == 400){
+    console.log("Status połączenia: ")
+    console.log(status);
     jQuery(document).find("#errorResponse").empty().text( 
     function(s){
       console.log(s);
-      switch(data.responseText){
+      switch(data?.responseText){
         case "badCaptcha": 
           return "Wprowadzony kod jest niepoprawny, spróbuj ponownie.";
         case "paymentNotFound":
           return "Nie znaleziono Poświadczonego Zgłoszenia Celnego dla wprowadzonych kryteriów";
         default:
-          return data.responseText;
+          return data?.responseText;
       }
     });
-    if(data.status == 400 || data.status == 404){
+
+    if(xhr.status == 400 || xhr.status == 404){
       jQuery(document).find('#refreshGetToken').trigger('click');
     }
-    if(data.status == 200){
+    if(xhr.status == 200){
       var blob = new Blob([data], { type: "application/octetstream" });
       //Check the Browser type and download the File.
       var isIE = false || !!document.documentMode;
       if (isIE) {
-          window.navigator.msSaveBlob(blob, "fileName");
+          window.navigator.msSaveBlob(blob, "pzc_"+params['parcelId']+"."+params['responseType']);
       } else {
           var url = window.URL || window.webkitURL;
           link = url.createObjectURL(blob);
           var a = $("<a />");
-          a.attr("download", fileName);
+          a.attr("download", "pzc_"+params['parcelId']+"."+params['responseType']);
           a.attr("href", link);
           $("body").append(a);
           a[0].click();
           $("body").remove(a);
+          $("#submitConfirmationForm").empty().html("<div class='h5'>Poświadczenie zgłoszenia celnego zostało wygenerowane i pobrane.</div>");
+          setTimeout(removeDiv("#submitConfirmationForm"),5000);
       }
 
     }
@@ -468,16 +473,14 @@ function responseConfirmation(data, status, xhr){
 
 function przygotujDanePZC(e){
   var v = e.currentTarget;
-
   e.preventDefault();
   jQuery(document).find("#errorResponse").text();
   var params = $.param($(this).formToArray());
-//  console.log(params);
-  sendRequest(null,"paymentconfirmation?"+params,"GET",responseConfirmation);
+  var paramsArray = $(this).formToArray();
+  sendRequest(null,"paymentconfirmation?"+params,"GET",responseConfirmation,paramsArray);
 }
 
-async function sendRequest(params,endpoint,typ,callback){
-
+async function sendRequest(params,endpoint,typ,callback,fwdparams){
   jQuery.ajax({
     url: config[jQuery("input[name='uss_s']:checked").val()].url+"/uss/v"+jQuery("input[name='uss_v']:checked").val()+"/tracking/"+endpoint,
       beforeSend: function(xhrObj){
@@ -487,35 +490,25 @@ async function sendRequest(params,endpoint,typ,callback){
       type: typ,
       contentType: "application/json",
       crossDomain: true,
-      success: callback, 
-      // {
-      //   // console.log("odpowiedz z PZC");
-      //   // console.log(data);
-      //   return data;
-      //   //{
-      //   //   "responseType" : "success",
-      //   //   "message" : data
-      //   // }
-      // },
+      success: function(resp,status,xhr){
+        callback(resp,status,xhr,fwdparams)
+      }, 
       error: callback 
-      // function(r){
-      //   // console.log("odpowiedz ERROR z PZC");
-      //   //console.log(r);
-      //   return r;
-      // }
   });
 
 }
 
 
+function removeDiv(div){
+  $(div).remove();
+}
 
 
-
-  function sprWarunek(x,u){
-    if (u =="nadaj_usluga_2"){
-      return ((parseInt(x) > 2 || x == "OPZ")? true : false);
-    }
+function sprWarunek(x,u){
+  if (u =="nadaj_usluga_2"){
+    return ((parseInt(x) > 2 || x == "OPZ")? true : false);
   }
+}
 
 
   function csvToArray(str, delimiter = ";") {
@@ -860,30 +853,22 @@ function generateState(st){
 (function ($) {
   $.fn.formToArray = function () {
   var data ={};
-  jQuery(this).serializeArray().map( function(x){data[x.name] = (!isNaN(x.value) ? parseFloat(x.value) : x.value);} );
-      jQuery(this).find("input[type='checkbox']").each(function () {
-          data[this.name] = Boolean(this.checked);
-      });
-      jQuery(this).find("input:hidden").each(function () {
-        console.log("hidden:")
-        console.log(this);
-        data[this.name] = this.value;
-      });
-      jQuery(this).find("input:hidden:checked").each(function () {
-        console.log("checked:")
-        console.log(this);
-        data[this.name] = this.value;
-      });
-
-      // jQuery(this).find("input").each(function () {
-      //   data[this.name] = this.value;
-      // });
-      jQuery(this).find("select").each(function () { 
-          data[this.name] = parseInt(jQuery(this).find(":selected").val() );
-      });
-          console.log(data);
-          return data;
-      };
+    jQuery(this).serializeArray().map( function(x){data[x.name] = (!isNaN(x.value) ? parseFloat(x.value) : x.value);} );
+    jQuery(this).find("input[type='checkbox']").each(function () {
+        data[this.name] = Boolean(this.checked);
+    });
+    jQuery(this).find("input:hidden").each(function () {
+      data[this.name] = this.value;
+    });
+    jQuery(this).find("input:hidden:checked").each(function () {
+      data[this.name] = this.value;
+    });
+    jQuery(this).find("select").each(function () { 
+        data[this.name] = parseInt(jQuery(this).find(":selected").val() );
+    });
+        // console.log(data);
+        return data;
+    };
   })(jQuery);
 
 $(() => {
@@ -929,20 +914,4 @@ $(() => {
     $(`#${id} .step-labels`).css("margin-left", marginVal);
     $(`#${id}`).show();
   }
-
-//});
-
-//witryny v3: 6LdtDGIaAAAAAKT-ldUYDJ0eGJCJRFywmi36vkve
-//prywatny v3: 6LdtDGIaAAAAAGGr__umElMsgootAQEgzsW92eKZ
-
-//witryny v2: 6LfEDWIaAAAAADH-l2C9wMcq_hyt6GDiXlddOOZn
-//prywatny v2: 6LfEDWIaAAAAAI9_yjAeI4JHqW-Hi8452h-SYdCv
-
-
-
-
-
-
-
-
 

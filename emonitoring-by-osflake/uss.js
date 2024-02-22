@@ -429,12 +429,10 @@ $("#sledzenie-subscription").on("click",function(){
 jQuery(document).on('submit','form#submitConfirmationForm', przygotujDanePZC);	
 	
 function responseConfirmation(data, status, xhr, params){
-  //if(a.status == 400){
-    console.log("Status połączenia: ")
-    console.log(status);
+    // console.log("Status połączenia: ")
+    // console.log(status);
     jQuery(document).find("#errorResponse").empty().text( 
     function(s){
-      console.log(s);
       switch(data?.responseText){
         case "badCaptcha": 
           return "Wprowadzony kod jest niepoprawny, spróbuj ponownie.";

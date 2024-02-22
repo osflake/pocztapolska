@@ -1,7 +1,7 @@
 {
     "test": {
       "url": "https://uss-test.poczta-polska.pl",
-      "token":"a56Rs0g46qax7BdtqZMMCg46i50HjKR+QODn5JvZMly5nmoNzQsryqNQQw+HNfFjzUEg4Njknxcf4+mxx0A0gzEGXlEeetxsx7aqsKAVcWEK+3hjs8aAnF1FNQQmzK4xXAS3wAAd1FUfMy6SsGHebNwPGHJwViMl6Y/9LVPEyKs=.MDEyN0NDNjA1MzE3NkNDNTYxMkRBN0Q2QTYwMkM5OTg2QzNDMDkxMTgzRDczMkQyMDRBOEI5RDg0NTEzRjA2QQ==.85f9b24226764084929bfe32246d5178"
+      "token":"bFg8NfJthHvMvyZt3wO+Kq0GfdSpNJCX8ZTg+NnKc4W5nmoNzQsryqNQQw+HNfFjzUEg4Njknxcf4+mxx0A0gzEGXlEeetxsx7aqsKAVcWFT4CatjwyqyRCbtU/ryZepiwxWMrrjZbX2k092ZsCop6RWnTiAMgl49X050s9JyT8=.RjA0QURFOUQ0MDNGQTg0NTkwODFERjY5NjMwNUU3NjgwNzM0NEVDQTQ2OTQ3M0YyQzM0QjIzMEExQTVEMEZFMQ==.ae8a1974b8ba46f3945d9f9ac72f71d5"
     },
     "prod": {
       "url": "https://uss.poczta-polska.pl",

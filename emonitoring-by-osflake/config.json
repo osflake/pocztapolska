@@ -1,7 +1,9 @@
 {
   "test": {
     "url": "https://uss-test.poczta-polska.pl",
-    "token":"a56Rs0g46qax7BdtqZMMCg46i50HjKR+QODn5JvZMly5nmoNzQsryqNQQw+HNfFjzUEg4Njknxcf4+mxx0A0gzEGXlEeetxsx7aqsKAVcWEK+3hjs8aAnF1FNQQmzK4xXAS3wAAd1FUfMy6SsGHebNwPGHJwViMl6Y/9LVPEyKs=.MDEyN0NDNjA1MzE3NkNDNTYxMkRBN0Q2QTYwMkM5OTg2QzNDMDkxMTgzRDczMkQyMDRBOEI5RDg0NTEzRjA2QQ==.85f9b24226764084929bfe32246d5178"
+    "token":"5YucHzMo/YuOXKGW+7E4zwDpV0jwPouWBF4U3M+vBfG5nmoNzQsryqNQQw+HNfFjzUEg4Njknxcf4+mxx0A0gzEGXlEeetxsx7aqsKAVcWHnkNT8uIw64A0nr5PCITU9i0DSQHeQr94+DpQ3ZWQ7IgKN7bJU+ML5vZDE3cbpNxY=.NEY5Q0VDMTUzQzlEQjA5Rjg3OUVFN0ZBNkMzMTkyNDMyM0IxOEVCRTgwQUE3QzExQjcyRDI1OTA2NEJGNTUwMA==.be139e7bbeef45ffbc248489a36b0f5a",
+    "login": "kartelmedia",
+    "password":"EC4C25D77CAD7A636F90A0938ACBA469E68D0AC21D62136B8CDC00676541097C"
   },
   "prod": {
     "url": "https://uss.poczta-polska.pl",

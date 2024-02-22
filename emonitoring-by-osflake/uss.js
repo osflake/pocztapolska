@@ -6,6 +6,11 @@ jQuery(document).ready(function(){
     return searchParams.has(name)? searchParams.get(name): false;
   }
 
+  function containsAny(source,target){
+    var result = source.filter(function(item){ return target.indexOf(item.code) > -1});
+    return (result.length > 0);  
+  }
+
   function sprawdzPrzesylke(x){
       return /([a-zA-Z0-9])+$/.test(x);
   }
@@ -34,7 +39,47 @@ jQuery(document).ready(function(){
       return response.json(); // parses JSON response into native JavaScript objects
     }
   const config = await getData("config.json?callback=?", { answer: 42 });
+  
+    // async function getCaptcha2() {
+    //   // Default options are marked with *
+    //   const response = await fetch(
+    //     config[jQuery("input[name='uss_s']:checked").val()].url+"/uss/v"+jQuery("input[name='uss_v']:checked").val()+"/tracking/captcha", {
+    //     method: "GET", // *GET, POST, PUT, DELETE, etc.
+    //     cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+    //     headers: {
+    //       // "Content-Type": "blob",
+    //       // "Access-Control-Allow-Origin": "*",
+    //       "api_key": config[jQuery("input[name='uss_s']:checked").val()].token
+    //       // 'Content-Type': 'application/x-www-form-urlencoded',
+    //     },
+    //     // redirect: "follow", // manual, *follow, error
+    //     responseType: "blob",
+    //     // referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    //     // body: JSON.stringify(data), // body data type must match "Content-Type" header
+    //   });
+    //   //console.log("RETURN CAPTCHA");
+    //   //console.log(response);
+    //   return response; // parses JSON response into native JavaScript objects
+    // }
 
+    async function getCaptcha(){
+      var a=new XMLHttpRequest;
+      a.open("GET",config[jQuery("input[name='uss_s']:checked").val()].url+"/uss/v"+jQuery("input[name='uss_v']:checked").val()+"/tracking/captcha",!0),
+      a.responseType="blob",
+      a.msCaching="disabled",
+      a.setRequestHeader("API_KEY",config[jQuery("input[name='uss_s']:checked").val()].token),
+      a.onload=function(e){
+        if(200===this.status){
+          var t=document.getElementById("imageCaptcha"),
+          n=window.URL||window.webkitURL;
+          t.src=n.createObjectURL(this.response),
+          jQuery("input#captchaUid").val(a.getResponseHeader("captcha-uid")),
+          jQuery("input#captchaAnswer").val("")}
+      },
+      a.send()
+    }
+  
+  
 
   if(myParcelUrl){
     jQuery(document).find('input[name="parcel"]').val(myParcelUrl);
@@ -186,6 +231,9 @@ jQuery(document).ready(function(){
                 var zdarzenia = parcelInfo?.events;
 
                 var zdarzenia_pogrubienie = ['P_D','P_NAD','P_WD']; 
+                
+                
+                divParcelInfo.append( potwierdzenieZaplaty(parcelInfo, divParcelInfo));
 
                 if(zdarzenia?.length>0){
                   divParcelAction.append("<h5>Status przesyłki:</h5>");
@@ -377,9 +425,87 @@ $("#sledzenie-subscription").on("click",function(){
   });
 
 
+//przechwytywanie wysyłania formularza
+jQuery(document).on('submit','form#submitConfirmationForm', przygotujDanePZC);	
+	
+function responseConfirmation(data, status, xhr){
+  //if(a.status == 400){
+    jQuery(document).find("#errorResponse").empty().text( 
+    function(s){
+      console.log(s);
+      switch(data.responseText){
+        case "badCaptcha": 
+          return "Wprowadzony kod jest niepoprawny, spróbuj ponownie.";
+        case "paymentNotFound":
+          return "Nie znaleziono Poświadczonego Zgłoszenia Celnego dla wprowadzonych kryteriów";
+        default:
+          return data.responseText;
+      }
+    });
+    if(data.status == 400 || data.status == 404){
+      jQuery(document).find('#refreshGetToken').trigger('click');
+    }
+    if(data.status == 200){
+      var blob = new Blob([data], { type: "application/octetstream" });
+      //Check the Browser type and download the File.
+      var isIE = false || !!document.documentMode;
+      if (isIE) {
+          window.navigator.msSaveBlob(blob, "fileName");
+      } else {
+          var url = window.URL || window.webkitURL;
+          link = url.createObjectURL(blob);
+          var a = $("<a />");
+          a.attr("download", fileName);
+          a.attr("href", link);
+          $("body").append(a);
+          a[0].click();
+          $("body").remove(a);
+      }
 
+    }
+    console.log(a);
+}
 
+function przygotujDanePZC(e){
+  var v = e.currentTarget;
 
+  e.preventDefault();
+  jQuery(document).find("#errorResponse").text();
+  var params = $.param($(this).formToArray());
+//  console.log(params);
+  sendRequest(null,"paymentconfirmation?"+params,"GET",responseConfirmation);
+}
+
+async function sendRequest(params,endpoint,typ,callback){
+
+  jQuery.ajax({
+    url: config[jQuery("input[name='uss_s']:checked").val()].url+"/uss/v"+jQuery("input[name='uss_v']:checked").val()+"/tracking/"+endpoint,
+      beforeSend: function(xhrObj){
+          xhrObj.setRequestHeader("api_key",config[jQuery("input[name='uss_s']:checked").val()].token)
+      },
+      data: (params?? params),
+      type: typ,
+      contentType: "application/json",
+      crossDomain: true,
+      success: callback, 
+      // {
+      //   // console.log("odpowiedz z PZC");
+      //   // console.log(data);
+      //   return data;
+      //   //{
+      //   //   "responseType" : "success",
+      //   //   "message" : data
+      //   // }
+      // },
+      error: callback 
+      // function(r){
+      //   // console.log("odpowiedz ERROR z PZC");
+      //   //console.log(r);
+      //   return r;
+      // }
+  });
+
+}
 
 
 
@@ -419,16 +545,61 @@ $("#sledzenie-subscription").on("click",function(){
   }
 
 /* OBSLUGA NADAJ PRZESYLKE */
-jQuery("input[type='radio']").on("change",function(){
+jQuery(document).on("change","input[type='radio']",function(){
     jQuery("#"+this.name).text(jQuery(this).attr("title"));
     // console.log("SRODOWISKO");
     // console.log(config[jQuery("input[name='uss_s']:checked").val()]);
-    //console.log(jQuery(this).attr("title"));
+    //console.log(jQuery(this).attr("title"));=
     console.log(this.name,this.value);
     //sprWarunek ((this.value)),"<=2");
     disable_enable_button("nadaj_usluga_2",sprWarunek((this.value),"nadaj_usluga_2"));
   });
 
+  jQuery(document).on('click','#refreshGetToken',triggerGetCaptcha);
+
+  function triggerGetCaptcha(){
+    return getCaptcha();
+  }
+
+  function potwierdzenieZaplaty(parcel){
+    var zdarzenia_potwierdzen = ['P_ZWOLDDOR','P_ROZL_CEL','P_D']; //dopisałem P_D
+    var parcelStatus = parcel?.mailStatus;
+    var parcelType = parcel?.typeOfMailCode;
+    // console.log(containsAny(parcel?.events,zdarzenia_potwierdzen));
+
+    if (parcelType == 'UNREGISTERED_MAIL_TYPE' && parcelStatus == 0){
+      var odp = "<div class='alert alert-warning justify-content-center text-center' role='alert'><h2 class='p-2'>UWAGA!</h2><h3>potweirdzenie nie jest jeszcze gotowe dla <u>"+parcel?.number+"</u></h3></div>"
+      return odp;
+
+    }
+    if (containsAny(parcel?.events,zdarzenia_potwierdzen)){
+      const captcha = triggerGetCaptcha();
+      console.log(captcha);
+      var odp = "<form id='submitConfirmationForm' class='m-4 p-3 bg-light '><div class='row p-3 pb-1'>";
+      odp +="<div class='col-12 h5 p-2'><u>Poświadczenie zgłoszenia celnego</u></div>";
+      odp +="<div class='col-12 col-md-6 p-2 d-flex align-items-center text-md-end'>Wybierz formę pliku:</div>";
+      odp +="<div class='row col-12 col-md-6 text-center g-1 p-0'>"+
+              "<div class='form-check col-12 col-md-6 p-1 m-0'>"+
+                  "<input class='form-check-input d-none' type='radio' name='responseType' id='formatpdf' value='pdf' title='states' checked>"+
+                  "<label class='form-check-label border border-2 w-100 rounded p-1 h4 ' for='formatpdf'>PDF</label>"+
+              "</div><div class='form-check col-12 col-md-6 p-1 m-0'>"+
+                  "<input class='form-check-input d-none' type='radio' name='responseType' id='formatxml' value='xml' title='states'>"+
+                  "<label class='form-check-label border border-2 w-100 rounded p-1 h4' for='formatxml'>XML</label>"+
+              "</div></div>";
+      odp +="<div class='row g-1 p-0'>";
+      odp +="<div class='col-12 col-md-6 p-2 align-middle d-flex align-items-center text-md-end'>Kwota należności celno-podatkowych:</div>";
+      odp +="<div class='col-12 col-md-6 p-1'><input type='number' step='any' class='form-control-lg w-100' name='amount' id='amount' data-inputmask='\'mask\': \'999999999,99\''  required /><div class='invalid-feedback'>Wpisz kwotę</div></div></div>";
+      odp +="<div class='col-12 p-1'><input type='hidden' id='parcelId' name='parcelId' value='"+parcel.number+"' ><input type='hidden' id='captchaUid' name='captchaUid' ></div>";
+      odp +="<div class='col-12 col-md-5 text-center text-md-end p-2'><img src='' id='imageCaptcha' class='w-100' /></div>";
+      odp +="<div class='col-12 col-md-7 text-center text-md-start p-1 pb-2 d-grid align-baseline'><p class='w-100 pt-2 pb-0'>Kod z obrazka:</p><input class='form-control-lg' type='text' id='captchaAnswer' name='captchaAnswer' required ><div class='invalid-feedback'>Wpisz kod captcha.</div></div>";
+      odp +="<div id='errorResponse' class='col-12 text-center text-danger p-2'></div>";
+      odp +="<div class='col-12 pt-4 p-1 text-center d-md-flex justify-content-md-between'><button type='button' id='refreshGetToken' class='btn btn-outline-danger'>Generuj nowy kod</button> <button id='confirmationPayment' type='submit' class='btn btn-danger'>Pobierz potwierdzenie </button></div>";
+      odp +="</div></form>";
+      return odp;
+    }
+  }
+
+  
 
   function disable_enable_button(name,result){
     i = jQuery("#"+name);
@@ -444,26 +615,23 @@ jQuery("input[type='radio']").on("change",function(){
 
   var returnWyniki;
 
-  jQuery(".widgetOWP").on("click",function(){
-    var dostawca = {
-  //		basemapProvider: 'OpenStreetMap',
-  //		geocoderProvider: 'Nominatim'
-    };
-    console.log("TUTAJ");
-    returnWyniki = this.name+"_OWP";
-    PPWidgetApp.toggleMap(PokazWynik,false,'','',dostawca);
-      console.log("weszlo");
-      $("#pp-widget-iframe").on("load",function(a,b){
-        console.log(a,b);
-        console.log("załadowałem mape PP WIDGET");
-        jQuery(document).on("focus",".ppw-logo",function(){
-          $(this).remove();
-        })
-      });
-//      
-//    }
-    //jQuery(document).find(".ppw-container").first().addClass("AAA");
-  });
+  // jQuery(".widgetOWP").on("click",function(){
+  //   var dostawca = {
+  // //		basemapProvider: 'OpenStreetMap',
+  // //		geocoderProvider: 'Nominatim'
+  //   };
+  //   console.log("TUTAJ");
+  //   returnWyniki = this.name+"_OWP";
+  //   PPWidgetApp.toggleMap(PokazWynik,false,'','',dostawca);
+  //     console.log("weszlo");
+  //     $("#pp-widget-iframe").on("load",function(a,b){
+  //       console.log(a,b);
+  //       console.log("załadowałem mape PP WIDGET");
+  //       jQuery(document).on("focus",".ppw-logo",function(){
+  //         $(this).remove();
+  //       })
+  //     });
+  // });
   
   function PokazWynik(w){
     console.log("GDZIE: "+returnWyniki);
@@ -471,20 +639,20 @@ jQuery("input[type='radio']").on("change",function(){
     console.log(w);
     return w;
   }
-  $(window).on('scroll resize', function() {
-  height = jQuery("#main-menu").offset().top;
-  hs = $(this).scrollTop();
-  if (height <= hs){
-        $(".nav-link span").addClass('d-sm-none');
-        $(".nav-item:not(.nav-item-dropped), .navbar-brand > img").addClass("animations");
-        //$('#main-menu').height('auto').addClass('p-0');
-  }else{
-    $(".nav-link span").removeClass('d-sm-none');
-    $(".nav-item, .navbar-brand > img").removeClass("animations");
-    //$('#main-menu').height('auto').removeClass('p-0');
-  }
- console.log(height, hs);
-  });
+//   $(window).on('scroll resize', function() {
+//   height = jQuery("#main-menu").offset().top;
+//   hs = $(this).scrollTop();
+//   if (height <= hs){
+//         $(".nav-link span").addClass('d-sm-none');
+//         $(".nav-item:not(.nav-item-dropped), .navbar-brand > img").addClass("animations");
+//         //$('#main-menu').height('auto').addClass('p-0');
+//   }else{
+//     $(".nav-link span").removeClass('d-sm-none');
+//     $(".nav-item, .navbar-brand > img").removeClass("animations");
+//     //$('#main-menu').height('auto').removeClass('p-0');
+//   }
+//  console.log(height, hs);
+//   });
 
 
 
@@ -506,77 +674,10 @@ jQuery("input[type='radio']").on("change",function(){
 
 
 
-/** SHOPLO **/
-function format_cena(x) { // Zamaria
-	return x.toString().replace(/\B(?=(\d{2})+(?!\d))/g, ',');
-}
-
-/*
-//	jQuery("#loading").fadeIn();
-  var shoplo_name = 'polecane-produkty';
-  var shoplo_variants = 1;
-  var shoplo_limit = 3;
-	jQuery.ajax({
-		type: 'GET',
-	    url: 'https://sklep-z-opakowaniami.shoplo.com/ajax?method=shop.controller.preload&template=collection&set_name='+shoplo_name+'&variants='+shoplo_variants+'&limit='+shoplo_limit,
-	    error: function(data){
-      		alert('Błąd eSklep01: Błąd połączenia z API Shoplo');
-	        console.log('BLAD E01:');
-	      	console.log(data);
-	    },
-		success: function(data){
-			var div = jQuery('#shoplo').empty();
-//			div.append("<div class='col-12 h2 bg-dark text-light p-3 m-0 border-bottom mb-3'>Akcesoria dla Twojej firmy</div>");
-			var l = jQuery.parseJSON(data).list;
-			if (l.length != 0){
-//				console.log(l);
-				jQuery(l).each(function(index, item) {
-            //console.log(item);
-						div.append(
-							d = jQuery(document.createElement('div')),
-							d.attr({
-								'id': 'produkt_'+item['id'],
-								'class' : 'p-2 col-md-4 text-center d-grida gap-2',
-							}),
-              d.append('<figure class="minfo bg-white rounded border border-light position-relavite">'+
-                            '<div class="content position-absolute top-0 start-0 p-0 m-0 text-center"><img src="'+item['main_image']+'" alt="'+item['title']+' - '+item['short_description']+'" title="'+item['title']+' - '+item['short_description']+'" class="figure-img img-fluid" alt="'+item['title']+'"/></div>'+
-                            
-                            '<div class="position-absolute bg-biznes opacity-3 text-light bottom-0 start-0 m-0 opacity-1 p-3 w-100 text-center">'+
-                                '<p class="h5">'+item['title']+'</p>'+
-                                //'<p class="lead">asasas</p>'+
-                                '<a data-fancybox data-type="iframe" data-src="https://esklep.poczta-polska.pl/kolekcja/'+shoplo_name+'/'+item["url"]+'" href="javascript:;" class=" btn btn-outline-light border-0 position-absolute bottom-0 end-0 m-1">(?)</a>'+
-                            '</div></figure>'),
-//							d.append('<figure class="figure position-relative border opis minfo clearfix"><div class="content"><img src="'+item['main_image']+'" alt="'+item['title']+'" title="'+item['title']+'" class="figure-img img-fluid" alt="'+item['title']+'"/>'),
-//              d.append('<div class="position-absolute bg-light opacity-3 text-dark bottom-0 start-0 m-0 opacity-1 pb-4 p-2 w-100 text-center">'+item['title']+'</p></div>'),
-//              d.append('</div></figure>'),
-              
-							//d.append('<img src="<?php echo get_template_directory_uri();?>/img/shoplo_wyprzedaz.png" alt="'+item['title']+'" title="'+item['title']+'" style="position: absolute; top: 0px; right:0px; z-index:10;"/>'),
-							//d.append('<div class="h5 p-2 text-danger text-center" style="min-height: 60px;">'+item['title']+"</div>"),
-							//d.append('<div class="p-2 btn-block" style="min-height: 100px;">'+item['short_description']+"</div>"),
-						  //	d.append('<div class="p-2 btn-default text-center">O produkcie</div>'),
-							d.append('<div class="p-2 h2 text-center m-2">CENA: <span class="text-danger">'+format_cena(item['price'])+" PLN</span></div>"),
-
-							d.append('<div class="d-grid gap-2 mb-3">'),
-							d.append('<button type="button" class="m-1 border shoplo_ilosc btn btn-lg btn-outline-biznes" value="-" >-</button>'),
-							d.append('<button type="button" class="m-1 border shoplo_quantity btn btn-lg btn-default" value="1" id="no_'+item['variants'][0]['id']+'">1</button>'),
-							d.append('<button type="button" class="m-1 border shoplo_ilosc btn btn-lg btn-outline-biznes" value="+">+</button>'),
-							d.append('<button type="button" class="m-1 shoplo_zamow btn btn-lg btn-outline-biznes" data-variant_id="'+item['variants'][0]['id']+'"><i class="fas fa-shopping-cart"></i> DODAJ</button>'),
-							d.append('</div>'),
-							
-						);
-//						jQuery('#odp').append(item['main_image']+'<br/>');
-////					for (var key in item){
-						/////console.log(key+" val: "+item[key]);
-//						jQuery('#odp').append('param: '+key+' val: '+item[key]+'<br/>');
-////					}
-//					console.log(item)
-				}).promise().done(function () { 
-					jQuery("#loading").fadeOut("fast");
-				});
-			}
-		}
-	});
-*/
+  /** SHOPLO **/
+  function format_cena(x) { // Zamaria
+    return x.toString().replace(/\B(?=(\d{2})+(?!\d))/g, ',');
+  }
 
   $('[data-fancybox]').fancybox({
     toolbar  : false,
@@ -588,13 +689,7 @@ function format_cena(x) { // Zamaria
       preload : true
     },
     afterShow: function(a,b) {
-//      console.log(a,b);
-//      console.log("JJJJ");
-//      $(document)("#topBar").empty();
 
-//      $('.fancybox-iframe').contents().html('new content');
-
-      //console.log($("#site-header-main"));
     }
   });
 
@@ -656,104 +751,104 @@ function generateState(st){
 
 
 
-  PPWidgetApp.embedMap('mapka')
-  .then(function () {
+  // PPWidgetApp?.embedMap('mapka')
+  // .then(function () {
                       
-      $.when(PPWidgetApp.autoComplete('#adres')).then(function(autocomplete){
-          autocomplete.on('autocomplete-selected', function(e) {
-              // Zdarzenie po wybraniu z listy podpowiedzi wyswietlonej pozycji
-              console.log(e.selected);
+  //     $.when(PPWidgetApp.autoComplete('#adres')).then(function(autocomplete){
+  //         autocomplete.on('autocomplete-selected', function(e) {
+  //             // Zdarzenie po wybraniu z listy podpowiedzi wyswietlonej pozycji
+  //             console.log(e.selected);
 
-              PPWidgetApp.resetMap();
+  //             PPWidgetApp.resetMap();
           
-              var marker = PPWidgetApp.generateMarker({
-                  name: e.selected.val,
-                  latitude: e.selected.lat,
-                  longitude: e.selected.lng,
-                  pni: '232423'
-              }, '<h1>Testowy POPUP</h1>');
+  //             var marker = PPWidgetApp.generateMarker({
+  //                 name: e.selected.val,
+  //                 latitude: e.selected.lat,
+  //                 longitude: e.selected.lng,
+  //                 pni: '232423'
+  //             }, '<h1>Testowy POPUP</h1>');
 
-              PPWidgetApp.centerMap(marker, [
-                  e.selected.northeast, e.selected.southwest
-              ]);                        
-          });
-      });
+  //             PPWidgetApp.centerMap(marker, [
+  //                 e.selected.northeast, e.selected.southwest
+  //             ]);                        
+  //         });
+  //     });
 
-      $(document).on('click', '#szukaj-punktow', function (e) {
-          e.preventDefault();
+  //     $(document).on('click', '#szukaj-punktow', function (e) {
+  //         e.preventDefault();
 
-          // Wykonanie geokodowania na podstawie wprowadzonego tekstu
-          PPWidgetApp.geoCode(
-              $('#adres').val(),
-              function(results) {
-                  console.log(results);
+  //         // Wykonanie geokodowania na podstawie wprowadzonego tekstu
+  //         PPWidgetApp.geoCode(
+  //             $('#adres').val(),
+  //             function(results) {
+  //                 console.log(results);
 
-                  // Resetuje ustawienia mapy
-                  // - usuwa wszystkie markery
-                  // - zamyka wszystkie okienka typu Popup
-                  // - zatrzymuje wszystkie animacje zwiazane z mapa
-                  PPWidgetApp.resetMap();
+  //                 // Resetuje ustawienia mapy
+  //                 // - usuwa wszystkie markery
+  //                 // - zamyka wszystkie okienka typu Popup
+  //                 // - zatrzymuje wszystkie animacje zwiazane z mapa
+  //                 PPWidgetApp.resetMap();
 
-                  var markers = []
+  //                 var markers = []
 
-                  $.each(results, function() {
-                      console.log(this.name + ', ' + this.center.lat + ', ' + this.center.lng);
-                      // Tworzy marker na podstawie obowiazkowo podanych parametrow
-                      // name - nazwa markera np. ul. Rodziny Hiszpanskich
-                      // latitude - szerokosc geograficzna
-                      // longitude - dlugosc geograficzna
-                      // type - predefiniowany typ markera (wyswietlanej ikony) moze przyjmowac nastepujace wartosci
-                      //  "POCZTA", "ORLEN", "AUTOMAT_POCZTOWY", "RUCH", "ZABKA", "FRESHMARKET"
-                      // w przypadku podania innej niz w/w wartosci ustawiana jest domyslna ikona
-                      // pni - kod PNI punktu, jezeli wyswietlany punkt nie ma kodu PNI nalezy podac unikalna wartosc
-                      // Jako drugi argument opcjonalnie podaje sie zawartosc okienka typu Popup wyswietlanego po kliknieciu w marker,
-                      // moze przyjmowac nastepujacego wartosci:
-                      // - lancuch znakow
-                      // - funkcja(pni, data) ktora zwraca dla podanego kodu PNI oraz danych skojarzonych z danych markerem 
-                      //   (jest to obiekt, przekazywany jako pierwszy argument do funkcji generateMarker) zawartosc okienka typu Popup
-                      var marker = PPWidgetApp.generateMarker({
-                          name: this.name,
-                          latitude: this.center.lat,
-                          longitude: this.center.lng,
-                          type: 'POCZTA',
-                          pni: '9280494'
-                      }, function(pni, data) {
-                          var tooltipHtml = '<div class="marker-tooltip">'
-                           + '<p class="marker-tooltip-header"><b>'
-                           + data.name
-                           + '</b></p>'
-                           + '<p class="marker-tooltip-info"><b>Opis:</b><br/>'
-                           + 'lat: ' + data.latitude + '<br />'
-                           + 'lng: ' + data.longitude+ '<br />'
-                           + '</p>'
-                           + '</div>';
-                          return tooltipHtml;
-                      });
-                      marker.bbox = this.bbox;
+  //                 $.each(results, function() {
+  //                     console.log(this.name + ', ' + this.center.lat + ', ' + this.center.lng);
+  //                     // Tworzy marker na podstawie obowiazkowo podanych parametrow
+  //                     // name - nazwa markera np. ul. Rodziny Hiszpanskich
+  //                     // latitude - szerokosc geograficzna
+  //                     // longitude - dlugosc geograficzna
+  //                     // type - predefiniowany typ markera (wyswietlanej ikony) moze przyjmowac nastepujace wartosci
+  //                     //  "POCZTA", "ORLEN", "AUTOMAT_POCZTOWY", "RUCH", "ZABKA", "FRESHMARKET"
+  //                     // w przypadku podania innej niz w/w wartosci ustawiana jest domyslna ikona
+  //                     // pni - kod PNI punktu, jezeli wyswietlany punkt nie ma kodu PNI nalezy podac unikalna wartosc
+  //                     // Jako drugi argument opcjonalnie podaje sie zawartosc okienka typu Popup wyswietlanego po kliknieciu w marker,
+  //                     // moze przyjmowac nastepujacego wartosci:
+  //                     // - lancuch znakow
+  //                     // - funkcja(pni, data) ktora zwraca dla podanego kodu PNI oraz danych skojarzonych z danych markerem 
+  //                     //   (jest to obiekt, przekazywany jako pierwszy argument do funkcji generateMarker) zawartosc okienka typu Popup
+  //                     var marker = PPWidgetApp.generateMarker({
+  //                         name: this.name,
+  //                         latitude: this.center.lat,
+  //                         longitude: this.center.lng,
+  //                         type: 'POCZTA',
+  //                         pni: '9280494'
+  //                     }, function(pni, data) {
+  //                         var tooltipHtml = '<div class="marker-tooltip">'
+  //                          + '<p class="marker-tooltip-header"><b>'
+  //                          + data.name
+  //                          + '</b></p>'
+  //                          + '<p class="marker-tooltip-info"><b>Opis:</b><br/>'
+  //                          + 'lat: ' + data.latitude + '<br />'
+  //                          + 'lng: ' + data.longitude+ '<br />'
+  //                          + '</p>'
+  //                          + '</div>';
+  //                         return tooltipHtml;
+  //                     });
+  //                     marker.bbox = this.bbox;
 
-                      marker.on('click', function(e) {
-                          console.log(e.target._zIndex);
+  //                     marker.on('click', function(e) {
+  //                         console.log(e.target._zIndex);
 
-                      })
+  //                     })
                      
-                      markers.push(marker);
-                  })
+  //                     markers.push(marker);
+  //                 })
 
-                  if (markers.length > 0)
-                  {                                
-                      var i = Math.floor(Math.random() * (markers.length - 1));                                
-                      PPWidgetApp.centerMap(markers[i], PPWidgetApp.getBounds(markers));
-                      for(i = 0; i <markers.length; i++) {
-                          PPWidgetApp.addMarker(markers[i]);
-                      }
-                      //PPWidgetApp.addMarkers(markers);
-                  }
-              }
-          );
+  //                 if (markers.length > 0)
+  //                 {                                
+  //                     var i = Math.floor(Math.random() * (markers.length - 1));                                
+  //                     PPWidgetApp.centerMap(markers[i], PPWidgetApp.getBounds(markers));
+  //                     for(i = 0; i <markers.length; i++) {
+  //                         PPWidgetApp.addMarker(markers[i]);
+  //                     }
+  //                     //PPWidgetApp.addMarkers(markers);
+  //                 }
+  //             }
+  //         );
 
-          return false;
-      });
-  });   
+  //         return false;
+  //     });
+  // });   
 
 
 })(); //end async()
@@ -761,7 +856,35 @@ function generateState(st){
 });
 
 
+//wlasna funkcja do sczytywania formularzy z unchecked input
+(function ($) {
+  $.fn.formToArray = function () {
+  var data ={};
+  jQuery(this).serializeArray().map( function(x){data[x.name] = (!isNaN(x.value) ? parseFloat(x.value) : x.value);} );
+      jQuery(this).find("input[type='checkbox']").each(function () {
+          data[this.name] = Boolean(this.checked);
+      });
+      jQuery(this).find("input:hidden").each(function () {
+        console.log("hidden:")
+        console.log(this);
+        data[this.name] = this.value;
+      });
+      jQuery(this).find("input:hidden:checked").each(function () {
+        console.log("checked:")
+        console.log(this);
+        data[this.name] = this.value;
+      });
 
+      // jQuery(this).find("input").each(function () {
+      //   data[this.name] = this.value;
+      // });
+      jQuery(this).find("select").each(function () { 
+          data[this.name] = parseInt(jQuery(this).find(":selected").val() );
+      });
+          console.log(data);
+          return data;
+      };
+  })(jQuery);
 
 $(() => {
   setupSlider('strefa_zagraniczna', ["Strefa A", "Strefa B", "Strefa C", "Strefa D"], 0);

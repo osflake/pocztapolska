@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Instrukcja użytkownika systemu śledzenia USS 2.0. by Arkadiusz Śnieżek</title>
+    <meta name="description"  content="Pocztex 2.0 by PP SA" />
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <!-- <script src="https://mapa.ecommerce.poczta-polska.pl/widget/scripts/ppwidget.js?ver=1.0"></script> -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/releases/v6.4.2/js/all.js" data-auto-replace-svg="nest"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+    <!-- <script src="https://momentjs.com/downloads/moment.js" ></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" integrity="sha512-nNlU0WK2QfKsuEmdcTwkeh+lhGs6uyOxuUs+n+0oXSYDok5qy0EI0lt01ZynHq6+p/tbgpZ7P+yUb+r71wqdXg==" crossorigin="anonymous" />
+    <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+    <!-- <link href="./uss.css" rel="stylesheet"/>
+    <script src="./uss.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+
+    <script src="./js/sha256.min.js"></script>
+    <script>
+        /**
+         * Generate HTML to PDF
+         *
+         * @constructor
+         */
+        function CreatePDFfromHTML(domElement) {
+            var contentWidth = $(domElement).width();
+            var contentHeight = $(domElement).height();
+            var topTeftMargin = 50;
+            var pdfWidth = contentWidth+(topTeftMargin*2);
+            var pdfHeight = (pdfWidth*1.5)+(topTeftMargin*4);
+            var canvasImageWidth = contentWidth;
+            var canvasImageHeight = contentHeight-(topTeftMargin*2);
+            var totalPDFPages = Math.ceil(contentHeight/pdfHeight)-1;
+            console.log("przygotowuję dane do PDF");
+
+            html2canvas($(domElement)[0],{allowTaint:true}).then(function(canvas) {
+                canvas.getContext('2d');
+                var imgData = canvas.toDataURL("image/jpeg", 1.0);
+                var pdf = new jsPDF('p', 'pt',  [pdfWidth, pdfHeight]);
+                pdf.addImage(imgData, 'JPG', topTeftMargin, topTeftMargin,canvasImageWidth,canvasImageHeight);
+                for (var i = 1; i <= totalPDFPages; i++) {
+                    pdf.addPage(pdfWidth, pdfHeight);
+                    pdf.addImage(imgData, 'JPG', topTeftMargin, -(pdfHeight*i)+(topTeftMargin*4),canvasImageWidth,canvasImageHeight);
+                }
+                console.log("tworzę PDF");
+                pdf.save("instrukcja.pdf");
+            });
+        }
+    
+        function test(domElement){
+            var a= [];
+            a.push("contentWidth" , jQuery(domElement).width());
+            a.push("contentHeight" , jQuery(domElement).height());
+            a.push("topTeftMargin" , 20);
+            a.push("pdfWidth" , (jQuery(domElement).width())+(10*2));
+            a.push("pdfHeight" , (((jQuery(domElement).width())+(10*2))*1.5)+(20*2));
+            a.push("canvasImageWidth" , jQuery(domElement).width());
+            a.push("canvasImageHeight" , jQuery(domElement).height());
+            a.push("totalPDFPages",  Math.ceil((jQuery(domElement).height())/((jQuery(domElement).width())*1.5)+(20*2))-1);
+            return a;
+        }
+
+    $(document).ready(function(){
+        $('#download_pdf').click(function () {
+            console.log(this);
+            CreatePDFfromHTML("#content");
+        });
+        $('#test_pdf').click(function () {
+            console.log("WYNIK:");
+            console.log(test("#content"));
+        });
+
+        // Fancybox.bind("[data-fancybox]", {
+        //     // Your custom options
+        // });
+
+        $("#passwordGenerate").keyup(function(e){
+            $("#passwordGenerateResponse").val(sha256( sha256(this.value).toUpperCase() ).toUpperCase());
+        })
+    });
+    </script>
+    <style>
+        pre{
+            background-color: #212529;
+            color: #f8f9fa;
+            padding: 1.5rem;
+            margin: 0;
+        }
+        p{
+            padding-top: 1rem;
+        }
+    </style>
+</head>
+<body id="uss" class="bg-light p-0">
+    <header class="container-fluid p-0">
+        <div id="carouselSubpage" class="carousel slide carousel-fade" data-bs-ride="carousel">
+           
+            <div class="container-fluid p-3 bg-danger">
+                <div class="container position-relative p-3" style="z-index:1000;">
+                    <h1 class="col-12 display-5 text-white">Instrukcja użytkownika</h1>
+                    <div class="col-12 lead text-white mt-2 mb-2">systemu śledzenia USS 2.0. by Poczta Polska S.A.</div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="container bg-white p-4 d-grid d-md-flex flex-md-rows  mx-auto border">
+        <div id="content" class="col-12 col-md-9 order-2 order-md-1">
+            <article id="introduction" class="p-3 pt-1">
+                <h2 class="display-6 pt-1 pb-3">1. Wprowadzenie</h2>
+                <p>Poczta Polska S.A udostępnia usługę sieciową (ang. web service) typu REST API, która może być wykorzystana do tworzenia aplikacji umożliwiających śledzenie przesyłek pocztowych.</p>
+                <p>usługa dostępna jest pod adresem:</p>
+                    <ul>
+                        <li>środowisko testowe: <a href="https://uss-test.poczta-polska.pl" class="text-danger">https://uss-test.poczta-polska.pl</a></li>
+                        <li>środowisko produkcyjne: <a href="https://uss.poczta-polska.pl" class="text-danger">https://uss-test.poczta-polska.pl</a></li>
+                    </ul>   
+                <p>Usługa systemu śledzenia w wersji dla indywidualnych użytkowników, umożliwia kreowanie jednorazowych zapytań wyłącznie o jeden numer przesyłki i nie wymaga autentykacji użytkownika.</p>
+                <p>Klientów, którzy planują formułować jednorazowo zapytania o większe ilości przesyłek, lub pozyskiwać rozszerzone informacje o przesyłkach, prosimy o kontakt z Pocztą Polską S.A (e-mail: sledzenie@poczta-polska.pl)</p>
+            </article>
+            <article id="methods" class="p-3">
+                <h2 class="display-6 pt-1 pb-3">2. Metody webserwisu</h2>
+
+                <div class="row">
+                    <div class="col-12 h5 pt-3 pb-3 text-primary border-bottom">I Metody informacyjne</div>
+                        <div class="p-2 col-12 col-md-3 fst-italic d-flex align-items-center justify-content-center">version</div>
+                        <div class="p-2 col-12 col-md-9 text-wrap">zwraca aktualny numer wersji serwisu, czas lokalny w Polsce oraz listę obsługiwanych języków</div>
+                    
+                        <div class="p-2 col-12 col-md-3 fst-italic d-flex align-items-center justify-content-center">checkmailcount</div>
+                        <div class="p-2 col-12 col-md-9 text-wrap">zwraca maksymalną liczbę przesyłek (1 - 999), o które użytkownik może zapytać się metodami <code>checkmailcollection</code> oraz <code>checkmailcollectionex</code></div>
+
+                    <div class="col-12 h5 pt-3 pb-3 text-primary border-bottom">II Obsługa konta</div>
+                        <div class="p-2 col-12 col-md-3 fst-italic d-flex align-items-center justify-content-center">login</div>
+                        <div class="p-2 col-12 col-md-9 text-wrap">Autentykacja użytkownika. Wymaga podania nazwy użytkownika oraz sumy SHA256 z sumy hasła (dla użytkowników posiadających indywidualne konta systemu śledzenia jest to SHA1, dla klientów  nowych usług systemu śledzenia SHA256). W rezultacie metoda zwraca token autoryzacyjny, który powinien zostać umieszczony w nagłówku http w elemencie API_KEY każdej autoryzowanej metody.</div>
+                    
+                        <div class="p-2 col-12 col-md-3 fst-italic d-flex align-items-center justify-content-center">changepassword</div>
+                        <div class="p-2 col-12 col-md-9 text-wrap">Zmiana hasła dla użytkownika usług systemu śledzenia. Wymaga podania nowego hasła oraz numeru PIN uzyskanego podczas rejestracji konta systemu śledzenia (dla indywidualnych przypadków PIN nie jest wymagany). Metoda zwraca sumę SHA256 z sumy SHA256 z podanego hasła, oraz <code>tymczasowy</code> token autoryzacyjny <code>(po prawidłowej zmianie hasła wymagana jest ponowna autentykacja metodą login)</code>.</div>
+
+                    <div class="col-12 h5 pt-3 pb-3 text-primary border-bottom">III Sprawdzanie danych przesyłek</div>
+                        <div class="p-2 col-12 col-md-3 fst-italic d-flex align-items-center justify-content-center">checkmail</div>
+                        <div class="p-2 col-12 col-md-9">Autentykacja użytkownika. Wymaga podania nazwy użytkownika oraz sumy SHA256 z sumy hasła (dla użytkowników posiadających indywidualne konta systemu śledzenia jest to SHA1, dla klientów  nowych usług systemu śledzenia SHA256). W rezultacie metoda zwraca token autoryzacyjny, który powinien zostać umieszczony w nagłówku http w elemencie <code>api_key</code> każdej autoryzowanej metody.</div>
+                    
+                        <div class="p-2 col-12 col-md-3 fst-italic d-flex align-items-center justify-content-center">checkmail</div>
+                        <div class="p-2 col-12 col-md-9">Rozszerzone sprawdzanie danych jednej przesyłki. Wymaga podania numeru nadania przesyłki. Umożliwia podanie zakresu dat określających interwał poszukiwania zdarzeń przesyłki. Zwraca informacje o przesyłce w strukturze Mail. Umożliwia pozyskanie rozszerzonej informacji o placówkach pocztowych.</div>
+
+                        <div class="p-2 col-12 col-md-3 fst-italic d-flex align-items-center justify-content-center">checkmailecollection</div>
+                        <div class="p-2 col-12 col-md-9">Sprawdzanie danych przesyłek. Wymaga podania listy numer nadań przesyłek (min.1, maksimum wynika z przyznanych uprawnień). Zwraca informację w liście obiektów Mail – szczegółowe dane o placówkach pocztowych nie są uzupełniane.</div>
+
+                        <div class="p-2 col-12 col-md-3 fst-italic d-flex align-items-center justify-content-center">checkmailcollectionex</div>
+                        <div class="p-2 col-12 col-md-9">Rozszerzone sprawdzanie danych przesyłek. Wymaga podania listy numer nadań przesyłek (min.1, maksimum wynika z przyznanych uprawnień) . Umożliwia podanie zakresu dat określających interwał poszukiwania zdarzeń przesyłek. Zwraca informacje o przesyłkach w postaci listy obiektów Mail. Umożliwia pozyskanie rozszerzonej informacji o placówkach pocztowych.</div>
+                        
+                        <div class="p-2 col-12 col-md-3 fst-italic d-flex align-items-center justify-content-center">confirmationofreceipt</div>
+                        <div class="p-2 col-12 col-md-9">Pobranie elektronicznego potwierdzenia odbioru. Wymaga podania numeru nadania przesyłki. Zwraca strumień danych, zawierający elektroniczne potwierdzenia odbioru w formacie XML skompresowanego algorytmem GZIP.</div>
+                        
+                        <div class="p-2 col-12 col-md-3 fst-italic d-flex align-items-center justify-content-center">checkmailcomponents</div>
+                        <div class="p-2 col-12 col-md-9">Zwraca uproszczone informacje o zdarzeniach palet powiązanych z listem przewozowym. Wymaga wskazanie numeru listu przewozowego. Zwraca informacje w strukturze MailComponent.</div>
+                        
+                        <div class="p-2 col-12 col-md-3 fst-italic d-flex align-items-center justify-content-center">checkmailsubscription</div>
+                        <div class="p-2 col-12 col-md-9">Zwraca dane przesyłek nadanych przez lub kierowanych do użytkownika posiadającego aktywną sybskrypcję usługi push aplikacji mobilnej Poczty Polskiej SA.</div>
+                        
+                        <div class="p-2 col-12 text-wrap mt-2">Wszystkie metody umożliwiają fakultatywne wskazanie obsługiwanego języka, dla którego wykonana zostanie translacja nazw. Usługi systemu śledzenia domyślnie zwracają informację w języku polskim.</div>
+                        <div class="p-2 col-12 text-wrap mt-2">Użycie metod <code>checkmailcollection</code>, <code>checkmailcollectionex</code>, <code>changepassword</code>, <code>confirmationofreceipt</code>, <code>checkmailcomponents</code> oraz <code>checkmailsubscription</code> wymagają dedykowanych uprawnień i nie każdy użytkownik posiadający konto systemu śledzenia ma do nich dostęp.</div>
+                        
+                    <div class="col-12 h5 pt-3 pb-3 text-primary border-bottom">IV Metody diagnostyczne</div>
+                        <div class="p-2 col-12 col-md-3 fst-italic d-flex align-items-center justify-content-center">hello</div>
+                        <div class="p-2 col-12 col-md-9 text-wrap">Sprawdza odpowiedź usługi – służy diagnostyce odpowiedzi serwera aplikacji na pytanie kierowane do usługi bez dostępu do danych systemu. Wymaga wskazania nazwy/imienia. Rezultatem jest odpowiedź w formacie „Witaj <code>&lt;nazwa&gt;</code>”. <br/>Słowo „Witaj” może różnić się dla odpowiedzi kierowanych w językach innych niż polski.</div>
+                    
+                    <div class="col-12 h5 pt-3 pb-3 text-primary border-bottom">V Opis statusów rezultatu wyszukiwania danych przesyłki (mailStatus) </div>
+                        <div class="p-2 col-1 fst-italic d-flex align-items-center justify-content-center"><code>0</code></div>
+                        <div class="p-2 col-11 text-wrap">Znaleziono dane wyszukiwanej przesyłki</div>
+                        
+                        <div class="p-2 col-1 fst-italic d-flex align-items-center justify-content-center"><code>1</code></div>
+                        <div class="p-2 col-11 text-wrap">Znaleziono kilka przesyłek o wskazanym numerze nadania, w odpowiedzi znajdują się dane przesyłki, która została nadana jako ostatnia</div>
+
+                        <div class="p-2 col-1 fst-italic d-flex align-items-center justify-content-center"><code>-1</code></div>
+                        <div class="p-2 col-11 text-wrap">Przesyłka o wskazanym numerze nadania nie została znaleziona</div>
+
+                        <div class="p-2 col-1 fst-italic d-flex align-items-center justify-content-center"><code>-2</code></div>
+                        <div class="p-2 col-11 text-wrap">Nie wskazano numeru nadania przesyłki</div>
+                    
+                    <div class="col-12 h5 pt-3 pb-3 text-primary border-bottom">VI Autoryzacja usługi</div>
+                        <div class="p-2 col-12 text-wrap">Usługi systemu śledzenia wykorzystują mechanizm autoryzacji typu API KEY Security, który wymaga aby token autoryzacyjny został umieszczony w nagłówku http w elemencie o nazwie <code>api-key</code>. </div>
+                        <div class="p-2 col-12 text-wrap"><span class="text-danger">UWAGA!</span> Dla anonimowego wykonania metod <code>checkemail</code> oraz <code>version</code> nie należy umieszczać w nagłówku elementu <code>api_key</code> (nawet pustego).</div>
+                    
+                </div>
+            </article>
+            <article id="methods" class="p-3">
+                <h2 class="display-6 pb-3">3. Praca z endpointami</h2>
+
+                <!-- <div class="row mb-5"> -->
+
+                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div class="accordion-item active">
+                          <h3 class="accordion-header" id="flush-headingOne">
+                            <button class="accordion-button pt-3 pb-3 text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne">
+                                I Pierwsze logowanie
+                            </button>
+                          </h3>
+                          <div id="flush-collapseOne" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                            <!-- <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div> -->
+                            <div class="p-2 col-12 d-flex align-items-center h5 mt-4 justify-content-start">Wygenerowanie poprawnego zakodowanego hasła</div>
+                            <div class="p-2 col-12 text-wrap">Po otrzymaniu maila z hasłem dla Twojego konta należy go odpowiednio zakodować:
+                                <ol class="pt-2 pb-2">
+                                    <li>metodą kryptograficzną <code>SHA256()</code></li>
+                                    <li>wynik zamienić na wielkie litery <code>UPPERCASE</code></li>
+                                    <li>ponownie metodą kryptograficzną <code>SHA256()</code> zakodować wynik z drugiej iteracji</li>
+                                    <li>ponownie wynik zamienić na wielkie litery <code>UPPERCASE</code></li>
+                                </ol>
+                                <p>Przykład:</p>
+                                <ul class="nav nav-tabs" id="firstTab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                      <button class="nav-link active" id="first-jquery" data-bs-toggle="tab" data-bs-target="#tab-first-jquery" type="button" role="tab" aria-controls="tab-first-jquery" aria-selected="true">jQuery</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                      <button class="nav-link" id="first-php" data-bs-toggle="tab" data-bs-target="#tab-first-php" type="button" role="tab" aria-controls="tab-first-php" aria-selected="false">PHP</button>
+                                    </li>
+                                  </ul>
+                                  <div class="tab-content border-bottom border-start border-end shadow-sm bg-dark text-light" id="firstAction">
+                                    <div class="tab-pane fade show active" id="tab-first-jquery" role="tabpanel" aria-labelledby="tab-first-jquery">
+<pre>
+<span class="text-secondary">//moża wykorzystać bibliotekę sha256.js</span>
+&lt;script src="<a href="./js/sha256.min.js" data-fancybox data-type="iframe" class="text-danger">sha256.min.js</a>"&gt;&lt;/script&gt;
+const password = sha256( sha256('p@ssw0rd').toUpperCase() ).toUpperCase();
+</pre>
+                                    </div>
+                                    <div class="tab-pane fade" id="tab-first-php" role="tabpanel" aria-labelledby="tab-first-php">
+<pre>$password = strtoupper( hash("sha256", strtoupper( hash("sha256", "p@ssword") )) );</pre>
+                                    </div>
+                                  </div>
+                            </div>
+                            <div class="col-12 text-wrap ps-4 pe-4 p-1">
+                                <p>Sprawdź:</p>
+                                <div class="form-floating mb-2">
+                                    <input type="text" class="form-control" id="passwordGenerate" placeholder="Hasło otrzymane mailem">
+                                    <label for="passwordGenerate">Wpisz przykładowe hasło</label>
+                                </div>
+                                <div class="form-floating mb-4">
+                                    <input type="text" class="form-control" id="passwordGenerateResponse" placeholder="wprowadź hasło powyżej" readonly>
+                                    <label for="passwordGenerateResponse">Zakodowane hasło</label>
+                                </div>
+                            </div>
+                            <div class="p-2 col-12 text-wrap">
+                                <p>Jak już posiadasz zakodowane hasło, musisz się się zalogować (używając metody <code>login</code>) w celu pozyskania <code>tymczasowego tokenu</code> do zmiany hasła otrzymanego mailem na swoje i uzyskać właściwy tokenu.</p>
+                                
+                                <ul class="nav nav-tabs" id="secondTab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                      <button class="nav-link active" id="second-jquery" data-bs-toggle="tab" data-bs-target="#tab-second-jquery" type="button" role="tab" aria-controls="tab-second-jquery" aria-selected="true">jQuery</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                      <button class="nav-link" id="second-php" data-bs-toggle="tab" data-bs-target="#tab-second-php" type="button" role="tab" aria-controls="tab-second-php" aria-selected="false">PHP</button>
+                                    </li>
+                                  </ul>
+                                  <div class="tab-content border-bottom border-start border-end shadow-sm" id="secondAction">
+                                    <div class="tab-pane fade show active p-0" id="tab-second-jquery" role="tabpanel" aria-labelledby="tab-second-jquery">
+<pre><span class="text-secondary">//wykorzystujemy metodę $.ajax</span>
+const config = {
+    "test" : {
+        "url" : "https://test-uss.poczta-polska.pl",
+        "version" : "2.0"
+        "token" : ""        
+    },
+    "params" : {
+        "login" : "TestTest",
+        "language": "EN",
+        "password" : "11C39BE1821EFA02383550CAB1D57E243066959B0CDAAF1F052373651AE67DCA" 
+        //przykładowe hasło "p@ssw0rd" zakodowane w sha265
+    }
+}
+
+jQuery.ajax({
+    url: config['test'].url+"/uss/v"+config['test'].version+"/tracking/login",
+    data: config['params'],
+    type: "POST",
+    contentType: "application/json",
+    success: callback,
+    error: callback
+});
+</pre>
+      <!-- beforeSend: function(xhrObj){
+            xhrObj.setRequestHeader("api_key",config['test'].token);
+        }, -->
+                                    </div>
+                                    <div class="tab-pane fade" id="tab-second-php" role="tabpanel" aria-labelledby="tab-second-php">
+<pre>napisać przykład</pre>
+                                    </div>
+                                </div>
+                                  <p>Jeśli podano prawidłowo wszystkie dane - w tym prawidłowo zakodowane hasło - otrzymamy status <code>200</code> wraz z <code>tymczasowym tokenem</code> niezbędnym do zmiany hasła. Odpowiedź przyjmuje postać:</p>
+<pre>{
+    "newToken": "gNDMstgP3Yr81...0jA42DTc4MrHQ=.ODU1OT...4NjQ5MjE1RQ==.ad5bf522c...197a3944"
+}</pre>
+                            </div>
+                        
+                        
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header" id="flush-headingTwo">
+                              <button class="accordion-button pt-3 pb-3 text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                II Zmiana hasła
+                              </button>
+                            </h3>
+                            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                <div class="p-2 col-12 d-flex align-items-center h5 mt-4 justify-content-start">Wygenerowanie nowego hasła w celu pozyskania właściwego tokenu</div>
+                                <div class="p-2 col-12 text-wrap">
+                                    <p>W tym celu należy za pomoca metody <code>changepassword</code> zmienić pierwsze hasło na swoje.</p>
+        
+                                    <ul class="nav nav-tabs" id="thirdTab" role="tablist">
+                                        <li class="nav-item" role="presentation">
+                                          <button class="nav-link active" id="third-jquery" data-bs-toggle="tab" data-bs-target="#tab-third-jquery" type="button" role="tab" aria-controls="tab-third-jquery" aria-selected="true">jQuery</button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                          <button class="nav-link" id="third-php" data-bs-toggle="tab" data-bs-target="#tab-third-php" type="button" role="tab" aria-controls="tab-third-php" aria-selected="false">PHP</button>
+                                        </li>
+                                      </ul>
+                                      <div class="tab-content border-bottom border-start border-end shadow-sm mb-3" id="thirdAction">
+                                        <div class="tab-pane fade show active " id="tab-third-jquery" role="tabpanel" aria-labelledby="tab-third-jquery">
+<pre><span class="text-secondary">//wykorzystujemy metodę $.ajax</span>
+
+const config = {
+    "test" : {
+        "url" : "https://test-uss.poczta-polska.pl",
+        "version" : "2.0"
+        "token" : "gNDMstgP3Yr81...0jA42DTc4MrHQ=.ODU1OT...4NjQ5MjE1RQ==.ad5bf522c...197a3944"        
+    }
+}
+
+jQuery.ajax({
+    url: config['test'].url+"/uss/v"+config['test'].version+"/tracking/changepassword",
+    beforeSend: function(xhrObj){
+        xhrObj.setRequestHeader("api_key",config['test'].token);
+    },
+    data: {
+        "pin" : "0000", //dotyczy kont z aktywnym kodem PIN
+        "password" : "nowe haslo alfanumeryczne",
+        "language": "EN"
+    },
+    type: "POST",
+    contentType: "application/json",
+    success: callback,
+    error: callback
+})
+</pre>
+                                        </div>
+                                        <div class="tab-pane fade" id="tab-third-php" role="tabpanel" aria-labelledby="tab-third-php">
+<pre>napisać przykład</pre>
+                                        </div>
+                                      </div>
+                                      <p>Jeśli podano prawidłowo w nagłówku wysłano <code>tymczasowy token</code> oraz nowe hasło w body, otrzymamy status <code>200</code> wraz z <code>nowym tokenem</code> oraz zakodowanym w sha256 nowym hasłem. Odpowiedź przyjmuje postać:</p>
+<pre>{
+    "password" : "9489750A8F6F2CF3F9AD1773AD527D0AE8646C6B53399B89B1B6984397F76E6F"
+    "newToken": "HasuKq!w=P3Yr81...0jA42DTc4MrHQ=.ODU1OT...4NjQ5MjE1RQ==.ad5bf522c...197a3944"
+}</pre>
+                                      <p>Tak wygenerowany <code>newToken</code> można już używać do pozostałych metod dostępnych w API</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header" id="flush-headingTree">
+                              <button class="accordion-button pt-3 pb-3 text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTree">
+                                III Pobieranie danych o przesyłce
+                              </button>
+                            </h3>
+                            <div id="flush-collapseTree" class="accordion-collapse collapse" aria-labelledby="flush-headingTree" data-bs-parent="#accordionFlushExample">
+asas
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header" id="flush-headingFour">
+                              <button class="accordion-button pt-3 pb-3 text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                                IV Dodatkowa autoryzacja PIN
+                              </button>
+                            </h3>
+                            <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+asas
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header" id="flush-headingFive">
+                              <button class="accordion-button pt-3 pb-3 text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsFive" aria-expanded="false" aria-controls="flush-collapseFive">
+                                    V Pobieranie poświadczenia celnego lub potwierdzenia zapłaty
+                              </button>
+                            </h3>
+                            <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
+asas
+                            </div>
+                        </div>
+
+
+                <!-- </div> -->
+            </article>
+
+        </div>
+        <div id="menu" class="col-12 col-md-3 order-1 order-md-2 text-wrap">
+            
+            <h2 class="display-6 pt-1 d-md-block d-none">Menu</h2>
+            <nav class ="navbar navbar-expand-md sticky-md-top">
+                <button class="navbar-toggler m-2 mx-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Menu nawigacyjne">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="nav navbar-nav list-group-flush">
+                    <li class="list-group-item w-100 fw-bold">Wprowadzenie</li>
+                    <li class="list-group-item w-100 fw-bold">Metody webserwisu</li>
+                        <ul class="list-group list-group-flush ps-3">
+                            <li class="list-group-item">I Metody informacyjne</li>
+                            <li class="list-group-item">II Obsługa konta</li>
+                            <li class="list-group-item">III Sprawdzanie danych przesyłek</li>
+                            <li class="list-group-item">IV Metody diagnostyczne</li>
+                            <li class="list-group-item">V Opis statusów </li>
+                            <li class="list-group-item">VI Autoryzacja usługi</li>
+                        </ul>
+                    <li class="list-group-item w-100 fw-bold">Praca a REST API</li>
+                        <ul class="list-group list-group-flush ps-3">
+                            <li class="list-group-item">I Pierwsze logowanie</li>
+                            <li class="list-group-item">II Zmiana hasła</li>
+                            <li class="list-group-item">III Pobieranie danych o przesyłce</li>
+                            <li class="list-group-item">IV Dodatkowa autoryzacja PIN</li>
+                            <li class="list-group-item">V Pobieranie poświadczenia celnego lub potwierdzenia zapłaty</li>
+                        </ul>
+                </ul>
+                </div>
+            </nav>
+
+<!-- 1. Po otrzymanym haśle na maila dokonujemy kodowania hasła:
+a) SHA256('hasło pierwsze')
+b) uppecase dla tego hasła
+c) SHA256(uppercase(SHA256('hasło pierwsze')))
+d) uppercase dla poprzedniego = czyli uppercase(SHA256(uppercase(SHA256('hasło pierwsze')))) dopiero wtedy można uzyć hasła
+
+
+2. POST https://uss-test.poczta-polska.pl/uss/v2.0/tracking/login
+w BODY!!!!
+
+{
+    "login": "kartelmedia",
+    "password": uppercase(SHA256(uppercase(SHA256('hasło pierwsze'))))
+}
+
+UWAGA: Otrxzymujemy token, który jest tymczasowym tokenem do zmiany hasła!!!!
+
+3. następnie zmieniamy hasło:
+POST https://uss-test.poczta-polska.pl/uss/v2.0/tracking/changepassword
+w headers dodajemy
+api_key: "token otrzymany z poprzedniej metody"
+w BODY
+{
+    "password":"Start12345!" //nowe hasło w formie alfanumerycznej
+}
+
+w zwrotce otrzymujemy: 
+{
+    "passwordHash": "EC4C25D77CAD7A636F90A0938ACBA469E68D0AC21D62136B8CDC00676541097C",
+    "newToken": "7j7IFqpq77N9dd2qp5LktYwxYTgfthDDliGW16swNCAZi3wckl8zJ0WeTDDtBP8AcGAlXxcJg2XLN8jVY1gcx9RU8RAGuKTHCsoi/B2IcpdXk3IXDoba92j79f7n6xHW9iM6P+ol9+5VWfMcVmB2vMC/VDHQUkgJaLXJTeS+KhI=.MENGOUQxMkVGNDhDNkI5ODNDRjVBQzAyNzVCREQ5RDA1MzgwMURFRTJDQTg4ODc0MUFEQ0NFNzRDODk5RTA4Rg==.c86964fe631c4bd3b1c2aa2637697849"
+}
+
+newToken to tymczasowy token w celu zalogowania się i pozyskania prawidłowego tokenu
+
+{
+    "newToken":"a56Rs0g46qax7BdtqZMMCg46i50HjKR+QODn5JvZMly5nmoNzQsryqNQQw+HNfFjzUEg4Njknxcf4+mxx0A0gzEGXlEeetxsx7aqsKAVcWEK+3hjs8aAnF1FNQQmzK4xXAS3wAAd1FUfMy6SsGHebNwPGHJwViMl6Y/9LVPEyKs=.MDEyN0NDNjA1MzE3NkNDNTYxMkRBN0Q2QTYwMkM5OTg2QzNDMDkxMTgzRDczMkQyMDRBOEI5RDg0NTEzRjA2QQ==.85f9b24226764084929bfe32246d5178"
+} -->
+</div>
+</main>
+<footer class="containter-fluid bg-dark text-light p-3 text-center">
+    <button id="download_pdf" type="button" class="mx-auto btn btn-outline-warning">Pobierz instruckję w pdf</button>
+    <button id="test_pdf" type="button" class="mx-auto btn btn-outline-light">test</button>
+</footer>
+</body>
+</html>

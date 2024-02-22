@@ -448,16 +448,11 @@ function responseConfirmation(data, params){
     }
     if(data.status == 200){
       const blob = data.blob(); 
-//      var blob = new Blob([data], { type: "application/"+params['responseType'] });
-      //Check the Browser type and download the File.
+
       console.log("blob");
       console.log(blob);
       console.log("data");
       console.log(data);
-      // var isIE = false || !!document.documentMode;
-      // if (isIE) {
-      //     window.navigator.msSaveBlob(blob, "pzc_"+params['parcelId']+"."+params['responseType']);
-      // } else {
           const url = window.URL || window.webkitURL;
           //link = url.createObjectURL(blob);
 
@@ -469,14 +464,7 @@ function responseConfirmation(data, params){
           link.setAttribute('download', "PP_PZC_"+params['parcelId']+"."+params['responseType']);
           document.body.appendChild(link);
           link.click();
-          link.remove()
-          // var a = $("<a />");
-          // a.attr("download", "pzc_"+params['parcelId']+"."+params['responseType']);
-          // a.attr("href", link);
-          // //"data:application/"+params['responseType']+";charset=utf-8," + encodeURIComponent(data));
-          // $("body").append(a);
-          // a[0].click();
-          // $("body").remove(a);
+          link.remove();
 //          $("#submitConfirmationForm").empty().html("<div class='h5'>Poświadczenie zgłoszenia celnego zostało wygenerowane i pobrane.</div>");
 //          setTimeout(removeDiv("#submitConfirmationForm"),5000);
           console.log(link);
@@ -492,10 +480,10 @@ function przygotujDanePZC(e){
   jQuery(document).find("#errorResponse").text();
   var params = $.param($(this).formToArray());
   var paramsArray = $(this).formToArray();
-  sendRequest(null,"paymentconfirmation?"+params,"GET",responseConfirmation,paramsArray);
+  sendRequest(null,"paymentconfirmation?"+params,"GET",paramsArray,responseConfirmation,);
 }
 
-async function sendRequest(params,endpoint,typ,callback,fwdparams){
+async function sendRequest(inputData,endpoint,typ,params){
   const response = await fetch(
     config[jQuery("input[name='uss_s']:checked").val()].url+"/uss/v"+jQuery("input[name='uss_v']:checked").val()+"/tracking/"+endpoint, {
     method: typ, // *GET, POST, PUT, DELETE, etc.
@@ -512,8 +500,40 @@ async function sendRequest(params,endpoint,typ,callback,fwdparams){
   });
   console.log("ODP FETCH");
   console.log(response);
-  return callback(response,fwdparams);
-  
+  //return callback(response,fwdparams);
+
+  jQuery(document).find("#errorResponse").empty().text( 
+    function(s){
+      switch(response?.statusText){
+        case "badCaptcha": 
+          return "Wprowadzony kod jest niepoprawny, spróbuj ponownie.";
+        case "paymentNotFound":
+          return "Nie znaleziono Poświadczonego Zgłoszenia Celnego dla wprowadzonych kryteriów";
+        default:
+          return response?.statusText;
+      }
+    });
+
+    if(response.status == 400 || response.status == 404){
+      jQuery(document).find('#refreshGetToken').trigger('click');
+    }
+    if(response.status == 200){
+      const blob = await response.blob(); 
+        const url = window.URL || window.webkitURL;
+        //link = url.createObjectURL(blob);
+        urlblob = url.createObjectURL(
+          blob
+        );
+        const link = document.createElement('a');
+        link.href = urlblob;
+        link.setAttribute('download', "PP_PZC_"+params['parcelId']+"."+params['responseType']);
+        document.body.appendChild(link);
+        console.log(link);
+        link.click();
+        link.remove();
+//          $("#submitConfirmationForm").empty().html("<div class='h5'>Poświadczenie zgłoszenia celnego zostało wygenerowane i pobrane.</div>");
+//          setTimeout(removeDiv("#submitConfirmationForm"),5000);
+    } 
 }
 
 async function sendRequest2(params,endpoint,typ,callback,fwdparams){

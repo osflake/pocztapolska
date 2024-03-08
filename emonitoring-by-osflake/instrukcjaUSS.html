@@ -7,19 +7,19 @@
     <meta name="description"  content="Pocztex 2.0 by PP SA" />
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
     <!-- <script src="https://mapa.ecommerce.poczta-polska.pl/widget/scripts/ppwidget.js?ver=1.0"></script> -->
-    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-    <script src="https://use.fontawesome.com/releases/v6.4.2/js/all.js" data-auto-replace-svg="nest"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v6.4.2/js/all.js" async data-auto-replace-svg="nest"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" async integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
     <!-- <script src="https://momentjs.com/downloads/moment.js" ></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" integrity="sha512-nNlU0WK2QfKsuEmdcTwkeh+lhGs6uyOxuUs+n+0oXSYDok5qy0EI0lt01ZynHq6+p/tbgpZ7P+yUb+r71wqdXg==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" async integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css"  integrity="sha512-nNlU0WK2QfKsuEmdcTwkeh+lhGs6uyOxuUs+n+0oXSYDok5qy0EI0lt01ZynHq6+p/tbgpZ7P+yUb+r71wqdXg==" crossorigin="anonymous" />
     <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
     <!-- <link href="./uss.css" rel="stylesheet"/>
     <script src="./uss.js"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script>
-    <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js" async></script> -->
+    <!-- <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script> -->
 
     <script src="./js/sha256.min.js"></script>
     <script>
@@ -76,6 +76,24 @@
             console.log(test("#content"));
         });
 
+        const r = GetUserIP();
+        $("#myip").html("["+r.ip+"]");
+        console.log(r.ip);
+
+        $.get( "./savetofile.php?ip="+r.ip, function( data ) {
+            // $( ".result" ).html( data );
+            console.log('saved to file'+data);
+        });        
+
+        function GetUserIP(){
+            var ret_ip;
+            $.ajaxSetup({async: false});
+            $.get('https://jsonip.com/', function(r){ 
+                ret_ip = r; 
+                console.log(r);
+            });
+            return ret_ip;
+        }
         // Fancybox.bind("[data-fancybox]", {
         //     // Your custom options
         // });
@@ -119,8 +137,8 @@
                         <li>środowisko testowe: <a href="https://uss-test.poczta-polska.pl" class="text-danger">https://uss-test.poczta-polska.pl</a></li>
                         <li>środowisko produkcyjne: <a href="https://uss.poczta-polska.pl" class="text-danger">https://uss-test.poczta-polska.pl</a></li>
                     </ul>   
-                <p>Usługa systemu śledzenia w wersji dla indywidualnych użytkowników, umożliwia kreowanie jednorazowych zapytań wyłącznie o jeden numer przesyłki i nie wymaga autentykacji użytkownika.</p>
-                <p>Klientów, którzy planują formułować jednorazowo zapytania o większe ilości przesyłek, lub pozyskiwać rozszerzone informacje o przesyłkach, prosimy o kontakt z Pocztą Polską S.A (e-mail: sledzenie@poczta-polska.pl)</p>
+                <div class="mt-2">Usługa systemu śledzenia w wersji dla indywidualnych użytkowników, umożliwia kreowanie jednorazowych zapytań wyłącznie o jeden numer przesyłki i nie wymaga autentykacji użytkownika.</div>
+                <div class="mt-2">Klientów, którzy planują formułować jednorazowo zapytania o większe ilości przesyłek, lub pozyskiwać rozszerzone informacje o przesyłkach, prosimy o kontakt z Pocztą Polską S.A (e-mail: sledzenie@poczta-polska.pl)</div>
             </article>
             <article id="methods" class="p-3">
                 <h2 class="display-6 pt-1 pb-3">2. Metody webserwisu</h2>
@@ -128,17 +146,17 @@
                 <div class="row">
                     <div class="col-12 h5 pt-3 pb-3 text-primary border-bottom">I Metody informacyjne</div>
                         <div class="p-2 col-12 col-md-3 fst-italic d-flex align-items-center justify-content-center">version</div>
-                        <div class="p-2 col-12 col-md-9 text-wrap">zwraca aktualny numer wersji serwisu, czas lokalny w Polsce oraz listę obsługiwanych języków</div>
+                        <div class="p-2 col-12 col-md-9 tw">zwraca aktualny numer wersji serwisu, czas lokalny w Polsce oraz listę obsługiwanych języków</div>
                     
                         <div class="p-2 col-12 col-md-3 fst-italic d-flex align-items-center justify-content-center">checkmailcount</div>
-                        <div class="p-2 col-12 col-md-9 text-wrap">zwraca maksymalną liczbę przesyłek (1 - 999), o które użytkownik może zapytać się metodami <code>checkmailcollection</code> oraz <code>checkmailcollectionex</code></div>
+                        <div class="p-2 col-12 col-md-9 tw">zwraca maksymalną liczbę przesyłek (1 - 999), o które użytkownik może zapytać się metodami <code>checkmailcollection</code> oraz <code>checkmailcollectionex</code></div>
 
                     <div class="col-12 h5 pt-3 pb-3 text-primary border-bottom">II Obsługa konta</div>
                         <div class="p-2 col-12 col-md-3 fst-italic d-flex align-items-center justify-content-center">login</div>
-                        <div class="p-2 col-12 col-md-9 text-wrap">Autentykacja użytkownika. Wymaga podania nazwy użytkownika oraz sumy SHA256 z sumy hasła (dla użytkowników posiadających indywidualne konta systemu śledzenia jest to SHA1, dla klientów  nowych usług systemu śledzenia SHA256). W rezultacie metoda zwraca token autoryzacyjny, który powinien zostać umieszczony w nagłówku http w elemencie API_KEY każdej autoryzowanej metody.</div>
+                        <div class="p-2 col-12 col-md-9 tw">Autentykacja użytkownika. Wymaga podania nazwy użytkownika oraz sumy SHA256 z sumy hasła (dla użytkowników posiadających indywidualne konta systemu śledzenia jest to SHA1, dla klientów  nowych usług systemu śledzenia SHA256). W rezultacie metoda zwraca token autoryzacyjny, który powinien zostać umieszczony w nagłówku http w elemencie API_KEY każdej autoryzowanej metody.</div>
                     
                         <div class="p-2 col-12 col-md-3 fst-italic d-flex align-items-center justify-content-center">changepassword</div>
-                        <div class="p-2 col-12 col-md-9 text-wrap">Zmiana hasła dla użytkownika usług systemu śledzenia. Wymaga podania nowego hasła oraz numeru PIN uzyskanego podczas rejestracji konta systemu śledzenia (dla indywidualnych przypadków PIN nie jest wymagany). Metoda zwraca sumę SHA256 z sumy SHA256 z podanego hasła, oraz <code>tymczasowy</code> token autoryzacyjny <code>(po prawidłowej zmianie hasła wymagana jest ponowna autentykacja metodą login)</code>.</div>
+                        <div class="p-2 col-12 col-md-9 tw">Zmiana hasła dla użytkownika usług systemu śledzenia. Wymaga podania nowego hasła oraz numeru PIN uzyskanego podczas rejestracji konta systemu śledzenia (dla indywidualnych przypadków PIN nie jest wymagany). Metoda zwraca sumę SHA256 z sumy SHA256 z podanego hasła, oraz <code>tymczasowy</code> token autoryzacyjny <code>(po prawidłowej zmianie hasła wymagana jest ponowna autentykacja metodą login)</code>.</div>
 
                     <div class="col-12 h5 pt-3 pb-3 text-primary border-bottom">III Sprawdzanie danych przesyłek</div>
                         <div class="p-2 col-12 col-md-3 fst-italic d-flex align-items-center justify-content-center">checkmail</div>
@@ -162,29 +180,29 @@
                         <div class="p-2 col-12 col-md-3 fst-italic d-flex align-items-center justify-content-center">checkmailsubscription</div>
                         <div class="p-2 col-12 col-md-9">Zwraca dane przesyłek nadanych przez lub kierowanych do użytkownika posiadającego aktywną sybskrypcję usługi push aplikacji mobilnej Poczty Polskiej SA.</div>
                         
-                        <div class="p-2 col-12 text-wrap mt-2">Wszystkie metody umożliwiają fakultatywne wskazanie obsługiwanego języka, dla którego wykonana zostanie translacja nazw. Usługi systemu śledzenia domyślnie zwracają informację w języku polskim.</div>
-                        <div class="p-2 col-12 text-wrap mt-2">Użycie metod <code>checkmailcollection</code>, <code>checkmailcollectionex</code>, <code>changepassword</code>, <code>confirmationofreceipt</code>, <code>checkmailcomponents</code> oraz <code>checkmailsubscription</code> wymagają dedykowanych uprawnień i nie każdy użytkownik posiadający konto systemu śledzenia ma do nich dostęp.</div>
+                        <div class="p-2 col-12 tw mt-2">Wszystkie metody umożliwiają fakultatywne wskazanie obsługiwanego języka, dla którego wykonana zostanie translacja nazw. Usługi systemu śledzenia domyślnie zwracają informację w języku polskim.</div>
+                        <div class="p-2 col-12 tw mt-2">Użycie metod <code>checkmailcollection</code>, <code>checkmailcollectionex</code>, <code>changepassword</code>, <code>confirmationofreceipt</code>, <code>checkmailcomponents</code> oraz <code>checkmailsubscription</code> wymagają dedykowanych uprawnień i nie każdy użytkownik posiadający konto systemu śledzenia ma do nich dostęp.</div>
                         
                     <div class="col-12 h5 pt-3 pb-3 text-primary border-bottom">IV Metody diagnostyczne</div>
                         <div class="p-2 col-12 col-md-3 fst-italic d-flex align-items-center justify-content-center">hello</div>
-                        <div class="p-2 col-12 col-md-9 text-wrap">Sprawdza odpowiedź usługi – służy diagnostyce odpowiedzi serwera aplikacji na pytanie kierowane do usługi bez dostępu do danych systemu. Wymaga wskazania nazwy/imienia. Rezultatem jest odpowiedź w formacie „Witaj <code>&lt;nazwa&gt;</code>”. <br/>Słowo „Witaj” może różnić się dla odpowiedzi kierowanych w językach innych niż polski.</div>
+                        <div class="p-2 col-12 col-md-9 tw">Sprawdza odpowiedź usługi – służy diagnostyce odpowiedzi serwera aplikacji na pytanie kierowane do usługi bez dostępu do danych systemu. Wymaga wskazania nazwy/imienia. Rezultatem jest odpowiedź w formacie „Witaj <code>&lt;nazwa&gt;</code>”. <br/>Słowo „Witaj” może różnić się dla odpowiedzi kierowanych w językach innych niż polski.</div>
                     
                     <div class="col-12 h5 pt-3 pb-3 text-primary border-bottom">V Opis statusów rezultatu wyszukiwania danych przesyłki (mailStatus) </div>
                         <div class="p-2 col-1 fst-italic d-flex align-items-center justify-content-center"><code>0</code></div>
-                        <div class="p-2 col-11 text-wrap">Znaleziono dane wyszukiwanej przesyłki</div>
+                        <div class="p-2 col-11 tw">Znaleziono dane wyszukiwanej przesyłki</div>
                         
                         <div class="p-2 col-1 fst-italic d-flex align-items-center justify-content-center"><code>1</code></div>
-                        <div class="p-2 col-11 text-wrap">Znaleziono kilka przesyłek o wskazanym numerze nadania, w odpowiedzi znajdują się dane przesyłki, która została nadana jako ostatnia</div>
+                        <div class="p-2 col-11 tw">Znaleziono kilka przesyłek o wskazanym numerze nadania, w odpowiedzi znajdują się dane przesyłki, która została nadana jako ostatnia</div>
 
                         <div class="p-2 col-1 fst-italic d-flex align-items-center justify-content-center"><code>-1</code></div>
-                        <div class="p-2 col-11 text-wrap">Przesyłka o wskazanym numerze nadania nie została znaleziona</div>
+                        <div class="p-2 col-11 tw">Przesyłka o wskazanym numerze nadania nie została znaleziona</div>
 
                         <div class="p-2 col-1 fst-italic d-flex align-items-center justify-content-center"><code>-2</code></div>
-                        <div class="p-2 col-11 text-wrap">Nie wskazano numeru nadania przesyłki</div>
+                        <div class="p-2 col-11 tw">Nie wskazano numeru nadania przesyłki</div>
                     
                     <div class="col-12 h5 pt-3 pb-3 text-primary border-bottom">VI Autoryzacja usługi</div>
-                        <div class="p-2 col-12 text-wrap">Usługi systemu śledzenia wykorzystują mechanizm autoryzacji typu API KEY Security, który wymaga aby token autoryzacyjny został umieszczony w nagłówku http w elemencie o nazwie <code>api-key</code>. </div>
-                        <div class="p-2 col-12 text-wrap"><span class="text-danger">UWAGA!</span> Dla anonimowego wykonania metod <code>checkemail</code> oraz <code>version</code> nie należy umieszczać w nagłówku elementu <code>api_key</code> (nawet pustego).</div>
+                        <div class="p-2 col-12 tw">Usługi systemu śledzenia wykorzystują mechanizm autoryzacji typu API KEY Security, który wymaga aby token autoryzacyjny został umieszczony w nagłówku http w elemencie o nazwie <code>api-key</code>. </div>
+                        <div class="p-2 col-12 tw"><span class="text-danger">UWAGA!</span> Dla anonimowego wykonania metod <code>checkemail</code> oraz <code>version</code> nie należy umieszczać w nagłówku elementu <code>api_key</code> (nawet pustego).</div>
                     
                 </div>
             </article>
@@ -203,7 +221,7 @@
                           <div id="flush-collapseOne" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                             <!-- <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div> -->
                             <div class="p-2 col-12 d-flex align-items-center h5 mt-4 justify-content-start">Wygenerowanie poprawnego zakodowanego hasła</div>
-                            <div class="p-2 col-12 text-wrap">Po otrzymaniu maila z hasłem dla Twojego konta należy go odpowiednio zakodować:
+                            <div class="p-2 col-12 tw">Po otrzymaniu maila z hasłem dla Twojego konta należy go odpowiednio zakodować:
                                 <ol class="pt-2 pb-2">
                                     <li>metodą kryptograficzną <code>SHA256()</code></li>
                                     <li>wynik zamienić na wielkie litery <code>UPPERCASE</code></li>
@@ -232,7 +250,7 @@ const password = sha256( sha256('p@ssw0rd').toUpperCase() ).toUpperCase();
                                     </div>
                                   </div>
                             </div>
-                            <div class="col-12 text-wrap ps-4 pe-4 p-1">
+                            <div class="col-12 tw ps-4 pe-4 p-1">
                                 <p>Sprawdź:</p>
                                 <div class="form-floating mb-2">
                                     <input type="text" class="form-control" id="passwordGenerate" placeholder="Hasło otrzymane mailem">
@@ -243,7 +261,7 @@ const password = sha256( sha256('p@ssw0rd').toUpperCase() ).toUpperCase();
                                     <label for="passwordGenerateResponse">Zakodowane hasło</label>
                                 </div>
                             </div>
-                            <div class="p-2 col-12 text-wrap">
+                            <div class="p-2 col-12 tw">
                                 <p>Jak już posiadasz zakodowane hasło, musisz się się zalogować (używając metody <code>login</code>) w celu pozyskania <code>tymczasowego tokenu</code> do zmiany hasła otrzymanego mailem na swoje i uzyskać właściwy tokenu.</p>
                                 
                                 <ul class="nav nav-tabs" id="secondTab" role="tablist">
@@ -305,7 +323,7 @@ jQuery.ajax({
                             </h3>
                             <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                                 <div class="p-2 col-12 d-flex align-items-center h5 mt-4 justify-content-start">Wygenerowanie nowego hasła w celu pozyskania właściwego tokenu</div>
-                                <div class="p-2 col-12 text-wrap">
+                                <div class="p-2 col-12 tw">
                                     <p>W tym celu należy za pomoca metody <code>changepassword</code> zmienić pierwsze hasło na swoje.</p>
         
                                     <ul class="nav nav-tabs" id="thirdTab" role="tablist">
@@ -394,7 +412,7 @@ asas
             </article>
 
         </div>
-        <div id="menu" class="col-12 col-md-3 order-1 order-md-2 text-wrap">
+        <div id="menu" class="col-12 col-md-3 order-1 order-md-2 tw">
             
             <h2 class="display-6 pt-1 d-md-block d-none">Menu</h2>
             <nav class ="navbar navbar-expand-md sticky-md-top">
@@ -424,7 +442,7 @@ asas
                 </ul>
                 </div>
             </nav>
-
+            <div class="text-end text-dark" id="myip"></div>
 <!-- 1. Po otrzymanym haśle na maila dokonujemy kodowania hasła:
 a) SHA256('hasło pierwsze')
 b) uppecase dla tego hasła

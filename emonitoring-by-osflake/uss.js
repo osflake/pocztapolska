@@ -531,7 +531,7 @@ async function sendRequest(inputData,endpoint,typ,params){
         console.log(link);
         link.click();
         link.remove();
-//          $("#submitConfirmationForm").empty().html("<div class='h5'>Poświadczenie zgłoszenia celnego zostało wygenerowane i pobrane.</div>");
+        $("#submitConfirmationForm").empty().html("<div class='h5 p-3'>Poświadczenie zgłoszenia celnego zostało wygenerowane i pobrane.</div>");
 //          setTimeout(removeDiv("#submitConfirmationForm"),5000);
     } 
 }

@@ -16,4 +16,4 @@ jobs:
       with:
         server: kartelmedia.co.uk
         username: pocztapolska@kartelmedia.co.uk
-        password: ${{ secrets.ftp_password }}
+        password: ${{ secrets.FTP_PASSWORD }}

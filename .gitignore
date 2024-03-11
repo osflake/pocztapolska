@@ -9,7 +9,12 @@ yarn-debug.log*
 yarn-error.log*
 yarn.lock
 package-lock.json
-./server-localhost/
+/server-localhost
+/aplikacja
+/www-cyfr
+/mailingi
+/pocztex
+/kprm
 
 # Editor directories and files
 .DS_Store

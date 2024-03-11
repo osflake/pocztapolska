@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Propozycja wyglądu serwisu internetowego sDoręczenia by Arkadiusz Śnieżek</title>
+    <meta name="description"  content="eDoręczenia by Arkadiusz Śnieżek" />
+    <script src="https://mapa.ecommerce.poczta-polska.pl/widget/scripts/ppwidget.js?ver=1.0"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" data-auto-replace-svg="nest"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <link href="./flag.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" integrity="sha512-nNlU0WK2QfKsuEmdcTwkeh+lhGs6uyOxuUs+n+0oXSYDok5qy0EI0lt01ZynHq6+p/tbgpZ7P+yUb+r71wqdXg==" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="./js/html5-qrcode.min.js"></script>
+
+    <link href="./kprm.css" rel="stylesheet"/>
+    <script src="./kprm.js"></script>
+<body class="bg-white p-0">
+    <header>
+    <nav class="container-fluid navbar navbar-dark bg-light my-auto p-0">
+        <div class="container my-auto align-item-center gap-2">
+            <ul class="nav p-0 justify-content-start p-0 ms-md-2">
+                <li class="nav-item p-1 m-0">
+                    Serwis Poczty Polskiej
+                </li>
+            </ul>
+            <ul class="nav justify-content-centesr align-item-center">
+                <li class="nav-item p-1">
+                    <a href="#" class="text-decoration-none btn-outline-secondary p-1 m-1"><i class="fas fa-eye"></i></a>                
+                </li>
+                <li class="nav-item p-1 dropdown">
+                    <a class="dropdown-toggle text-decoration-none text-dark" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="poland flag "></i> PL</a>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end z-index-master position-absolute" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item text-dark p-3" href="#"><i class="poland flag"></i> PL</a></li>
+                    <li><a class="dropdown-item text-dark p-3" href="#"><i class="united kingdom flag"></i> GB</a></li>
+                    <li><a class="dropdown-item text-dark p-3" href="#"><i class="ukraine flag"></i> UA</a></li>
+                    </ul>
+                </li>
+            </ul>       
+            
+        </div>
+    </nav>
+    </header>
+    <nav id="main-menu" class="container-fluid navbar navbar-light navbar-expand-lg bg-white border-bottom sticky-top my-auto shadow p-0">
+        <div class="container my-auto p-2">
+             <a class="navbar-brand d-flex justify-content-center p-0 ms-md-3"><img src="https://www.poczta-polska.pl/hermes/uploads/2019/09/Logo_poziom_200x43.png" style="max-height:60px;" class="w-100"/> <span class="d-flex align-items-center p-2">e-Doręczenia</span></a>
+                <button class="navbar-toggler mx-auto w-100 border-0" type="button" data-bs-toggle="collapse" data-bs-target="#podmenu" aria-controls="podmenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            
+                    <div class="d-grid gap-2 justify-content-end">
+                        <div class="navbar-collapse collapse" id="podmenu">
+                            <ul class="nav text-uppercase justify-content-md-end d-grid gap-sm-2 d-md-flex d-sm-flex" >
+
+                                <li class="nav-item text-sm-center">
+                                    <a class="nav-link btn-outline-danger d-flex flex-row" href="#" title="Wróć do skrzynki e-Doręczeń">
+                                    <i class="fas fa-2x fa-angle-double-left"></i> 
+                                    <span class="d-flex align-items-center ms-2">wróć do skrzynki e-doręczeń</span></a>
+                                </li>
+        
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        </div>
+    </nav>
+
+    <main class="container bg-white" >
+      <div class="row p-2">
+            <div class="col-12 border-bottom mb-2 mt-2 ">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="./index.html" class="text-muted">e-Doręczenia</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Pobieranie dowodu</li>
+                    </ol>
+                </nav>
+            </div>
+
+            <div class="col-md-12 p-md-4 pt-3 pb-3">
+                <ul class="col-md nav nav-tabs justify-content-md-end justify-content-center mb-0 pb-0" id="reklamacja-nav" role="tablist">
+                    <li class="nav-item nav-item-dropped ms-2 me-0" role="presentation">
+                        <button class="nav-link active h5 p-2 border-bottom-0" id="nav-pobierz-ID" data-bs-toggle="tab" data-bs-target="#pobierz-ID" type="button" role="tab" aria-controls="pobierz-ID" aria-selected="false">pobranie dowodu</button>
+                    </li>
+                    <li class="nav-item nav-item-dropped ms-2 me-0" role="presentation">
+                        <button class="nav-link border-bottom-0 h5 p-2" id="nav-pobierz-przesylka" data-bs-toggle="tab" data-bs-target="#pobierz-przesylka" type="button" role="tab" aria-controls="pobierz-przesylka" aria-selected="true">pobranie dowodów dla przesyłki</button>
+                    </li>
+                    
+                </ul>
+            </div>
+            <div class="col-md-12 ps-4 pe-4">
+                <div class="tab-content">
+                    <div class="tab-pane fade" id="pobierz-przesylka" role="tabpanel" aria-labelledby="nav-pobierz-przesylka">
+                        
+                        <h3 class="d-grid gap-2 text-danger mb-3">Podaj numer przesyłki</h3>
+                        <div class="row p-0 m-0 mt-2 mb-3 gap-md-2">
+                            <div class="col-md-5 row d-flex p-0">
+                                <div class="form-floating col-12 p-0">
+                                    <input type="text" class="form-control form-control-lg" id="IDprzesylki" placeholder="wprowadź numer przesyłki" >
+                                    <label for="IDdowodu">Numer przesyłki</label>
+                                    <span class="text-muted small">Podaj numer przesyłki, dla której chcesz pobrać dowody.</span>
+                                </div>
+                                <div class="col-12 p-0 d-flex">
+                                    <button class="btn btn-lg flex-fill btn-outline-success p-2" type="button" data-bs-toggle="collapse" href="#szukaj-wg-guid" role="button" aria-expanded="false" aria-controls="szukaj-wg-guid">WYSZUKAJ</button>
+                                </div>
+                            </div> 
+                            <div class="col-md-2 text-center d-flex p-0 align-items-center justify-content-center">
+                                <h5 class="text-danger">lub zeskanuj</h5>
+                            </div>
+                            <div class="col-md-5 p-0">
+                                <div id="qr-reader" class="w-100"></div>
+                            </div>
+                        </div>
+                        <div id="qr-reader-results"></div>
+                        <div class="collapse" id="szukaj-wg-guid">
+                            <div class="alert alert-success p-3" role="alert">
+                                <div class="col-md-10 d-flex align-items-center">
+                                    Dowody wystawione dla przesyłki numer XXXXXXXX
+                                </div>
+                            </div>
+
+                            <div class="row g-2 p-0 mb-4">
+                                <div class="form-check col-md p-0 d-flex text-start align-items-center">
+                                    <input class="form-check-input d-none" type="radio" name="raport_GUID" id="raport_GUID_1" value="podstawowa" title="Lista dowodów podstawowa" checked>
+                                    <label class="form-check-label text-center border border-2 rounded p-4 w-100" for="raport_GUID_1"><strong class="h3">Podstawowa lista dowodów</strong></label>
+                                </div>
+                                <div class="form-check col-md p-0 d-grid text-start align-items-center">
+                                    <input class="form-check-input d-none" type="radio" name="raport_GUID" id="raport_GUID_2" value="pełna" title="Lista dowodów pełna" >
+                                    <label class="form-check-label text-center border border-2 rounded p-4 w-100" for="raport_GUID_2"><strong class="h3">Pełna lista dowodów</strong></label>
+                                </div>
+
+                                <!--<div class="input-group col-md">
+                                    <select class="form-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+                                        <option selected>Sortuj według</option>
+                                        <option value="1">Okresu raportu</option>
+                                        <option value="2">Widoczności raportu do</option>
+                                    </select>                                
+                                    <button class="btn btn-outline-dark" type="button"><i class="fas fa-2x fa-sort-amount-down-alt"></i></button>
+                                    <button class="btn btn-outline-success" type="button"><i class="fas fa-2x fa-sort-amount-up-alt"></i></button>
+                                </div>-->
+                            </div>
+                            <div class="d-none d-md-block p-2">
+                                <div class='row p-2 bg-light border fw-bolder mt-2'>
+                                    <div class='col-md-1 d-flex align-items-center justify-content-center p-0'></div>
+                                    <div class='col-md-2 d-flex align-items-center justify-content-start p-0'>Typ dowodu</div>
+                                    <div class='col-md-4 col-6 d-flex align-items-center justify-content-start text-start  p-0'>Format</div>
+                                    <div class='col-md-2 d-flex align-items-center justify-content-center p-0'></div>
+                                </div>
+                            </div>
+                            <div class='row claim p-2 g-2 border mb-2'>
+                                <div class='col-md-1 col-12 d-flex align-items-center justify-content-center p-0'>
+                                    <div class="form-check">
+                                        <input class="form-check-input form-check-lg" type="checkbox" value="" id="flexCheckDefault">
+                                    </div>
+                                </div>
+                                <div class="col-6 d-flex align-items-center d-sm-block d-md-none p-0">Typ dowodu:</div>
+                                    <div class='col-md-2 col-6 d-flex align-items-center justify-content-md-start justify-content-end p-0'>A1</div>
+                                <div class="col-8 d-flex align-items-center d-sm-block d-md-none p-0">Format:</div>
+                                    <div class='col-md-4 col-4 d-flex align-items-center justify-content-md-start justify-content-end small p-0'>Nadawca</div>
+                                <div class="col-md-4 d-flex align-items-center justify-content-center p-2">
+                                    <button class="btn btn-outline-secondary flex-fill" href="#">pobierz</button>
+                                </div>
+                            </div>
+
+                            <div class='row claim g-2 border mb-2 p-2'>
+                                <div class='col-md-1 col-12 d-flex align-items-center justify-content-center p-0'>
+                                    <div class="form-check">
+                                        <input class="form-check-input form-check-lg" type="checkbox" value="" id="flexCheckDefault">
+                                    </div>
+                                </div>
+                                <div class="col-6 d-flex align-items-center d-sm-block d-md-none p-0">Typ dowodu:</div>
+                                    <div class='col-md-2 col-6 d-flex align-items-center justify-content-md-start justify-content-end p-0'>B1</div>
+                                <div class="col-8 d-flex align-items-center d-sm-block d-md-none p-0">Format:</div>
+                                    <div class='col-md-4 col-4 d-flex align-items-center justify-content-md-start justify-content-end small p-0'>Odbiorca</div>
+                                <div class="col-md-4 d-flex align-items-center justify-content-center p-2">
+                                    <button class="btn btn-outline-secondary flex-fill" href="#">pobierz</button>
+                                </div>
+                            </div>
+
+                            <nav aria-label="Nawigacja" class="p-2 col-12">
+                                <ul class="pagination justify-content-center">
+                                    <li class="page-item">
+                                        <a class="page-link text-danger" href="#" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                        </a>
+                                    </li>
+                                    <li class="page-item active"><a class="page-link text-danger" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link text-danger" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link text-danger" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link text-danger" href="#" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+
+                            <div class="row p-0 m-0 mt-3 mb-3 g-2">
+                                <div class="col-12 mb-3 p-0 d-grid gap-2">
+                                    <button class="btn btn-lg btn-success p-3" type="button" >POBIERZ WSZYSTKIE ZAZNACZONE</button>
+                                </div>
+                            </div>
+
+                            <h3 class="d-grid gap-2 text-danger mb-3">komunikaty error</h3>
+                            <div class="alert alert-danger row p-2" role="alert">
+                                <div class="col-md-8 d-flex align-items-center">
+                                    Błędny numer przesyłki. 
+                                </div>
+                                <div class="col-md-4 btn btn-lg btn-outline-danger p-1" data-bs-toggle="collapse" href="#szukaj-wg-guid" role="button" aria-expanded="false" aria-controls="szukaj-wg-guid">Wprowadź ponownie</div>
+                            </div>
+
+                            <div class="alert alert-danger row p-3" role="alert">
+                                <div class="col-md-12 d-flex align-items-center">
+                                    Nie jesteś uprawniony do pobrania dowodów dla wskazanej przesyłki.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade active show" id="pobierz-ID" role="tabpanel" aria-labelledby="nav-pobierz-ID">
+                        
+                        <h3 class="d-grid gap-2 text-danger mb-3">Pobieranie dowodu</h3>
+                        <div class="row p-0 m-0 mt-2 mb-3 gap-md-2">
+                            <div class="form-floating col-md mb-3 p-0">
+                                <input type="text" class="form-control" id="IDdowodu" placeholder="wprowadź numer dowodu" value="">
+                                <label for="IDdowodu">Numer dowodu</label>
+                                <span class="text-muted small">wprowadź numer dowodu</span>
+                            </div>
+                            <div class="col-md-4 mb-3 p-0 d-grid gap-2">
+                                <button class="btn btn-lg btn-outline-success p-3" type="button" data-bs-toggle="collapse" href="#szukaj-wg-id" role="button" aria-expanded="false" aria-controls="szukaj-wg-id">WYSZUKAJ</button>
+                            </div>
+                        </div> 
+
+                        <div class="collapse" id="szukaj-wg-id">
+
+                            <div class="alert alert-success row p-2" role="alert">
+                                <div class="col-md-8 d-flex align-items-center justify-content-md-start text-center">
+                                    Dowód jest autentyczny.
+                                </div>
+                                <div class="col-md-4 btn btn-lg btn-outline-success p-1" data-bs-toggle="collapse" href="#szukaj-wg-as" role="button" aria-expanded="false" aria-controls="szukaj-wg-as">Pobierz potwierdzenie</div>
+                            </div>
+                            <div class="alert alert-danger row p-3" role="alert">
+                                <div class="col-md-12 d-flex align-items-center">
+                                    Dowód o podanym numerze nie istnieje.
+                                </div>
+                            </div>
+
+                            <div class="alert alert-danger row p-2" role="alert">
+                                <div class="col-md-8 d-flex align-items-center">
+                                    Nie jesteś uprawniony do pobranie tego dowodu. Chcę podać jeszcze raz numer dowodu.
+                                </div>
+                                <div class="col-md-4 btn btn-lg btn-outline-danger p-1" data-bs-toggle="collapse" href="#szukaj-wg-id-v2" role="button" aria-expanded="false" aria-controls="szukaj-wg-id-v2">Wprowadź ponownie</div>
+                            </div>
+                            <div class="alert alert-warning row p-2" role="alert">
+                                <div class="col-md-12 d-flex align-items-center p-2">
+                                    Upłynął termin dostępu do tego dowodu.
+                                </div>
+                            </div>
+
+                            
+                            <h4 class="d-grid gap-2 text- mb-3">Pobierz plik jako:</h4>
+                            <div class="row p-0 m-0 mt-2 mb-3 gap-md-2">
+                                <div class="form-check col-md p-0 d-flex text-start align-items-center">
+                                    <input class="form-check-input d-none" type="radio" name="raport_ID" id="raport_exp_1" value="pdf" title="pdf" checked>
+                                    <label class="form-check-label text-center border border-2 rounded p-4 w-100" for="raport_exp_1"><strong class="h3">PDF</strong></label>
+                                </div>
+                                <div class="form-check col-md p-0 d-grid text-start align-items-center">
+                                    <input class="form-check-input d-none" type="radio" name="raport_ID" id="raport_exp_2" value="xml" title="xml" >
+                                    <label class="form-check-label text-center border border-2 rounded p-4 w-100" for="raport_exp_2"><strong class="h3">XML</strong></label>
+                                </div>
+                                <div class="col-12 mb-3 p-0 d-grid gap-2">
+                                    <button class="btn btn-lg btn-success p-3" type="button" >POBIERZ DOKUMENT</button>
+                                </div>
+                            </div> 
+                        </div>
+
+
+<!--
+                        <div class="navig col-12 d-flex justify-content-between">
+                            <a href="./index.html" class="prev-step btn btn-outline-dark p-3" type="button">WSTECZ</a>
+                            <button class="next-step btn btn-outline-success p-3" type="button">GENERUJ RAPORT</button>
+                        </div>
+                    -->                    
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+    </main>
+<!--    <aside class="container-fluid p-2 bg-light">
+        <div class="container text-dark">
+            <div class="col-sm-12 p-4 ">
+                <div class="p-4 m-md-1 ms-md-5 me-md-5 border border-dark justify-content-center text-center">
+                    <img src="./img/pz_logo.png" style="max-height: 80px;"/>
+                    <div class="lead m-4">miejsce na jakiś komunikat dodatkowy</div>
+                    <div class="lead m-4"><a href="https://pz.gov.pl/">może tutaj być link.</a></div>
+                </div>
+            </div>
+        </div>
+    </aside>-->
+    <footer class="container-fluid bg-dark">
+        <div class="container row mx-auto text-muted">
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 p-3 small"><img src="https://kartelmedia.co.uk/wordpress/wp-content/themes/eCommerce-osFlake/img/pp_icon.png" class="float-start me-3"> Poczta Polska Spółka Akcyjna, ul. Rodziny Hiszpańskich 8, 00-940 Warszawa NIP: 525-000-73-13, KRS: 0000334972 Sąd Rejestrowy: Sąd Rejonowy dla m.st. Warszawy kapitał zakładowy: 774.140.000, w całości wpłacony</div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 p-0 m-0 small d-grid align-items-end justify-content-end">
+                <div class="d-flex justify-content-end gap-0 m-0 mt-1">
+                    <i class="fab btn btn-outline-warning border-0  fa-facebook"></i> 
+                    <i class="fab btn btn-outline-warning border-0  fa-linkedin"></i> 
+                    <i class="fab btn btn-outline-warning border-0  fa-twitter-square"></i>
+                    <i class="fas btn btn-outline-warning border-0  fa-info-circle"></i>
+                </div>
+                <div class="d-flex justify-content-end p-2 m-0 small">
+                    Poczta Polska S.A. © 2021. Wszelkie prawa zastrzeżone.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

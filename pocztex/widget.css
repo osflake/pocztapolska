@@ -1,0 +1,31 @@
+*{
+    font-family: Sensation, Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@font-face {
+    font-family: 'Sensation';
+    src: url('./font/Sansation-Regular.eot'); /* IE9 Compat Modes */
+    src: /*url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         /*url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
+         url('./font/Sansation-Regular.woff') format('woff'), /* Pretty Modern Browsers */
+         url('./font/Sansation-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+         url('./font/Sansation-Regular.svg#svgSensation') format('svg'); /* Legacy iOS */
+  }
+
+#podmenu .nav-link{
+    font-size: 1rem !important;
+    text-transform: lowercase;
+}
+#podmenu a{
+    min-width: 70px;
+}
+.dropdown-menu{
+    z-index: 2000;
+}
+header{
+    min-height: 280px;
+    background-color: #999 !important;
+}
+main{
+    max-width: 700px;
+}

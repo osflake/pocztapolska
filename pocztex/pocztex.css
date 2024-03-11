@@ -1,0 +1,370 @@
+*{
+    font-family: Sensation, Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@font-face {
+    font-family: 'Sensation';
+    src: url('./font/Sansation-Regular.eot'); /* IE9 Compat Modes */
+    src: /*url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         /*url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
+         url('./font/Sansation-Regular.woff') format('woff'), /* Pretty Modern Browsers */
+         url('./font/Sansation-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+         url('./font/Sansation-Regular.svg#svgSensation') format('svg'); /* Legacy iOS */
+  }
+footer{
+    font-size: 0.8rem;
+}
+
+.ikona{
+  max-height: 40px !important;
+  max-width: 40px !important;
+  margin: auto;
+}
+
+article{ hyphens: auto;}
+.bg-biznes{ background-color: #084298;}
+.bg-footer-light{   background-color: grey;}
+.btn-outline-biznes {
+    border-color: #084298;
+    color: #084298;
+  }
+.btn-outline-biznes:hover {
+    background-color: #084298;
+    color: white;
+  }
+.btn-biznes {
+  background-color: #084298;
+  color: white !important;
+  }
+.btn-biznes:hover {
+    background-color: #053275;
+}
+.display-responsive-2 {
+  /*font-size: calc(3vh + 1vw);*/
+  font-size: xx-large;
+  display: block;
+}
+
+.display-responsive-1 {
+  /*font-size: calc(1vh + 0.5vw);*/
+  font-size: medium;
+}
+
+
+.text-biznes{    color: #084298;}
+.nav-link.active {color: #dc3545 !important;}
+@media screen and (max-width: 575px) {
+    .wyszukaj{
+        max-width: 95%;
+    }
+    .binfo { 
+        position: relative;
+        width: 100%;
+        padding-bottom: calc(184%) !important;
+    }
+    .minfo {
+        position: relative;
+        width: 100%;
+        padding-bottom: calc(90%) !important;
+    }
+    .sinfo {
+        position: relative;
+        width: 100%;  
+        padding-bottom: calc(43%) !important;
+    }
+    .sinfo .content, .minfo .content, .sinfo .content{
+        font-size: 0.9rem !important;
+    }
+}
+@media screen and (min-width: 992px) {
+  .wyszukaj-wrap{ 
+    position: absolute !important;
+    bottom: 0px;
+  }
+}
+@media screen and (min-width: 576px) {
+    .wyszukaj{
+        max-width: 75%;
+    }
+    .binfo { 
+        position: relative;
+        width: 100%;
+        padding-bottom: calc(184%) !important;
+    }
+    .minfo {
+        position: relative;
+        width: 100%;
+        padding-bottom: calc(90%) !important;
+    }
+    .sinfo {
+        position: relative;
+        width: 100%;
+        padding-bottom: calc(43% - 0.08rem) !important;
+    }
+}
+.carousel-item {
+    max-height: 430px;
+}
+
+#carouselSubpage .carousel-item {
+    max-height: 240px;
+}
+.table-parametry td{
+    text-align: center;
+}
+.table-parametry td .fa-check{
+    color: green;
+}
+.table-parametry td .fa-times-circle{
+    color: red;
+}
+button[role="tab"].active{
+    text-decoration: underline;
+}
+.nav-link {
+    border-bottom: 2px solid transparent;
+}
+#podmenu .nav-link{
+    font-size: 1rem !important;
+    text-transform: lowercase;
+}
+.nav-link:hover{
+    font-weight: normal;
+    border-bottom: 2px solid red;
+}
+.sinfo .content, .minfo .content, .sinfo .content{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    font-size: 1.05vw;
+}
+.sinfo, .minfo , .sinfo {
+    margin-bottom: 0.8rem !important;
+}
+.content .float-start{
+    height: calc(100% - 1rem)!important;
+}
+.content img:not(.float-start){
+    height: 100%;
+}
+.tag{
+    border: 2px solid;
+    font-weight: normal;
+}
+figure:not(.opis):hover{
+    -webkit-box-shadow: 5px 5px 15px 0px rgba(69,68,69,0.4);
+    -moz-box-shadow: 5px 5px 15px 0px rgba(69,68,69,0.4);
+    box-shadow: 5px 5px 15px 0px rgba(69,68,69,0.4);
+}
+figure:not(.opis){
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(69,68,69,0.2);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(69,68,69,0.2);
+    box-shadow: 0px 0px 5px 0px rgba(69,68,69,0.2);
+    
+}
+
+
+input[type="radio"]:checked + label, input[type="checkbox"]:not(.accept):checked + label{
+    border-color:red !important;
+ }
+.animations{
+    transform:translate(0%, 0%) scale(0.7);
+}
+ /* animated menu by osflake */
+  
+  .affix {
+    padding-top: 0.2em !important;
+    padding-bottom: 0.2em !important;
+    -webkit-transition:padding 0.2s linear;
+    -moz-transition:padding 0.2s linear;  
+    -o-transition:padding 0.2s linear;         
+    transition:padding 0.2s linear;  
+  }
+
+  #message-center {
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem; 
+}
+.dropdown-menu{
+    z-index: 2000;
+}
+
+#kalkulator-nav .active{
+    color: red;
+}
+
+
+
+/* SLIDER RANGE */
+.sliderWithLabels {
+    width: 100%;
+    padding: 20px 40px 0;
+    height: 80px;
+    overflow: hidden;
+    display:none;
+}
+.sliderWithLabels    input[type=range] {
+      position: relative;
+      height: 0.5rem;
+      margin-top: 1.25rem;
+      margin-bottom: 2.25rem;
+      background-color: #e6e6e6;
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -ms-touch-action: none;
+      touch-action: none;
+      top: -49px;
+      position: relative;
+      -webkit-appearance: none;
+      width: 100%;
+      height: 10px;
+      background: #d3d3d3;
+      outline: none;
+      border-radius: 10px;
+}
+.sliderWithLabels input[type=range]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        background: #4087c7;
+        cursor: pointer;
+        border-radius: 100%;
+      }
+  
+.sliderWithLabels input[type=range]::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+        background: #4087c7;
+        cursor: pointer;
+      }
+  
+.sliderWithLabels > div {
+      display: flex;
+      align-items: stretch;
+      height: 20px;
+      margin-top: -6px;
+      position: relative;
+      width: 100%;
+}  
+.sliderWithLabels > div > div {
+        color: white;
+        width: 100px;
+        margin: 0px;
+        text-align: center;
+        line-height: 75px;
+        font-size: 30px;
+        flex: 1;
+        border-right: 1px solid #d3d3d3;
+        border-left: 1px solid #d3d3d3;
+}  
+.sliderWithLabels > div > div:first-of-type {
+          border-left: 2px solid #fff;
+        }
+  
+.sliderWithLabels > div > div:last-of-type {
+          border-right: 2px solid #fff;
+        }
+  
+.sliderWithLabels > div > span {
+        color: #444;
+        margin: 0px;
+        text-align: center;
+        line-height: 75px;
+        font-size: 15px;
+        flex: 1;
+        font-family: sans-serif;
+      }
+  
+.sliderWithLabels > div.step-labels {
+        top: -10px;
+}        
+.sliderWithLabels > div.step-labels span{
+          cursor: pointer;
+        }
+  
+.sliderWithLabels > div.step-marks {
+        width: calc(100% - 20px) !important;
+        margin-left: 10px;
+      }
+    
+
+
+
+
+      @media (min-width: 576px) {
+        .position-sm-static {
+          position: static !important;
+        }
+        .position-sm-relative {
+          position: relative !important;
+        }
+        .position-sm-absolute {
+          position: absolute !important;
+        }
+        .position-sm-fixed {
+          position: fixed !important;
+        }
+        .position-sm-sticky {
+          position: sticky !important;
+        }
+      }
+      
+      @media (min-width: 768px) {
+        .position-md-static {
+          position: static !important;
+        }
+        .position-md-relative {
+          position: relative !important;
+        }
+        .position-md-absolute {
+          position: absolute !important;
+        }
+        .position-md-fixed {
+          position: fixed !important;
+        }
+        .position-md-sticky {
+          position: sticky !important;
+        }
+      }
+      
+      @media (min-width: 992px) {
+        .position-lg-static {
+          position: static !important;
+        }
+        .position-lg-relative {
+          position: relative !important;
+        }
+        .position-lg-absolute {
+          position: absolute !important;
+        }
+        .position-lg-fixed {
+          position: fixed !important;
+        }
+        .position-lg-sticky {
+          position: sticky !important;
+        }
+      }
+      
+      @media (min-width: 1200px) {
+        .position-xl-static {
+          position: static !important;
+        }
+        .position-xl-relative {
+          position: relative !important;
+        }
+        .position-xl-absolute {
+          position: absolute !important;
+        }
+        .position-xl-fixed {
+          position: fixed !important;
+        }
+        .position-xl-sticky {
+          position: sticky !important;
+        }
+      }
+      

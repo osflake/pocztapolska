@@ -1,0 +1,29 @@
+{
+    "instrukcja":[
+        {
+            "id":2,
+            "img":"./img/sledzenie.png", 
+            "name":"eMonitoring", 
+            "description":"Bądź na bieżąco ze swoimi przesyłkami, odbieraj PUSH'e ze statusem przesyłki. Masz przesyłkę w automacie pocztowym? Od teraz PIN jest pod ręką w aplikacji lub otwieraj skrytki zdalnie."
+        },
+        {
+            "id":4,
+            "img":"./img/nadanie.png", 
+            "name":"nadaj przesyłkę", 
+            "description":"Nadawanie przesyłek nigdy nie było tak proste jak w naszej aplikacji. To ty decydujesz o formie nadania, wymiarze i masie przesyłki, a my podpowiadamy Ci, jakim rodzajem przesyłki wysłać. Opłać ją wygodnie w telefonie i ciesz się szybką obsługą!"
+        },
+        {
+            "id":5,
+            "img":"./img/esklep1.png", 
+            "name":"eSklep", 
+            "description":"W naszej aplikacji bez wychodzenia z domu zamówisz najpotrzebniejsze artykuły do swojego domu lub biura. W jednym miejscu znajdziesz wszystkie produkty dostępne w naszej ofercie eCommerce."
+        },
+        {
+            "id":6,
+            "img":"./img/filatelistyka.png", 
+            "name":"filatelistyka", 
+            "description":"Jesteś kolekcjonerem i chcesz kupić znaczki? A moze chcesz zamówić unikatowe znaczki wg własnej inwecji twórczej? Teraz z naszą aplikacją jest to mozliwe! Sprawdź to osobiście!"
+        }
+    ]
+    }
+        

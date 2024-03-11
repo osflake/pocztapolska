@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Propozycja wyglądu strony internetowej pocztex by Arkadiusz Śnieżek</title>
+    <meta name="description"  content="Pocztex 2.0 by PP SA" />
+    <script src="https://mapa.ecommerce.poczta-polska.pl/widget/scripts/ppwidget.js?ver=1.0"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" data-auto-replace-svg="nest"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+    <script src="https://momentjs.com/downloads/moment.js" ></script>
+    <link href="./flag.min.css" rel="stylesheet">
+
+    <script type="text/javascript"
+            src="https://github.com/evanplaice/jquery-csv/blob/main/src/jquery.csv.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" integrity="sha512-nNlU0WK2QfKsuEmdcTwkeh+lhGs6uyOxuUs+n+0oXSYDok5qy0EI0lt01ZynHq6+p/tbgpZ7P+yUb+r71wqdXg==" crossorigin="anonymous" />
+    
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+    <link href="./pocztex.css" rel="stylesheet"/>
+    <script src="./pocztex.js"></script>
+
+<body class="bg-light p-0">
+    <nav class="container-fluid navbar navbar-dark my-auto">
+        <div class="container my-auto d-flex align-item-center gap-2">
+                 
+            <ul class="nav p-0 justify-content-md-start">
+                <li class="nav-item p-1 m-0">
+                    <a href="./pocztex.html" class="text-decoration-none btn-outline-danger border-bottom border-2 border-danger p-1 m-0"><i class="fas fa-user"></i> Dla Ciebie</a>
+                </li>
+                <li class="nav-item p-1 m-0">
+                    <a href="./pocztex-biznes.html" class="text-decoration-none btn-outline-secondary p-1 m-0"><i class="fas fa-briefcase"></i> Dla Firmy</a>                
+                </li>
+            </ul>
+            <ul class="nav justify-content-sm-start align-item-center">
+                <li class="nav-item p-1">
+                    <a href="#" class="text-decoration-none btn-outline-secondary p-1 m-1"><i class="fas fa-eye"></i></a>                
+                </li>
+                <li class="nav-item p-1 dropdown">
+                    <a class="dropdown-toggle text-decoration-none text-dark" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="poland flag "></i></a>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end z-index-master position-absolute" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item text-dark p-3" href="#"><i class="poland flag"></i> PL</a></li>
+                    <li><a class="dropdown-item text-dark p-3" href="#"><i class="united kingdom flag"></i> GB</a></li>
+                    <li><a class="dropdown-item text-dark p-3" href="#"><i class="ukraine flag"></i> UA</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item p-1">
+                    <a href="#" class="text-decoration-none text-secondary p-1 m-1" data-bs-toggle="modal" data-bs-target="#logowanie"><i class="fas fa-lock"></i> <span class="d-none d-lg-inline"></span></a>  
+                </li>
+            </ul>       
+            
+        </div>
+    </nav>
+    <nav id="main-menu" class="container-fluid navbar navbar-light navbar-expand-lg bg-white border-bottom sticky-top my-auto shadow p-0">
+        <div class="container my-auto p-0">
+            <a class="navbar-brand d-flex justify-content-start p-0" href="./pocztex.html"><img src="./pocztex.jpg" style="max-height:60px;" class="w-auto h-100"/></a>
+            <button class="navbar-toggler mx-auto" type="button" data-bs-toggle="collapse" data-bs-target="#podmenu" aria-controls="podmenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="d-grid gap-2 justify-content-end">
+                <div class="navbar-collapse collapse" id="podmenu">
+                    <ul class="nav text-uppercase justify-content-md-end d-grid gap-sm-2 d-md-flex d-sm-flex" >
+                        <li class="nav-item text-sm-center">
+                            <a class="nav-link btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#zewnetrznewww" data-bs-src="https://en-testwebapi2.poczta-polska.pl/nadaj/?lite=1" href="javascript:;">
+                            <i class="far fa-2x fa-paper-plane d-sm-block"></i> 
+                            <span>Nadaj</span></a>
+                        </li>
+                        <li class="nav-item text-sm-center">
+                            <a class="nav-link btn-outline-secondary" href="#">
+                            <i class="fas fa-2x fa-truck-loading d-sm-block"></i>
+                            <span>Odbierz</span></a>
+                        </li>
+                        <li class="nav-item text-sm-center">
+                            <a class="nav-link btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#zewnetrznewww" data-bs-src="https://ezwroty.poczta-polska.pl/?lite=1"  href="javascript:;">                            
+                            <i class="fas fa-2x fa-reply-all d-sm-block"></i> 
+                            <span>Zwróć</span></a>
+                        </li>
+                        <li class="nav-item text-sm-center">
+                            <a class="nav-link btn-outline-secondary" href="./pocztex-zamow-kuriera.html">
+                            <i class="fas fa-2x fa-shipping-fast d-sm-block"></i> 
+                            <span>Zamów</span></a>
+                        </li>
+                        <li class="nav-item text-sm-center">
+                            <a class="nav-link btn-outline-secondary widgetOWP" href="#">
+                            <i class="fas fa-2x fa-map-marker-alt d-sm-block"></i>
+                            <span>Znajdź</span></a>
+                        </li>
+                        <li class="nav-item text-sm-center">
+                            <a class="nav-link btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#zewnetrznewww" data-bs-src="https://cennik.poczta-polska.pl/usluga,krajowy_pocztex.html?lite=1" href="javascript:;">                            
+                            <i class="fas fa-2x fa-calculator d-sm-block"></i> 
+                            <span>Cennik</span></a>
+                        </li>
+                        <li class="nav-item text-sm-center">
+                            <a class="nav-link btn-outline-secondary mx-auto" href="#" data-bs-toggle="collapse" data-bs-target="#wyszukaj" aria-controls="wyszukaj" aria-expanded="false" aria-label="Wyszukaj na stronie">
+                                <i class="fas fa-2x fa-search d-sm-block"></i>                           
+                            <span>Szukaj</span></a>
+                        </li>
+                        <li class="nav-item text-sm-center dropdown">
+                            <a class="dropdown-toggles h-100 my-auto nav-link text-decoration-none border-0 text-secondary" href="#" id="menu-more" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-2x fa-ellipsis-v d-sm-block"></i></a>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-sm-end position-absolute" aria-labelledby="menu-more">
+                                <li class="nav-item nav-item-dropped text-sm-left">
+                                    <a class="dropdown-item btn-outline-secondary p-3" href="./pocztex-tracking.html">
+                                    <i class="fas fa-2x fa-crosshairs"></i> 
+                                    <span>Śledzenie przesyłki</span></a>
+                                </li>
+                                <li class="nav-item nav-item-dropped text-sm-left">
+                                    <a class="dropdown-item btn-outline-secondary p-3" href="https://en-testwebapi2.poczta-polska.pl/" target="_blank">
+                                    <i class="fas fa-2x fa-barcode"></i> 
+                                    <span>Elektroniczny nadawca</span></a>
+                                </li>
+                                <li class="nav-item nav-item-dropped text-sm-left">
+                                    <a class="dropdown-item btn-outline-secondary p-3" data-bs-toggle="modal" data-bs-target="#zewnetrznewww" data-bs-src="https://placowki.poczta-polska.pl/?lite=1" href="javascript:;">
+                                    <i class="fas fa-2x fa-map-marker-alt"></i>
+                                    <span>Znajdź placówkę</span></a>
+                                </li>
+                                <li class="nav-item nav-item-dropped text-sm-left">
+                                    <a class="dropdown-item btn-outline-secondary p-3" href="./pocztex-do-pobrania.html">
+                                    <i class="fas fa-2x fa-download "></i> 
+                                    <span>Pobierz</span></a>
+                                </li>
+                                <li class="nav-item nav-item-dropped text-sm-left">
+                                    <a class="dropdown-item  btn-outline-secondary p-3" href="./pocztex-faq.html">
+                                    <i class="fas fa-2x fa-question-circle"></i> 
+                                    <span>FAQ</span></a>
+                                </li>
+                                <li class="nav-item nav-item-dropped text-sm-left">
+                                    <a class="dropdown-item  btn-outline-secondary p-3" data-bs-toggle="modal" data-bs-target="#zewnetrznewww" data-bs-src="https://ereklamacje.poczta-polska.pl/#/wniosek_reklamacyjny/customer_type" href="javascript:;">
+                                    <i class="fas fa-2x fa-envelope-open-text"></i> 
+                                    <span>Reklamacje</span></a>
+                                </li>
+                                <li class="nav-item nav-item-dropped text-sm-left">
+                                    <a class="dropdown-item  btn-outline-secondary p-3" href="#">
+                                    <i class="fas fa-2x fa-map-marked-alt"></i> 
+                                    <span>Mapa Cyfrowa</span></a>
+                                </li>
+                                <li class="nav-item nav-item-dropped text-sm-left">
+                                    <a class="dropdown-item  btn-outline-secondary p-3" href="#">
+                                    <i class="fas fa-2x fa-map-signs"></i> 
+                                    <span>Mapa strony</span></a>
+                                </li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid bg-white d-grid gap-2 sticky-top shadow" >  
+        <div class="container input-group input-group-lg p-1 ps-3 pe-3 input-group-block collapse" id="wyszukaj" data-bs-toggle="true">
+            <input type="text" class="form-control" placeholder="Wyszukaj na stronie" aria-label="Wpisz słowa do wyszukania">
+            <button class="btn btn-outline-danger" type="button">Szukaj</button>
+            <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#wyszukaj" aria-controls="wyszukaj" aria-expanded="false" aria-label="Toggle navigation"> X </button>
+        </div> 
+    </div>
+    <header class="container-fluid p-0">
+        <div id="carouselSubpage" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="https://www.iveco.com/Poland/PublishingImages/1440x400_poczta.jpg" class="d-block w-100 h-auto" alt="...">
+              </div>
+            </div>
+            <div class="container position-relative">
+                <div class="position-absolute col-md-6 start-0 bottom-0" style="z-index:1000;">
+                    <div class="wyszukaj input-group input-group-lgs mx-auto p-2 mb-3 bg-dabger">
+                        <span class="input-group-text bg-light rounded-0"><i class="fas fa-box text-biznes"></i></span>
+                        <input type="text" class="form-control" placeholder="śledzenie przesyłki" aria-label="tracking" aria-describedby="button-addon2">
+                        <button class="btn btn-outline-light rounded-0" type="button" id="button-addon2">Szukaj</button>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid p-3 bg-danger">
+                <div class="container position-relative p-3" style="z-index:1000;">
+                    <div class="col-12 display-5 text-white">Śledzenie przesyłek - eMonitoring</div>
+                    <div class="col-12 lead text-white mt-2 mb-2 small">Wybierając opcję śledzenia mogą Państwo sprawdzić aktualny status przesyłki, zarówno po stronie Pocztex jak i operatorów zagranicznych</div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="container bg-white">
+        <div class="row p-2">
+            <div class="col-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="./pocztex.html" class="text-muted">Pocztex</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">Klient indywidualny</li>
+                      <li class="breadcrumb-item active" aria-current="page">eMonitoring</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col-md-8 p-2 ">                
+                <div class="wyszukaj input-group input-group-lg w-100 mx-auto p-2 m-3 bg-danger">
+                    <span class="input-group-text bg-light rounded-0"><i class="fas fa-box text-danger"></i></span>
+                    <input type="text" name="parcel" class="form-control" placeholder="śledzenie przesyłki" aria-label="tracking" aria-describedby="button-addon2">
+                    <button class="btn btn-outline-light rounded-0" type="button" id="sledzenie-curl">
+                        <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                        Szukaj</button>
+                </div>
+                <div id="eMonitoring">
+                <h4 id="parcelNumber" class="d-none text-start text-uppercase">Śledzenie przesyłki nr: <span class="text-danger" id="myModalLabel"></span></h4>
+                <div id="parcelInfo"></div>
+                <div id="parcelAction" class="mb-3 border-bottom"></div>
+                <p class="h5">Instrukcja:</p>
+                    <p class="small">Aby wyszukać przesyłkę rejestrowaną należy w ramce wpisać numer (np.: 0015900773312345678, RR123456789PL, CP123456789PL, VV123456789PL, EE123456789PL) podany na potwierdzeniu nadania, bez spacji oraz nawiasów i nacisnąć <span class="btn btn-outline-danger">Szukaj</span>.</p>
+                    <p class="small">Jeśli numer jest błędny lub w systemie nie zarejestrowano informacji o przesyłce z podanym numerem, pojawi się komunikat:</p>
+                    <p class="btn border d-flex align-items-center justify-content-center small text-danger">Podany numer przesyłki jest błędny</p>
+                    <p class="small">Jeśli w miejscu przeznaczonym do wpisania numeru przesyłki nie zostanie podany jej numer- pojawi się komunikat:</p>
+                    <p class="btn border d-flex align-items-center justify-content-center small text-danger">Podaj numer przesyłki</p> 
+                    <p class="small">Jeśli wpisany identyfikator jest prawidłowy to pojawią się dane i historia zdarzeń dla określonej przesyłki. Jeżeli historia przesyłki lub informacje o niej są niezgodne z dowodem nadania należy sprawdzić poprawność wpisanego numeru.</p>
+                </div>
+                <h5 class="text-danger">Dodać tutaj listę rozwijaną</h5>
+                
+            </div>
+            <div class="col-md-4 p-2">
+                    <figure class="figure sinfo clearfix">
+                        <div class="content">
+                            <img src="data:image/jpeg;base64,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" class="figure-img img-fluid" alt="...">
+                        </div>
+                    </figure>    
+                
+                    <figure class="figure sinfo clearfix">
+                        <div class="content">
+                            <img src="https://cdn.shoplo.com/7265/banners/1-67-1582710169_ee55b6c7cdb5ccb5.png?498" class="figure-img img-fluid" alt="...">
+                        </div>
+                    </figure>
+                
+                
+                    <figure class="figure sinfo clearfix">
+                        <div class="content">
+                            <img src="https://cdn.shoplo.com/7265/banners/1-33-1609853584_191f5f4a317a801f.jpg?528" class="figure-img img-fluid" alt="...">
+                        </div>
+                    </figure>
+                
+           </div>
+        </div>
+       
+    </main>
+    <aside class="container-fluid p-2 bg-footer-light">
+        <div class="container text-light">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="h3 mb-3 mt-2">Infolinia Pocztex</div>
+                    <div class="h3 text-start p-1">
+                        <a class="text-decoration-none text-warning" href="tel:804104104">804 104 104</a><br/>
+                        <small><a class="text-decoration-none text-warning" href="tel:+48438420842">(+48)</small> 43 842 0 842</a>
+                    </div>
+                    <p class="small mt-2 text-start text-light">Opłata za połączenie zgodnie z taryfą operatora</p>
+                </div>
+                <div class="col-md-8">
+                    <div class="h3 mb-3 mt-2 ms-3">Na skróty</div>
+                    <nav class="nav flex-columna small">
+                        <a class="nav-link text-light btn-outline-secondary h5" href="#"><i class="fas w-100 fa-building"></i> O nas</a>
+                        <a class="nav-link text-light btn-outline-secondary h5" href="./pocztex-do-pobrania.html"><i class="fas w-100 fa-file-download"></i> Pobierz</a>
+                        <a class="nav-link text-light btn-outline-secondary h5" href="./pocztex-wspolpraca.html"><i class="fas fa-handshake"></i> Współpraca </a>
+                        <a class="nav-link text-light btn-outline-secondary h5" href="./pocztex-faq.html"><i class="fas fa-question-circle"></i> Pomoc | FAQ</a>
+                        <a class="nav-link text-light btn-outline-secondary h5" data-bs-toggle="modal" data-bs-target="#zewnetrznewww" data-bs-src="https://ereklamacje.poczta-polska.pl/#/wniosek_reklamacyjny/customer_type" href="javascript:;"><i class="fas fa-envelope-open-text"></i> Reklamacje </a>
+                        <a class="nav-link text-light btn-outline-secondary h5" href="./pocztex-kontakt.html"><i class="fas fa-phone"></i> Kontakt </a>
+                        
+                      </nav>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <footer class="container-fluid bg-dark">
+        <div class="container row mx-auto text-muted">
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 p-3 small"><img src="https://kartelmedia.co.uk/wordpress/wp-content/themes/eCommerce-osFlake/img/pp_icon.png" class="float-start me-3 "> Poczta Polska Spółka Akcyjna, ul. Rodziny Hiszpańskich 8, 00-940 Warszawa NIP: 525-000-73-13, KRS: 0000334972 Sąd Rejestrowy: Sąd Rejonowy dla m.st. Warszawy kapitał zakładowy: 774.140.000, w całości wpłacony</div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 p-0 m-0 small d-grid align-items-end justify-content-end">
+                <div class="d-flex justify-content-end gap-0 m-0 mt-1">
+                    <i class="fab btn btn-outline-warning border-0  fa-facebook"></i> 
+                    <i class="fab btn btn-outline-warning border-0  fa-linkedin"></i> 
+                    <i class="fab btn btn-outline-warning border-0  fa-twitter-square"></i>
+                    <i class="fas btn btn-outline-warning border-0  fa-info-circle"></i>
+                </div>
+                <div class="d-flex justify-content-end p-2 m-0 small">
+                Poczta Polska S.A. © 2021. Wszelkie prawa zastrzeżone.
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

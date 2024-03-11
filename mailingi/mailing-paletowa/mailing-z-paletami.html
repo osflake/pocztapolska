@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
+<head>
+<title>Poczta Polska - Pocztex Wiosenne Rabaty</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<link href="http://fonts.cdnfonts.com/css/sansation" rel="stylesheet" />
+
+<style>
+ body{
+    font-family: 'Sansation', sans-serif !important;
+}
+#promo td{ border: 1px solid lightgrey; padding: 1%;}
+ul{list-style: none;}
+ul li::before {
+  content: "\2022"; 
+  color: red;
+  font-weight: bold; 
+  display: inline-block; 
+  width: 1em; 
+  margin-left: -1em; 
+}
+</style>
+</head>
+
+<body style="background-color: #f5f7fa; line-height: 150%;">
+
+<table style="max-width: 100%; width: 700px !important; background-color: white; margin: 1% auto;border-spacing: 0; border-collapse: collapse;">
+    <tbody>
+        <tr style="padding: 0;">   
+            <td style="padding: 0%; width: 100%; vertical-align: middle;">
+                <img src="./paletowa_head.jpg" alt="Poczta Polska"/>
+                <!-- <img alt="Mailing z paletami" src="https://prod-20.westeurope.logic.azure.com/workflows/fd88d2edf98b4095bfd24226ae4a2169/triggers/manual/paths/invoke/pictureID/%252fShared%2bDocuments%252femailWiosna%252fpx-wiosna-mail.png?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=xYQ23br3K0HtwZp_BtMvOuynGx4K9tB7oxop5n9Ka2A" style="width: 100%;" /> -->
+                <!-- <h1 style="color: #d00000; font-family: Sansation; text-align: center;">Wiosną - z&nbsp;Pocztexem - rabaty rosną!</h1> -->
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 4% 8%; vertical-align: middle; text-align: justify; font-family: Sansation; line-height: 160%; font-style: italic;">
+
+                <table style="border-spacing: 0; border-collapse: collapse;">
+                    <tr>
+                        <td style="padding: 1% 2%;"> 
+                            <img src="./p1.jpg" alt="Poczta Polska" style="width: 80px;">
+                        </td>
+                        <td style="padding: 0 4%; line-height: 200%;">
+                            <h2>Chcesz obniżyć koszty transportu? <br/>Czekamy na Twoje zlecenie!</h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 1% 2%;">
+                            <img src="./p2.jpg" alt="Poczta Polska" style="width: 80px;">
+                        </td>
+                        <td style="padding: 0 4%">
+                            <h3 style="font-weight: 400;">Zapraszamy do współpracy w zakresie transportu na paletach w ramach usługi Międzynarodowej Przesyłki Paletowej, na promocyjnych warunkach cenowych.</h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 1% 2%;">
+                            <img src="./p3.jpg" alt="Poczta Polska" style="width: 80px;">
+                        </td>
+                        <td style="padding: 0 4%">
+                            <h3 style="font-weight: 400;">Oferujemy <span  style="font-weight: 600;">bezpośrednie połączenia</span> z każdego miejsca w kraju do Czech i Słowacji, skracając czas dostawy.</h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 1% 2%;">
+                            <img src="./p4.jpg" alt="Poczta Polska" style="width: 80px;">
+                        </td>
+                        <td style="padding: 0 4%">
+                            <h3 style="font-weight: 400;">W doborze korzystnych opcji transportu w eksporcie oraz imporcie pomoże Ci dedykowany opiekun, z którym bezpośrednio uzgodnisz dogodne warunki współpracy.</h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td style="padding: 0 4%">
+                            <h3 style="font-weight: 400;">Promocja trwa od 1 lutego do końca kwietnia br. </h3>
+                            <h2 style="color: #d50000; font-family: Sansation; font-weight: 600; line-height: 150%;">Rabat na hasło: <span style="color: #d00000 !important; padding: 2%; margin-left: 2%; border: 1px solid grey; font-style: normal;">MPP</span></h2>
+                        </td>
+                    </tr>
+                </table>
+
+            </td>
+        </tr>  
+        <tr>
+            <td style="padding: 0% 6% 2% 6%; width: 100%; vertical-align: middle; text-align: center;">
+                <p style="color: #d50000; border-top: 1px solid lightgrey; padding-top: 4%;">Już dziś skontaktuj się z nami i skorzystaj z oferty.</p>
+                <div style="display: block; text-align: center; margin: 0 10%; padding: 2%; border: 1px solid lightgrey; line-height:150%;">
+                    <p style="margin: 0;"><i>@{outputs('Pobierz_profil_użytkownika_(V2)')?['body/displayName']}</i></p>
+                    <p style="font-size: 9pt; margin: 0;">@{variables('KOD')}</p>
+                    <p style="font-size: 8pt; margin: 0;"> @{outputs('Pobierz_profil_użytkownika_(V2)')?['body/mobilePhone']} <span style="color: #d50000;">|</span> @{outputs('Pobierz_profil_użytkownika_(V2)')?['body/mail']}</p>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 0%;  background-color: #e33939;"> 
+                <!-- border: 0 3px 0 3px; border-style: solid; border-color: #e33939; -->
+                <img src="./paletowa_footer.jpg" alt="Poczta Polska przesyłka paletowa"/></td>
+        </tr>
+        <tr>
+            <td style="padding: 0% 6%; text-align: center;font-size: 9pt;width: 100%; font-weight: 200;vertical-align: middle; background-color: #e33939; color: white; line-height: 120%;">
+                <p style="font-size:11pt; font-weight: 400; margin: 1%;">Poczta Polska Spółka Akcyjna</p>
+                <p style="margin: 0;"><small>ul. Rodziny Hiszpańskich 8, 00-940 Warszawa NIP: 525-000-73-13, KRS: 0000334972</small></p>
+                <p style="margin: 0;"><small>Sąd Rejestrowy: Sąd Rejonowy dla m.st. Warszawy kapitał zakładowy: 964.140.000, w&nbsp;całości&nbsp;wpłacony</small></p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+</body>
+</html>

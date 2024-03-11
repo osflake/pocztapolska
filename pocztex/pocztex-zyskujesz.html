@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Propozycja wyglądu strony internetowej x  by Arkadiusz Śnieżek</title>
+    <meta name="description"  content="Pocztex 2.0 by Arkadiusz Śnieżek" />
+<!--    <script src="https://mapa.ecommerce.poczta-polska.pl/widget/scripts/ppwidget.js?ver=1.0"></script>-->
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" data-auto-replace-svg="nest"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <link href="./flag.min.css" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" integrity="sha512-nNlU0WK2QfKsuEmdcTwkeh+lhGs6uyOxuUs+n+0oXSYDok5qy0EI0lt01ZynHq6+p/tbgpZ7P+yUb+r71wqdXg==" crossorigin="anonymous" />
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" integrity="sha512-nNlU0WK2QfKsuEmdcTwkeh+lhGs6uyOxuUs+n+0oXSYDok5qy0EI0lt01ZynHq6+p/tbgpZ7P+yUb+r71wqdXg==" crossorigin="anonymous" />
+
+    <script src="https://use.fontawesome.com/releases/v6.0.0/js/all.js" data-auto-replace-svg="nest"></script>
+
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <link href="./pocztex.css" rel="stylesheet"/>
+<!--    <link href="./pocztex-zalobna.css" rel="stylesheet"/>-->
+<!--    <link href="./pocztex-wcag.css" rel="stylesheet"/>-->
+    <script src="./pocztex.js"></script>
+<body class="bg-light p-0">
+    <nav class="container-fluid navbar navbar-dark my-auto">
+        <div class="container my-auto d-flex align-item-center gap-2">
+                 
+            <ul class="nav p-0 justify-content-md-start">
+                <li class="nav-item p-1 m-0">
+                    <a href="./pocztex.html" class="text-decoration-none btn-outline-secondary p-1 m-0"><i class="fas fa-user"></i> Dla Ciebie</a>
+                </li>
+                <li class="nav-item p-1 m-0">
+                    <a href="./pocztex-biznes.html" class="text-decoration-none btn-outline-danger border-bottom border-2 border-danger p-1 m-0"><i class="fas fa-briefcase"></i> Dla Firmy</a>                
+                </li>
+            </ul>
+            <ul class="nav justify-content-sm-start align-item-center">
+                <li class="nav-item p-1">
+                    <a href="#" class="text-decoration-none btn-outline-secondary p-1 m-1"><i class="fas fa-eye"></i></a>                
+                </li>
+                <li class="nav-item p-1 dropdown">
+                    <a class="dropdown-toggle text-decoration-none text-dark" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="poland flag "></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end z-index-master position-absolute" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item text-dark p-3" href="#"><i class="poland flag"></i> PL</a></li>
+                    <li><a class="dropdown-item text-dark p-3" href="#"><i class="united kingdom flag"></i> GB</a></li>
+                    <li><a class="dropdown-item text-dark p-3" href="#"><i class="ukraine flag"></i> UA</a></li>
+                    </ul>
+                </li>
+                <!--<li class="nav-item p-1">
+                    <a href="#" class="text-decoration-none text-secondary p-1 m-1" data-bs-toggle="modal" data-bs-target="#logowanie"><i class="fas fa-lock"></i> <span class="d-none d-lg-inline"></span></a>  
+                </li>-->
+            </ul>       
+            
+        </div>
+    </nav>
+    <nav id="main-menu" class="container-fluid navbar navbar-light navbar-expand-lg bg-white border-bottom sticky-top my-auto shadow p-0">
+        <div class="container my-auto p-0">
+            <a class="navbar-brand d-flex justify-content-start p-0" href="./pocztex.html"><img src="./pocztex.svg" style="max-height:60px;" class="w-auto h-100"/></a>
+            <button class="navbar-toggler mx-auto" type="button" data-bs-toggle="collapse" data-bs-target="#podmenu" aria-controls="podmenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="d-grid gap-2 justify-content-end">
+                <div class="navbar-collapse collapse" id="podmenu">
+                    <ul class="nav text-uppercase justify-content-md-end d-grid gap-sm-2 d-md-flex d-sm-flex" >
+                        <li class="nav-item text-sm-center">
+                            <a class="nav-link btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#zewnetrznewww" data-bs-src="https://en-testwebapi2.poczta-polska.pl/nadaj/?lite=1" href="javascript:;">
+                            <img src="./img/ikony/ikony_pp-nadaj.png" class="ikona d-sm-block" />
+<!--                            <i class="far fa-2x fa-paper-plane d-sm-block"></i> 
+-->                            <span>Nadaj</span></a>
+                        </li>
+                        <li class="nav-item text-sm-center">
+                            <a class="nav-link btn-outline-secondary" href="#">
+                            <img src="./img/ikony/ikony_pp-odbierz.png" class="ikona d-sm-block" />
+                            <!--<i class="fas fa-2x fa-truck-loading d-sm-block"></i>-->
+                            <span>Odbierz</span></a>
+                        </li>
+                        <li class="nav-item text-sm-center">
+                            <a class="nav-link btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#zewnetrznewww" data-bs-src="https://ezwroty.poczta-polska.pl/?lite=1"  href="javascript:;">                            
+                            <img src="./img/ikony/ikony_pp-zwroc.png" class="ikona d-sm-block" />
+                            <!--<i class="fas fa-2x fa-reply-all d-sm-block"></i> -->
+                            <span>Zwróć</span></a>
+                        </li>
+                        <li class="nav-item text-sm-center">
+                            <a class="nav-link btn-outline-secondary" href="./pocztex-zamow-kuriera.html">
+                            <img src="./img/ikony/ikony_pp-zamow.png" class="ikona d-sm-block" />    
+                            <!--<i class="fas fa-2x fa-shipping-fast d-sm-block"></i> -->
+                            <span>Zamów</span></a>
+                        </li>
+                        <li class="nav-item text-sm-center">
+                            <a class="nav-link btn-outline-secondary widgetOWP" href="#">
+                            <img src="./img/ikony/ikony_pp-znajdz.png" class="ikona d-sm-block" />    
+                            <!--<i class="fas fa-2x fa-map-marker-alt d-sm-block"></i>-->
+                            <span>Znajdź</span></a>
+                        </li>
+                        <li class="nav-item text-sm-center">
+                            <a class="nav-link btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#zewnetrznewww" data-bs-src="https://cennik.poczta-polska.pl/usluga,krajowy_pocztex.html?lite=1" href="javascript:;">                            
+                            <img src="./img/ikony/ikony_pp-cennik.png" class="ikona d-sm-block" />
+                            <!--<i class="fas fa-2x fa-calculator d-sm-block"></i> -->
+                            <span>Cennik</span></a>
+                        </li>
+                        <li class="nav-item text-sm-center">
+                            <a class="nav-link btn-outline-secondary mx-auto" href="#" data-bs-toggle="collapse" data-bs-target="#wyszukaj" aria-controls="wyszukaj" aria-expanded="false" aria-label="Wyszukaj na stronie">
+                            <img src="./img/ikony/ikony_pp-szukaj.png" class="ikona d-sm-block" />
+                            <!--<i class="fas fa-2x fa-search d-sm-block"></i>-->
+                            <span>Szukaj</span></a>
+                        </li>
+                        <li class="nav-item text-sm-center dropdown">
+                            <a class="dropdown-toggles h-100 my-auto nav-link text-decoration-none border-0 text-secondary" href="#" id="menu-more" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-2x fa-ellipsis-v d-sm-block"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-sm-end position-absolutaae" aria-labelledby="menu-more">
+                                <li class="nav-item nav-item-dropped text-sm-left">
+                                    <a class="dropdown-item btn-outline-secondary p-3" href="./pocztex-tracking.html">
+                                    <img src="./img/ikony/ikony_pp-sledzenie.png" class="ikona d-sm-block" />    
+                                    <!--<i class="fas fa-2x fa-crosshairs"></i>-->
+                                    <span>Śledzenie przesyłki</span></a>
+                                </li>
+                                <li class="nav-item nav-item-dropped text-sm-left">
+                                    <a class="dropdown-item btn-outline-secondary p-3" href="https://en-testwebapi2.poczta-polska.pl/" target="_blank">
+                                    <img src="./img/ikony/ikony_pp-enadawca.png" class="ikona d-sm-block" />
+                                    <!--<i class="fas fa-2x fa-barcode"></i>-->
+                                    <span>Elektroniczny nadawca</span></a>
+                                </li>
+                                <li class="nav-item nav-item-dropped text-sm-left">
+                                    <a class="dropdown-item btn-outline-secondary p-3" data-bs-toggle="modal" data-bs-target="#zewnetrznewww" data-bs-src="https://placowki.poczta-polska.pl/?lite=1" href="javascript:;">
+                                    <img src="./img/ikony/ikony_pp-znajdz.png" class="ikona d-sm-block" />
+                                    <!--<i class="fas fa-2x fa-map-marker-alt"></i>-->
+                                    <span>Znajdź placówkę</span></a>
+                                </li>
+                                <li class="nav-item nav-item-dropped text-sm-left">
+                                    <a class="dropdown-item btn-outline-secondary p-3" href="./pocztex-do-pobrania.html">
+                                    <img src="./img/ikony/ikony_pp-pobierz.png" class="ikona d-sm-block" />
+                                    <!--<i class="fas fa-2x fa-download "></i> -->
+                                    <span>Pobierz</span></a>
+                                </li>
+                                <li class="nav-item nav-item-dropped text-sm-left">
+                                    <a class="dropdown-item  btn-outline-secondary p-3" href="./pocztex-faq.html">
+                                    <img src="./img/ikony/ikony_pp-faq.png" class="ikona d-sm-block" />
+                                    <!--<i class="fas fa-2x fa-question-circle"></i> -->
+                                    <span>FAQ</span></a>
+                                </li>
+                                <li class="nav-item nav-item-dropped text-sm-left">
+                                    <a class="dropdown-item  btn-outline-secondary p-3" data-bs-toggle="modal" data-bs-target="#zewnetrznewww" data-bs-src="https://ereklamacje.poczta-polska.pl/#/wniosek_reklamacyjny/customer_type" href="javascript:;">
+                                    <img src="./img/ikony/ikony_pp-reklamacja.png" class="ikona d-sm-block" />
+                                    <!--<i class="fas fa-2x fa-envelope-open-text"></i> -->
+                                    <span>Reklamacje</span></a>
+                                </li>
+                                <li class="nav-item nav-item-dropped text-sm-left">
+                                    <a class="dropdown-item  btn-outline-secondary p-3" href="#">
+                                    <img src="./img/ikony/ikony_pp-mapa.png" class="ikona d-sm-block" />
+                                    <!--<i class="fas fa-2x fa-map-marked-alt"></i>-->
+                                    <span>Mapa Cyfrowa</span></a>
+                                </li>
+                                <li class="nav-item nav-item-dropped text-sm-left">
+                                    <a class="dropdown-item  btn-outline-secondary p-3" href="#">
+                                    <img src="./img/ikony/ikony_pp-mapa-strony.png" class="ikona d-sm-block" />
+                                    <!--<i class="fas fa-2x fa-map-signs"></i> -->
+                                    <span>Mapa strony</span></a>
+                                </li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid bg-white d-grid gap-2 sticky-top shadow" >  
+        <div class="container input-group input-group-lg p-1 ps-3 pe-3 input-group-block collapse" id="wyszukaj" data-bs-toggle="true">
+            <input type="text" class="form-control" placeholder="Wyszukaj na stronie" aria-label="Wpisz słowa do wyszukania">
+            <button class="btn btn-outline-danger" type="button">Szukaj</button>
+            <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#wyszukaj" aria-controls="wyszukaj" aria-expanded="false" aria-label="Toggle navigation"> X </button>
+        </div> 
+    </div>
+    <header class="container-fluid bg-white d-grid gap-2 shadow" style="z-index:10002">
+    <div class="container p-0 bg-white position-relative">
+            <div id="carouselDesktopView" class="carousel slide carousel-fade position-relative d-none d-sm-block" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselDesktopView" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <!-- <button type="button" data-bs-target="#carouselDesktopView" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselDesktopView" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselDesktopView" data-bs-slide-to="3" aria-label="Slide 4"></button> -->
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="./slider/px_zyskaj.png" class="d-block w-100" alt="...">
+                    </div>
+                    <!-- <div class="carousel-item">
+                        <img src="./slider/slider-01.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./slider/slider-02.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./slider/slider-03.jpg" class="d-block w-100" alt="...">
+                    </div> -->
+
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselDesktopView"  data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselDesktopView"  data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+                </button>
+
+            </div>    
+            <div id="carouselMobileView" class="carousel slide carousel-fade position-relative d-sm-none" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselMobileView" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="./slider/px_zyskaj_mobile.png" class="d-block w-100" alt="...">
+                    </div>
+
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselMobileView"  data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselMobileView"  data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+                </button>
+
+            </div>      
+        </div>
+    </header>
+    <main class="container bg-white p-4" >
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10 ps-4 pe-4 mt-5">
+                <div class='row claims p-5 border position-relative mt-5 mb-5 justify-content-center border border-dark border-2'>
+                    <div class="position-absolute top-0 start-50 h1 translate-middle bg-white text-danger w-75 text-center p-1">Dlaczego warto promować Pocztex?</div>
+                    <div class="col-md-4 d-grid align-items-top text-center h5 p-4 ">
+                        <img src="./slider/px_01.jpg" class="mx-auto" />
+                        <h5><strong>Wolność wyboru dostawy:  KURIER, PUNKT, AUTOMAT</strong></h5>
+                        <p class="small text-secondary mt-2">Twój Klient wybiera, gdzie odbierze przesyłkę: blisko, szybko i wygodnie przy załatwianiu codziennych spraw, w domu lub w pracy albo w automacie.
+                            Największa w Polsce sieć punktów odbioru Twoich przesyłek.</p>
+                    </div>
+                    <div class="col-md-4 d-grid align-items-top text-center h5 p-4 ">
+                        <img src="./slider/px_02.jpg" class="mx-auto" />
+                        <h5><strong>Nowy Pocztex <br/>- Nowe Możliwości</strong></h5>
+                        <p class="small text-secondary mt-2">Wysoka skuteczność doręczeń, przesyłkę możesz śledzić online, 
+                            a gdy jest gotowa do odbioru, wyślemy powiadomienie sms lub email. 
+                            Komfort odbioru. Bez pośpiechu przesyłki czekają na odbiór 7 dni 
+                            w punktach odbioru, 3 dni 
+                            w automatach.
+                            </p>
+                    </div>
+                    <div class="col-md-4 d-grid align-items-top text-center h5 p-4 ">
+                        <img src="./slider/px_03.jpg" class="mx-auto" />
+                        <h5><strong>Wygodny i bezpieczny sposób dostawy</strong></h5>
+                        <p class="small text-secondary mt-2">Pocztex to usługa kurierska Poczty Polskiej – jednego z polskich liderów usług paczkowo – kurierskich 
+                            i logistycznych, który średnio obsługuje 5 mln przesyłek każdego dnia i ponad 90% Polaków 
+                            w najmniejszych zakątkach kraju
+                            </p>
+                    </div>
+                </div>
+            
+
+                <div class="col-md-12 ps-3 pe-3">
+                    <div class="text-center p-2">
+                        <blockquote class="blockquote">
+                        <img src="./slider/px_zyskaj_otworz.png" />
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"></div>        
+            <div class="col-md-10 ps-4 pe-4 mt-2">
+                
+                <div class='row claims p-5 border position-relative mt-5 mb-5 justify-content-center border border-dark border-2'>
+                    <div class="position-absolute top-0 start-50 h1 text-danger translate-middle bg-white w-75 text-center p-1">Korzyści programu KIERUNEK POCZTEX</div>
+                    
+                    <div class='row claims p-2 border mb-2 mt-3 justify-content-center h3 bg-white text-danger border border-danger'>
+                        SUPER RABATY
+                    </div>
+                    <div class='row claims p-2 border mb-2'>
+                        <!-- <div class="col-6 d-flex align-items-center d-sm-block d-md-none p-0">rodzaj:</div> -->
+                            <div class='col-md-4 col-6 d-flex align-items-center justify-content-md-start justify-content-end p-2'>rabat standardowy</div>
+                        <!--<div class="col-6 d-flex align-items-center d-sm-block d-md-none p-0">inPost:</div>
+                            <div class='col-md-5 col-8 d-flex align-items-center justify-content-md-center justify-content-end p-2'>2,5%</div>-->
+                        <!-- <div class="col-6 d-flex align-items-center d-sm-block d-md-none p-0">POCZTEX:</div> -->
+                            <div class='col-md-8 col-8 border-start d-grid align-items-center justify-content-md-center justify-content-end text-md-center text-end p-2'><span class="text-danger h4 w-100">3,33% </span> na start</div>                
+                    </div>
+
+                    <div class='row claims p-2 border mb-2'>
+                        <!-- <div class="col-6 d-flex align-items-center d-sm-block d-md-none p-0">rodzaj:</div> -->
+                            <div class='col-md-4 col-6 d-flex align-items-center justify-content-md-start justify-content-end p-2'>rabat dodatkowy</div>
+                        <!--<div class="col-6 d-flex align-items-center d-sm-block d-md-none p-0">inPost:</div>
+                            <div class='col-md-5 col-8 d-flex align-items-center justify-content-md-center justify-content-end p-2'>brak</div>-->
+                        <!-- <div class="col-6 d-flex align-items-center d-sm-block d-md-none p-0">POCZTEX:</div> -->
+                            <div class='col-md-8 col-8 border-start d-grid align-items-center justify-content-md-center justify-content-end text-md-center text-end p-2'><span class="text-danger h4">3,33% </span> za wybór domyślny</div>                
+                    </div>
+
+                    <div class='row claims p-2 border mb-2 mt-3 justify-content-center h3 bg-white text-danger border border-danger'>
+                        WIĘCEJ
+                    </div>
+                    <div class='row claims p-2 border mb-2'>
+                        <!-- <div class="col-6 d-flex align-items-center d-sm-block d-md-none p-0">rodzaj:</div> -->
+                            <div class='col-md-4 col-6 d-flex align-items-center justify-content-md-start justify-content-end p-2'>bonusy</div>
+<!--                        <div class="col-6 d-flex align-items-center d-sm-block d-md-none p-0">inPost:</div>
+                            <div class='col-md-5 col-8 d-flex align-items-center justify-content-md-center justify-content-end p-2'>okazjonalne od partnerów</div>-->
+                        <!-- <div class="col-6 d-flex align-items-center d-sm-block d-md-none p-0">POCZTEX:</div> -->
+                            <div class='col-md-8 col-8 border-start d-grid align-items-center justify-content-md-center justify-content-end text-md-center text-end p-2'>dodatkowy rabat <span class="text-danger h4">5% </span> na zakupy w <a href="https://esklep.poczta-polska.pl" target=""_blank">eSklepie</a></div>                
+                    </div>
+
+
+                    <div class='row claims p-2 border mb-2 justify-content-center h3 bg-white text-danger border border-danger'>
+                        co musisz zrobić
+                    </div>
+                    <div class='row claims p-2 border mb-2'>
+                        <div class="col-6 d-flex align-items-center d-sm-block d-md-none p-0">rodzaj:</div>
+                            <!-- <div class='col-md-4 col-6 d-flex align-items-center justify-content-md-start justify-content-end p-2'>co musisz zrobić</div> -->
+                        <!-- <div class="col-6 d-flex align-items-center d-sm-block d-md-none p-0">inPost:</div>
+                            <div class='col-md-5 col-8 d-flex align-items-top justify-content-md-center justify-content-end text-md-start text-start p-2'>
+                                <ol>
+                                    <li>Stosuj pełną nazwę usługi InPost Paczkomaty 24/7 i umieść Paczkomaty wśród pierwszych <span class="text-danger h4">trzech pozycji</span> na liście opcji dostawy.</li>
+                                    <li>Określ przewidywany czas dostawy: następny dzień roboczy. </li>
+                                    <li>Wyodrębnij na mapie InPost spośród innych punktów odbioru oraz zapewnij możliwość wyszukiwania Paczkomatów według miasta i ulicy/kodu pocztowego i według nazwy Paczkomatu. </li>
+                                    <li>Aktualizuj codziennie listę InPost Paczkomatów 24/7.</li>
+                                </ol>
+                            </div> -->
+                        <!-- <div class="col-6 d-flex align-items-center d-sm-block d-md-none p-0">POCZTEX:</div> -->
+                            <div class='col-md-12 col-8 border-start d-grid align-items-top justify-content-md-center justify-content-end text-md-start text-start p-2'>
+                                <ol>
+                                    <li>Stosuj pełną nazwę usług Pocztex Kurier, Pocztex Punkt, Pocztex Automat i wyróżnij co najmniej <span class="text-danger h4">dwie usługi</span> na pierwszych pozycjach.</li>
+                                    <li>Określ przewidywany czas dostawy: następny dzień roboczy. </li>
+                                    <li>Dokonaj <span class="text-danger h4">darmowej integracji</span> własnego oprogramowania sklepu z aplikacją Poczty Polskiej S.A., aby w pełni zintegrować mapę punktów odbioru, a także WebService śledzenia przesyłek. </li>
+                                </ol>
+                                <span class="d-grid align-items-top justify-content-md-center justify-content-end text-md-center border border-danger text-start p-2"><span class="text-danger h4">DODATKOWY RABAT </span> za ustawienie opcji dostawy Pocztą Polską jako wybór domyślny</span>
+                            </div>                
+                    </div>
+                </div>
+
+                <div class="col-12 ps-3 pe-3 ">
+                    <div class="text-center p-2">
+                        <blockquote class="blockquote">
+                        <img src="./slider/px_bsw.jpg" />
+                        </blockquote>
+                    </div>
+                </div>
+
+                <div class='row claims p-2 border position-relative mt-5 mb-5 pt-4 justify-content-center h5 bg-white text-danger border border-dark border-2'>
+                    <div class="position-absolute top-0 start-50 h2 translate-middle bg-white w-75 text-center p-2">DOKUMENTY</div>
+                    <div class="col-md-8 align-items-center h5 p-4 mb-1">
+                        
+                        <small class="text-dark small">Warunki programu</small> <small class="text-danger small">KIERUNEK POCZTEX</small>
+                    </div>
+                    <div class="col-md-4 d-grid gap-2 align-items-center p-2">
+                        <a data-fancybox="instrukcja" data-fancybox-type="iframe" data-src="https://pks.pl/uploads/regulamin/regulamin-Barbara.pdf" href="javascript:;" class="fancybox d- btn btn-lg btn-outline-dark">ZOBACZ</a>
+                        
+                    </div>
+                    <div class="col-md-8 align-items-center h5 p-4 mb-1">
+                        
+                        <small class="text-dark small">INSTRUKCJA DARMOWEJ INTEGRACJI</small>
+                    </div>
+                    <div class="col-md-4 d-grid gap-2 align-items-center p-2">
+                        <a data-fancybox="instrukcja" data-fancybox-type="iframe" data-src="https://pks.pl/uploads/regulamin/regulamin-Barbara.pdf" href="javascript:;" class="fancybox d- btn btn-lg btn-outline-dark">ZOBACZ</a>
+                        
+                    </div>
+                </div>
+
+
+                <div class="col-12 p-4 text-center">
+                    <i class="fa-solid fa-angles-down text-danger fa-4x"></i>
+                </div>
+
+
+                <div class='row claims p-2 border position-relative mt-5 mb-5 pt-4 justify-content-center border border-dark border-2'>
+                    <div class="position-absolute top-0 start-50 h2 translate-middle bg-white text-danger  w-75 text-center p-2">FORMULARZ ZGŁOSZENIOWY</div>
+                    
+                    <div class="row m-1 p-0 bg-light pt-1 pb-1">
+                        <div class="form-floating col-md-6 p-2">
+                            <input type="text" class="form-control form-control-lg" id="floatingInput2" placeholder="Imię i nazwisko" required>
+                            <label for="floatingInput2">Osoba do kontaktu *</label>
+                        </div>
+                        <div class="form-floating col-md-6 p-2">
+                            <input type="email" class="form-control form-control-lg" id="floatingInput4" placeholder="name@example.com" required>
+                            <label for="floatingInput4">E-mail *</label>
+                        </div>
+                        <div class="form-floating col-md-6 p-2">
+                            <input type="text" class="form-control form-control-lg" id="floatingInput3" placeholder="podaj nr tel.">
+                            <label for="floatingInput3">Telefon</label>
+                        </div>
+                        <div class="form-floating col-md-6 p-2">
+                            <input type="number" class="form-control form-control-lg" id="floatingInput1" placeholder="NIP" required>
+                            <label for="floatingInput1">NIP firmy *</label>
+                        </div>
+                    </div>
+
+
+                    <div class="p-0 m-0" id="sklepy">
+                        <div class="row m-1 p-0 bg-light pt-1 pb-1">
+                                <div class="form-floating col-md-10 p-2">
+                                    <input type="text" class="form-control form-control-lg" id="shop_1" placeholder="wpisz adres www sklepu" required>
+                                    <label for="shop_1">Link do sklepu*</label>
+                                </div>
+                                <div class="form-floating text-end col-md-2 p-2">
+                                    <i class="shop-plus fa-solid fa-3x fa-plus"></i>
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="row m-1 p-0 bg-light pt-1 pb-1">
+                    
+                        <div class="col-md-6 form-check form-switch d-grid justify-content-start align-items-center p-2">
+                            <div class="form-check form-switch d-flex justify-content-start align-items-center m-2">
+                                <input class="form-check-input" type="checkbox" id="agree0" required> 
+                                <label class="form-check-label ms-2" for="agree0"> Akceptuję <a data-fancybox data-type="iframe" class="text-danger" data-src="https://pks.pl/Regulamin%20internetowej%20sprzeda%C5%BCy%20bilet%C3%B3w%20krajowych.pdf" href="javascript:;">warunki programu</a>*</label>
+                            </div>                    
+                        </div>
+                        <div class="col-md-4 form-floating d-flex justify-content-center align-items-center p-2">
+                            <div class="g-recaptcha my-auto mx-auto m-3" data-sitekey="6LfEDWIaAAAAADH-l2C9wMcq_hyt6GDiXlddOOZn"></div>
+                        </div>                
+                        
+                        <div class="col-md-2 d-grid pe-2 ps-2">
+                            <button class="btn btn-secondary" type="button"><i class="fas fa-2x fa-save "></i> <span class="h4 ms-3"> Wyślij</span></button>
+                        </div>      
+    
+                    </div>   
+                    <!-- <a class="btn text-end text-danger justify-content-center" data-fancybox data-type="iframe" data-src="informacja-rodo.html" href="javascript:;">Informacja w zakresie przetwarzania danych osobowych</a>              -->
+
+
+                </div>
+
+
+                </div>
+            </div>
+        </div>
+<!--        <div class="row p-2">
+
+            <div class="col-md text-danger text-md-start text-center h6 display-6 p-2">Wyceń przesyłkę</div>
+
+            <ul class="col-md nav nav-tabs border-bottom-0 justify-content-md-end justify-content-center mb-0 pb-0" id="kalkulator-nav" role="tablist">
+                <li class="nav-item nav-item-dropped ms-2 me-0" role="presentation">
+                    <button class="nav-link active border-bottom-0 h2 p-3" id="nav-wycen-krajowa" data-bs-toggle="tab" data-bs-target="#wycen-krajowa" type="button" role="tab" aria-controls="wycen-krajowa" aria-selected="true">krajowa</button>
+                </li>
+                <li class="nav-item nav-item-dropped ms-2 me-0" role="presentation">
+                    <button class="nav-link h2 p-3 border-bottom-0" id="nav-wycen-zagraniczna" data-bs-toggle="tab" data-bs-target="#wycen-zagraniczna" type="button" role="tab" aria-controls="wycen-zagraniczna" aria-selected="false">zagraniczna</button>
+                </li>
+            </ul>
+            <div class="tab-content p-0" id="kalkulator">
+
+                <div class="tab-pane fade show active" id="wycen-krajowa" role="tabpanel" aria-labelledby="nav-wycen-krajowa">
+                    <div class="row p-0 m-0 ">
+                        <div class="col-md-8 text-center mt-1 p-2">
+                            <div class="row p-0 m-0 gap-md-2">
+                                <div class="form-check col-md col-6 p-0 text-start">
+                                    <input class="form-check-input d-none" type="radio" name="nadaj_wymiar" id="nadaj_wymiar_0" value="S" title="S" checked>
+                                    <label class="form-check-label text-center border border-2 rounded p-2 w-100" for="nadaj_wymiar_0"><strong class="display-5">S</strong><p class="h6 mt-4">10x38x64 <br/>do 20 kg</p></label>
+                                </div>
+                                <div class="form-check col-md col-6 p-0 text-start">
+                                    <input class="form-check-input d-none" type="radio" name="nadaj_wymiar" id="nadaj_wymiar_1" value="M" title="M">
+                                    <label class="form-check-label text-center border border-2 rounded p-2 w-100" for="nadaj_wymiar_1"><strong class="display-5">M</strong><p class="h6 mt-4">20x38x64 <br/>do 20 kg</p></label>
+                                </div>
+                                <div class="form-check col-md col-6 p-0 text-start">
+                                    <input class="form-check-input d-none" type="radio" name="nadaj_wymiar" id="nadaj_wymiar_2" value="L" title="L">
+                                    <label class="form-check-label text-center border border-2 rounded p-2 w-100" for="nadaj_wymiar_2"><strong class="display-5">L</strong><p class="h6 mt-4">40x38x64 <br/>do 20 kg</p></label>
+                                </div>
+                                <div class="form-check col-md col-6 p-0 text-start">
+                                    <input class="form-check-input d-none" type="radio" name="nadaj_wymiar" id="nadaj_wymiar_3" value="XL" title="XL">
+                                    <label class="form-check-label text-center border border-2 rounded p-2 w-100" for="nadaj_wymiar_3"><strong class="display-5">XL</strong><p class="h6 mt-4">60x60x70 <br/>do 20 kg</p></label>
+                                </div>
+                                <div class="form-check col-md col-6 p-0 text-start">
+                                    <input class="form-check-input d-none" type="radio" name="nadaj_wymiar" id="nadaj_wymiar_4" value="2XL" title="2XL">
+                                    <label class="form-check-label text-center border border-2 rounded p-2 w-100" for="nadaj_wymiar_4"><strong class="display-5">2XL</strong><p class="h6 mt-4">W+S+D &lt;= 250 <sup>1</sup><br/>do 30 kg</p></label>
+                                </div>
+                            </div>
+                            <div class="row p-0 m-0 mt-2 gap-md-2">
+                                <div class="form-check col-md p-0 d-flex text-start align-items-center">
+                                    <input class="form-check-input d-none" type="radio" name="nadaj_doreczenie" id="nadaj_doreczenie_1" value="pod adres" title="pod adres" >
+                                    <label class="form-check-label text-center border border-2 rounded p-2 w-100" for="nadaj_doreczenie_1"><strong class="h5">Doręczenie pod adres</strong></label>
+                                </div>
+                                <div class="form-check col-md-4 p-0 d-grid text-start align-items-center">
+                                    <input class="form-check-input d-none" type="radio" name="nadaj_doreczenie" id="nadaj_doreczenie_2" value="owp" title="owp" checked>
+                                    <label class="form-check-label text-center border border-2 rounded p-2 w-100" for="nadaj_doreczenie_2"><strong class="h5">Odbiór w Punkcie</strong></label>
+                                </div>
+                                <div class="form-check col-md p-0 d-grid text-start align-items-center">
+                                    <input class="form-check-input d-none" type="radio" name="nadaj_doreczenie" id="nadaj_doreczenie_3" value="automat" title="automat">
+                                    <label class="form-check-label text-center border border-2 rounded p-2 w-100" for="nadaj_doreczenie_3"><strong class="h5">Automat</strong></label>
+                                </div>
+                            </div>
+                            
+                            <div class="col-12 text-start mt-1 p-2 small text-secondary">
+                                Niniejsza oferta nie stanowi oferty w rozumieniu Kodeksu Cywilnego. Szczegół znajduja się w regulaminie usług.
+                            </div>
+                                        </div>
+                        <div class="col-md-4 pb-4 m-0 d-grid align-items-end">
+                            <div class="col-12 h3 d-flex align-items-center justify-content-center">
+                                od <span class="text-danger display-2 p-2"> 9,00 </span> PLN
+                            </div>
+                            <div class="col-12 d-grid m-0 align-items-top">
+                                <a href="pocztex-nadaj.html" class="btn btn-lg btn-danger align-middle" type="button"><i class="fas fa-2x fa-paper-plane align-bottom"></i> <span class="h4 ms-3"> Nadaj przesyłkę</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="wycen-zagraniczna" role="tabpanel" aria-labelledby="nav-wycen-zagraniczna">
+                    <div class="row p-0 m-0">
+                        <div class="col-md-8 text-center mt-1 p-2 ">
+                            <div class="row p-0 m-0 gap-md-2">                               
+                                <div class="col-12 row">                                    
+                                    <div class="col-md-2 d-flex align-items-center justify-content-md-end">
+                                        kraj:
+                                    </div>
+                                    <div class="col-md-10">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="nadaj_kraje" placeholder="wpisz kraj" list="baza_krajow" value="Czechy (Strefa A)">
+                                            <label for="nadaj_kraje">Kraj adresata</label>
+                                            <datalist id="baza_krajow">
+                                                <option value="Niemcy (Strefa A)"></option>
+                                                <option value="Czechy (Strefa A)"></option>
+                                                <option value="San Escobar (Strefa A)"></option>
+                                                <option value="Inne do uzupełnienia (Strefa X)"></option>    
+                                            </datalist>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 d-flex align-items-center justify-content-md-end">
+                                        masa [kg]:
+                                    </div>
+                                    <div class="col-md-10">
+                                        <div class="sliderWithLabels w-100 d-none d-sm-block" id="masa_zagraniczna_indywidualna"></div>
+                                        <select class="form-select form-select-lg mb-3 d-sm-none" aria-label=".form-select-lg example">
+                                            <option selected value="1">do 1</option>
+                                            <option value="200">do 2</option>
+                                            <option value="500">do 3</option>
+                                            <option value="1000">.....</option>
+                                            <option value="1000+">do 20</option>
+                                          </select>
+                                    </div>
+                                    <div class="col-md-2 d-flex align-items-center p-2 justify-content-md-end">
+                                        opakowanie:
+                                    </div>
+                                    <div class="col-md-10">
+                                        <div class="row p-0 m-0 gap-md-2">
+                                            <div class="form-check col-md col-6 p-0 text-start">
+                                                <input class="form-check-input d-none" type="radio" name="nadaj_opakowanie" id="nadaj_opakowanie_1" value="wlasne" title="własne" checked>
+                                                <label class="form-check-label text-center border border-2 rounded p-2 w-100" for="nadaj_opakowanie_1"><strong class="h4">własne</strong></label>
+                                            </div>
+                                            <div class="form-check col-md col-6 p-0 text-start">
+                                                <input class="form-check-input d-none" type="radio" name="nadaj_opakowanie" id="nadaj_opakowanie_2" value="operatora" title="operatora">
+                                                <label class="form-check-label text-center border border-2 rounded p-2 w-100" for="nadaj_opakowanie_2"><strong class="h4">operatora</strong></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 d-flex align-items-center p-2 justify-content-md-end">
+                                        zawartość:
+                                    </div>
+                                    <div class="col-md-10 mt-2">
+                                        <div class="row p-0 m-0 gap-md-2">
+                                            <div class="form-check col-md p-0 d-flex text-start align-items-center">
+                                                <input class="form-check-input d-none" type="radio" name="nadaj_zawartosc" id="nadaj_zawartosc_1" value="dokumenty" title="dokumenty" checked>
+                                                <label class="form-check-label text-center border border-2 rounded p-2 w-100" for="nadaj_zawartosc_1"><strong class="h4">dokumenty</strong></label>
+                                            </div>
+                                            <div class="form-check col-md-6 p-0 d-grid text-start align-items-center">
+                                                <input class="form-check-input d-none" type="radio" name="nadaj_zawartosc" id="nadaj_zawartosc_2" value="dokumentytowary" title="dokumentytowary">
+                                                <label class="form-check-label text-center border border-2 rounded p-2 w-100" for="nadaj_zawartosc_2"><strong class="h4">dokumenty/towary</strong></label>
+                                            </div>
+                                            <div class="form-check col-md p-0 d-grid text-start align-items-center">
+                                                <input class="form-check-input d-none" type="radio" name="nadaj_zawartosc" id="nadaj_zawartosc_3" value="towary" title="towary">
+                                                <label class="form-check-label text-center border border-2 rounded p-2 w-100" for="nadaj_zawartosc_3"><strong class="h4">towary</strong></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 pb-4 d-grid align-items-end">
+                            <div class="col-12 d-flex align-items-center justify-content-center p-1"><a href="#" class="text-secondary">sprawdź warunki wysyłki</a></div>
+                            <div class="col-12 h3 d-flex align-items-center justify-content-center p-0">
+                                od <span class="text-danger display-3 p-2"> 59,00 </span> PLN
+                            </div>
+                            <div class="col-12 d-grid align-items-end">
+                                <a target="_blank" href="https://e-nadawca.poczta-polska.pl" class="btn btn-lg btn-danger" type="button"><i class="fas fa-2x fa-paper-plane align-bottom"></i> <span class="h4 ms-3"> Nadaj przesyłkę</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-12">
+                <div class="alert alert-primary row" role="alert">
+                    <div class="col-md-10 d-flex align-items-center">
+                        Wysyłasz przesyłki jako firma? Zobacz, co zyskasz, podpisując z nami umowę!
+                    </div>
+                    <a href="./pocztex-biznes.html" class="col-md-2 btn btn-lg btn-outline-dark p-1">sprawdź</a>
+                </div>
+            </div>
+        </div>
+        
+      <div class="row p-2">
+            
+            <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 p-2 ">
+                <figure class="minfo bg-white rounded border border-light position-relavite">
+                    <div class="content position-absolute top-0 start-0 p-3" style="text-align: justify;hyphens: auto;">
+                        <div class="p-3 mb-0 pb-2 text-dark">
+                            <h1 class="text-decoration-underline display-responsive-2 text-danger text-md-start text-center">Pocztex krajowy</h1>
+                            <p class="p-1 small">Pocztex to najszybsza ze wszystkich usług pocztowych, świadczona w systemie „od drzwi do drzwi” w gwarantowanych terminach.</p>
+                            <p class="p-1 small">Przesyłki doręczane są tego samego dnia roboczego lub następnego dnia roboczego po dniu nadania pod warunkiem nadania w miastach wojewódzkich do godziny 17:00</p>
+                        </div> 
+                        <a href="./pocztex-pocztex-nowy.html" class="btn btn-outline-danger position-absolute bottom-0 end-0 mb-4 me-4">więcej o usłudze</a>
+                    </div>
+                </figure>
+                <figure class="minfo bg-white rounded border border-light position-relavite">
+                    <div class="content position-absolute top-0 start-0 p-3" style="text-align: justify;hyphens: auto;">
+                        <div class="p-3 mb-0 pb-2 text-dark">
+                            <h1 class="text-decoration-underline display-responsive-2 text-danger text-md-start text-center">EMS - przesyłki międzynarodowe</h1>
+                            <p class="p-1 small">EMS to najlepsze z możliwych rozwiązań dla wysyłających przesyłki za granicę, którym zależy na czasie i bezpieczeństwie. </p>
+                            <p class="p-1 small">Przesyłki EMS dostarczane są w systemie „od drzwi do drzwi” do ponad 170 krajów.</p>
+                        </div> 
+                        <a href="./pocztex-ems.html" class="btn btn-outline-danger position-absolute bottom-0 end-0 mb-4 me-4">więcej o usłudze</a>
+                    </div>
+                </figure>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 p-2 ">
+                <figure class="minfo bg-white rounded border border-light position-relavite">
+                    <div class="content position-absolute top-0 start-0 p-0 m-0" style="text-align: justify;hyphens: auto;">
+                        <img src="https://odbiorwpunkcie.poczta-polska.pl/wp-content/uploads/2019/05/5ss.jpg" class="p-1 img-fluid figure-img" alt="" />                       
+                        
+                    </div>
+                    <div class="position-absolute bg-danger opacity-3 text-light bottom-0 start-0 m-0 opacity-1 mb-5 p-3 w-100 text-center">
+                        <p class="h3">Jakiś tekst nagłówkowy</p>
+                        <p class="lead">coś krótkiego lead'owego</p>
+                        <a href="./pocztex-ems.html" class="btn btn-lg btn-outline-light position-absolutea bottoma-0 enda-0 ">więcej szczegółów</a>
+                    </div>
+                </figure>
+            </div>
+
+            <div class="col-12 border-bottom"><h6 class="display-6">Wybierając Pocztex, zyskujesz <i class="far text-danger fa-heart" aria-hidden="true"></i></h6></div>
+
+            <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 p-2 ">
+                <figure class="minfo border border-light bg-white rounded">
+                    
+                    <div class="content position-absolute top-0 start-0 p-3" >
+                        <div class="row mb-3 h-50">
+                            <div class="col-6 d-flex align-items-end">
+                                <img src="https://kartelmedia.co.uk/wordpress/wp-content/uploads/2018/09/kurier_poczta_polska_4_-150x150.jpg" class="p-1 img-responsive w-100 h-auto" alt="" />                       
+                            </div>
+                            <div class="col-6 d-flex align-items-start p-1">    
+                                <p class="display-responsive-1"><span class="display-responsive-2">4 mln</span> przesyłek dziennie</p>
+                            </div>
+                        </div>
+                        <div class="position-absolute bg-light opacity-3 text-dark bottom-0 start-0 m-0 opacity-1 p-1 w-100 text-center">
+                            <p class="d-flex display-responsive-1 text-center align-items-center m-2 p-1">Posiadamy największa sieć logistyczna w kraju</p>
+                            <button class="btn m-2 btn-outline-danger ">więcej informacji</button>
+                        </div>
+                    </div>
+                </figure>
+            </div>
+            <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 p-2 ">
+                <figure class="minfo border border-light bg-white rounded">
+                    <div class="content p-3">
+                        <div class="row mb-3 h-50">
+                            <div class="col-6 d-flex align-items-start">
+                                <img src="https://kartelmedia.co.uk/wordpress/wp-content/uploads/2018/02/mapka-ecommerce-150x150.png" class="p-1 img-responsive w-100 h-auto" alt="" />                       
+                            </div>
+                            <div class="col-6 d-flex align-items-start p-1">
+                                <p class="display-responsive-1"><span class="display-responsive-2">12 400</span> punktów odbioru dostępnych od ręki</p>
+                            </div>
+                        </div>
+                        <div class="position-absolute bg-light opacity-3 text-dark bottom-0 start-0 m-0 opacity-1 p-1 w-100 text-center">
+                            <p class="d-flex text-center display-responsive-1 align-items-center m-2 p-1">Największa sieć punktów odbioru, którą docenią Twoi klienci</p>
+                            <button class="btn m-2 btn-outline-danger ">sprawdź szczegóły</button>
+                        </div>
+                    </div>
+                </figure>
+            </div>
+            <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 p-2">
+                <figure class="minfo border border-light bg-white rounded">
+                    <div class="content p-3">
+                        <div class="row mb-3 h-50">
+                            <div class="col-6 d-flex align-items-start">
+                                <img src="https://odbiorwpunkcie.poczta-polska.pl/wp-content/uploads/2019/08/allegro_smart_logo_170x82.png" class="p-1 img-responsive w-100 h-auto" alt="" />                       
+                            </div>
+                            <div class="col-6 d-flex align-items-start p-1">
+                                <p class="display-responsive-1"><span class="display-responsive-2">89 000</span> Klientów biznesowych współpracujących</p>
+                            </div>
+                        </div>
+                        <div class="position-absolute bg-light opacity-3 text-dark bottom-0 start-0 m-0 opacity-1 p-1 w-100 text-center">
+                            <p class="d-flex text-center display-responsive-1 align-items-center m-2 p-1">Jesteśmy partnerem biznesowym, któremu możesz zaufać</p>
+                            <button class="btn m-2 btn-outline-danger ">sprawdź szczegóły</button>
+                        </div>
+                    </div> 
+                </figure>
+            </div>
+            
+
+            <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 p-2">
+                <div class="h4 border-bottom"><a href="./pocztex-archiwum.html" class="text-decoration-none text-danger">Aktualności</a></div>
+                <article class="d-flex">
+                    <div class="col-md-10 p-1 d-flex align-items-center ">Jakaś informacja z kategorii newsy, troszkę dłuższa, ale nie do przesady</div>
+                    <div class="col-md-2 p-1 d-flex align-items-center justify-content-center"><a href="#" class="text-danger text-decoration-none m-1"><span class="d-md-none me-1">czytaj dalej</span> =></a></div>
+                </article>
+                <article class="d-flex">
+                    <div class="col-md-10 p-1 d-flex align-items-center ">Kolejna informacja z kategorii innej, która nakreśli krótko temat sprawy</div>
+                    <div class="col-md-2 p-1 d-flex align-items-center justify-content-center"><a href="#" class="text-danger text-decoration-none m-1"><span class="d-md-none me-1">czytaj dalej</span> =></a></div>
+                </article>
+            </div>
+            <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 p-2">
+                <figure class="figure sinfo clearfix">
+                    <div class="content">
+                        <img src="https://cdn.shoplo.com/7265/banners/1-33-1609853584_191f5f4a317a801f.jpg?528" class="figure-img img-fluid" alt="...">
+                    </div>
+                </figure>
+            </div>
+            <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 p-2">
+                <figure class="figure sinfo">
+                    <div class="content">
+                        <img src="https://cdn.shoplo.com/7265/banners/1-67-1582710169_ee55b6c7cdb5ccb5.png?498" class="figure-img img-fluid" alt="...">
+                    </div>
+                </figure>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-12 text-danger text-center text-md-start">
+                <h2>KUPUJ ONLINE I ODBIERAJ W PUNKCIE</h2>
+                <hr class="text-dark">
+                <div class="text-dark text-center p-2 mb-2">
+                    Kupując w swoich ulubionych sklepach wybieraj dostawę do największej sieci punktów odbioru zakupów
+                    online w Polsce.
+                </div>
+            </div>
+            <div id="carouselCompany" class="carousel slide carousel-dark" data-bs-ride="carousel" style="min-height: 100px;">
+                <div class="carousel-inner">
+                <div class="carousel-item active text-center">
+                    <img class="swiper-slide swiper-slide-active" src="https://odbiorwpunkcie.poczta-polska.pl/wp-content/uploads/2020/06/EGLAMOUR-170x82.png" data-swiper-slide-index="0" style="width: 105px; margin-right: 30px;">
+                    <img class="swiper-slide swiper-slide-next" src="https://odbiorwpunkcie.poczta-polska.pl/wp-content/uploads/2020/06/ELPL-170x82.png" data-swiper-slide-index="1" style="width: 105px; margin-right: 30px;">
+                    <img class="swiper-slide" src="https://odbiorwpunkcie.poczta-polska.pl/wp-content/uploads/2020/06/Logo-YR_170x82.png" data-swiper-slide-index="2" style="width: 105px; margin-right: 30px;">
+                    <img class="swiper-slide" src="https://odbiorwpunkcie.poczta-polska.pl/wp-content/uploads/2020/04/logo.png" data-swiper-slide-index="3" style="width: 105px; margin-right: 30px;">
+                    <img class="swiper-slide" src="https://odbiorwpunkcie.poczta-polska.pl/wp-content/uploads/2019/05/logotyp_DeeZee_500px.png" data-swiper-slide-index="4" style="width: 105px; margin-right: 30px;">
+                    <img class="swiper-slide" src="https://odbiorwpunkcie.poczta-polska.pl/wp-content/uploads/2020/03/Logo-Decathlon.png" data-swiper-slide-index="5" style="width: 105px; margin-right: 30px;">
+                    <img class="swiper-slide" src="https://odbiorwpunkcie.poczta-polska.pl/wp-content/uploads/2019/08/allegro_smart_logo_170x82.png" data-swiper-slide-index="6" style="width: 105px; margin-right: 30px;">               
+                </div>
+                <div class="carousel-item text-center">
+                    <img class="swiper-slide" src="https://odbiorwpunkcie.poczta-polska.pl/wp-content/uploads/2019/07/Venezia.png" data-swiper-slide-index="7" style="width: 105px; margin-right: 30px;">
+                    <img class="swiper-slide" src="https://odbiorwpunkcie.poczta-polska.pl/wp-content/uploads/2019/07/Unisono.png" data-swiper-slide-index="8" style="width: 105px; margin-right: 30px;">
+                    <img class="swiper-slide" src="https://odbiorwpunkcie.poczta-polska.pl/wp-content/uploads/2019/07/sygnet-pomarańczowy-białe-b2-i-czarne-b2b.png" data-swiper-slide-index="9" style="width: 105px; margin-right: 30px;">
+                    <img class="swiper-slide" src="https://odbiorwpunkcie.poczta-polska.pl/wp-content/uploads/2019/07/Renee.png" data-swiper-slide-index="10" style="width: 105px; margin-right: 30px;">
+                    <img class="swiper-slide" src="https://odbiorwpunkcie.poczta-polska.pl/wp-content/uploads/2019/05/Answear_com_no_background_black.png" data-swiper-slide-index="11" style="width: 105px; margin-right: 30px;">
+                    <img class="swiper-slide" src="https://odbiorwpunkcie.poczta-polska.pl/wp-content/uploads/2019/05/Aros_logo_.png" data-swiper-slide-index="12" style="width: 105px; margin-right: 30px;">
+                    <img class="swiper-slide swiper-slide-duplicate-prev" src="https://odbiorwpunkcie.poczta-polska.pl/wp-content/uploads/2019/05/Bonito_logo.png" data-swiper-slide-index="13" style="width: 105px; margin-right: 30px;">
+                </div>
+                <div class="carousel-item text-center">
+                    <img class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active" src="https://odbiorwpunkcie.poczta-polska.pl/wp-content/uploads/2020/06/EGLAMOUR-170x82.png" data-swiper-slide-index="0" style="width: 105px; margin-right: 30px;">
+                    <img class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next" src="https://odbiorwpunkcie.poczta-polska.pl/wp-content/uploads/2020/06/ELPL-170x82.png" data-swiper-slide-index="1" style="width: 105px; margin-right: 30px;">
+                    <img class="swiper-slide swiper-slide-duplicate" src="https://odbiorwpunkcie.poczta-polska.pl/wp-content/uploads/2020/06/Logo-YR_170x82.png" data-swiper-slide-index="2" style="width: 105px; margin-right: 30px;">
+                    <img class="swiper-slide swiper-slide-duplicate" src="https://odbiorwpunkcie.poczta-polska.pl/wp-content/uploads/2020/04/logo.png" data-swiper-slide-index="3" style="width: 105px; margin-right: 30px;">
+                    <img class="swiper-slide swiper-slide-duplicate" src="https://odbiorwpunkcie.poczta-polska.pl/wp-content/uploads/2019/05/logotyp_DeeZee_500px.png" data-swiper-slide-index="4" style="width: 105px; margin-right: 30px;">
+                    <img class="swiper-slide swiper-slide-duplicate" src="https://odbiorwpunkcie.poczta-polska.pl/wp-content/uploads/2020/03/Logo-Decathlon.png" data-swiper-slide-index="5" style="width: 105px; margin-right: 30px;">
+                    <img class="swiper-slide swiper-slide-duplicate" src="https://odbiorwpunkcie.poczta-polska.pl/wp-content/uploads/2019/08/allegro_smart_logo_170x82.png" data-swiper-slide-index="6" style="width: 105px; margin-right: 30px;">
+                    <img class="swiper-slide swiper-slide-duplicate" src="https://odbiorwpunkcie.poczta-polska.pl/wp-content/uploads/2019/07/Venezia.png" data-swiper-slide-index="7" style="width: 105px; margin-right: 30px;">
+                </div>
+
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselCompany"  data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselCompany"  data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+                <div class="carousel-indicators position-relative">
+                    <button type="button" data-bs-target="#carouselCompany" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselCompany" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselCompany" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+
+            </div>            
+            
+        </div>
+    -->
+    </main>
+    <aside class="container-fluid p-2 bg-footer-light">
+        <div class="container text-light">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="h3 mb-3 mt-2">Infolinia Pocztex</div>
+                    <div class="h3 text-start p-1">
+                        <a class="text-decoration-none text-warning" href="tel:804104104">804 104 104</a><br/>
+                        <small><a class="text-decoration-none text-warning" href="tel:+48438420842">(+48)</small> 43 842 0 842</a>
+                    </div>
+                    <p class="small mt-2 text-start text-light">Opłata za połączenie zgodnie z taryfą operatora</p>
+                </div>
+                <div class="col-md-8">
+                    <div class="h3 mb-3 mt-2 ms-3">Na skróty</div>
+                    <nav class="nav flex-columna small">
+                        <a class="nav-link text-light btn-outline-secondary h5" href="#"><i class="fas w-100 fa-building"></i> O nas</a>
+                        <a class="nav-link text-light btn-outline-secondary h5" href="./pocztex-do-pobrania.html"><i class="fas w-100 fa-file-download"></i> Pobierz</a>
+                        <a class="nav-link text-light btn-outline-secondary h5" href="./pocztex-wspolpraca.html"><i class="fas fa-handshake"></i> Współpraca </a>
+                        <a class="nav-link text-light btn-outline-secondary h5" href="./pocztex-faq.html"><i class="fas fa-question-circle"></i> Pomoc | FAQ</a>
+                        <a class="nav-link text-light btn-outline-secondary h5" data-bs-toggle="modal" data-bs-target="#zewnetrznewww" data-bs-src="https://ereklamacje.poczta-polska.pl/#/wniosek_reklamacyjny/customer_type" href="javascript:;"><i class="fas fa-envelope-open-text"></i> Reklamacje </a>
+                        <a class="nav-link text-light btn-outline-secondary h5" href="./pocztex-kontakt.html"><i class="fas fa-phone"></i> Kontakt </a>
+                        
+                      </nav>
+                </div><!--
+                <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 ">
+                    <div class="h3 mb-3 mt-2">Newsletter</div>
+                    <p class="small text-warning">Chcesz być na bieżąco z nowościami i promocjami?</p>
+                    <div class="input-group p-2">
+                        <input type="text" class="form-control" placeholder="Twój adres email" aria-label="Twój adres email" aria-describedby="button-addon2">
+                        <button class="btn btn-dark" type="button" id="button-addon2">Zapisz się</button>
+                      </div>
+                    <p class="small mt-2 text-end text-dark">Klauzula w zakresie przetwarzania danych osobowych</p>
+                </div>-->
+            </div>
+        </div>
+    </aside>
+    <footer class="container-fluid bg-dark">
+        <div class="container row mx-auto text-muted">
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 p-3 small"><img src="https://kartelmedia.co.uk/wordpress/wp-content/themes/eCommerce-osFlake/img/pp_icon.png" class="float-start me-3"> Poczta Polska Spółka Akcyjna, ul. Rodziny Hiszpańskich 8, 00-940 Warszawa NIP: 525-000-73-13, KRS: 0000334972 Sąd Rejestrowy: Sąd Rejonowy dla m.st. Warszawy kapitał zakładowy: 774.140.000, w całości wpłacony</div>
+            <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 p-0 m-0 small d-grid align-items-end justify-content-end">
+                <div class="d-flex justify-content-end gap-0 m-0 mt-1">
+                    <i class="fab btn btn-outline-warning border-0  fa-facebook"></i> 
+                    <i class="fab btn btn-outline-warning border-0  fa-linkedin"></i> 
+                    <i class="fab btn btn-outline-warning border-0  fa-twitter-square"></i>
+                    <i class="fas btn btn-outline-warning border-0  fa-info-circle"></i>
+                </div>
+                <div class="d-flex justify-content-end p-2 m-0 small">
+                    Poczta Polska S.A. © 2021. Wszelkie prawa zastrzeżone.
+                </div>
+            </div>
+        </div>
+    </footer>
+<!--    <div id="message-center"><i class="fas fa-4x fa-comments text-danger"></i></div>-->
+
+    <div id="import-modal"></div>
+
+    <div class="modal fade" id="zewnetrznewww" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-bs-labelledby="logowanieLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+          <div class="modal-content">
+            <div class="modal-header d-flex justify-content-end">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zamknij</button>
+            </div>
+            <div class="modal-body">
+                <iframe src="" ></iframe>
+            </div>
+            <div class="modal-footer">
+                <style>.modal-body nav{display: none !important;}</style>
+            </div>
+          </div>
+        </div>
+    </div>
+    
+<script>
+    jQuery(document).ready(function(){
+        
+        jQuery(document).on("click",".shop-minus",function(a,b){
+            console.log( jQuery("#shop"+this.id).parent("div").parent(".row"));
+            jQuery("#"+this.id).parent("div").parent(".row").css("background-color","red!important");
+            jQuery("#"+this.id).parent("div").parent(".row").remove();
+        });
+
+        jQuery(".shop-plus").on("click",function(a,b){
+            i = (jQuery(document).find("div#sklepy").children("div").length) + 1;
+            jQuery("#sklepy").append('<div class="row m-1 p-0 bg-light pt-1 pb-1"><div class="form-floating col-md-10 p-2">'+
+                                '<input type="text" class="form-control form-control-lg" id="shop_'+i+'" placeholder="wpisz adres www sklepu" required>'+
+                                '<label for="shop_'+i+'">Link do sklepu*</label>'+
+                            '</div>'+
+                            '<div class="form-floating text-end col-md-2 p-2">'+
+                                '<i id="_'+i+'" class="shop-minus fa-solid fa-3x fa-minus"></i>'+
+                            '</div></div>');
+        });
+    });
+</script>
+</body>
+</html>

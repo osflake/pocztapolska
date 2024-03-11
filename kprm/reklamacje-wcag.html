@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Propozycja wyglądu serwisu internetowego sDoręczenia by Arkadiusz Śnieżek</title>
+    <meta name="description"  content="eDoręczenia by Arkadiusz Śnieżek" />
+    <script src="https://mapa.ecommerce.poczta-polska.pl/widget/scripts/ppwidget.js?ver=1.0"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" data-auto-replace-svg="nest"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <link href="css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
+    <link href="themes/explorer-fas/theme.css" media="all" rel="stylesheet" type="text/css"/>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    
+    <script src="js/plugins/piexif.js" type="text/javascript"></script>
+    <script src="js/plugins/sortable.js" type="text/javascript"></script>
+    <script src="js/fileinput.js" type="text/javascript"></script>
+    <script src="js/locales/pl.js" type="text/javascript"></script>
+    <script src="themes/fas/theme.js" type="text/javascript"></script>
+    <script src="themes/explorer-fas/theme.js" type="text/javascript"></script>
+    
+    <link href="./flag.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" integrity="sha512-nNlU0WK2QfKsuEmdcTwkeh+lhGs6uyOxuUs+n+0oXSYDok5qy0EI0lt01ZynHq6+p/tbgpZ7P+yUb+r71wqdXg==" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+    <link href="./kprm.css" rel="stylesheet"/>
+    <link href="../pocztex/pocztex-wcag.css" rel="stylesheet"/>
+    <script src="./kprm.js"></script>
+<body class="bg-white p-0">
+    <header>
+    <nav class="container-fluid navbar navbar-dark bg-light my-auto p-0">
+        <div class="container my-auto align-item-center gap-2">
+            <ul class="nav p-0 justify-content-start p-0 ms-md-2">
+                <li class="nav-item p-1 m-0">
+                    Serwis Poczty Polskiej
+                </li>
+            </ul>
+            <ul class="nav justify-content-centesr align-item-center">
+                <li class="nav-item p-1">
+                    <a href="#" class="text-decoration-none btn-outline-secondary p-1 m-1"><i class="fas fa-eye"></i></a>                
+                </li>
+                <li class="nav-item p-1 dropdown">
+                    <a class="dropdown-toggle text-decoration-none text-dark" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="poland flag "></i> PL</a>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end z-index-master position-absolute" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item text-dark p-3" href="#"><i class="poland flag"></i> PL</a></li>
+                    <li><a class="dropdown-item text-dark p-3" href="#"><i class="united kingdom flag"></i> GB</a></li>
+                    <li><a class="dropdown-item text-dark p-3" href="#"><i class="ukraine flag"></i> UA</a></li>
+                    </ul>
+                </li>
+            </ul>       
+            
+        </div>
+    </nav>
+    </header>
+    <nav id="main-menu" class="container-fluid navbar navbar-light navbar-expand-lg bg-white border-bottom sticky-top my-auto shadow p-0">
+        <div class="container my-auto p-2">
+             <a class="navbar-brand d-flex justify-content-center p-0 ms-md-3"><img src="https://www.poczta-polska.pl/hermes/uploads/2019/09/Logo_poziom_200x43.png" style="max-height:60px;" class="w-100"/> <span class="d-flex align-items-center p-2">e-Doręczenia</span></a>
+                <button class="navbar-toggler mx-auto w-100 border-0" type="button" data-bs-toggle="collapse" data-bs-target="#podmenu" aria-controls="podmenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            
+                    <div class="d-grid gap-2 justify-content-end">
+                        <div class="navbar-collapse collapse" id="podmenu">
+                            <ul class="nav text-uppercase justify-content-md-end d-grid gap-sm-2 d-md-flex d-sm-flex" >
+
+                                <li class="nav-item text-sm-center">
+                                    <a class="nav-link btn-outline-danger d-flex flex-row" href="#" title="Wróć do skrzynki e-Doręczeń">
+                                    <i class="fas fa-2x fa-angle-double-left"></i> 
+                                    <span class="d-flex align-items-center ms-2">wróć do skrzynki e-doręczeń</span></a>
+                                </li>
+                                
+        
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        </div>
+    </nav>
+
+    <main class="container bg-white" >
+      <div class="row p-2">
+            <div class="col-12 border-bottom mb-2 mt-2 ">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="./index.html" class="text-muted">e-Doręczenia</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Reklamacje</li>
+                    </ol>
+                </nav>
+            </div>
+
+            <div class="col-md-12 p-md-4 pt-3 pb-3">
+                <ul class="col-md nav nav-tabs justify-content-md-end justify-content-center mb-0 pb-0" id="reklamacja-nav" role="tablist">
+                    <li class="nav-item nav-item-dropped ms-2 me-0" role="presentation">
+                        <button class="nav-link active border-bottom-0 h5 p-2" id="nav-historia-reklamacji" data-bs-toggle="tab" data-bs-target="#historia-reklamacji" type="button" role="tab" aria-controls="historia-reklamacji" aria-selected="true">historia zgłoszeń</button>
+                    </li>
+                    <li class="nav-item nav-item-dropped ms-2 me-0" role="presentation">
+                        <button class="nav-link h5 p-2 border-bottom-0" id="nav-zloz-reklamacje" data-bs-toggle="tab" data-bs-target="#zloz-reklamacje" type="button" role="tab" aria-controls="zloz-reklamacje" aria-selected="false">złóż wniosek</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-12 ps-4 pe-4">
+                <div class="tab-content">
+                    <div class="tab-pane fade active show" id="historia-reklamacji" role="tabpanel" aria-labelledby="nav-historia-reklamacji">
+                        <div class="row g-2 p-0 mb-4">
+                            <div class="form-floating col-md-6">
+                                <input type="text" class="form-control form-control-lg" id="floatingInput001" placeholder="wyszukiwanie" >
+                                <label for="floatingInput001">Wyszukaj po numerze przesyłki</label>
+                            </div>
+                            <div class="form-floating col-md">
+                                <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
+                                    <option selected>Wybierz status</option>
+                                    <option value="1">NOWA</option>
+                                    <option value="2">ROZPATRYWANA</option>
+                                    <option value="3">ROZPATRZONA</option>
+                                    <option value="4">ZWRÓCONA DO UZUPEŁNIENIA</option>
+                                    <option value="5">ODRZUCONA</option>
+                                </select>
+                                <label for="floatingSelectGrid">Status reklamacji</label>
+                            </div>
+                        </div>
+                        <div class="row g-2 p-0 mb-4">
+                            <div class="form-floating col-md">
+                                <input type="date" class="form-control" id="data-od" placeholder="wpisz datę" value="2021-04-20">
+                                <label for="data-od">Data od *</label>
+                            </div>
+                            <div class="form-floating col-md">
+                                <input type="date" class="form-control" id="data-do" placeholder="wpisz datę" value="2021-06-20">
+                                <label for="data-do">Data do *</label>
+                            </div>
+
+                            <div class="input-group col-md">
+                                <select class="form-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+                                    <option selected>Sortuj według</option>
+                                    <option value="1">Data zgłoszenia</option>
+                                    <option value="2">Data aktualizacji statusu</option>
+                                </select>                                
+                                <button class="btn btn-outline-dark" type="button"><i class="fas fa-1x fa-sort-amount-down-alt"></i></button>
+                                <button class="btn btn-outline-success" type="button"><i class="fas fa-1x fa-sort-amount-up-alt"></i></button>
+                              </div>
+                        </div>
+                        <div class="d-md-block d-lg-none h4 p-0 m-0 text-danger">
+                            Lista reklamacji:
+                        </div>
+                        <div class="d-none d-md-block mb-2">
+                            <div class='row p-2 bg-light border fw-bolder mt-2'>
+                                <div class='col-md-2 d-flex align-items-center justify-content-start  p-2'>Numer reklamacji</div>
+                                <div class='col-md-1 col-6 d-flex align-items-center justify-content-center text-center small p-2'>Data złożenia</div>
+                                <div class='col-md-1 col-6 d-flex align-items-center justify-content-center text-center small p-2'>Data aktualnego statusu</div>
+                                <div class='col-md-2 d-flex align-items-center justify-content-center p-2'>Aktualny status</div>
+                                <div class='col-md-3 d-flex align-items-center justify-content-center p-0'>Numer przesyłki </div>
+                                <div class='col-md-2 d-flex align-items-center justify-content-start  p-0'>Nazwa usługi</div>
+                            </div>
+                        </div>
+                        <div class='row claim p-2 border mb-2'>
+                            <div class="col-6 d-flex align-items-center d-sm-block d-md-none p-0">Numer reklamacji:</div>
+                                <div class='col-md-2 col-6 d-flex align-items-center justify-content-md-start justify-content-end p-0'>BW812369812/2021</div>
+                            <div class="col-6 d-flex align-items-center d-sm-block d-md-none p-0">Data złożenia:</div>
+                                <div class='col-md-1 col-6 d-flex align-items-center justify-content-md-center justify-content-end small p-0'>2021-03-30</div>
+                            <div class="col-8 d-flex align-items-center d-sm-block d-md-none p-0">Data aktualnego statusu:</div>
+                                <div class='col-md-1 col-4 d-flex align-items-center justify-content-md-center justify-content-end small p-0'>2021-05-04</div>
+                            <div class="col-6 d-flex align-items-center d-sm-block d-md-none p-0">Aktualny status:</div>
+                                <div class='col-md-2 col-6 d-flex align-items-center justify-content-md-center justify-content-end p-0'>ROZPATRYWANA</div>
+                            <div class="col-5 d-flex align-items-center d-sm-block d-md-none p-0">Numer przesyłki:</div>
+                                <div class='col-md-3 col-7 d-flex align-items-center justify-content-md-center justify-content-end p-0'>00359007738620128317</div>
+                            <div class="col-5 d-flex align-items-center d-sm-block d-md-none p-0">Nazwa usługi:</div>
+                                <div class='col-md-2 col-7 d-flex align-items-center justify-content-md-start justify-content-end p-0'>Pocztex Kurier 48</div>
+                            <div class="col-md-1 d-flex align-items-center justify-content-center p-2"><a class="btn btn-outline-danger flex-fill" href="#">pokaż</a></div>
+                        </div>
+
+                        <div class='row claim p-2 border mb-2'>
+                            <div class="col-6 d-flex align-items-center d-sm-block d-md-none p-0">Numer reklamacji:</div>
+                                <div class='col-md-2 col-6 d-flex align-items-center justify-content-md-start justify-content-end p-0'>2314761234/2021</div>
+                            <div class="col-6 d-flex align-items-center d-sm-block d-md-none p-0">Data złożenia:</div>
+                                <div class='col-md-1 col-6 d-flex align-items-center justify-content-md-center justify-content-end small p-0'>2021-03-10</div>
+                            <div class="col-8 d-flex align-items-center d-sm-block d-md-none p-0">Data aktualnego statusu:</div>
+                                <div class='col-md-1 col-4 d-flex align-items-center justify-content-md-center justify-content-end small p-0'>2021-04-20</div>
+                            <div class="col-6 d-flex align-items-center d-sm-block d-md-none p-0">Aktualny status:</div>
+                                <div class='col-md-2 col-6 d-flex align-items-center justify-content-md-center justify-content-end p-0'>ROZPATRYWANA</div>
+                            <div class="col-5 d-flex align-items-center d-sm-block d-md-none p-0">Numer przesyłki:</div>
+                                <div class='col-md-3 col-7 d-flex align-items-center justify-content-md-center justify-content-end p-0'>RR123456789PL</div>
+                            <div class="col-5 d-flex align-items-center d-sm-block d-md-none p-0">Nazwa usługi:</div>
+                                <div class='col-md-2 col-7 d-flex align-items-center justify-content-md-start justify-content-end p-0'>List polecony</div>
+                            <div class="col-md-1 d-flex align-items-center justify-content-center p-2"><a class="btn btn-outline-danger flex-fill" href="#">pokaż</a></div>
+                        </div>
+
+                        <div class='row claim p-2 border mb-2'>
+                            <div class="col-6 d-flex align-items-center d-sm-block d-md-none p-0">Numer reklamacji:</div>
+                                <div class='col-md-2 col-6 d-flex align-items-center justify-content-md-start justify-content-end p-0'>291279369812/2021</div>
+                            <div class="col-6 d-flex align-items-center d-sm-block d-md-none p-0">Data złożenia:</div>
+                                <div class='col-md-1 col-6 d-flex align-items-center justify-content-md-center justify-content-end small p-0'>2021-01-10</div>
+                            <div class="col-8 d-flex align-items-center d-sm-block d-md-none p-0">Data aktualnego statusu:</div>
+                                <div class='col-md-1 col-4 d-flex align-items-center justify-content-md-center justify-content-end small p-0'>2021-03-09</div>
+                            <div class="col-6 d-flex align-items-center d-sm-block d-md-none p-0">Aktualny status:</div>
+                                <div class='col-md-2 col-6 d-flex align-items-center justify-content-md-center justify-content-end p-0'>ODRZUCONA</div>
+                            <div class="col-5 d-flex align-items-center d-sm-block d-md-none p-0">Numer przesyłki:</div>
+                                <div class='col-md-3 col-7 d-flex align-items-center justify-content-md-center justify-content-end p-0'>CP123456789PL</div>
+                            <div class="col-5 d-flex align-items-center d-sm-block d-md-none p-0">Nazwa usługi:</div>
+                                <div class='col-md-2 col-7 d-flex align-items-center justify-content-md-start justify-content-end p-0'>List polecony priorytet</div>
+                            <div class="col-md-1 d-flex align-items-center justify-content-center p-2"><a class="btn btn-outline-danger flex-fill" href="#">pokaż</a></div>
+                        </div>
+
+                        <div class='row claim p-2 border mb-2'>
+                            <div class="col-6 d-flex align-items-center d-sm-block d-md-none p-0">Numer reklamacji:</div>
+                                <div class='col-md-2 col-6 d-flex align-items-center justify-content-md-start justify-content-end p-0'>123816230/2020</div>
+                            <div class="col-6 d-flex align-items-center d-sm-block d-md-none p-0">Data złożenia:</div>
+                                <div class='col-md-1 col-6 d-flex align-items-center justify-content-md-center justify-content-end small p-0'>2020-12-02</div>
+                            <div class="col-8 d-flex align-items-center d-sm-block d-md-none p-0">Data aktualnego statusu:</div>
+                                <div class='col-md-1 col-4 d-flex align-items-center justify-content-md-center justify-content-end small p-0'>2021-01-12</div>
+                            <div class="col-6 d-flex align-items-center d-sm-block d-md-none p-0">Aktualny status:</div>
+                                <div class='col-md-2 col-6 d-flex align-items-center justify-content-md-center justify-content-end p-0'>ROZPATRZONA</div>
+                            <div class="col-5 d-flex align-items-center d-sm-block d-md-none p-0">Numer przesyłki:</div>
+                                <div class='col-md-3 col-7 d-flex align-items-center justify-content-md-center justify-content-end p-0'>VV123456789PL</div>
+                            <div class="col-5 d-flex align-items-center d-sm-block d-md-none p-0">Nazwa usługi:</div>
+                                <div class='col-md-2 col-7 d-flex align-items-center justify-content-md-start justify-content-end p-0'>EMS - przesyłka zagraniczna</div>
+                            <div class="col-md-1 d-flex align-items-center justify-content-center p-2"><a class="btn btn-outline-danger flex-fill" href="#">pokaż</a></div>
+                        </div>
+
+
+                        <nav aria-label="Nawigacja" class="p-2 col-12">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item">
+                                    <a class="page-link text-danger" href="#" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                <li class="page-item active"><a class="page-link text-danger" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link text-danger" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link text-danger" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link text-danger" href="#" aria-label="Next">
+                                      <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                          </nav>
+                          <div class='row p-2 bg-light mb-2'>
+                            <div class="col-md d-flex align-items-center justify-content-center p-2">Eksportuj zestawienie do formatu:</div>
+                            <div class="col-md-1 d-flex align-items-center justify-content-center p-2"><button class="btn btn-outline-primary flex-fill" href="#">ODS</a></button></div>
+                            <div class="col-md-1 d-flex align-items-center justify-content-center p-2"><button class="btn btn-outline-dark flex-fill" href="#">XLS</a></button></div>
+                            <div class="col-md-1 d-flex align-items-center justify-content-center p-2"><button class="btn btn-outline-dark flex-fill" href="#">XLSX</a></button></div>
+                            <div class="col-md-1 d-flex align-items-center justify-content-center p-2"><button class="btn btn-outline-success flex-fill" href="#">CSV</a></button></div>
+                            <div class="col-md-1 d-flex align-items-center justify-content-center p-2"><button class="btn btn-outline-danger flex-fill" href="#">PDF</a></button></div>
+                          </div>
+                    </div>
+                    <div class="tab-pane fade" id="zloz-reklamacje" role="tabpanel" aria-labelledby="nav-zloz-reklamacje">
+                        <div class="col-md-12 p-3">
+                            <ul class="col-md nav nav-tabs justify-content-md-start justify-content-center mb-0 pb-0" id="reklamacja-skladanie" role="tablist">
+                                <li class="nav-item nav-item-dropped ms-2 me-0" role="presentation">
+                                    <button class="nav-link active h5 border-bottom-0 p-3" id="nav-zloz-reklamacje-step-1" data-bs-toggle="tab" data-bs-target="#zloz-reklamacje-step-1" type="button" role="tab" aria-controls="zloz-reklamacje-step-1" aria-selected="true">1. Usługa</button>
+                                </li>
+                                <li class="nav-item nav-item-dropped ms-2 me-0" role="presentation">
+                                    <button class="nav-link h5 p-3 border-bottom-0 d-none d-sm-block" id="nav-zloz-reklamacje-step-2" data-bs-toggle="tab" data-bs-target="#zloz-reklamacje-step-2" type="button" role="tab" aria-controls="zloz-reklamacje-step-2" aria-selected="false" disabled>2. Dane reklamacji</button>
+                                </li>
+                                <li class="nav-item nav-item-dropped ms-2 me-0" role="presentation">
+                                    <button class="nav-link h5 p-3 border-bottom-0 d-none d-sm-block" id="nav-zloz-reklamacje-step-3" data-bs-toggle="tab" data-bs-target="#zloz-reklamacje-step-3" type="button" role="tab" aria-controls="zloz-reklamacje-step-3" aria-selected="false" disabled>3. Dane adresowe</button>
+                                </li>
+                                <li class="nav-item nav-item-dropped ms-2 me-0" role="presentation">
+                                    <button class="nav-link h5 p-3 border-bottom-0 d-none d-sm-block" id="nav-zloz-reklamacje-step-4" data-bs-toggle="tab" data-bs-target="#zloz-reklamacje-step-4" type="button" role="tab" aria-controls="zloz-reklamacje-step-4" aria-selected="false" disabled>4. Powód</button>
+                                </li>
+                                <li class="nav-item nav-item-dropped ms-2 me-0" role="presentation">
+                                    <button class="nav-link h5 p-3 border-bottom-0 d-none d-sm-block" id="nav-zloz-reklamacje-step-5" data-bs-toggle="tab" data-bs-target="#zloz-reklamacje-step-5" type="button" role="tab" aria-controls="zloz-reklamacje-step-5" aria-selected="false" disabled>5. Kontakt</button>
+                                </li>
+                                <li class="nav-item nav-item-dropped ms-2 me-0" role="presentation">
+                                    <button class="nav-link h5 p-3 border-bottom-0 d-none d-sm-block" id="nav-zloz-reklamacje-step-6" data-bs-toggle="tab" data-bs-target="#zloz-reklamacje-step-6" type="button" role="tab" aria-controls="zloz-reklamacje-step-6" aria-selected="false" disabled>6. Podsumowanie</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-pane fade p-md-5 active show" id="zloz-reklamacje-step-1" role="tabpanel" aria-labelledby="zloz-reklamacje-step-1">
+                                <div class="row g-2 mb-4 puh purde">
+                                    <div class="display-6 col-12">W celu rozpoczęcia procesu, wprowadź dane:</div>
+                                    <div class="form-floating col-md-9">
+                                        <input type="text" class="form-control form-control-lg" id="UUID" placeholder="wyszukiwanie" value="PPSA-H-123e4567-e89b-12d3-a456-426614174000">
+                                        <label for="UUID">Podaj numer przesyłki</label>
+                                    </div>
+                                    <div class="col-md-3 d-grid p-0">
+                                        <button id="wyszukaj" class="btn btn-outline-danger d-flex align-items-center justify-content-center">wyszukaj</button>
+                                    </div>
+                                    <div class="col-12" id="wyszukiwanie_wynik">
+
+                                    </div>
+                                    <div class="navig col-12 d-flex justify-content-end">
+                                        <button class="next-step btn btn-outline-success p-3" id="step-2" type="button" aria-controls="step-2" disabled>DALEJ</button>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="tab-pane reklamacja fade p-4 " id="zloz-reklamacje-step-2" role="tabpanel" aria-labelledby="zloz-reklamacje-step-2">
+                                <div class="d-grid h3 gap-2 border p-2 bg-danger text-white mb-2">Dane reklamacji</div>
+                                <div class="row g-2 puh purde">
+                                    <div class="form-floating col-12 mb-2">
+                                        <input type="text" class="form-control" id="nazwa-uslugi" placeholder="wpisz " value="Pocztex Kurier 48" readonly>
+                                        <label for="nazwa-uslugi">Nazwa usługi *</label>
+                                    </div>
+                                    <div class="form-floating col-md mb-3">
+                                        <input type="text" class="form-control" id="parcel" placeholder="wpisz numer usługi" value="PPSA-H-123e4567-e89b-12d3-a456-426614174000" readonly>
+                                        <label for="parcel">Numer przesyłki *</label>
+                                    </div>
+                                </div>
+                                <div class="row g-2 puh purde">
+                                    <div class="form-floating col-md mb-3">
+                                        <input type="date" class="form-control" id="data-nadania" placeholder="wpisz datę" value="2021-05-20" readonly>
+                                        <label for="data-nadania">Data nadania *</label>
+                                    </div>
+                                </div>
+                                <div class="row g-2 puh">
+                                    <div class="form-floating col-md mb-3">
+                                        <input type="text" class="form-control" id="miejsce-nadania" placeholder="wpisz adres miejsca nadania" value="FUP Kraków 49 (ul. Kazimierza Kordylewskiego 7, 31-520 Kraków)" readonly>
+                                        <label for="miejsce-nadania">Miejsce nadania *</label>
+                                    </div>
+                                </div>
+                                <div class="d-grid gap-2 border p-2 bg-danger text-white mb-2 h3 puh">Dane dodatkowe</div>
+                                <div class="row g-2 puh">                                    
+                                    <div class="form-floating col-md mb-3">
+                                        <select class="form-select" id="format" aria-label="Floating label select example">
+                                            <option selected>-- Wybierz format --</option>
+                                            <option value="XS">XS</option>
+                                            <option value="S">S</option>
+                                            <option value="M">M</option>
+                                            <option value="L">L</option>
+                                        </select>
+                                        <label for="format">Format</label>
+                                    </div>
+                                    <div class="form-floating col-md mb-3">
+                                        <select class="form-select" id="kategoria" aria-label="Floating label select example">
+                                            <option selected>-- Wybierz kategorię --</option>
+                                            <option value="Ekomonia">Ekonomia</option>
+                                            <option value="Priorytet">Priorytet</option>
+                                        </select>
+                                        <label for="kategoria">Kategoria</label>
+                                    </div>
+                                </div>
+                                <div class="row g-2 puh">
+                                    <div class="form-floating col-md mb-3">
+                                        <select class="form-select" id="druk" aria-label="Floating label select example">
+                                            <option selected>-- Wybierz typ --</option>
+                                            <option value="Monochromatycznmy">Monochromatyczny</option>
+                                            <option value="Kolorowy">Kolorowy</option>
+                                        </select>
+                                        <label for="druk">Typ druku</label>
+                                    </div>
+                                    <div class="form-floating col-md mb-3">
+                                        <select class="form-select" id="zadruk" aria-label="Floating label select example">
+                                            <option selected>-- Wybierz typ --</option>
+                                            <option value="Simplex">Simplex</option>
+                                            <option value="Duplex">Duplex</option>
+                                        </select>
+                                        <label for="zadruk">Typ zadruku</label>
+                                    </div>
+                                    <div class="form-floating col-md mb-3">
+                                        <select class="form-select" id="rodzaj-zwrotu" aria-label="Floating label select example">
+                                            <option selected>-- Wybierz rodzaj --</option>
+                                            <option value="nadawcy">Do nadawcy</option>
+                                            <option value="zniszczenie">Do zniszczenia</option>
+                                        </select>
+                                        <label for="rodzaj-zwrotu">Rodzaj zwrotu</label>
+                                    </div>
+                                </div>
+                                <div class="row g-2 puh">
+                                    <div class="form-floating col-12 mb-3">
+                                        <input type="text" class="form-control" id="sygnatura-akt" placeholder="wpisz numer akt" readonly>
+                                        <label for="sygnatura-akt">Sygnatura AKT</label>
+                                    </div>
+                                </div>
+                                <div class="row g-2 puh ">
+                                    <div class="form-floating col-12 mb-3">
+                                        <input type="text" name="ProceedingsTypeEnum" class="form-control" id="tryb-postepowania" placeholder="tryb postępowania" readonly>
+                                        <label for="tryb-postepowania">Tryb postępowania</label>
+                                    </div>
+                                    <div class="form-check col-12 pb-0 pt-0 form-switch d-flex align-items-bottom justify-content-start form-control-lg">
+                                        <input class="form-check-input col-2 text-danger" type="checkbox" name="PaperProofOfDeliveryTypeEnum" id="PaperProofOfDeliveryTypeEnum" checked>
+                                        <label class="form-check-label col-10 text-start h6 w-100 p-2" for="PaperProofOfDeliveryTypeEnum">Potwierdzenie odbioru</label>
+                                    </div>
+                                    <div class="form-check col-12 pb-0 pt-0 form-switch d-flex align-items-bottom justify-content-start form-control-lg">
+                                        <input class="form-check-input col-2 text-danger" type="checkbox" name="DigitalProofOfDeliveryTypeEnum" id="DigitalProofOfDeliveryTypeEnum" >
+                                        <label class="form-check-label col-10 text-start h6 w-100 p-2" for="DigitalProofOfDeliveryTypeEnum">EPO</label>
+                                    </div>
+                                </div>
+
+                                <div class="navig col-12 d-flex justify-content-between mt-4">
+                                    <button class="prev-step btn btn-outline-dark p-3" type="button" aria-controls="step-1">WSTECZ</button>
+                                    <button class="next-step btn btn-outline-success p-3" type="button" aria-controls="step-3">DALEJ</button>
+                                </div>
+                            </div>
+                            <div class="tab-pane reklamacja fade p-md-5" id="zloz-reklamacje-step-3" role="tabpanel" aria-labelledby="zloz-reklamacje-step-3">
+                                <div class="d-grid h3 gap-2 border p-2 bg-danger text-white mb-3">Dane nadawcy</div>
+                                <div class="row g-2 puh purde">
+                                    <div class="form-floating col-md mb-3">
+                                        <input type="text" class="form-control" id="floatingInput1" placeholder="ADE" value="sdchjb1928yqweaijb" required readonly>
+                                        <label for="floatingInput1">ADE *</label>
+                                    </div>
+                                </div>
+                                <div class="row g-2 puh">
+                                    <div class="form-floating col-md mb-3">
+                                        <input type="text" class="form-control" name="companyNameOrFirstName1" id="companyNameOrFirstName1" placeholder="Nazwa" value="Jan Kowalski" required readonly>
+                                        <label for="companyNameOrFirstName1">Imię lub nazwa Nadawcy *</label>
+                                    </div>
+                                </div>
+                                <div class="row g-2 puh">
+                                    <div class="form-floating col-md mb-3">
+                                        <input type="text" class="form-control" name="companyNameContinuedOrLastName1" id="companyNameContinuedOrLastName1" placeholder="państwo" readonly>
+                                        <label for="companyNameContinuedOrLastName1">Nazwisko lub nazwa Nadawcy c.d.</label>
+                                    </div>
+                                </div>
+                                <div class="row g-2 puh">
+                                    <div class="form-floating col-md mb-3">
+                                        <input type="text" class="form-control" id="floatingInput86" placeholder="kod pocztowy" value="32-040" readonly required>
+                                        <label for="floatingInput86">Kod pocztowy *</label>
+                                    </div>
+                                    <div class="form-floating col-md mb-3">
+                                        <input type="text" class="form-control" id="floatingInput87" placeholder="Miejscowość" value="Nibylandia" required readonly>
+                                        <label for="floatingInput87">Miejscowość *</label>
+                                    </div>
+                                </div>
+                                <div class="row g-2 puh">
+                                    <div class="form-floating col-md mb-3">
+                                        <input type="text" class="form-control" id="floatingInput88" placeholder="ulica" value="Zabajona" required readonly>
+                                        <label for="floatingInput88">Ulica *</label>
+                                    </div>
+                                    <div class="form-floating col-md mb-3">
+                                        <input type="text" class="form-control" id="floatingInput89" placeholder="nr budynku" value="66" required readonly>
+                                        <label for="floatingInput89">Nr budynku *</label>
+                                    </div>
+                                    <div class="form-floating col-md mb-3">
+                                        <input type="text" class="form-control" id="floatingInput90" placeholder="nr mieszkania" readonly>
+                                        <label for="floatingInput90">Nr mieszkania</label>
+                                    </div>
+                                </div>
+
+                                <div class="d-grid h3 gap-2 border p-2 bg-danger text-white mb-3">Dane adresata</div>
+
+                                <div class="row g-2 purde">
+                                    <div class="form-floating col-md mb-3">
+                                        <input type="text" class="form-control" id="floatingInput11" placeholder="ADE" disabled>
+                                        <label for="floatingInput11">ADE *</label>
+                                    </div>
+                                </div>
+
+                                <div class="row g-2 puh">
+                                    <div class="form-floating col-md mb-3">
+                                        <input type="text" class="form-control" name="companyNameOrFirstName2" id="companyNameOrFirstName2" placeholder="Nazwa" value="Brzęczyszczykowo Sp z o.o." required readonly>
+                                        <label for="companyNameOrFirstName2">Imię lub nazwa Adresata *</label>
+                                    </div>
+                                </div>
+                                <div class="row g-2 puh">
+                                    <div class="form-floating col-md mb-3">
+                                        <input type="text" class="form-control" name="companyNameContinuedOrLastName2" id="companyNameContinuedOrLastName2" placeholder="państwo" readonly>
+                                        <label for="companyNameContinuedOrLastName2">Nazwisko lub nazwa Adresata c.d.</label>
+                                    </div>
+                                </div>
+                                <div class="row g-2 puh">
+                                    <div class="form-floating col-md mb-3">
+                                        <input type="text" class="form-control" id="floatingInput03" placeholder="kod pocztowy" value="00-001" required readonly>
+                                        <label for="floatingInput03">Kod pocztowy *</label>
+                                    </div>
+                                    <div class="form-floating col-md mb-3">
+                                        <input type="text" class="form-control" id="floatingInput04" placeholder="Miejscowość" value="Stacyjkowo" required readonly>
+                                        <label for="floatingInput04">Miejscowość *</label>
+                                    </div>
+                                    <div class="form-floating col-md mb-3">
+                                        <input type="text" class="form-control" id="floatingInput12" placeholder="państwo" value="Polska" readonly>
+                                        <label for="floatingInput12">Państwo</label>
+                                    </div>
+                                </div>
+                                <div class="row g-2 puh">
+                                    <div class="form-floating col-md mb-3">
+                                        <input type="text" class="form-control" id="floatingInput07" placeholder="ulica" value="Żelazna" required readonly>
+                                        <label for="floatingInput07">Ulica *</label>
+                                    </div>
+                                    <div class="form-floating col-md mb-3">
+                                        <input type="text" class="form-control" id="floatingInput08" placeholder="nr budynku" required readonly >
+                                        <label for="floatingInput08">Nr budynku *</label>
+                                    </div>
+                                    <div class="form-floating col-md mb-3">
+                                        <input type="text" class="form-control" id="floatingInput09" placeholder="nr mieszkania">
+                                        <label for="floatingInput09">Nr mieszkania</label>
+                                    </div>
+                                </div>
+                                <div class="navig col-12 d-flex justify-content-between">
+                                    <button class="prev-step btn btn-outline-dark p-3" type="button" aria-controls="step-2">WSTECZ</button>
+                                    <button class="next-step btn btn-outline-success p-3" type="button" aria-controls="step-4">DALEJ</button>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane reklamacja fade p-4" id="zloz-reklamacje-step-4" role="tabpanel" aria-labelledby="zloz-reklamacje-step-4">
+                                <div class="d-grid h3 gap-2 border p-2 bg-danger text-white mb-3">Powód reklamacji</div>
+                                <div class="row g-2 purde puh">
+                                    <div class="form-floating col-12 mb-2">
+                                        <select class="form-select" id="powod-reklamacji" aria-label="Floating label select example">
+                                            <option selected>-- Wybierz powód złożenia reklamacji --</option>
+                                            <option value="1">powód 1</option>
+                                            <option value="2">powód 2</option>
+                                            <option value="3">powód 3</option>
+                                            <option value="4">powód 4</option>
+                                            <option value="5">powód 5</option>
+                                        </select>
+                                        <label for="powod-reklamacji">Powód reklamacji *</label>
+                                    </div>
+                                    <span class="col-12 mt-3 small">
+                                        Jeżeli posiadasz jakieś dokumenty lub pliki, które chcesz dołączyć do wniosku, dodaj je poniżej (łącznie max. 6MB, dopuszczalne typy plików: jpg, jpeg, pdf, gif, png, xml):
+                                    </span>
+                                </div>
+                                <div class="row g-2 purde puh">
+                                    <div class="col-12 mb-3">
+                                        <input id="input-zalaczniki" type="file" class="file" data-preview-file-type="text" multiple/>
+                                    </div>
+                                    <div class="form-floating col-12 mb-3">
+                                        <textarea class="form-control" placeholder="Uwagi" id="uwagi" style="height: 150px"></textarea>
+                                        <label for="uwagi">Uwagi (opcjonalne) - max. 1000 znaków</label>
+                                    </div>
+                                </div>
+                                <div class="d-grid h3 gap-2 border p-2 bg-danger text-white mb-3">Pozostałe dane</div>
+                                <div class="row g-2 purde puh">
+                                    <div class="form-floating col-md mb-2">
+                                        <select class="form-select" name="forma-przekazania" id="forma-przekazania" aria-label="Floating label select example">
+                                            <option value="przekaz">przekaz pocztowy</option>
+                                            <option value="bank" selected>przelew na konto</option>
+                                        </select>
+                                        <label for="forma-przekazania">Forma przekazania odszkodowania</label>
+                                    </div>
+                                    <div class="row g-2 forma-przekazania bank">
+                                        <div class="form-floating col-md mb-2">
+                                            <input type="text" class="form-control" id="iban" placeholder="wpisz numer konta bankowego">
+                                            <label for="iban">Numer rachunku bankowego *</label>
+                                        </div>
+                                    </div>
+                                    <div class="row g-2 forma-przekazania przekaz d-none">
+                                        <div class="form-floating col-md mb-2">
+                                            <input type="text" class="form-control" name="nazwa_podmiotu" id="nazwa_podmiotu" placeholder="Nazwa podmiotu" required>
+                                            <label for="nazwa_podmiotu">Nazwa podmiotu *</label>
+                                        </div>
+                                    </div>
+                                    <div class="row g-2 forma-przekazania przekaz d-none">
+                                        <div class="form-floating col-md mb-2">
+                                            <input type="text" class="form-control" name="nazwa_podmiotu_cd" id="nazwa_podmiotu_cd" placeholder="Nazwa podmiotu c.d.">
+                                            <label for="nazwa_podmiotu_cd">Nazwa podmiotu c.d.</label>
+                                        </div>
+                                    </div>
+                                    <div class="row g-2 forma-przekazania przekaz d-none">
+                                        <div class="form-floating col-md mb-2">
+                                            <input type="text" class="form-control" id="kod_podmiotu" placeholder="kod pocztowy" required>
+                                            <label for="kod_podmiotu">Kod pocztowy *</label>
+                                        </div>
+                                        <div class="form-floating col-md mb-2">
+                                            <input type="text" class="form-control" id="miejscowosc_podmiotu" placeholder="Miejscowosc podmiotu" required>
+                                            <label for="miejscowosc_podmiotu">Miejscowość *</label>
+                                        </div>
+                                    </div>
+                                    <div class="row g-2 forma-przekazania przekaz d-none">
+                                        <div class="form-floating col-md mb-2">
+                                            <input type="text" class="form-control" id="ulica_podmiotu" placeholder="ulica" required>
+                                            <label for="ulica_podmiotu">Ulica *</label>
+                                        </div>
+                                        <div class="form-floating col-md mb-2">
+                                            <input type="text" class="form-control" id="nr_domu_pomiotu" placeholder="nr budynku" required>
+                                            <label for="nr_domu_podmiotu">Nr domu *</label>
+                                        </div>
+                                        <div class="form-floating col-md mb-2">
+                                            <input type="text" class="form-control" id="nr_lokalu_podmiotu" placeholder="nr lokalu">
+                                            <label for="nr_lokalu_podmiotu">Nr lokalu</label>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="row g-2 puh purde">
+                                        <div class="form-floating col-12 mb-3">
+                                            <input type="number" class="form-control" id="wysokosc-odszkodowania" step="any" min="0" placeholder="wysokość żądanego odszkodowania">
+                                            <label for="wysokosc-odszkodowania">wysokość żądanego odszkodowania [PLN]</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="navig col-12 d-flex justify-content-between mt-4">
+                                    <button class="prev-step btn btn-outline-dark p-3" type="button" aria-controls="step-3">WSTECZ</button>
+                                    <button class="next-step btn btn-outline-success p-3" type="button" aria-controls="step-5">DALEJ</button>
+                                </div>
+                            </div>
+                            <div class="tab-pane reklamacja fade p-4" id="zloz-reklamacje-step-5" role="tabpanel" aria-labelledby="zloz-reklamacje-step-5">
+                                <div class="d-grid h3 gap-2 border p-2 bg-danger text-white mb-3">Dane kontaktowe</div>
+                                <div class="row g-2 purde puh">
+                                    <div class="form-floating col-md mb-2">
+                                        <input type="email" class="form-control" id="e-mail" placeholder="wpisz adres email kontaktowego" value="arkadiusz.sniezek@poczta-polska.pl">
+                                        <label for="e-mail">Adres e-mail *</label>
+                                    </div>
+                                    <div class="small">Na podany powyżej adres wyślemy odpowiedź w sprawie składanego wniosku. Jeśli chcesz otrzymać odpowiedź na inny adres e-mail, wpisz go powyżej.</div>
+                                </div>
+
+                                <div class="navig col-12 d-flex justify-content-between mt-4">
+                                    <button class="prev-step btn btn-outline-dark p-3" type="button" aria-controls="step-4">WSTECZ</button>
+                                    <button class="next-step podsumowanie btn btn-outline-success p-3" type="button" aria-controls="step-6">DALEJ</button>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade p-4" id="zloz-reklamacje-step-6" role="tabpanel" aria-labelledby="zloz-reklamacje-step-6">
+                                <div id="reklamacje-summary"></div>
+                                <div class="col-12 d-flex justify-content-between mt-4">
+                                    <button class="prev-step btn btn-outline-dark p-3" type="button" aria-controls="step-5">WSTECZ</button>
+                                    <button class="wyslijZgloszenie btn btn-outline-success p-3" type="button">WYŚLIJ ZGŁOSZENIE</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+    </main>
+<!--    <aside class="container-fluid p-2 bg-light">
+        <div class="container text-dark">
+            <div class="col-sm-12 p-4 ">
+                <div class="p-4 m-md-1 ms-md-5 me-md-5 border border-dark justify-content-center text-center">
+                    <img src="./img/pz_logo.png" style="max-height: 80px;"/>
+                    <div class="lead m-4">miejsce na jakiś komunikat dodatkowy</div>
+                    <div class="lead m-4"><a href="https://pz.gov.pl/">może tutaj być link.</a></div>
+                </div>
+            </div>
+        </div>
+    </aside>-->
+    <footer class="container-fluid bg-dark">
+        <div class="container row mx-auto text-muted">
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 p-3 small"><img src="https://kartelmedia.co.uk/wordpress/wp-content/themes/eCommerce-osFlake/img/pp_icon.png" class="float-start me-3"> Poczta Polska Spółka Akcyjna, ul. Rodziny Hiszpańskich 8, 00-940 Warszawa NIP: 525-000-73-13, KRS: 0000334972 Sąd Rejestrowy: Sąd Rejonowy dla m.st. Warszawy kapitał zakładowy: 774.140.000, w całości wpłacony</div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 p-0 m-0 small d-grid align-items-end justify-content-end">
+                <div class="d-flex justify-content-end gap-0 m-0 mt-1">
+                    <i class="fab btn btn-outline-warning border-0  fa-facebook"></i> 
+                    <i class="fab btn btn-outline-warning border-0  fa-linkedin"></i> 
+                    <i class="fab btn btn-outline-warning border-0  fa-twitter-square"></i>
+                    <i class="fas btn btn-outline-warning border-0  fa-info-circle"></i>
+                </div>
+                <div class="d-flex justify-content-end p-2 m-0 small">
+                    Poczta Polska S.A. © 2021. Wszelkie prawa zastrzeżone.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+{
+"pushNotification":[
+    {
+        "id":123462342334,
+        "company":"PPSA",
+        "title":"Gotowe do odbioru",
+        "code":"%zmienna%",
+        "parcel":"00959007738123401926",
+        "type":"OPZ",
+        "date":"2020-09-18 05:44",
+        "info":"Automat Pocztowy ul. Jakaś tam 4. <br/>KOD ODBIORU: <b>%zmienna%</b>",
+        "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Qr-witaj-w-wikiped.svg/1200px-Qr-witaj-w-wikiped.svg.png",
+        "btn":"<button class='btn btn-lg bg-success text-white d-block m-3'>OTWÓRZ SKRYTKĘ</button>"    
+    },
+    {
+        "id":1234623412,
+        "title":"Doręczono przeyłkę",
+        "parcel":"00359007738342938324",
+        "type":"OP",
+        "code": "",
+        "date":"2020-09-18 15:44",
+        "info":"Przesyłka odebrana przez odbiorcę.",
+        "img":"",
+        "btn":""
+    },
+    {
+        "id":12312023412,
+        "title":"Nadanie przesyłki",
+        "parcel":"EE864137082PL",
+        "type":"OP",
+        "date":"2021-01-10 10:44",
+        "info":"UP Warszawa 14",
+        "img":"",
+        "btn":""
+          
+    }
+]
+}
+    

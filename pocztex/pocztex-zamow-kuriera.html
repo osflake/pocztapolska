@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Propozycja wyglądu strony internetowej pocztex by Arkadiusz Śnieżek</title>
+    <meta name="description"  content="Pocztex 2.0 by PP SA" />
+    <script src="https://mapa.ecommerce.poczta-polska.pl/widget/scripts/ppwidget.js?ver=1.0"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" data-auto-replace-svg="nest"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+    <link href="./flag.min.css" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" integrity="sha512-nNlU0WK2QfKsuEmdcTwkeh+lhGs6uyOxuUs+n+0oXSYDok5qy0EI0lt01ZynHq6+p/tbgpZ7P+yUb+r71wqdXg==" crossorigin="anonymous" />
+    
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <link href="./pocztex.css" rel="stylesheet"/>
+    <script src="./pocztex.js"></script>
+<body class="bg-light p-0">
+    <nav class="container-fluid navbar navbar-dark my-auto">
+        <div class="container my-auto d-flex align-item-center gap-2">
+                 
+            <ul class="nav p-0 justify-content-md-start">
+                <li class="nav-item p-1 m-0">
+                    <a href="./pocztex.html" class="text-decoration-none btn-outline-danger border-bottom border-2 border-danger p-1 m-0"><i class="fas fa-user"></i> Dla Ciebie</a>
+                </li>
+                <li class="nav-item p-1 m-0">
+                    <a href="./pocztex-biznes.html" class="text-decoration-none btn-outline-secondary p-1 m-0"><i class="fas fa-briefcase"></i> Dla Firmy</a>                
+                </li>
+            </ul>
+            <ul class="nav justify-content-sm-start align-item-center">
+                <li class="nav-item p-1">
+                    <a href="#" class="text-decoration-none btn-outline-secondary p-1 m-1"><i class="fas fa-eye"></i></a>                
+                </li>
+                <li class="nav-item p-1 dropdown">
+                    <a class="dropdown-toggle text-decoration-none text-dark" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="poland flag "></i></a>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end z-index-master position-absolute" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item text-dark p-3" href="#"><i class="poland flag"></i> PL</a></li>
+                    <li><a class="dropdown-item text-dark p-3" href="#"><i class="united kingdom flag"></i> GB</a></li>
+                    <li><a class="dropdown-item text-dark p-3" href="#"><i class="ukraine flag"></i> UA</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item p-1">
+                    <a href="#" class="text-decoration-none text-secondary p-1 m-1" data-bs-toggle="modal" data-bs-target="#logowanie"><i class="fas fa-lock"></i> <span class="d-none d-lg-inline"></span></a>  
+                </li>
+            </ul>       
+            
+        </div>
+    </nav>
+    <nav id="main-menu" class="container-fluid navbar navbar-light navbar-expand-lg bg-white border-bottom sticky-top my-auto shadow p-0">
+        <div class="container my-auto p-0">
+            <a class="navbar-brand d-flex justify-content-start p-0" href="./pocztex.html"><img src="./pocztex.jpg" style="max-height:60px;" class="w-auto h-100"/></a>
+            <button class="navbar-toggler mx-auto" type="button" data-bs-toggle="collapse" data-bs-target="#podmenu" aria-controls="podmenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="d-grid gap-2 justify-content-end">
+                <div class="navbar-collapse collapse" id="podmenu">
+                    <ul class="nav text-uppercase justify-content-md-end d-grid gap-sm-2 d-md-flex d-sm-flex" >
+                        <li class="nav-item text-sm-center">
+                            <a class="nav-link btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#zewnetrznewww" data-bs-src="https://en-testwebapi2.poczta-polska.pl/nadaj/?lite=1" href="javascript:;">
+                            <i class="far fa-2x fa-paper-plane d-sm-block"></i> 
+                            <span>Nadaj</span></a>
+                        </li>
+                        <li class="nav-item text-sm-center">
+                            <a class="nav-link btn-outline-secondary" href="#">
+                            <i class="fas fa-2x fa-truck-loading d-sm-block"></i>
+                            <span>Odbierz</span></a>
+                        </li>
+                        <li class="nav-item text-sm-center">
+                            <a class="nav-link btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#zewnetrznewww" data-bs-src="https://ezwroty.poczta-polska.pl/?lite=1"  href="javascript:;">                            
+                            <i class="fas fa-2x fa-reply-all d-sm-block"></i> 
+                            <span>Zwróć</span></a>
+                        </li>
+                        <li class="nav-item text-sm-center">
+                            <a class="nav-link btn-outline-secondary" href="./pocztex-zamow-kuriera.html">
+                            <i class="fas fa-2x fa-shipping-fast d-sm-block"></i> 
+                            <span>Zamów</span></a>
+                        </li>
+                        <li class="nav-item text-sm-center">
+                            <a class="nav-link btn-outline-secondary widgetOWP" href="#">
+                            <i class="fas fa-2x fa-map-marker-alt d-sm-block"></i>
+                            <span>Znajdź</span></a>
+                        </li>
+                        <li class="nav-item text-sm-center">
+                            <a class="nav-link btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#zewnetrznewww" data-bs-src="https://cennik.poczta-polska.pl/usluga,krajowy_pocztex.html?lite=1" href="javascript:;">                            
+                            <i class="fas fa-2x fa-calculator d-sm-block"></i> 
+                            <span>Cennik</span></a>
+                        </li>
+                        <li class="nav-item text-sm-center">
+                            <a class="nav-link btn-outline-secondary mx-auto" href="#" data-bs-toggle="collapse" data-bs-target="#wyszukaj" aria-controls="wyszukaj" aria-expanded="false" aria-label="Wyszukaj na stronie">
+                                <i class="fas fa-2x fa-search d-sm-block"></i>                           
+                            <span>Szukaj</span></a>
+                        </li>
+                        <li class="nav-item text-sm-center dropdown">
+                            <a class="dropdown-toggles h-100 my-auto nav-link text-decoration-none border-0 text-secondary" href="#" id="menu-more" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-2x fa-ellipsis-v d-sm-block"></i></a>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-sm-end position-absolute" aria-labelledby="menu-more">
+                                <li class="nav-item nav-item-dropped text-sm-left">
+                                    <a class="dropdown-item btn-outline-secondary p-3" href="./pocztex-tracking.html">
+                                    <i class="fas fa-2x fa-crosshairs"></i> 
+                                    <span>Śledzenie przesyłki</span></a>
+                                </li>
+                                <li class="nav-item nav-item-dropped text-sm-left">
+                                    <a class="dropdown-item btn-outline-secondary p-3" href="https://en-testwebapi2.poczta-polska.pl/" target="_blank">
+                                    <i class="fas fa-2x fa-barcode"></i> 
+                                    <span>Elektroniczny nadawca</span></a>
+                                </li>
+                                <li class="nav-item nav-item-dropped text-sm-left">
+                                    <a class="dropdown-item btn-outline-secondary p-3" data-bs-toggle="modal" data-bs-target="#zewnetrznewww" data-bs-src="https://placowki.poczta-polska.pl/?lite=1" href="javascript:;">
+                                    <i class="fas fa-2x fa-map-marker-alt"></i>
+                                    <span>Znajdź placówkę</span></a>
+                                </li>
+                                <li class="nav-item nav-item-dropped text-sm-left">
+                                    <a class="dropdown-item btn-outline-secondary p-3" href="./pocztex-do-pobrania.html">
+                                    <i class="fas fa-2x fa-download "></i> 
+                                    <span>Pobierz</span></a>
+                                </li>
+                                <li class="nav-item nav-item-dropped text-sm-left">
+                                    <a class="dropdown-item  btn-outline-secondary p-3" href="./pocztex-faq.html">
+                                    <i class="fas fa-2x fa-question-circle"></i> 
+                                    <span>FAQ</span></a>
+                                </li>
+                                <li class="nav-item nav-item-dropped text-sm-left">
+                                    <a class="dropdown-item  btn-outline-secondary p-3" data-bs-toggle="modal" data-bs-target="#zewnetrznewww" data-bs-src="https://ereklamacje.poczta-polska.pl/#/wniosek_reklamacyjny/customer_type" href="javascript:;">
+                                    <i class="fas fa-2x fa-envelope-open-text"></i> 
+                                    <span>Reklamacje</span></a>
+                                </li>
+                                <li class="nav-item nav-item-dropped text-sm-left">
+                                    <a class="dropdown-item  btn-outline-secondary p-3" href="#">
+                                    <i class="fas fa-2x fa-map-marked-alt"></i> 
+                                    <span>Mapa Cyfrowa</span></a>
+                                </li>
+                                <li class="nav-item nav-item-dropped text-sm-left">
+                                    <a class="dropdown-item  btn-outline-secondary p-3" href="#">
+                                    <i class="fas fa-2x fa-map-signs"></i> 
+                                    <span>Mapa strony</span></a>
+                                </li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid bg-white d-grid gap-2 sticky-top shadow" >  
+        <div class="container input-group input-group-lg p-1 ps-3 pe-3 input-group-block collapse" id="wyszukaj" data-bs-toggle="true">
+            <input type="text" class="form-control" placeholder="Wyszukaj na stronie" aria-label="Wpisz słowa do wyszukania">
+            <button class="btn btn-outline-danger" type="button">Szukaj</button>
+            <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#wyszukaj" aria-controls="wyszukaj" aria-expanded="false" aria-label="Toggle navigation"> X </button>
+        </div> 
+    </div>
+    <header class="container-fluid p-0">
+        <div id="carouselSubpage" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="https://www.iveco.com/Poland/PublishingImages/1440x400_poczta.jpg" class="d-block w-100 h-auto" alt="...">
+              </div>
+            </div>
+            <div class="container position-relative">
+                <div class="position-absolute col-md-6 start-0 bottom-0" style="z-index:1000;">
+                    <div class="wyszukaj input-group input-group-lgs mx-auto p-2 mb-3 bg-dabger">
+                        <span class="input-group-text bg-light rounded-0"><i class="fas fa-box text-danger"></i></span>
+                        <input type="text" class="form-control" placeholder="śledzenie przesyłki" aria-label="tracking" aria-describedby="button-addon2">
+                        <button class="btn btn-outline-light rounded-0" type="button" id="button-addon2">Szukaj</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="container-fluid p-3 bg-danger">
+            <div class="container position-relative p-3" style="z-index:1000;">
+                <div class="col-12 display-5 text-white">Pocztex - zamawianie kuriera online</div>
+                <div class="col-12 lead mt-3 mb-3 text-white small">Zamawiaj wygodnie kuriera przez internet gdzie chcesz i kiedy chcesz.</div>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <div class="row p-2">
+            <div class="col-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="#" class="text-muted">Pocztex</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">Zamów kuriera</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 p-2 ">
+
+                <h3 class="d-grid gap-2 display- border p-2 bg-danger text-white mb-2">Dane nadawcy</h3>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput1" placeholder="imię i nazwisko" required>
+                    <label for="floatingInput1">Imię i nazwisko *</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput2" placeholder="nazwa firmy">
+                    <label for="floatingInput2">Nazwa firmy</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="floatingInput3" placeholder="Telefon kontaktowy" required>
+                    <label for="floatingInput3">Telefon kontaktowy *</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="floatingInput4" placeholder="name@example.com" required>
+                    <label for="floatingInput4">E-mail *</label>
+                </div>
+                <h3 class="d-grid gap-2 display- border p-2 bg-danger text-white mb-2">Adres odbioru przesyłki</h3>
+                <div class="row g-2">
+                    <div class="form-floating col-md mb-3">
+                        <input type="text" class="form-control" id="floatingInput86" placeholder="kod pocztowy" required>
+                        <label for="floatingInput86">Kod pocztowy *</label>
+                    </div>
+                    <div class="form-floating col-md mb-3">
+                        <input type="text" class="form-control" id="floatingInput87" placeholder="Miejscowość" required>
+                        <label for="floatingInput87">Miejscowość</label>
+                    </div>
+                </div>
+                <div class="row g-2">
+                    <div class="form-floating col-md mb-3">
+                        <input type="text" class="form-control" id="floatingInput88" placeholder="ulica" required>
+                        <label for="floatingInput88">Ulica</label>
+                    </div>
+                    <div class="form-floating col-md mb-3">
+                        <input type="text" class="form-control" id="floatingInput89" placeholder="nr domu" required>
+                        <label for="floatingInput89">Nr domu</label>
+                    </div>
+                    <div class="form-floating col-md mb-3">
+                        <input type="text" class="form-control" id="floatingInput90" placeholder="nr mieszkania">
+                        <label for="floatingInput90">Nr mieszkania</label>
+                    </div>
+                </div>
+                <h3 class="d-grid gap-2 display- border p-2 bg-danger text-white mb-2">Adres doręczenia przesyłki</h3>
+                <div class="row g-2">
+                    <div class="form-floating col-md mb-3">
+                        <input type="text" class="form-control" id="floatingInput5" placeholder="kod pocztowy" required>
+                        <label for="floatingInput5">Kod pocztowy *</label>
+                    </div>
+                    <div class="form-floating col-md mb-3">
+                        <input type="text" class="form-control" id="floatingInput6" placeholder="Miejscowość" required>
+                        <label for="floatingInput6">Miejscowość</label>
+                    </div>
+                </div>
+                <div class="row g-2">
+                    <div class="form-floating col-md mb-3">
+                        <input type="text" class="form-control" id="floatingInput7" placeholder="ulica" required>
+                        <label for="floatingInput7">Ulica</label>
+                    </div>
+                    <div class="form-floating col-md mb-3">
+                        <input type="text" class="form-control" id="floatingInput8" placeholder="nr domu" required>
+                        <label for="floatingInput8">Nr domu</label>
+                    </div>
+                    <div class="form-floating col-md mb-3">
+                        <input type="text" class="form-control" id="floatingInput9" placeholder="nr mieszkania">
+                        <label for="floatingInput9">Nr mieszkania</label>
+                    </div>
+                </div>
+                <div class="row g-2">
+                    <div class="form-floating col-md mb-3">
+                        <input type="text" class="form-control" id="floatingInput11" placeholder="województwo">
+                        <label for="floatingInput10">Województwo</label>
+                    </div>
+                    <div class="form-floating col-md mb-3">
+                        <input type="text" class="form-control" id="floatingInput11" placeholder="powiat">
+                        <label for="floatingInput11">Powiat</label>
+                    </div>
+                </div>
+
+                <h3 class=" border p-2 bg-danger text-white mb-2">Dane przesyłki</h3>
+                <div class="row g-2">
+                    <div class="form-floating col-6 mb-3">
+                        <input type="date" class="form-control" id="floatingInp1" placeholder="data" required>
+                        <label for="floatingInp1">Data odbioru</label>
+                    </div>
+                    <div class="form-floating col-6 mb-3">
+                        <input type="number" min="0.1" step="1" max="50" class="form-control" id="floatingInp2" placeholder="przybliżona masa" required>
+                        <label for="floatingInp2">Perzybliona masa [kg]</label>
+                    </div>
+                </div>
+                <div class="form-floating mb-3">
+                    <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
+                    <option selected>Wybierz rodzaj</option>
+                    <option value="1">Koperta</option>
+                    <option value="2">Paczka regularna</option>
+                    <option value="3">Paczka niestadardowa</option>
+                    </select>
+                    <label for="floatingSelectGrid">Rodzaj przesyłki</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput3" placeholder="Miejscowość">
+                    <label for="floatingInp3">Miejscowość</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <select class="form-select" id="floatingSelectSerwis" aria-label="Serwis">
+                    <option selected>Wybierz serwis</option>
+                    <option value="1">Serwis 1</option>
+                    <option value="2">Serwis 2</option>
+                    <option value="3">Serwis 3</option>
+                    </select>
+                    <label for="floatingSelectGrid">Serwis</label>
+                </div>
+                <div class="form-floating">
+                    <textarea class="form-control" placeholder="Dodatkowe informacje" id="floatingTextarea2" style="min-height: 150px"></textarea>
+                    <label for="floatingTextarea2">Informacje dodatkowe</label>
+                </div>
+                <div class="col-12 form-check form-switch d-flex gap-2 align-items-bottom justify-content-md-end form-control-lg">
+                    <input class="form-check-input text-danger" type="checkbox" id="nadaj_akceptacja" >
+                    <label class="form-check-label h5 align-items-center " for="nadaj_akceptacja"><span class="text-danger">*</span> oświadczam, że zapoznałem/łam się z <a data-fancybox data-type="iframe" data-src="https://pks.pl/Regulamin%20internetowej%20sprzeda%C5%BCy%20bilet%C3%B3w%20krajowych.pdf" href="javascript:;">Regulaminem portalu</a> oraz akceptuję jego postanowienia</label>
+                </div>
+                <div class="row g-2">
+                    <div class="col-md-6 p-3 d-grid align-items-center justify-content-center">
+                        <div class="g-recaptcha col-md mx-auto m-3" data-sitekey="6LfEDWIaAAAAADH-l2C9wMcq_hyt6GDiXlddOOZn"></div>
+                    </div>
+                    <div class="col-md-6 p-3 d-grid">
+                        <button class="btn btn-lg col-md btn-outline-danger disabled">ZŁÓŻ ZAMÓWIENIE</button>                    
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 p-2">
+                <h3 class="d-grid gap-2 border p-2 bg-danger text-white mb-2">Konto</h3>
+                <div class="d-grid p-3">
+
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="floatingLogin" placeholder="name@example.com">
+                        <label for="floatingLogin">Email</label>
+                      </div>
+                      <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                        <label for="floatingPassword">Hasło</label>
+                      </div>
+                      <div class="g-recaptcha col-md mx-auto mb-3" data-sitekey="6LfEDWIaAAAAADH-l2C9wMcq_hyt6GDiXlddOOZn"></div>
+                      <a class="btn btn-lg btn-outline-danger" href="./pocztex-zamow-kuriera-login.html">zaloguj się</a>
+
+<!--                    <p>Zalogowany(a): <strong>Arkadiusz Śnieżek</strong></p>
+                    <p>Firma: <strong>Kartelmedia Ltd.</strong></p>
+-->                    
+                </div>
+            <!--        <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nadawca</th>
+                            <th scope="col">Przesyłka</th>
+                            <th scope="col"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">1</th>
+                            <td><i class="fa fa-question-circle text-danger" aria-hidden="true" ></i> Juliusz Werne</td>
+                            <td data-bs-toggle="tooltip" data-bs-placement="top" title="Masa 0.4 kg, Data odbioru: 20.02.2021">
+                            <i class="fa fa-question-circle text-danger" aria-hidden="true" ></i> Koperta</td>
+                            <td><a class="btn btn-sm btn-dark ps-2 pe-2">x</a></td>
+                          </tr>
+                          <tr>
+                            <th scope="row">2</th>
+                            <td><i class="fa fa-question-circle text-danger" aria-hidden="true" ></i> Wioletta Lenart</td>
+                            <td data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">
+                                <i class="fa fa-question-circle text-danger" aria-hidden="true" ></i> Pocztex 48</td>
+                            <td><a class="btn btn-sm btn-dark ps-2 pe-2">x</a></td>
+                          </tr>
+                          <tr>
+                            <th scope="row">3</th>
+                            <td><i class="fa fa-question-circle text-danger" aria-hidden="true" ></i> Dariusz Heliński</td>
+                            <td data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">
+                                <i class="fa fa-question-circle text-danger" aria-hidden="true" ></i> Kurier24</td>
+                            <td><a class="btn btn-sm btn-dark ps-2 pe-2">x</a></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+            -->
+                <figure class="sinfo bg-warning">
+                    <div class="content">
+                        <img src="https://cdn.shoplo.com/7265/banners/1-67-1582710169_ee55b6c7cdb5ccb5.png?498" class="figure-img img-fluid" alt="...">
+                    </div>
+                </figure>
+                <figure class="figure sinfo clearfix">
+                    <div class="content">
+                        <img src="https://cdn.shoplo.com/7265/banners/1-33-1609853584_191f5f4a317a801f.jpg?528" class="figure-img img-fluid" alt="...">
+                    </div>
+                </figure>
+                <figure class="figure sinfo">
+                    <div class="content">
+                        <img src="https://cdn.shoplo.com/7265/banners/1-67-1582710169_ee55b6c7cdb5ccb5.png?498" class="figure-img img-fluid" alt="...">
+                    </div>
+                </figure>
+                <figure class="figure sinfo">
+                    <div class="content">
+                        <img src="https://cdn.shoplo.com/7265/banners/1-49-1582790138_f40a0e0febe3055a.jpg?500" class="figure-img img-fluid" alt="...">
+                    </div>
+                </figure>
+            </div>
+        </div>
+       
+    </main>
+    <aside class="container-fluid p-2 bg-footer-light">
+        <div class="container text-light">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="h3 mb-3 mt-2">Infolinia Pocztex</div>
+                    <div class="h3 text-start p-1">
+                        <a class="text-decoration-none text-warning" href="tel:804104104">804 104 104</a><br/>
+                        <small><a class="text-decoration-none text-warning" href="tel:+48438420842">(+48)</small> 43 842 0 842</a>
+                    </div>
+                    <p class="small mt-2 text-start text-light">Opłata za połączenie zgodnie z taryfą operatora</p>
+                </div>
+                <div class="col-md-8">
+                    <div class="h3 mb-3 mt-2 ms-3">Na skróty</div>
+                    <nav class="nav flex-columna small">
+                        <a class="nav-link text-light btn-outline-secondary h5" href="#"><i class="fas w-100 fa-building"></i> O nas</a>
+                        <a class="nav-link text-light btn-outline-secondary h5" href="./pocztex-do-pobrania.html"><i class="fas w-100 fa-file-download"></i> Pobierz</a>
+                        <a class="nav-link text-light btn-outline-secondary h5" href="./pocztex-wspolpraca.html"><i class="fas fa-handshake"></i> Współpraca </a>
+                        <a class="nav-link text-light btn-outline-secondary h5" href="./pocztex-faq.html"><i class="fas fa-question-circle"></i> Pomoc | FAQ</a>
+                        <a class="nav-link text-light btn-outline-secondary h5" data-bs-toggle="modal" data-bs-target="#zewnetrznewww" data-bs-src="https://ereklamacje.poczta-polska.pl/#/wniosek_reklamacyjny/customer_type" href="javascript:;"><i class="fas fa-envelope-open-text"></i> Reklamacje </a>
+                        <a class="nav-link text-light btn-outline-secondary h5" href="./pocztex-kontakt.html"><i class="fas fa-phone"></i> Kontakt </a>
+                        
+                      </nav>
+                </div>
+            </div>
+        </div>
+    </aside>
+        <footer class="container-fluid bg-dark">
+            <div class="container row mx-auto text-muted">
+                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 p-3 small"><img src="https://kartelmedia.co.uk/wordpress/wp-content/themes/eCommerce-osFlake/img/pp_icon.png" class="float-start me-3"> Poczta Polska Spółka Akcyjna, ul. Rodziny Hiszpańskich 8, 00-940 Warszawa NIP: 525-000-73-13, KRS: 0000334972 Sąd Rejestrowy: Sąd Rejonowy dla m.st. Warszawy kapitał zakładowy: 774.140.000, w całości wpłacony</div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 p-3 small d-flex align-items-end justify-content-end">Poczta Polska S.A. © 2017. Wszelkie prawa zastrzeżone.</div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="zewnetrznewww" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-bs-labelledby="logowanieLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+          <div class="modal-content">
+            <div class="modal-header d-flex justify-content-end">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zamknij</button>
+            </div>
+            <div class="modal-body">
+                <iframe src="" ></iframe>
+            </div>
+            <div class="modal-footer">
+                <style>.modal-body nav{display: none !important;}</style>
+            </div>
+          </div>
+        </div>
+    </div>
+
+</body>
+</html>

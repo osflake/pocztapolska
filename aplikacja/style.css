@@ -1,0 +1,44 @@
+.apk{
+   height: 667px;
+   width: 375px;
+} 
+[class*='apk-change']{
+   border: 2px solid transparent;
+   height: 180px;
+}
+[class*='apk-change'] .col-12{
+   font: 25px !important;
+   color: blue;
+}
+
+[class*='apk-change']:hover{
+   border: 2px solid red !important;
+}
+
+.shadow{
+   text-shadow: 1px 1px 3px black !important;
+}
+.bg-parcel{
+   border-color: red;
+}
+.fit-image{
+   width: 100px !important;
+   object-fit: cover;
+   height: 100px; /* only if you want fixed height */
+}
+.app-store{
+   height: 90% !important;
+   z-index:101;
+}
+.notification{
+   color: white;
+   z-index:100;
+}
+
+input[type="radio"]:checked + label, input[type="checkbox"]:checked + label{
+   border-color:red !important;
+}
+
+
+
+

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Propozycja wyglądu aplikacji mobilnej by Arkadiusz Śnieżek</title>
+    <meta name="description"  content="Aplikacja mobilna PP SA" />
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" data-auto-replace-svg="nest"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/flick/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <link rel="stylesheet" href="./js/jquery-ui-slider-pips.css">
+    <script src="./js/jquery-ui-slider-pips.js"></script>
+
+    <link rel="stylesheet" href="./FeedEk.css">
+    <script type="text/javascript" src="./js/FeedEk.min.js"></script>
+
+    <link href="./style.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script></head>
+
+<body class="bg-dark">
+    <header class="container display-4 bg-light pb-3 text-center">
+        Propozycja wyglądu centrum powiadamien by Arkadiusz Śnieżek
+    </header>
+    <main class="container pt-3" style="background-color: lightgrey;">
+        
+      <div class="apk border border-dark bg-danger">
+        <Table>
+        <tr class='border-bottom text-light' ><td class='col-1'><i class='fa fa-envelope-open fa-2x'><i class='fa fa-envelope-open d-none fa-2x'></td><td class='col-9 p-1'><p class='m-0'>910287172901287109</p><small>wydana do doręczenia</small><br/>
+        <div class='collapse p-2 text-start' id="kom_1">
+          ciekawostka do wyswietlenia na temat tego powiadomienia<br/>kod odbioru: <strong>789 871</strong><br/>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Qr-witaj-w-wikiped.svg/1200px-Qr-witaj-w-wikiped.svg.png" class="w-100"/>
+        </div>
+        </td><td class='col-2'><i class="fa fa-arrow-circle-down" data-bs-toggle="collapse" data-bs-target="#kom_1" aria-expanded="false" aria-controls="kom_1" aria-hidden="true"></i> <i class='ms-3 fa fa-sign-in-alt'></td></tr>
+        
+          <tr class='border-bottom text-light' ><td class='col-1'><i class='fa fa-envelope fa-2x'><i class='fa fa-envelope-open d-none fa-2x'></td><td class='col-9 p-1'><p class='m-0'>EE129187PL</p><small>wydana do doręczenia</small><br/>
+            <div class='collapse p-2 text-start' id="kom_2">
+              drugi komunikat na temat tego pusha
+            </div>
+            </td><td class='col-2'><i class="fa fa-arrow-circle-down" data-bs-toggle="collapse" data-bs-target="#kom_2" aria-expanded="false" aria-controls="kom_2" aria-hidden="true"></i> <i class='ms-3 fa fa-sign-in-alt'></td></tr>
+            </Table>  
+      </div>
+    </main>
+    <footer></footer>
+
+    <script>
+        jQuery(document).ready(function(){
+
+          jQuery(document).on("click",".fa-cog",function(){
+            jQuery(this).parent().toggleClass("text-secondary text-danger");
+            console.log(jQuery(this).parents().attr("aria-resizeAPK"));
+            jQuery(".resizeAPK-"+jQuery(this).parent().attr("aria-resizeAPK")).toggleClass("d-none");
+          });
+          
+          jQuery("#akceptacjaRegulaminu").on("click",function(){
+            var perm = jQuery(this).is(":checked");
+            jQuery(".akceptacjaRegulaminu").parent().toggleClass(function(){
+              return (perm = true)? "d-none" : "";
+            });
+            jQuery(this).parent().parent().toggleClass("h-50 h-auto");
+          });
+
+            jQuery(document).on("click",".apk-click-up",function(){
+                jQuery(".apk-change-"+jQuery(this).attr("aria-apk")).removeClass("col-6").addClass("col-12 h-75");
+            });
+            jQuery(document).on("click",".apk-click-down",function(){
+                jQuery(".apk-change-"+jQuery(this).attr("aria-apk")).removeClass("col-12 h-75").addClass("col-6");
+            });
+
+            jQuery('.fa-info-circle').on("click",function(i){
+                var mm = document.getElementById(jQuery(this).attr("aria-controls"));
+                mm.addEventListener('shown.bs.collapse', function () {
+                    jQuery(this).parent().parent(".parcel").addClass("bg-parcel");
+                });
+                mm.addEventListener('hidden.bs.collapse', function () {
+                    jQuery(this).parent().parent(".parcel").removeClass("bg-parcel");
+                });
+                
+            });
+            jQuery('.appVer').text(jQuery("#changelog").find(".version")[0].innerText);
+
+
+            jQuery('[class*="apk-change-"] div').mouseover(function(){
+              console.log("wielość obrazka W:"+jQuery(this).width()+"px, H: "+jQuery(this).height()+"px");
+              jQuery(".wiekoscIMG").text("Obrazek: W:"+jQuery(this).width()+"px, H: "+jQuery(this).height()+"px");
+            });
+        
+            jQuery(document).on("click",".close",function(){
+              jQuery(this).parents(".apk").find(".app-store").toggleClass("d-none");
+            });
+            jQuery(document).on("click",".fa-bell",function(){
+              console.log("PUK");
+              jQuery(this).parents(".apk").find(".notification").toggleClass("d-none");
+            });
+            jQuery(document).on("click",'[class*=pushID_]',function(){
+              jQuery(this).parents(".apk").find(".notification").toggleClass("d-none");
+              //console.log(jQuery(document).load("#showPushID_123462342334").offset());
+              //jQuery('html, body').animate({
+              //    scrollTop: jQuery("#showPushID_"+this.id).offset().top
+              //}, 1000);
+//              jQuery(this).find("[class*='fa-envelope']").toggleClass("d-none");
+              console.log(this);
+            });
+
+            /****** RSS *******/
+            var URL = 'https://tvn24.pl/najnowsze.xml';
+            
+            jQuery(".rssRefresh").on("click",function(){
+              
+              jQuery("#rssFeed").FeedEk({
+                FeedUrl: URL,//'https://www.nasa.gov/rss/dyn/breaking_news.rss',
+                MaxCount : 10,
+                ShowDesc : true,
+                ShowPubDate:true,
+                DescCharacterLimit:350,
+                TitleLinkTarget:'_blank',
+                DateFormat: 'MM-dd-yyyy',
+                DateFormatLang:'pl-PL'
+              });
+              jQuery("#rssFeed").next("div").remove();
+              jQuery("<div class='p-2 card small text-end'><sub class='p-3'>Źródło: "+URL.split("/")[2]+"</sub></div>").insertAfter("#rssFeed");
+              //  console.log(URL.split("/")[2]);
+            });
+            
+            jQuery(".rssRefresh").trigger("click");
+
+
+            $(function() {
+              var username ="Administrator";
+              var password = "";
+              $.ajax({
+                type: "get",
+                get: "http://5.149.192.30:8080/TML/index_1.html",
+                //url: "https://95.216.241.70:33358/mdatest/hs/rss/krakow_departure",
+/*                dataType: "xml",
+                headers: {
+                  "Authorization": "Basic " + btoa(username + ":" + password)
+                },
+ */               success: function(data) {
+                    /* handle data here */
+                    console.log(data);
+                    //$("#show_table").html(data);
+                },
+                error: function(xhr, status) {
+                    /* handle error here */
+                    //$("#show_table").html(status);
+                    console.log("error");
+                }
+              });
+            });
+
+
+            
+            
+            /******************/
+            
+            
+            /* OBSLUGA NADAJ PRZESYLKE */
+            jQuery("input[type='radio']").on("change",function(){
+              jQuery("#"+this.name).text(jQuery(this).attr("title"));
+              console.log(jQuery(this).attr("title"));
+              console.log(this.name);
+              //sprWarunek ((this.value)),"<=2");
+              disable_enable_button("nadaj_usluga_2",sprWarunek((this.value),"nadaj_usluga_2"));
+            });
+
+
+            /****************************/
+            /********* LOGIKA ***********/
+            /* napisać raz jeszcze dla tablicy true i false i szukać po input(name) **/
+            function sprWarunek(x,u){
+              if (u =="nadaj_usluga_2"){
+                return ((parseInt(x) > 2 || x == "OPZ")? true : false);
+              }
+            }
+
+
+            /****************************/
+
+            function disable_enable_button(name,result){
+              i = jQuery("#"+name);
+              i.prop("disabled",result);
+              if (i.is(":disabled")){
+                i.prop("checked",false);
+              }
+            }
+
+
+            var realValues = [0.5, 1, 2, 5, 10, 20, 30, 50];
+            var labelValues = ['do 0.5kg', 'do 1kg', 'ponad 1kg do 2kg', 'ponad 2kg do 5kg', 'ponad 5kg do 10kg','ponad 10kg do 20kg', 'ponad 20kg do 30kg', 'ponad 30kg do 50kg'];
+
+            
+            jQuery("#nadaj_masa_slider").slider({
+              max: 7,
+              min: 0,
+              step: 1,
+              create: function(){
+                jQuery("#nadaj_masa_info").text(labelValues[jQuery(this).slider("value")]);
+              },
+              slide: function(event,ui){
+                console.log(ui);
+                jQuery("#nadaj_masa_info").text(labelValues[ui.value]);
+              }
+            }).slider("pips",{
+              rest: "label",
+              labels: realValues
+            });
+
+
+            var returnWyniki;
+            jQuery(".widgetOWP").on("click",function(){
+              var dostawca = {
+            //		basemapProvider: 'OpenStreetMap',
+            //		geocoderProvider: 'Nominatim'
+              };
+              returnWyniki = this.name+"_OWP";
+              PPWidgetApp.toggleMap(PokazWynik,false,'','',dostawca);
+            });
+            
+            function PokazWynik(w){
+              console.log("GDZIE: "+returnWyniki);
+              jQuery("#"+returnWyniki).html("<div class='lead border text-mutted'><small class='small'><strong><u>"+w.name+"</u> ("+w.pni+")</strong><br/>"+w.street+"<br/>"+w.zipCode+" "+w.city+"<br/>"+w.province+"</small></lead>");
+              console.log(w);
+              return w;
+            }
+
+/*  OBSŁUGA PRZYCISKÓW)*/
+
+            jQuery(".wczytajSKLEP").on("click",function(){
+              jQuery(".app-store").empty().html("<div class='row'><div class='display-6 col-10'>Aplikacje</div><div class='col-2 text-right'><i class='close fas fa-times fa-2x'></i></div></div>");
+              jQuery.getJSON("./sklep.json", function(d){
+                jQuery.each(d,function(x,y){
+                  jQuery('<div/>', {
+                        id: "category_"+x.substring(0,2),
+                        "class": 'p-2'
+                    }).appendTo('.app-store').html("<h4 class='p-1 d-block border-bottom'>"+x.substring(3)+"</h4>");
+                  console.log("NN:"+x);
+                  jQuery.each(y,function(z,op){
+//                   jQuery.each(op,function(nr,n){
+                      jQuery('<table/>', {
+                        id: "module_"+op.id,
+                        "class": 'table table-striped small'
+                      }).appendTo('.app-store').html(
+                        "<tr><td class='col-2'><img class='fit-image' src='"+op.img+"'</td><td class='col-10 p-1'><h5 class='p-0 m-1'><button id='"+"app_"+op.id+"' class='btn btn-sm btn-oinline btn-outline-success m-1'>DODAJ</button>"+op.name+"</h5><small>"+op.description+"</small><i></i><br/></td></tr>"
+                      );
+//                      console.log(nr,n);
+  //                  });
+  
+                  });
+                });
+              }).fail(function(){
+                console.log("An error has occurred.");
+              });
+              jQuery(this).parents(".apk").find(".app-store").toggleClass("d-none");
+            });
+
+
+
+            jQuery(".wyslijPUSH").on("click",function(){
+                jQuery(this).prop("disabled",true).text("PUSH WYSŁANY!").toggleClass("btn-danger btn-outline-warning ");
+                jQuery(document).find('[class*=fa-bell]').parent().toggleClass("d-none");
+                jQuery.getJSON("./push.json", function(d){
+                jQuery.each(d,function(x,y){
+                  jQuery("<table/>",{
+                    "class": 'table-notify table table-striped small text-light P-0'
+                  }).appendTo(".notification");
+                  jQuery.each(y,function(z,op){
+                    console.log(op);
+                      jQuery('<tbody/>', {
+                        "class":"text-white pushID_"+op.id,
+                        "id": op.id
+                      }).appendTo('.table-notify').html(
+                        "<tr class='border-bottom text-light' ><td class='col-1'><i class='fa fa-envelope fa-2x'><i class='fa fa-envelope-open d-none fa-2x'></td><td class='col-10 p-1'><p class='m-0'>"+op.title+"</p><small>"+op.parcel+"</small></td><td class='col-1'><i class='fa fa-sign-in-alt'></td></tr>"
+                      );//.insertBefore("<tr>");
+/*                      jQuery("<tr/>",{
+                        "class":"pushID_"+op.id
+                      }).appendTo('.status_'+op.parcel+" tbody").html(
+                        "<td><b>"+op.title+"</b><br/>"+op.date+"</b><br/>"+op.info+
+                        ((op.img)?"<br/><img src="+op.img+" class='w-100'/><br/>":"")+
+                        ((op.btn)? op.btn :"")+"</td>"
+                      );            
+*/                      jQuery("<tr id='showPushID_"+op.id+"'><td><b>"+op.title+"</b><br/>"+op.date+"</b><br/>"+op.info+
+                        ((op.img)?"<br/><img src="+op.img+" class='w-100'/><br/>":"")+
+                        ((op.btn)? op.btn :"")+"</td></tr>").insertBefore('.status_'+op.parcel+" tbody tr:first");
+//                      Dodapisać dodanie komunikatu do przesyłki
+  //                  });
+  
+                  });
+                });
+              }).fail(function(){
+                console.log("An error has occurred. PUSH.json");
+              });
+            });
+        
+
+
+
+
+
+
+
+
+
+
+            
+      });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+{
+"01.Bank Pocztowy":[
+    {
+        "id":1,
+        "img":"./img/pocztowy.png", 
+        "name":"aplikacja pocztowy", 
+        "description":"moduł dla klientów banku pocztowego"
+    }
+],
+"02.usługi pocztowe":[
+    {
+        "id":2,
+        "img":"./img/sledzenie.png", 
+        "name":"eMonitoring", 
+        "description":"moduł do śledzenia przesyłek"
+    },
+    {
+        "id":3,
+        "img":"./img/zamow.png", 
+        "name":"zamów kuriera", 
+        "description":"aplikacja do zamawiania kuriera"
+    },
+    {
+        "id":4,
+        "img":"./img/nadanie.png", 
+        "name":"nadaj przesyłkę", 
+        "description":"chcesz szybko nadać paczkę? sprawdź JAKIE TO PROSTE."
+    },
+    {
+        "id":5,
+        "img":"./img/esklep1.png", 
+        "name":"eSklep", 
+        "description":"produkty biurowe do twojej firmy lub domu w zasięgu twojej ręki"
+    },
+    {
+        "id":6,
+        "img":"./img/filatelistyka.png", 
+        "name":"filatelistyka", 
+        "description":"znaczki tradycyjne, artykuły filatelistyczne - skorzystaj ze sklepu internetowego"
+    }
+],
+"03.cyfrowa poczta":[
+    {"id":7,
+        "img":"./img/eawizo.png", 
+        "name":"eAwizo", 
+        "description":"zgłaszanie elektronicznego awizo"},
+    {"id":8,
+        "img":"./img/ereklamacje.png", 
+        "name":"eReklamacje", 
+        "description":"formularz do zgłaszania reklamacji"},
+    {"id":9,
+        "img":"./img/eskrzynka1.png", 
+        "name":"eSkrzynka", 
+        "description":"Twoja elektroniczna skrzynka odbiorcza"}
+]
+}

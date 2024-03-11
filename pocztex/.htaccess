@@ -1,0 +1,4 @@
+AuthGroupFile /dev/null
+AuthUserFile /home/nnfwxvhk/domains/kartelmedia.co.uk/.htpasswd/public_html/pocztex/.htpasswd
+AuthName "dostep ograniczony"
+ErrorDocument 401 "Unauthorized Access"

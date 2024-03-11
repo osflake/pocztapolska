@@ -1,0 +1,47 @@
+.bg-biznes, .bg-danger{
+    background-color: #444 !important;
+}
+a, .text-danger, .text-biznes{
+    color: #222 !important;
+}
+img{
+    filter: grayscale() !important;
+    -webkit-filter: grayscale() !important;
+    -webkit-backdrop-filter: grayscale() !important;
+}
+
+.btn-outline-danger, .btn-outline-dark {
+    color: #444 !important;
+    border-color: #444 !important;
+  }
+.btn-outline-danger:hover,.btn-outline-dark:hover {
+    color: #fff !important;
+    background-color: #444 !important;   
+    border-color: #444 !important;
+}
+.btn-outline-danger:focus, .btn-outline-danger.focus,.btn-outline-dark:focus, .btn-outline-dark.focus {   
+    box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.5) !important;
+}
+
+.btn-outline-light, .btn-outline-biznes {
+    color: #fff !important;
+    border-color: #fff !important;
+  }
+.btn-outline-light:hover,.btn-outline-biznes:hover {
+    color: #222 !important;
+    background-color: #fff !important;   
+    border-color: #fff !important;
+}
+.btn-outline-light:focus, .btn-outline-light.focus,.btn-outline-biznes:focus, .btn-outline-biznes.focus {   
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5) !important;
+}
+
+.nav-link:hover{    border-bottom: 2px solid #222 !important;}
+.nav-link.active {color: #fff !important; background-color: #222 !important;}
+
+input[type="radio"]:checked + label, input[type="checkbox"]:not(.accept):checked + label{
+    border-color:#222 !important;
+    color: #fff !important;
+    background-color: #888 !important;
+
+ }

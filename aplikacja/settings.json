@@ -1,0 +1,50 @@
+{"aplikacje" : [{
+    "01.usługi bankowe":[] ,
+    "02.usługi pocztowe":[
+        {"id":2,
+            "img":"https://cdn.searchenginejournal.com/wp-content/uploads/2019/12/6bd6701a-2fef-4155-a6ec-79c9f29dc4a3-5deaec56c8796.jpeg", 
+            "name":"śledzenie", 
+            "description":"moduł do śledzenia przesyłek"},
+        {"id":3,
+            "img":"./img/test.jpg", 
+            "name":"zamów kuriera", 
+            "description":"aplikacja do zamawiania kuriera"},
+        {"id":4,
+            "img":"./img/test.jpg", 
+            "name":"nadaj paczkę", 
+            "description":"chcesz szybko nadać paczkę? sprawdź JAKIE TO PROSTE."}
+    ]
+}],
+
+"profile":[{
+    "domyslny":[{
+        "profil":[
+            {"id":"arkadiusz.sniezek@poczta-polska.pl"},
+            {"first":"Arkadiusz"},
+            {"nast":"Śniezek"}
+        ],
+        "push":[
+            {"phone":"+48 504 710 636"},
+            {"phone":"+48 600 700 800"}
+        ],
+        "adres":[
+            {"street":"Rodziny Hiszpańskich"},
+            {"no":"8"},
+            {"flat":""},
+            {"zip":"00-940"},
+            {"city":"Warszawa"}
+        ],
+        "permissions":[
+            {"check":"checked","id":1121,"name":"Zgoda na korzystanie z aplikacji","date":"2020-12-12"},
+            {"check":"checked","id":1122,"name":"Zgoda marketingowa na usługi bankowe","date":"2020-12-12"},
+            {"check":"checked","id":1123,"name":"Zgoda marketingowa dla Poczta Polska S.A.","date":"2021-01-10"},
+            {"check":"","id":1124,"name":"Zgoda marketingowa dla spółek z grupy Poczty Polskiej S.A","date":""}
+        ]
+        
+    }]
+}]
+
+
+
+}
+    

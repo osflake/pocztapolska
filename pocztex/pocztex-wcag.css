@@ -1,0 +1,75 @@
+.bg-biznes, .bg-danger, .bg-white, .bg-light{
+    background-color: #000 !important;
+}
+a, .text-danger, .text-biznes{
+    color: rgb(255, 247, 0) !important;
+}
+body, .text-dark, .text-secondary, .text-muted{
+    color: lightgrey !important;
+}
+
+.btn-outline-danger, .btn-outline-dark{
+    color: rgb(255, 247, 0) !important;
+    border-color: rgb(255, 247, 0) !important;
+  }
+.btn-outline-danger:hover,.btn-outline-dark:hover {
+    color: #fff !important;
+    background-color: #444 !important;   
+    border-color: #444 !important;
+}
+.btn-outline-danger:focus, .btn-outline-danger.focus,.btn-outline-dark:focus, .btn-outline-dark.focus {   
+    box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.5) !important;
+}
+
+.btn-outline-light, .btn-outline-biznes {
+    color: rgb(255, 247, 0) !important;
+    border-color:rgb(255, 247, 0) !important;
+  }
+.btn-outline-light:hover,.btn-outline-biznes:hover {
+    color: #222 !important;
+    background-color: #fff !important;   
+    border-color: #fff !important;
+}
+.btn-outline-light:focus, .btn-outline-light.focus,.btn-outline-biznes:focus, .btn-outline-biznes.focus {   
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5) !important;
+}
+
+.nav-link:hover{    border-bottom: 2px solid #fff !important;}
+.nav-link.active {color: #fff !important; background-color: #222 !important;}
+
+input[type="radio"]:checked + label, input[type="checkbox"]:not(.accept):checked + label,
+.alert-danger{
+    border-color:rgb(255, 247, 0) !important;
+    color: #000 !important;
+    background-color: rgb(255, 247, 0) !important;
+}
+
+.alert-danger > .btn-outline-danger, .alert-warning > .btn-outline-danger, .alert-primary > .btn-outline-dark{
+        color: #000 !important;
+        border-color: #000 !important;
+}
+.alert-danger > .btn-outline-danger:hover, .alert-warning > .btn-outline-danger:hover, .alert-primary > .btn-outline-dark:hover{
+    color: rgb(255, 247, 0) !important;
+    border-color: rgb(255, 247, 0) !important;
+    background-color: #000 !important;
+}
+.alert-primary {
+    background-color: lightgrey !important;
+    color: #000 !important;
+}
+.nav-link, .dropdown-item, .dropdown-menu, .page-item, .page-link, .card{
+    color: #fff !important;
+    background-color: #000 !important;
+}
+.nav-link:hover, .dropdown-item:hover, .btn-outline-success:hover{
+    border-color:rgb(255, 247, 0) !important;
+    color: #000 !important;
+    background-color: rgb(255, 247, 0) !important;
+}
+#main-menu{
+    border-bottom: 1px solid lightgrey !important;
+    border-top: 1px solid lightgrey !important;
+}
+.card{
+  	border: 1px solid lightgrey !important;
+}

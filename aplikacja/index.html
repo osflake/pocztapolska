@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Propozycja wyglądu aplikacji mobilnej by Arkadiusz Śnieżek</title>
+    <meta name="description"  content="Aplikacja mobilna PP SA" />
+    <script src="https://mapa.ecommerce.poczta-polska.pl/widget/scripts/ppwidget.js?ver=1.0"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" data-auto-replace-svg="nest"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/flick/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <link rel="stylesheet" href="./js/jquery-ui-slider-pips.css">
+    <script src="./js/jquery-ui-slider-pips.js"></script>
+
+    <link rel="stylesheet" href="./FeedEk.css">
+    <script type="text/javascript" src="./js/FeedEk.min.js"></script>
+
+    <link href="./style.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script></head>
+
+<body class="bg-dark">
+    <header class="container bg-light pb-3 text-center">
+        <p class="display-4 ">Propozycja wyglądu aplikacji by Arkadiusz Śnieżek</p>
+        <p class="">Niniejsze opracowanie zostało wykonane na bazie doświadczenia, wiedzy i kwalifikacji autora. Pełne prawa autorskie należą do autora opracowania. Opracowanie nie jest przedmiotem realizacji obowiązków służbowych autora.</p>
+    </header>
+    <main class="container pt-3" style="background-color: lightgrey;">
+        <section class="row p-0">
+            <div class="col-lg-6 col-md-6 col-sm-12 colp-xs-12">
+                <div class="apk bg-danger mx-auto border">
+                    <div class="d-flex align-items-end h-50 justify-content-center">
+                        <img src="./img/logo_www.svg" class="w-75" height="auto"/>
+                    </div>
+                    <div class="d-flex align-items-center h-50 justify-content-center text-center">
+                        <small class="text-light"><strong>Aplikacja Mobilna</strong><br/>Narodowego Operatora Pocztowego</small>
+                    </div>
+                                          
+                </div>
+                    <p class="text-center">1. Ekran pierwszy - uruchamianie aplikacji</p>
+            </div>
+
+
+            <div class="col-lg-6 col-md-6 col-sm-12 colp-xs-12">
+              <div class="apk bg-danger mx-auto border position-relative">
+                <div class="d-flex align-items-end h-auto pt-3 mb-3 justify-content-center">
+                  <img src="./img/logo_www.svg" class="w-75" height="auto"/>
+                </div>
+                <div class="instrukcja overflow-auto h-75 mt-3 pt-3 align-items-center justify-content-center text-left text-light p-0">
+                </div>
+                <div class="h-auto align-items-center justify-content-center text-center text-light p-0">
+                  <button class="instrukcja_button prev btn btn-warning " aria-action="prev" aria-slide="0">cofnij</button>
+                  <button class="instrukcja_button next btn btn-warning" aria-action="next" aria-slide="1">dalej</button>
+                  <button class="instrukcja_start start btn btn-warning" aria-action="start" >rozpocznij korzystanie</button>
+                </div>
+
+              </div>
+                  <p class="text-center">1a. Pierwsze uruchomienie - instrukcja dla klienta</p>
+            </div>
+
+
+            <div class="col-lg-6 col-md-6 col-sm-12 colp-xs-12">
+              <div class="apk bg-danger mx-auto border position-relative">
+                <div class="d-flex align-items-end h-25 pt-3 mb-3 justify-content-center">
+                  <img src="./img/logo_www.svg" class="w-75" height="auto"/>
+                </div>
+                <div class="align-items-center h-auto justify-content-center text-left text-light p-0">
+                  <div class="form-check form-switch form-control-lg m-2 p-3 text-center d-grid gap-2">
+                    <span class="lh-base">Czy posiadasz <br/>zarejestrowane konto?</span>
+                    <button class="btn btn-lg btn-warning m-2">Tak, zaloguję się</button>
+                    <button class="btn btn-lg btn-light m-2">Nie, załoze je teraz</button>                     
+                  </div>
+                </div>    
+              </div>
+                  <p class="text-center">1a. Pierwsze uruchomienie - Logowanie do serwisu</p>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-12 colp-xs-12">
+              <div class="apk bg-danger mx-auto border position-relative">
+                <div class="d-flex align-items-end h-25 pt-3 mb-3 justify-content-center">
+                  <img src="./img/logo_www.svg" class="w-75" height="auto"/>
+                </div>
+                
+                  <div class="p-2 rejestracja m-2">
+                    <div class="d-block border-bottom text-center text-light mb-3 p-3 display-5">rejestracja</div>
+                      <div class="input-group mb-2">
+                          <span class="input-group-text" id="basic-addon1"><b>@</b></span>
+                          <input id="1id" type="text" class="form-control input-small veryfication_email" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" value="arkadiusz.sniezek@poczta-polska.pl">
+                      </div>
+                      <div class="testaktyw input-group">
+                        <span class="input-group-text" id="basic-addon1"><i class="fa fa-phone" aria-hidden="true"></i></span>
+                        <input id="1tel" type="number" class="veryfication_phone form-control input-small" placeholder="wpisz numer telefonu do subskrypcji" aria-label="Username" aria-describedby="basic-addon1" min="9" max="9">
+                      </div>
+                      <div class="testaktyw input-group d-none">
+                        <span class="input-group-text" id="basic-addon3"><i class="fas fa-hourglass-half"></i></span>
+                        <input id="2tel" type="number" class="form-control input-small" placeholder="Nr tel. do subskrypcji" aria-label="Imię" aria-describedby="basic-addon1" disabled>
+                        <input id="2kod" type="text" class="form-control input-small" placeholder="KOD" aria-label="Imię" aria-describedby="basic-addon1" value="" >
+                        <span class="input-group-text bg-success text-white" id="basic-addon3"><i class="fa fa-check " aria-hidden="true"></i></span>
+                    </div>
+                  </div>
+                
+                
+                <div class="d-flex align-items-end h-auto justify-content-center text-left text-light p-3">
+                  <div class="form-check form-switch form-control-lg m-1">
+                      <input class="form-check-input text-danger" type="checkbox" id="akceptacjaRegulaminu">
+                      <label class="form-check-label small" for="akceptacjaRegulaminua">Akceptuję <a class="text-warning" href="#">regulamin</a> korzystania z aplikacji mobilnej. <a class="text-warning" href="#">Informacja RODO</a></label>
+                  </div>
+                </div>
+                <div class="align-items-center h-auto justify-content-center text-left text-light p-0">
+                  <div class="form-check form-switch form-control-lg  p-3 text-center d-grid gap-2">
+                    <button id="zarejestrujAPK" class="btn btn-lg btn-warning m-2" disabled>Zarejestruj</button>
+                    <button id="aktywujAPK" class="btn btn-lg btn-warning m-2 d-none" >Aktywuj aplikację</button>
+                  </div>
+                </div>
+              
+
+              </div>
+                  <p class="text-center">1c. Pierwsze uruchomienie - rejestracja</p>
+            </div>
+
+
+            <div class="col-lg-6 col-md-6 col-sm-12 colp-xs-12">
+              <div class="apk bg-danger mx-auto border position-relative">
+                <div class="d-flex align-items-end h-25 pt-3 mb-3 justify-content-center">
+                  <img src="./img/logo_www.svg" class="w-75" height="auto"/>
+                </div>
+                
+                  <div class="p-2 cardsaaaa m-2">
+                    <div class="d-block border-bottom text-center text-light mb-3 p-3 display-5">Logowanie</div>
+                      <div class="input-group mb-2">
+                          <span class="input-group-text" id="basic-addon1"><b>@</b></span>
+                          <input id="log_id" type="email" class="testlog veryfication_email form-control input-small" placeholder="twój email" aria-label="email" aria-describedby="basic-addon1">
+                      </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class="fa fa-phone" aria-hidden="true"></i></span>
+                        <input id="log_tel1" type="number" class="testlog veryfication_phone form-control input-small" placeholder="twój numer telefonu" aria-label="Username" aria-describedby="basic-addon1" min="9" max="9">
+                      </div>
+                      <div class="input-group d-none">
+                        <span class="input-group-text" id="basic-addon3"><i class="fas fa-hourglass-half"></i></span>
+                        <input id="log_kod" type="text" class="form-control input-small" placeholder="KOD" aria-label="Imię" aria-describedby="basic-addon1" value="" >
+                        <span class="input-group-text bg-success text-white" id="basic-addon3"><i class="fa fa-check " aria-hidden="true"></i></span>
+                    </div>
+                  </div>
+                
+                <div class="align-items-center h-auto justify-content-center text-left text-light p-0">
+                  <div class="form-check form-switch form-control-lg  p-3 text-center d-grid gap-2">
+                    <button id="zalogujAPK" class="btn btn-lg btn-warning m-2" disabled>Zaloguj</button>
+                    <button id="logowanieAPK" class="btn btn-lg btn-warning m-2 d-none" >Potwierdź kod i zaloguj</button>
+                  </div>
+                </div>
+              </div>
+              <div class="text-center">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="rodzajLogowania" id="flexRadioDefault0" aria-type="same" checked>
+                <label class="form-check-label" for="flexRadioDefault0">
+                  ten sam tel
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="rodzajLogowania" id="flexRadioDefault1" aria-type="reset">
+                <label class="form-check-label" for="flexRadioDefault1">
+                  reset telefonu
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="rodzajLogowania" id="flexRadioDefault2" aria-type="next" >
+                <label class="form-check-label" for="flexRadioDefault2">
+                  uruchomienie drugiego tel
+                </label>
+              </div>
+              </div>
+                  <p class="text-center">1d. Logowanie - normalne, po resecie lub drugi telefon</p>
+            </div>
+
+
+<!-- OBSLUGA PRZYCISKÓW -->
+          
+            <div class="col-lg-12 col-md-12 col-sm-12 colp-xs-12 p-2 mb-3 text-center bg-dark">
+              <button class="wczytajDEMO m-3 btn btn-lg btn-outline-warning">wczytaj DEMO</button>
+              <button class="wyslijPUSH m-3 btn btn-lg btn-outline-warning">wyślij przykładowy PUSH</button>            
+            </div>
+
+            <!-- EKRAN PO URUCHOMIENIU -->
+            <div class="col-lg-6 col-md-6 col-sm-12 colp-xs-12 p-0">
+                <div class="apk bg-light mx-auto border position-relative">
+
+                    <div class="position-relative top-0 start-0 p-0 m-0">
+                        <div class="bg-danger row text-center p-0 m-0">
+                            <div class="col-2 d-flex align-items-center justify-content-start text-light"> <i class="fas fa-bars me-2" title="Menu" data-bs-toggle="collapse" data-bs-target="#menu" aria-expanded="false" aria-controls="menu"></i> <i class="fas fa-shopping-basket" title="Koszyk"></i> </div>
+                            <div class="col-8"><img src="./img/logo_www.svg" class="w-75" height="auto"/></div>
+                            <div class="col-2 d-flex align-items-center justify-content-end text-light"><i class="far fa-bell" title="POWIADOMIENIA"></i><i class="fa fa-bell d-none" title="POWIADOMIENIA"></i></div>
+                        </div>
+                    </div>
+
+                    <!--DODATKI: Notyfikacja, sklep -->
+                    <div class='app-store position-absolute top-0 bg-light d-block d-none overflow-auto'></div>
+                    <div class='notification position-absolute top-25 end-0 w-75 bg-danger d-none overflow-auto'></div>
+                    <div id="menu" class='collapse position-absolute top-25 start-0 w-75 bg-danger text-white d-nonea overflow-auto'>
+                      <div class="row ps-3">
+                        <div class="col-12 p-3 border-top">Regulamin aplikacji</div>
+                        <div class="col-12 p-3 border-top">Klauzula RODO</div>
+                        <div class="col-12 p-3 border-top">Aktualności</div>
+                        <div class="col-12 p-3 border-top">Archiwum przesyłek</div>
+                        <div class="col-12 p-3 border-top">Ksiązka adresowa</div>
+                        <div class="col-12 p-3 border-top">O aplikacji</div>
+                        <div class="col-12 p-3 border-top text-warning">WYLOGUJ</div>
+                      </div>
+                    </div>
+                    <!--  KONIEC DODATKOW  -->
+
+                    <div class="display-6 text-center"><small>Wybierz usługi</small></div>
+                    <div class="row m-0 p-2 text-white overflow-auto" style="font-size: 1.4rem; text-shadow: 2px; max-height:500px;">
+                      <div class="apk-change-2 col-12 p-2">
+                        <div class="border rounded shadow p-2 d-flex align-items-end display-5 " style="height: 160px; width: auto;line-height:100%; background-image: url('./img/pocztowy.png');background-size: cover; background-position: center center;">bank pocztowy</div>
+                      </div>
+                      <div class="apk-change-2 col-12 p-2">
+                        <div class="border rounded shadow p-2 d-flex align-items-end display-5 " style="height: 160px; width: auto;line-height:100%; background-image: url('./img/uslugipocztowe.png');background-size: cover; background-position: center center;">usługi pocztowe</div>
+                      </div>
+                      <div class="apk-change-2 col-12 p-2">
+                        <div class="border rounded shadow p-2 d-flex align-items-end display-5 " style="height: 160px; width: auto;line-height:100%; background-image: url('./img/cyfrowa1.png');background-size: cover; background-position: center center;"> cyfrowa poczta</div>
+                      </div>
+                      <div class="apk-change-2 col-12 p-2">
+                        <div class="border rounded shadow p-2 mx-auto d-flex align-items-end display-5 text-white" style="height: 160px; width: auto; line-height:100%; background-image: url('https://assets.entrepreneur.com/content/3x2/2000/20160727062438-ecommerce-1.jpeg');background-size: cover; background-position: center center;">
+                            moje ulubione
+                        </div>
+                      </div>
+                    </div>
+                    <div class="position-absolute bottom-0 start-0 p-0 m-0">
+                        <div class="text-danger row text-center p-0 m-0">
+                            <div class="col-4 p-2 d-flex align-items-end"><i class="fa fa-cog fa-2x text-secondary" title="ustawienia widoku biezącego ekranu" aria-resizeAPK="2"></i></div>
+                            <div class="resizeAPK-2 col-4 p-2"><i class="wczytajSKLEP fas fa-plus-circle fa-3x bg-white text-danger" title="Dodawanie funkcji"></i></div>
+                            <div class="resizeAPK-2 col-4 p-2 d-none"><i class="apk-click-up fa fa-plus-circle fa-2x" aria-data="6" aria-hidden="true" aria-apk="2"></i> / <i class="apk-click-down fa fa-minus-circle fa-2x" aria-data="12" aria-hidden="true" aria-apk="2"></i></div>
+                            <div class="col-4 p-2 d-flex align-items-end justify-content-end text-secondary"> <i class="fas fa-user fa-2x" title="profil klienta"></i> </div>
+                            <div class="col-12 bg-dark text-white"><small class="text-small">Aplikacja mobilna Grupy Poczty Polskiej S.A. | <span class="appVer"></span></small></div> 
+                        </div>
+                    </div>
+                </div>
+                    <p class="text-center">2. Ekran drugi - widok pobranych modułow</p>
+            </div>
+
+            <!-- USŁUGI POCZTOWE -->
+            <div class="col-lg-6 col-md-6 col-sm-12 colp-xs-12 p-0">
+                <div class="apk bg-light mx-auto border position-relative">
+                    <div class="position-relative top-0 start-0 p-0 m-0">
+                        <div class="bg-danger row text-center p-0 m-0">
+                            <div class="col-2 d-flex align-items-center justify-content-start text-light"> <i class="fas fa-shopping-basket" title="Koszyk"></i> (2)</div>
+                            <div class="col-8"><img src="./img/logo_www.svg" class="w-75" height="auto"/></div>
+                            <div class="col-2 d-flex align-items-center justify-content-end text-light"><i class="far fa-bell" title="POWIADOMIENIA"></i><i class="fa fa-bell d-none" title="POWIADOMIENIA"></i></div>
+                        </div>
+                    </div>
+
+                    <!--DODATKI: Notyfikacja, sklep -->
+                    <div class='app-store position-absolute top-0 bg-light d-block d-none overflow-auto'></div>
+                    <div class='notification position-absolute top-25 end-0 w-75 bg-danger d-none overflow-auto'></div>
+                    <!--  KONIEC DODATKOW  -->
+
+                    <div class="display-6 text-center"><small>Usługi pocztowe</small></div>
+                    <div class="row m-0 p-2 text-white overflow-auto" style="font-size: 1.4rem; text-shadow: 2px; max-height:500px;">
+                        <div class="apk-change-3 col-6 p-2">
+                            <div class="border rounded shadow p-2 d-flex align-items-end" style="height: 160px; width: auto;line-height:100%; background-image: url('./img/sledzenie.png');background-size: cover; background-position: center center;">eMonitoring</div>
+                        </div>
+                        <div class="apk-change-3 col-6 p-2">
+                            <div class="border rounded shadow p-2 d-flex align-items-end" style="height: 160px; width: auto;line-height:100%; background-image: url('./img/esklep1.png');background-size: cover; background-position: center center;">eSklep</div>
+                        </div>
+                        <div class="apk-change-3 col-6 p-2">
+                            <div class="border rounded shadow p-2 d-flex align-items-end" style="height: 160px; width: auto; line-height:100%; background-image: url('./img/nadanie.png');background-size: cover; background-position: center center;">nadaj przesyłkę</div>
+                        </div>
+                        
+                    </div>
+                    <div class="position-absolute bottom-0 start-0 p-0 m-0">
+                        <div class="row text-center p-0 m-0">
+                          <div class="col-4 p-2 d-flex align-items-end"><i class="fa fa-cog fa-2x text-secondary" title="ustawienia widoku biezącego ekranu" aria-resizeAPK="3"></i></div>
+                          <div class="resizeAPK-3 col-4 p-2"><i class="wczytajSKLEP fas fa-plus-circle fa-3x bg-white text-danger" title="Dodawanie funkcji"></i></div>
+                          <div class="resizeAPK-3 col-4 p-2 d-none"><i class="apk-click-up fa fa-plus-circle fa-2x" aria-data="6" aria-hidden="true" aria-apk="3"></i> / <i class="apk-click-down fa fa-minus-circle fa-2x" aria-data="12" aria-hidden="true" aria-apk="3"></i></div>
+                          <div class="col-4 p-2 d-flex align-items-end justify-content-end text-secondary"> <i class="fas fa-home fa-2x text-secondary" title="Home"></i> </div>
+                          <div class="col-12 bg-dark text-white"><small class="text-small">Aplikacja mobilna Grupy Poczty Polskiej S.A. | <span class="appVer"></span></small></div> 
+                        </div>
+                    </div>
+
+                </div>
+                <p class="text-center wiekoscIMG">Najedź na obrazek powyzej</p>
+                    <p class="text-center">3. Ekran usług pocztowych <i class="apk-click-up fa fa-plus-circle" aria-data="6" aria-hidden="true" aria-apk="3"></i> / <i class="apk-click-down fa fa-minus-circle" aria-data="12" aria-hidden="true" aria-apk="3"></i>
+                    </p>
+                    
+
+            </div>
+
+            <!-- USŁUGI moje ulubiuone -->
+            <div class="col-lg-6 col-md-6 col-sm-12 colp-xs-12 p-0">
+                <div class="apk bg-light mx-auto border position-relative">
+                    <div class="position-relative top-0 start-0 p-0 m-0">
+                        <div class="bg-danger row text-center p-0 m-0">
+                            <div class="col-2 d-flex align-items-center justify-content-start text-light"> <i class="fas fa-shopping-basket" title="Koszyk"></i> (2)</div>
+                            <div class="col-8"><img src="./img/logo_www.svg" class="w-75" height="auto"/></div>
+                            <div class="col-2 d-flex align-items-center justify-content-end text-light"><i class="far fa-bell" title="POWIADOMIENIA"></i><i class="fa fa-bell d-none" title="POWIADOMIENIA"></i></div>
+                        </div>
+                    </div>
+                    <!--DODATKI: Notyfikacja, sklep -->
+                    <div class='app-store position-absolute top-0 bg-light d-block d-none overflow-auto'></div>
+                    <div class='notification position-absolute top-25 end-0 w-75 bg-danger d-none overflow-auto'></div>
+                    <!--  KONIEC DODATKOW  -->
+
+                    <div class="display-6 text-center"><small>moje ulubione</small></div>
+                    <div class="row m-0 p-2 text-white overflow-auto" style="font-size: 1.4rem; text-shadow: 2px; max-height: 500px;">
+                        <div class="apk-change-4 col-12 p-2">
+                            <div class="border rounded shadow p-2 d-flex align-items-end" style="height: 160px; width: auto;line-height:100%; background-image: url('./img/esklep1.png');background-size: cover; background-position: center center;">
+                                eSklep
+                            </div>
+                        </div>
+                        <div class="apk-change-4 col-12 p-2">
+                            <div class="border rounded shadow p-2 d-flex align-items-end" style="height: 160px; width: auto;line-height:100%; background-image: url('./img/filatelistyka.png');background-size: cover; background-position: center center;">
+                                filatelistyka
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="position-absolute bottom-0 start-0 p-0 m-0">
+                        <div class="row text-center p-0 m-0">
+                            <div class="col-4 p-2 d-flex align-items-end"><i class="fa fa-cog fa-2x text-secondary" title="ustawienia widoku biezącego ekranu" aria-resizeAPK="4"></i></div>
+                            <div class="resizeAPK-4 col-4 p-2"><i class="fas fa-plus-circle fa-3x bg-white text-danger" title="Dodawanie funkcji"></i></div>
+                            <div class="resizeAPK-4 col-4 p-2 d-none"><i class="apk-click-up fa fa-plus-circle fa-2x" aria-data="6" aria-hidden="true" aria-apk="4"></i> | <i class="apk-click-down fa fa-minus-circle fa-2x" aria-data="12" aria-hidden="true" aria-apk="4"></i></div>
+                            <div class="col-4 p-2 d-flex align-items-end justify-content-end text-secondary"> <i class="fas fa-home fa-2x text-secondary" title="Home"></i> </div>
+                            <div class="col-12 bg-dark text-white"><small class="text-small">Aplikacja mobilna Grupy Poczty Polskiej S.A. | <span class="appVer"></span></small></div> 
+                        </div>
+                    </div>
+
+                </div>
+                    <p class="text-center">4. Ekran usług eCommerce <i class="apk-click-up fa fa-plus-circle" aria-data="6" aria-hidden="true" aria-apk="4"></i> / <i class="apk-click-down fa fa-minus-circle" aria-data="12" aria-hidden="true" aria-apk="4"></i>
+                    </p>
+            </div>
+            <!-- PROFIL KLIENTA -->
+            <div class="col-lg-6 col-md-6 col-sm-12 colp-xs-12 p-0">
+                <div class="apk bg-light mx-auto border position-relative">
+                    <div class="position-relative top-0 start-0 p-0 m-0">
+                        <div class="bg-danger row text-center p-0 m-0">
+                            <div class="col-2 d-flex align-items-center justify-content-start text-light"> <i class="fas fa-shopping-basket" title="Koszyk"></i> </div>
+                            <div class="col-8"><img src="./img/logo_www.svg" class="w-75" height="auto"/></div>
+                            <div class="col-2 d-flex align-items-center justify-content-end text-light"><i class="far fa-bell" title="POWIADOMIENIA"></i><i class="fa fa-bell d-none" title="POWIADOMIENIA"></i></div>
+                        </div>
+                    </div>
+                    <!--DODATKI: Notyfikacja, sklep -->
+                    <div class='app-store position-absolute top-0 bg-light d-block d-none overflow-auto'></div>
+                    <div class='notification position-absolute top-25 end-0 w-75 bg-danger d-none overflow-auto'></div>
+                    <!--  KONIEC DODATKOW  -->
+
+                    <div class="display-6 text-center"><small>Profil klienta</small></div>
+                    <div class="m-0 p-2 text-secondary overflow-auto h-75" style="font-size: 1.4rem; text-shadow: 2px;">
+                        <div class="p-2 card">
+                          <div class="d-block border-bottom mb-2small">Profil #1 (dane konta)</div>
+                            <div class="input-group mb-2">
+                                <span class="input-group-text" id="basic-addon1"><b>ID</b></span>
+                                <input type="text" class="form-control input-small" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" value="arkadiusz.sniezek@poczta-polska.pl" disabled>
+                            </div>
+                            <div class="input-group mb-2">
+                              <span class="input-group-text" id="basic-addon1"><i class="fa fa-phone" aria-hidden="true"></i></span>
+                              <input type="text" class="form-control input-small" placeholder="Telefon kontaktowy" aria-label="Username" aria-describedby="basic-addon1">
+                          </div>
+                            <div class="input-group mb-2">
+                                <span class="input-group-text" id="basic-addon2"><i class="fa fa-user" aria-hidden="true"></i></span>
+                                <input type="text" class="form-control input-small" placeholder="imię" aria-label="Imię" aria-describedby="basic-addon1" value="Arkadiusz" >
+                                <input type="text" class="form-control input-small" placeholder="nazwisko" aria-label="Imię" aria-describedby="basic-addon1" value="Śnieżek" >
+                            </div>
+                            <div class="d-block border-bottom mb-2small">Powiadomienia PUSH</div>
+                            <div class="input-group mb-2">
+                                <span class="input-group-text" id="basic-addon3"><i class="fa fa-phone" aria-hidden="true"></i></span>
+                                <input type="text" class="form-control input-small" placeholder="Imię" aria-label="Imię" aria-describedby="basic-addon1" value="48 504 710 636" disabled>
+                                <span class="input-group-text" id="basic-addon3"><i class="fa fa-trash" aria-hidden="true"></i></span>
+                            </div>
+
+                            <div class="input-group mb-2">
+                                <span class="input-group-text" id="basic-addon3"><i class="fas fa-hourglass-half"></i></span>
+                                <input type="text" class="form-control input-small" placeholder="Nr tel. do subskrypcji" aria-label="Imię" aria-describedby="basic-addon1" value="600700800" disabled>
+                                <input type="text" class="form-control input-small" placeholder="KOD" aria-label="Imię" aria-describedby="basic-addon1" value="" >
+                                <span class="input-group-text bg-success text-white" id="basic-addon3"><i class="fa fa-check " aria-hidden="true"></i></span>
+                            </div>
+                            <div class="text-center text-info border d-grid gap-2">
+                                <button class="btn btn-small btn-outline-success"><i class="fas fa-plus-circle" title="Dodawanie nowego profilu"></i> dodaj</button>
+                            </div>
+
+                            <div class="d-block border-bottom mb-2small">Główny adres nadawcy</div>
+                            <div class="input-group mb-2">
+                                <span class="input-group-text" id="basic-addon4"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                                <input type="text" class="form-control input-small" placeholder="Ulica" aria-label="Imię" aria-describedby="basic-addon1" value="Rodziny Hiszpańskich" disabled>
+                            </div>
+                            <div class="input-group mb-2">
+                                <span class="input-group-text" id="basic-addon4a"><i class="fa fa-home" aria-hidden="true"></i></span>
+                                <input type="text" class="form-control input-small" placeholder="D" aria-label="Imię" aria-describedby="basic-addon1" value="8" disabled>
+                                <span class="input-group-text" id="basic-addon4a">/</span>
+                                <input type="text" class="form-control input-small" placeholder="M" aria-label="M" aria-describedby="basic-addon1" value="" disabled>
+                            </div>
+                            <div class="input-group input-inline mb-2">
+                                <span class="input-group-text" id="basic-addon5"><i class="fa fa-location-arrow" aria-hidden="true"></i></span>
+                                <input type="text" class="form-control input-small" placeholder="Imię" aria-label="Imię" aria-describedby="basic-addon1" value="00-940" disabled>
+                                <input type="text" class="form-control input-small" placeholder="Imię" aria-label="Imię" aria-describedby="basic-addon1" value="Warszawa" disabled>
+                            </div>
+                            <div class="text-center text-info border d-grid gap-2">
+                              <button class="btn btn-lg btn-outline-danger"><i class="fas fa-save" title="Zapisz ustawienia"></i> zapisz ustawienia</button>
+                            </div>
+                        </div>
+                        <div class="p-2 card">
+                          <div class="d-block border-bottom mb-2small">Zgody</div>
+                            <div class="form-check small">
+                                <input class="form-check-input" type="checkbox" value="" id="agree_APK" checked>
+                                <label class="form-check-label small" for="agree_APK">
+                                    Zgoda na korzystanie z aplikacji <br/>(2020-12-12)
+                                </label>
+                            </div>
+                            <div class="form-check small">
+                                <input class="form-check-input" type="checkbox" value="" id="agree_APK0" checked>
+                                <label class="form-check-label small" for="agree_APK0">
+                                    Zgoda marketingowa na usługi bankowe <br/>(2020-12-12)
+                                </label>
+                            </div>
+                            <div class="form-check small">
+                                <input class="form-check-input" type="checkbox" value="" id="agree_APK1" checked>
+                                <label class="form-check-labe small" for="agree_APK1">
+                                    Zgoda marketingowa dla Poczta Polska S.A. <br/>(2021-01-02)
+                                </label>
+                            </div>
+                            <div class="form-check small">
+                                <input class="form-check-input" type="checkbox" value="" id="agree_APK2">
+                                <label class="form-check-label small" for="agree_APK2">
+                                    Zgoda marketingowa dla spółek z grupy Poczty Polskiej S.A.
+                                </label>
+                            </div>
+
+
+                        </div>
+                        
+                    </div>
+                    <div class="position-absolute bottom-0 start-0 p-0 m-0">
+                        <div class="text-danger row text-center p-0 m-0">
+                            <div class="col-4 p-2 d-flex align-items-end"><i class="fa fa-chevron-circle-left fa-2x" title="wróć co poprzedniego ekranu"></i></div>
+                            <div class="col-4 p-2"><i class="fas fa-address-book fa-3x" title="DKsiązka adresowa"></i></div>
+                            <div class="col-4 p-2 d-flex align-items-end justify-content-end text-secondary"> <i class="fas fa-home fa-2x" title="Home"></i> </div>
+                            <div class="col-12 bg-dark text-white"><small class="text-small">Aplikacja mobilna Grupy Poczty Polskiej S.A. | <span class="appVer"></span></small></div> 
+                        </div>
+                    </div>
+                
+
+                </div>
+                    <p class="text-center">5. Ekran profilu klienta</p>
+            </div>
+
+
+            <!-- ŚLEDZENIE PRZESYŁKI -->
+            <div class="col-lg-6 col-md-6 col-sm-12 colp-xs-12 p-0">
+                <div class="apk bg-light mx-auto border position-relative">
+                    <div class="position-relative top-0 start-0 p-0 m-0">
+                        <div class="bg-danger row text-center p-0 m-0">
+                            <div class="col-2 d-flex align-items-center justify-content-start text-light"> <i class="fas fa-shopping-basket" title="Koszyk"></i> </div>
+                            <div class="col-8"><img src="./img/logo_www.svg" class="w-75" height="auto"/></div>
+                            <div class="col-2 d-flex align-items-center justify-content-end text-light"><i class="far fa-bell" title="POWIADOMIENIA"></i><i class="fa fa-bell d-none" title="POWIADOMIENIA"></i></div>
+                        </div>
+                    </div>
+                    <!--DODATKI: Notyfikacja, sklep -->
+                    <div class='app-store position-absolute top-0 bg-light d-block d-none overflow-auto'></div>
+                    <div class='notification position-absolute top-25 end-0 w-75 bg-danger d-none overflow-auto'></div>
+                    <!--  KONIEC DODATKOW  -->
+
+                    <div class="display-6 text-center mt-2"><small>Śledzenie</small></div>
+                      <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                          <a class="nav-link" id="home-tab" data-bs-toggle="tab" href="#nadawca" role="tab" aria-controls="nadawca" aria-selected="false"><i class="fas fa-paper-plane"></i> NADAWCA</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                          <a class="nav-link active" id="profile-tab" data-bs-toggle="tab" href="#odbiorca" role="tab" aria-controls="odbiorca" aria-selected="true"><i class="fas fa-envelope-open d-inline"></i> ODBIORCA</a>
+                        </li>
+                      </ul>
+                    <div class="m-0 p-2 text-secondary overflow-auto h-75" style="font-size: 1.4rem; text-shadow: 2px;">
+
+                    <div class="tab-content" id="myTabContent">
+                      <div class="tab-pane fade" id="nadawca" role="tabpanel" aria-labelledby="home-tab">
+                        <div id="00359007738342938324" class="block p-2 card parcel text-danger mt-2">
+                            <div><i class="fas fa-envelope d-inline"></i> 00359007738342938324
+                              <i class="fa fa-info-circle text-secondary" data-bs-toggle="collapse" data-bs-target="#C_00359007738342938324" aria-expanded="false" aria-controls="C_00359007738342938324"></i>
+                            </div>
+                            <div class="block text-center text-secondary">
+                              <i class="text-success fas fa-box-open" title="Przygotowanie do nadania"></i> - 
+                              <i class="text-success fas fa-truck-loading" title="Odebrana przez kuriera"></i> - 
+                              <i class="text-danger fas fa-truck" title="W transporcie"></i> - 
+                              <i class="fas fa-people-carry " title="Wydana do doręczenia"></i> - 
+                              <i class="fa fa-home" title="Doręczono"></i> 
+                          </div>
+                          <div class="input-group input-group-sm mb-3">
+                                <input type="text" class="form-control border-top-0 border-left-0" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" value="prezent dla mamy">
+                                <span class="input-group-text" id="basic-addon10"><i class="fa fa-edit"></i></span>
+                          </div>
+
+                            <div class="block small text-secondary">
+                                  <div class="collapse" id="C_00359007738342938324">
+                                    <div class="card card-body small">
+                                        <span class="text-danger">Dane przesyłki</span>
+                                        <table class="table table-striped small">
+                                            <thead>
+                                              <tr>
+                                                <th scope="col">Data nadania</th>
+                                                <th scope="col">2020-09-15</th>
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Rodzaj przesyłki</td>
+                                                    <td>Pocztex Kurier 48</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>Kraj nadania</td>
+                                                    <td>Polska</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>Kraj dostawy</td>
+                                                    <td>Polska</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>Urząd nadania</td>
+                                                    <td>PP Warszawa W101 (ul. Łączyny 8, 00-903 Warszawa)</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>Masa</td>
+                                                    <td>20.0 kg</td>
+                                                  </tr>
+                                            </tbody>
+                                        </table>
+                                        <span class="text-danger">Status przesyłki</span>
+                                        <table class="status_00359007738342938324 table table-striped small">
+                                            <thead>
+                                              <tr>
+                                                <th scope="col">Zdarzenie / Data / Jednostka</th>
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                              <tr>
+                                                <td><b>Wysłanie przesyłki</b><br/>
+                                                2020-09-17 05:44<br/>
+                                                Terminal Przeładunkowy</td>
+                                              </tr>
+                                              <tr>
+                                                <td><b>Wysłano powiadomienie sms</b><br/>
+                                                2020-09-15 19:40<br/>
+                                                Centralna Baza Danych ZST</td>
+                                              </tr>
+                                              <tr>
+                                                <td><b>Nadanie</b><br/>
+                                                2020-09-15 16:00<br/>
+                                                PP Warszawa W101<br/>
+                                              </tr>
+                                              
+<!--                                              <tr>
+                                                <td class="border"><b>Gotowe do odbioru</b><br/>
+                                                2020-09-18 05:44<br/>
+                                                Automat Pocztowy ul. Jakaś tam 4<br/>
+                                                KOD ODBIORU: <b>891 019</b><br/>
+                                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Qr-witaj-w-wikiped.svg/1200px-Qr-witaj-w-wikiped.svg.png" class="mx-auto my-auto w-100"/><br/>
+                                                <button class="btn btn-lg bg-success text-white d-block m-3">OTWÓRZ SKRYTKĘ</button></td>
+                                              </tr>
+                                              <tr>
+                                                <td><b>Przesyłka Odebrana</b><br/>
+                                                2020-09-18 15:44<br/>
+                                                Miłego dnia!</td>
+                                              </tr>
+                                            -->
+                                            </tbody>
+                                          </table>
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="tab-pane fade show active" id="odbiorca" role="tabpanel" aria-labelledby="profile-tab">
+
+                        <div id="00959007738123401926" class="block p-2 card parcel text-danger mt-2" style="background-color: pink !important;">
+                            <div><i class="fas fa-envelope d-inline"></i> 00959007738123401926 </div>
+                            <div class="input-group input-group-sm mb-3">
+                                <!--<span class="input-group-text" id="basic-addon10"><i class="fa fa-info"></i></span>-->
+                                <input type="text" class="form-control input-sm" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" value="PISMO US">
+                                <span class="input-group-text" id="basic-addon10"><i class="fa fa-edit"></i></span>
+                            </div>
+                            <div class="block text-center text-secondary">
+                                <i class="text-success fas fa-box-open" title="Przygotowanie do nadania"></i> - 
+                                <i class="text-success fas fa-truck-loading" title="Odebrana przez kuriera"></i> - 
+                                <i class="text-success fas fa-truck" title="W transporcie"></i> - 
+                                <i class="text-success fas fa-people-carry" title="Wydana do doręczenia"></i> - 
+                                <i class="text-danger fas fa-map-marker-alt" title="Oczekuje na odbiór z punktu"></i> -
+                                <i class="fa fa-check-circle" title="Doręczono"></i>
+                            </div>
+                            <div class="block small text-secondary">
+                              <small>Status: <span class="text-danger strong">oczekuje na odbiór</span></small>
+                              <i class="fa fa-info-circle text-secondary" data-bs-toggle="collapse" data-bs-target="#C_00359007738342018271" aria-expanded="false" aria-controls="C_00359007738342018271"></i>
+                                  <div class="collapse" id="C_00359007738342018271">
+                                    <div class="card card-body small">
+                                        <span class="text-danger">Dane przesyłki</span>
+                                        <table class="table table-striped small">
+                                            <thead>
+                                              <tr>
+                                                <th scope="col">Data nadania</th>
+                                                <th scope="col">2020-09-15</th>
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Rodzaj przesyłki</td>
+                                                    <td>Pocztex Kurier 48</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>Kraj nadania</td>
+                                                    <td>Polska</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>Kraj przeznaczenia</td>
+                                                    <td>Polska</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>Urząd nadania</td>
+                                                    <td>PP Warszawa W101 (ul. Łączyny 8, 00-903 Warszawa)</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>Masa</td>
+                                                    <td>20.0 kg</td>
+                                                  </tr>
+                                            </tbody>
+                                        </table>
+                                        <span class="text-danger">Status przesyłki</span>
+                                        <table class="status_00959007738123401926 table table-striped small">
+                                            <thead>
+                                              <tr>
+                                                <th scope="col">Zdarzenie/Data/Jednostka</th>
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                              <tr>
+                                                <td><strong>Wysłano powiadomienie e-mail</strong><br/>
+                                                2020-09-17 08:15<br/>
+                                                Centralna Baza Danych ZST</td>
+                                              </tr>
+                                              <tr>
+                                                <td><strong>Wysłano powiadomienie sms</strong><br/>
+                                                2020-09-17 08:15<br/>
+                                                Centralna Baza Danych ZST</td>
+                                              </tr>
+                                              <tr>
+                                                <td><strong>Przekazano do doręczenia</strong><br/>
+                                                2020-09-17 08:06<br/>
+                                                UP Skawina</td>
+                                              </tr>
+                                              <tr>
+                                                <td><strong>Przygotowano do doręczenia</strong><br/>
+                                                2020-09-17 07:45</strong><br/>
+                                                UP Skawina</td>
+                                              </tr>
+                                              <tr>
+                                                <td><strong>Nadejście</strong><br/>
+                                                2020-09-17 06:20<br/>
+                                                UP Skawina</td>
+                                              </tr>
+                                              <tr>
+                                                <td><strong>Wysłanie przesyłki</strong><br/>
+                                                2020-09-17 05:44<br/>
+                                                Terminal Przeładunkowy</td>
+                                              </tr>
+                                              <tr>
+                                                <td><strong>Wysłano powiadomienie sms</strong><br/>
+                                                2020-09-15 19:40<br/>
+                                                Centralna Baza Danych ZST</td>
+                                              </tr>
+                                              <tr>
+                                                <td><strong>Nadanie</strong><br/>
+                                                2020-09-15 16:00<br/>
+                                                PP Warszawa W101</td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                    </div>
+                                  </div>
+                            </div>
+                            
+                        </div>
+
+                      </div>
+                    </div>                                        
+                      </div>
+                    <div class="position-absolute bottom-0 bg-light start-0 p-0 m-0">
+                        <div class="text-danger row text-center p-0 m-0">
+                            <div class="col-4 p-2 d-flex align-items-end"><i class="fa fa-chevron-circle-left fa-2x" title="wróć co poprzedniego ekranu"></i></div>
+                            <div class="col-4 p-2"><i class="fas fa-plus-circle fa-3x" title="Dodawanie kolejną przesyłkę"></i></div>
+                            <div class="col-4 p-2 d-flex align-items-end justify-content-end text-secondary"> <i class="fas fa-archive fa-2x" title="Archiwum przesyłek"></i> </div>
+                            <div class="col-12 bg-dark text-white"><small class="text-small">Aplikacja mobilna Grupy Poczty Polskiej S.A. | <span class="appVer"></span></small></div> 
+                        </div>
+                    </div>  
+                
+
+                </div>
+                    <p class="text-center">6. Ekran funkcji śledzenia</p>
+            </div>
+
+            <!-- ŚLEDZENIE PRZESYŁKI - ARCHIWUM-->
+            <div class="col-lg-6 col-md-6 col-sm-12 colp-xs-12 p-0">
+              <div class="apk bg-light mx-auto border position-relative">
+                  <div class="position-relative top-0 start-0 p-0 m-0">
+                      <div class="bg-danger row text-center p-0 m-0">
+                          <div class="col-2 d-flex align-items-center justify-content-start text-light"> <i class="fas fa-shopping-basket" title="Koszyk"></i> </div>
+                          <div class="col-8"><img src="./img/logo_www.svg" class="w-75" height="auto"/></div>
+                          <div class="col-2 d-flex align-items-center justify-content-end text-light"><i class="far fa-bell" title="POWIADOMIENIA"></i><i class="fa fa-bell d-none" title="POWIADOMIENIA"></i></div>
+                      </div>
+                  </div>
+                    <!--DODATKI: Notyfikacja, sklep -->
+                    <div class='app-store position-absolute top-0 bg-light d-block d-none overflow-auto'></div>
+                    <div class='notification position-absolute top-25 end-0 w-75 bg-danger d-none overflow-auto'></div>
+                    <!--  KONIEC DODATKOW  -->
+
+                  <div class="display-6 text-center mt-2"><small>Śledzenie - Archiwum</small></div>
+                  <div class="m-0 p-2 text-secondary overflow-auto h-75" style="font-size: 1.4rem; text-shadow: 2px;">
+                      <div class="block p-2 card parcel text-dark mt-2">
+                          <div><i class="fas fa-envelope d-inline"></i> 00359007738342018271 
+                            <i class="fa fa-info-circle text-mutted" data-bs-toggle="collapse" data-bs-target="#C_00959007738123401926" aria-expanded="false" aria-controls="C_00959007738123401926"></i>
+                          </div>
+                          <div class="block text-center text-secondary">
+                              <i class="text-success fas fa-box-open" title="Przygotowanie do nadania"></i> - 
+                              <i class="text-success fas fa-truck-loading" title="Odebrana przez kuriera"></i> - 
+                              <i class="text-success fas fa-truck" title="W transporcie"></i> - 
+                              <i class="text-success fas fa-people-carry" title="Wydana do doręczenia"></i> - 
+                              <i class="text-danger fa fa-home" title="Doręczono"></i> 
+                          </div>
+                          <div class="d-block text-center small"><span class="small">minipc do firmy | 2020-09-17</span></div>
+                          <div class="block small text-secondary">
+                                <div class="collapse" id="C_00959007738123401926">
+                                  <div class="card card-body small">
+                                      <span class="text-danger">Dane przesyłki</span>
+                                      <table class="table table-striped small">
+                                          <thead>
+                                            <tr>
+                                              <th scope="col">Data nadania</th>
+                                              <th scope="col">2020-09-15</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                              <tr>
+                                                  <td>Rodzaj przesyłki</td>
+                                                  <td>Pocztex Kurier 48</td>
+                                                </tr>
+                                                <tr>
+                                                  <td>Kraj nadania</td>
+                                                  <td>Polska</td>
+                                                </tr>
+                                                <tr>
+                                                  <td>Kraj przeznaczenia</td>
+                                                  <td>Polska</td>
+                                                </tr>
+                                                <tr>
+                                                  <td>Urząd nadania</td>
+                                                  <td>PP Warszawa W101 (ul. Łączyny 8, 00-903 Warszawa)</td>
+                                                </tr>
+                                                <tr>
+                                                  <td>Masa</td>
+                                                  <td>20.0 kg</td>
+                                                </tr>
+                                          </tbody>
+                                      </table>
+                                      <span class="text-danger">Status przesyłki</span>
+                                      <table class="table table-striped small">
+                                          <thead>
+                                            <tr>
+                                              <th scope="col">Zdarzenie / 
+                                              Data / 
+                                              Jednostka</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr>
+                                              <td><b>Doręczono</b><br/>
+                                              2020-09-17 10:25<br/>
+                                              UP Kraków</td>
+                                            </tr>
+                                            <tr>
+                                              <td><b>Wysłano powiadomienie sms</b><br/>
+                                              2020-09-17 08:15<br/>
+                                              Centralna Baza Danych ZST</td>
+                                            </tr>
+                                            <tr>
+                                              <td><b>Przekazano do doręczenia</b><br/>
+                                              2020-09-17 08:06<br/>
+                                              UP Skawina</td>
+                                            </tr>
+                                            <tr>
+                                              <td><b>Przygotowano do doręczenia</b><br/>
+                                              2020-09-17 07:45<br/>
+                                              UP Skawina</td>
+                                            </tr>
+                                            <tr>
+                                              <td><b>Nadejście</b><br/>
+                                              2020-09-17 06:20<br/>
+                                              UP Skawina</td>
+                                            </tr>
+                                            <tr>
+                                              <td><b>Wysłanie przesyłki</b><br/>
+                                              2020-09-17 05:44</b><br/>
+                                              Terminal Przeładunkowy</td>
+                                            </tr>
+                                            <tr>
+                                              <td><b>Wysłano powiadomienie sms</b><br/>
+                                              2020-09-15 19:40<br/>
+                                              Centralna Baza Danych ZST</td>
+                                            </tr>
+                                            <tr>
+                                              <td><b>Nadanie</b><br/>
+                                              2020-09-15 16:00<br/>
+                                              PP Warszawa W101</td>
+                                            </tr>
+                                          
+                                          </tbody>
+                                        </table>
+                                  </div>
+                                </div>
+                          </div>
+                          
+                      </div>
+
+
+                      
+                  </div>
+                  <div class="position-absolute bottom-0 start-0 p-0 m-0">
+                      <div class="text-danger row text-center p-0 m-0">
+                          <div class="col-4 p-2 d-flex align-items-end"><i class="fa fa-chevron-circle-left fa-2x" title="wróć co poprzedniego ekranu"></i></div>
+                          <div class="col-4 p-2"><i class="fas fa-plus-circle fa-3x" title="Dodawanie kolejną przesyłkę do śledzenia"></i></div>
+                          <div class="col-4 p-2 d-flex align-items-end justify-content-end text-secondary"> </div>
+                          <div class="col-12 bg-dark text-white"><small class="text-small">Aplikacja mobilna Grupy Poczty Polskiej S.A. | <span class="appVer"></span></small></div> 
+                      </div>
+                  </div>  
+              
+
+              </div>
+                  <p class="text-center">6a. Ekran funkcji śledzenia (archiwum)</p>
+          </div>
+
+
+          <!-- Ekran nadawania przesyłki -->
+          <div class="col-lg-6 col-md-6 col-sm-12 colp-xs-12 p-0">
+            <div class="apk bg-light mx-auto border position-relative">
+                <div class="position-relative top-0 start-0 p-0 m-0">
+                    <div class="bg-danger row text-center p-0 m-0">
+                        <div class="col-2 d-flex align-items-center justify-content-start text-light"> <i class="fas fa-shopping-basket" title="Koszyk"></i> </div>
+                        <div class="col-8"><img src="./img/logo_www.svg" class="w-75" height="auto"/></div>
+                        <div class="col-2 d-flex align-items-center justify-content-end text-light"><i class="far fa-bell" title="POWIADOMIENIA"></i><i class="fa fa-bell d-none" title="POWIADOMIENIA"></i></div>
+                    </div>
+                </div>
+                <!--DODATKI: Notyfikacja, sklep -->
+                <div class='notification position-absolute top-25 end-0 w-75 bg-danger d-none overflow-auto'></div>
+                <!--  KONIEC DODATKOW  -->
+
+                <div class="display-6 text-center d-block"><small>Nadaj przesyłkę</small></div>
+                <div class="m-0 p-2 text-secondary overflow-auto h-75" style="font-size: 1.4rem; text-shadow: 2px;">
+                  <img src="./img/nadanie.png" class="w-100"/>
+
+                    <div class="p-2 card mb-2">
+                      <div class="d-block text-danger small">Gdzie chcesz nadać:</div>
+                      
+                      <div class="row text-center mt-2 p-2">
+                        <div class="form-check col-4 p-0">
+                          <input class="form-check-input d-none" type="radio" name="nadaj_miejsce" id="nadaj_miejsce_1" value="OP" title="Placówka Pocztowa">
+                          <label class="form-check-label border border-2 rounded p-2" for="nadaj_miejsce_1" ><i class="fas fa-store-alt fa-3x"></i></label>
+                        </div>
+                        <div class="form-check col-4 p-0">
+                          <input class="form-check-input d-none" type="radio" name="nadaj_miejsce" id="nadaj_miejsce_2" value="PX" title="Kurier odbierze">
+                          <label class="form-check-label border border-2 rounded p-2" for="nadaj_miejsce_2"><i class="fas fa-shipping-fast fa-3x"></i></label>
+                        </div>
+                        <div class="form-check col-4 p-0">
+                          <input class="form-check-input d-none widgetOWP" type="radio" name="nadaj_miejsce" id="nadaj_miejsce_3" value="OPZ" title="W punkcie nadawczym">
+                          <label class="form-check-label border border-2 rounded p-2 " for="nadaj_miejsce_3"><i class="fas fa-map-marked-alt fa-3x"></i></label>
+                        </div>
+                      </div>
+                      <span id="nadaj_miejsce" class="d-block text-center small"></span>
+                      <span id="nadaj_miejsce_OWP" class="d-block text-center small"></span>
+
+                    </div>
+                    
+                    <div class="p-2 card mb-2">
+                      <div class="d-block text-danger small">Sposób doręczenia:</div>
+                        <div class="row text-center mt-2 p-2">
+                          <div class="form-check col-6 p-0">
+                            <input class="form-check-input d-none" type="radio" name="nadaj_odbior" id="nadaj_odbior_1" value="DOM" title="Pod adres">
+                            <label class="form-check-label border border-2 w-75 rounded p-2" for="nadaj_odbior_1"><i class="fas fa-home fa-3x"></i></label>
+                          </div>
+                          <div class="form-check col-6 p-0">
+                            <input class="form-check-input d-none widgetOWP" type="radio" name="nadaj_odbior" id="nadaj_odbior_2" value="OPZ" title="Odbiór w Punkcie">
+                            <label class="form-check-label border border-2 w-75 rounded p-2" for="nadaj_odbior_2"><i class="fa fa-map-marker-alt fa-3x"></i></label>
+                          </div>
+                        </div>
+                      <span id="nadaj_odbior" class="d-block text-center small"></span>
+                      <span id="nadaj_odbior_OWP" class="d-block text-center small"></span>
+                    </div>
+
+                    <div class="p-2 card mb-2">
+                      <div class="d-block text-danger small">Wymiar przesyłki:</div>
+                        <div class="row text-center mt-2 p-2">
+                          <div class="form-check col-4 p-0">
+                            <input class="form-check-input d-none" type="radio" name="nadaj_wymiar" id="nadaj_wymiar_1" value="S" title="S">
+                            <label class="form-check-label border border-2 rounded p-2 w-75 display-5" for="nadaj_wymiar_1"><strong>S</strong></label>
+                          </div>
+                          <div class="form-check col-4 p-0">
+                            <input class="form-check-input d-none" type="radio" name="nadaj_wymiar" id="nadaj_wymiar_2" value="M" title="M">
+                            <label class="form-check-label border border-2 rounded p-2 w-75 display-5" for="nadaj_wymiar_2"><strong>M</strong></label>
+                          </div>
+                          <div class="form-check col-4 p-0">
+                            <input class="form-check-input d-none" type="radio" name="nadaj_wymiar" id="nadaj_wymiar_3" value="L" title="L">
+                            <label class="form-check-label border border-2 rounded p-2 w-75 display-5" for="nadaj_wymiar_3"><strong>L</strong></label>
+                          </div>
+                        </div>
+<!--                      <span id="nadaj_wymiar" class="d-block text-center small"></span>
+-->                    </div>
+<!--
+                      <div class="p-2 card mb-2">
+                        <div class="d-block small">Masa [kg] (v.1):</div>
+                        <div id="nadaj_masa_slider" class="text-center p-2 m-2"></div>
+                        <span id="nadaj_masa_info" class="d-block text-center small mt-3"></span>
+                    </div>-->
+
+                    <div class="p-2 card mb-2">
+                      <div class="d-block text-danger small">Masa [kg] (v.2):</div>
+                        <div class="row text-center mt-2 p-2">
+                          <div class="form-check col-12 p-0">
+                            <input class="form-check-input d-none" type="radio" name="nadaj_masa" id="nadaj_masa_0.5" value="0.5" title="do 0.5kg">
+                            <label class="form-check-label border border-2 rounded p-2 w-75 small" for="nadaj_masa_0.5"><small>do 0.5kg</small></label>
+                          </div>
+                          <div class="form-check col-12 p-0">
+                            <input class="form-check-input d-none" type="radio" name="nadaj_masa" id="nadaj_masa_1" value="1" title="ponad 0.5kg do 1kg">
+                            <label class="form-check-label border border-2 rounded p-2 w-75 small" for="nadaj_masa_1"><small>ponad 0.5kg do 1kg</small></label>
+                          </div>
+                          <div class="form-check col-12 p-0">
+                            <input class="form-check-input d-none" type="radio" name="nadaj_masa" id="nadaj_masa_2" value="2" title="ponad 1kg do 2kg">
+                            <label class="form-check-label border border-2 rounded p-2 w-75 small" for="nadaj_masa_2"><small>ponad 1kg do 2kg</small></label>
+                          </div>
+                          <div class="form-check col-12 p-0">
+                            <input class="form-check-input d-none" type="radio" name="nadaj_masa" id="nadaj_masa_5" value="5" title="ponad 2kg do 5kg">
+                            <label class="form-check-label border border-2 rounded p-2 w-75 small" for="nadaj_masa_5"><small>ponad 2kg do 5kg</small></label>
+                          </div>
+                          <div class="form-check col-12 p-0">
+                            <input class="form-check-input d-none" type="radio" name="nadaj_masa" id="nadaj_masa_10" value="10" title="ponad 5kg do 10kg">
+                            <label class="form-check-label border border-2 rounded p-2 w-75 small" for="nadaj_masa_10"><small>ponad 5kg do 10kg</small></label>
+                          </div>
+                          <div class="form-check col-12 p-0">
+                            <input class="form-check-input d-none" type="radio" name="nadaj_masa" id="nadaj_masa_20" value="20" title="ponad 10kg do 20kg">
+                            <label class="form-check-label border border-2 rounded p-2 w-75 small" for="nadaj_masa_20"><small>ponad 10kg do 20kg</small></label>
+                          </div>
+                          <div class="form-check col-12 p-0">
+                            <input class="form-check-input d-none" type="radio" name="nadaj_masa" id="nadaj_masa_30" value="30" title="ponad 20kg do 30kg">
+                            <label class="form-check-label border border-2 rounded p-2 w-75 small" for="nadaj_masa_30"><small>ponad 20kg do 30kg</small></label>
+                          </div>
+                          <div class="form-check col-12 p-0">
+                            <input class="form-check-input d-none" type="radio" name="nadaj_masa" id="nadaj_masa_50" value="50" title="ponad 30kg do 50kg">
+                          </div>
+                        </div>
+<!--                      <span id="nadaj_masa" class="d-block text-center small"></span>
+-->                   </div>
+
+                      <div class="p-2 card mb-2">
+                        <div class="d-block text-danger small">Usługa:</div>
+                          <div class="row text-center mt-2 p-2">
+                            <div class="form-check col-6 p-0">
+                              <input class="form-check-input d-none" type="radio" name="nadaj_usluga" id="nadaj_usluga_1" value="PACZKA" title="PACZKA">
+                              <label class="form-check-label border border-2 w-75 rounded p-2" for="nadaj_usluga_1"><i class="fa fa-box fa-3x"></i></label>
+                            </div>
+                            <div class="form-check col-6 p-0">
+                              <input class="form-check-input d-none" type="radio" name="nadaj_usluga" id="nadaj_usluga_2" value="LIST" title="LIST">
+                              <label class="form-check-label border border-2 w-75 rounded p-2" for="nadaj_usluga_2"><i class="fas fa-envelope fa-3x"></i></label>
+                            </div>
+                          </div>
+                        <span id="nadaj_usluga" class="d-block text-center small"></span>
+                      </div>
+
+                      <div class="p-2 card mb-2">
+                        <div class="row">
+                          <div class="small text-danger col-8">Nadawca: </div>
+                          <div class="col-4 text-end"><i class="fa fa-address-book" aria-hidden="true" title="Wybierz z ksiąki adresowej"></i> | <i class="fa fa-copy" aria-hidden="true" title="Kopiuj z profilu nadawcy"></i></div>
+                        </div>
+                          <div class="input-group mt-3 mb-3">
+                            <span class="input-group-text" id="basic-addon2"><i class="fa fa-user" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control input-small" placeholder="Imię" aria-label="Imię" aria-describedby="basic-addon1" value="Arkadiusz" />
+                            <input type="text" class="form-control input-small" placeholder="Imię" aria-label="Imię" aria-describedby="basic-addon1" value="Śnieżek" />
+                          </div>
+                          <div class="input-group input-inline mb-3">
+                            <span class="input-group-text" id="basic-addon5"><i class="fa fa-location-arrow" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control input-small" placeholder="Imię" aria-label="Imię" aria-describedby="basic-addon1" value="00-940" />
+                            <input type="text" class="form-control input-small" placeholder="Imię" aria-label="Imię" aria-describedby="basic-addon1" value="Warszawa" />
+                          </div>
+                          <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon4"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control input-small" placeholder="Ulica" aria-label="Imię" aria-describedby="basic-addon1" value="Rodziny Hiszpańskich" />
+                          </div>
+                          <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon4a"><i class="fa fa-home" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control input-small" placeholder="D" aria-label="Imię" aria-describedby="basic-addon1" value="8" />
+                            <span class="input-group-text" id="basic-addon4a">/</span>
+                            <input type="text" class="form-control input-small" placeholder="M" aria-label="M" aria-describedby="basic-addon1" value="" />
+                          </div>
+                          
+                          <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1"><b>@</b></span>
+                            <input type="text" class="form-control input-small" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" value="arkadiusz.sniezek@poczta-polska.pl" />  
+                          </div>
+                          <span class="small mb-1 text-end" style="font-size:8pt;">Na ten adres otrzymasz etykietę adresową</span>
+                          <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon3"><i class="fa fa-phone" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control input-small" placeholder="Imię" aria-label="Imię" aria-describedby="basic-addon1" value="+48 504 710 636" />
+                          </div>
+                      </div>
+
+                      <div class="p-2 card mb-2">
+                        <div class="row">
+                          <div class="small text-danger col-8">Odbiorca: </div>
+                          <div class="col-4 text-end"><i class="fa fa-address-book" aria-hidden="true" title="Wybierz z ksiąki adresowej"></i> | <i class="fa fa-copy" aria-hidden="true" title="Kopiuj z profilu nadawcy"></i></div>
+                        </div>
+                          <div class="input-group mb-3 mt-3">
+                            <span class="input-group-text" id="basic-addon2"><i class="fa fa-user" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control input-small" placeholder="Imię" aria-label="Imię" aria-describedby="basic-addon1" value="Jan" />
+                            <input type="text" class="form-control input-small" placeholder="Imię" aria-label="Imię" aria-describedby="basic-addon1" value="Kowalski" />
+                          </div>
+                          <div class="input-group input-inline mb-3">
+                            <span class="input-group-text" id="basic-addon5"><i class="fa fa-location-arrow" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control input-small" placeholder="Imię" aria-label="Imię" aria-describedby="basic-addon1" value="00-123" />
+                            <input type="text" class="form-control input-small" placeholder="Imię" aria-label="Imię" aria-describedby="basic-addon1" value="Nibylandia" />
+                          </div>
+                          <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon4"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control input-small" placeholder="Ulica" aria-label="Imię" aria-describedby="basic-addon1" value="Kwiatowa" />
+                          </div>
+                          <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon4a"><i class="fa fa-home" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control input-small" placeholder="D" aria-label="Imię" aria-describedby="basic-addon1" value="12" />
+                            <span class="input-group-text" id="basic-addon4a">/</span>
+                            <input type="text" class="form-control input-small" placeholder="M" aria-label="M" aria-describedby="basic-addon1" value="13" />
+                          </div>
+                          
+                          <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><b>@</b></span>
+                            <input type="text" class="form-control input-small" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" value="jan.kowalski@sloneczko.pl" />
+                          </div>
+                          <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon3"><i class="fa fa-phone" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control input-small" placeholder="Imię" aria-label="Imię" aria-describedby="basic-addon1" value="+48 600 700 800" />
+                          </div>
+                      </div>
+
+                      <div class="p-2 card mb-2">
+                        <div class="d-block small text-danger" data-bs-toggle="collapse" data-bs-target="#nadaj_dodatkowo" aria-expanded="false" aria-controls="nada_dodatkowo">Usługi dodatkowe: <i class="fa fa-caret-down" ></i></div>
+                          <div id="nadaj_dodatkowo" class="collapse row text-center mt-2 p-2">
+                            <div class="form-check col-12 p-0">
+                              <input class="form-check-input d-none" type="checkbox" name="nadaj_pobranie" id="nadaj_dod_1" value="POBRANIE" title="Pobranie">
+                              <label class="form-check-label border border-2 rounded p-2 w-75" for="nadaj_dod_1">Pobranie</label>
+                            </div>
+                            <div class="form-check col-12 p-0">
+                              <input class="form-check-input d-none" type="checkbox" name="nadaj_ostroznie" id="nadaj_dod_2" value="OSTROZNIE" title="Ostrozie">
+                              <label class="form-check-label border border-2 rounded p-2 w-75" for="nadaj_dod_2">Ostroznie</label>
+                            </div>
+                            <div class="form-check col-12 p-0">
+                              <input class="form-check-input d-none" type="checkbox" name="nadaj_ubezpieczenie" id="nadaj_dod_3" value="nadaj_ubezpieczenie" title="Ubezpieczenie">
+                              <label class="form-check-label border border-2 rounded p-2 w-75" for="nadaj_dod_3">Ubezpieczenie</label>
+                            </div>
+                            <div class="form-check col-12 p-0">
+                              <input class="form-check-input d-none" type="checkbox" name="nadaj_nstd" id="nadaj_dod_4" value="NSTD" title="Niestandardowa">
+                              <label class="form-check-label border border-2 rounded p-2 w-75" for="nadaj_dod_4">Niestandardowa</label>
+                            </div>
+                          </div>
+                      </div>
+
+                      <div class="p-2 card mb-2">
+                        <div class="d-block small text-danger">Wartość:</div>
+                        <div class="text-end mt-1 border p-2">
+                          <span class="display-5 text-danger"><strong>21.00</strong></span> PLN
+                        </div>
+                      </div>
+
+                    <div class="p-0 carda mb-2 mt-2">
+                      <div class="text-center d-grid gap-2 display-6">
+                        <button class="btn btn-lg d-block mb-1 p-3 btn-outline-danger">DODAJ DO KOSZYKA</button>
+                        <button class="btn btn-sm d-block mb-1 p-3 btn-outline-success">ZAMÓW I ZAPŁAĆ TERAZ</button>
+                      </div>
+                    </div>
+                    
+                </div>
+                <div class="position-absolute bottom-0 start-0 p-0 m-0">
+                    <div class="text-danger row text-center p-0 m-0">
+                        <div class="col-4 p-2 d-flex align-items-end"><i class="fa fa-chevron-circle-left fa-2x" title="wróć co poprzedniego ekranu"></i></div>
+                        <div class="col-4 p-2"><i class="fas fa-question-circle fa-3x" title="FAQ"></i></div>
+                        <div class="col-4 p-2 d-flex align-items-end justify-content-end text-secondary"> <i class="fas fa-address-book fa-2x" title="Ksiązka adresowa"></i> </div>
+                        <div class="col-12 bg-dark text-white"><small class="text-small">Aplikacja mobilna Grupy Poczty Polskiej S.A. | <span class="appVer"></span></small></div> 
+                    </div>
+                </div>
+            
+
+            </div>
+                <p class="text-center">7. Nadaj przesyłke</p>
+        </div>
+
+<!-- PROFIL KLIENTA -->
+<div class="col-lg-6 col-md-6 col-sm-12 colp-xs-12 p-0">
+  <div class="apk bg-light mx-auto border position-relative">
+      <div class="position-relative top-0 start-0 p-0 m-0">
+          <div class="bg-danger row text-center p-0 m-0">
+              <div class="col-2 d-flex align-items-center justify-content-start text-light"> <i class="fas fa-shopping-basket" title="Koszyk"></i> </div>
+              <div class="col-8"><img src="./img/logo_www.svg" class="w-75" height="auto"/></div>
+              <div class="col-2 d-flex align-items-center justify-content-end text-light"><i class="far fa-bell" title="POWIADOMIENIA"></i><i class="fa fa-bell d-none" title="POWIADOMIENIA"></i></div>
+          </div>
+      </div>
+      <!--DODATKI: Notyfikacja, sklep -->
+      <div class='app-store position-absolute top-0 bg-light d-block d-none overflow-auto'></div>
+      <div class='notification position-absolute top-25 end-0 w-75 bg-danger d-none overflow-auto'></div>
+      <!--  KONIEC DODATKOW  -->
+
+      <div class="row display-6 text-center p-2">
+        <div class="col-2"></div>
+        <div class="col-8">
+          <small>Aktualności</small>
+        </div>
+        <div class="col-2 rssRefresh text-secondary"><i class="fa fa-sync-alt small" aria-hidden="true"></i> </div>
+      </div>
+      <div class="m-0 p-2 text-secondary overflow-auto h-75" style="font-size: 1.4rem; text-shadow: 2px;">
+          <div id="rssFeed" class="p-2 card"></div>
+      </div>
+      <div class="position-absolute bottom-0 start-0 p-0 m-0">
+          <div class="text-danger row text-center p-0 m-0">
+              <div class="col-4 p-2 d-flex align-items-end"><i class="fa fa-chevron-circle-left fa-2x" title="wróć co poprzedniego ekranu"></i></div>
+              <div class="col-4 p-2"><i class="fas fa-question-circle fa-3x" title="FAQ"></i></div>
+              <div class="col-4 p-2 d-flex align-items-end justify-content-end text-secondary"> <i class="fas fa-home fa-2x" title="Home"></i> </div>
+              <div class="col-12 bg-dark text-white"><small class="text-small">Aplikacja mobilna Grupy Poczty Polskiej S.A. | <span class="appVer"></span></small></div> 
+          </div>
+      </div>
+  
+
+  </div>
+      <p class="text-center">8. Aktualności (model RSS FEED)</p>
+</div>
+
+          <div id="changelog" class="col-12">
+            <div class="display-6 d-block m-3 p-3 border-bottom">Changelog</div>
+            <div class="d-block">
+              <h5>2021-01-xxx - pomysły do realizacji <span class="version">v0.8</span></h5>
+              <ul>
+                <li>xscrollowanie z push do konkretnego komunikatu w module śledzenia przesyłki</li>
+                <li>dorobienie serviceTAG (generowanie PIN czasowego) do obsługi przez CC (weryfikacja tozsamości</li>
+                <li>pobieranie z tracking poczta-polska API ŚLEDZENIE</li>
+                <li>jezeli nie ma przesylki na liscie to dodaj obiekt do sledzenia</li>
+                <li>zrzut ustawien do settings.json -> synchronizacja do AC</li>
+                <li>dodanie pola z haslem i obsluga zarzadzania haslem</li>
+                <li>dodanie logowania przez zewnętrszny IDM np login.gov.pl, facebook, linkedin, google itp.</li>
+                <li>lista przesylek w formacie parcel.json -> do synchronizacji z kontem w Aplikacji centralnej</li></lki>
+                
+              </ul>
+            </div>
+
+            <div class="d-block">
+              <h5>2021-01-27:28 - <span class="version">v0.8</span></h5>
+              <ul>
+                <li>widok pierwszego logowania - instrukcja dla klienta</li>
+                <li>widok pierwszego logowania - logowanie do serwisu</li>
+                <li>widok pierwszego logowania - rejestracja</li>
+                <li>widok logowania - normalne (po wylogowaniu), po resecie telefonu, drugi telefon</li>
+              </ul>
+            </div>
+
+            <div class="d-block">
+              <h5>2021-01-14 - <span class="version">v0.7</span></h5>
+              <ul>
+                <li>poprawiony widok profilu klienta, dodanie miejsca na kody autoryzacyjne</li>
+                <li>widok okna z newsami - obsługa RSS Atom z PP SA</li>
+                <li>dodanie menu do widoku głównego (3)</li>
+                <li>dodanie widoku dla Aktualności w opraciu o RSS (8)</li>
+              </ul>
+            </div>
+            <div class="d-block">
+              <h5>2021-01-13 - <span class="version">v0.6</span></h5>
+              <ul>
+                <li>grafiki do widgetów aplikacji (Ł.S)</li>
+                <li>wdrozenie struktury plików json dla marketplace z aplikacjami</li>
+                <li>utworzenie makiety dla widgetu - nadaj przesyłkę</li>
+                <li>dodanie widgetu MAPA OwP</li>
+              </ul>
+            </div>
+            <div class="d-block">
+              <h5>2021-01-10/11 - <span class="version">v0.5</span></h5>
+              <ul>
+                <li>dodanie podziału w śledzeniu na NADAWCA/ODBIORCA</li>
+                <li>widok sklepu z aplikacjami po wciśnięciu "+" (2),(3)</li>
+                <li>dodanie PUSH Notification + wyświetlanie notyfikacji</li>
+                <li>dodawanie statusu z PUSH Notification do przesyłki</li>
+              </ul>
+            </div>
+            <div class="d-block">
+              <h5>2021-01-06 - <span class="version">v0.4</span></h5>
+              <ul>
+                <li>dodanie widoku przy pierwszym uruchomieniu aplikacji - regulamin (1a)</li>
+                <li>zmiana koleności wyświetlania statusów przesyłki najnowsze > najstarsze</li>
+              </ul>
+            </div>
+            <div class="d-block">
+              <h5>2021-01-04 - <span class="version">v0.3</span></h5>
+              <ul>
+                <li>dodanie widoku archiwum przesyłek (6a)</li>
+                <li>modyfikacja widoku modułu śledzenia (6)</li>
+                <li>dodanie funkcji zmiany wielkości prezentowanych modułów (3),(4)</li>
+              </ul>
+            </div>
+            <div class="d-block">
+              <h5>2021-01-03 - <span class="version">v0.2</span></h5>
+              <ul>
+                <li>opracowanie drugiego widoku szczegółowego przesyłki (poprawa UX) (6)</li>
+                <li>dorobienie funkcji overflow dla zawartości większej ni widok ogólny aplikacji</li>
+                <li>dodanie (+) i (-) do zmiany widoku ikon w modułach (3)</li>
+                <li>modyfukacja menu pod względem "koszyka" i "powiadomień"</li>
+              </ul>
+            </div>
+            <div class="d-block">
+              <h5>2021-01-02 - <span class="version">v0.1</span></h5>
+              <ul>
+                <li>poprawki wizualne dla wszystkich menu i stopki - wyciągnięcie przycisku inkrementacyjnego na pierwszy plan</li>
+                <li>dorobienie dodatkowego sposobu wyświetlania zestawienia ogólnego przesyłek w module śledzenie (6)</li>
+                <li>wytworzenie widoku dla szczegółów przesyłki (6)</li>
+              </ul>
+            </div>
+            <div class="d-block">
+              <h5>2020-12-31 - <span class="version">v0.0.3</span></h5>
+              <ul>
+                <li>opracowanie przykładowego widoku dla usług eCommerce (4)</li>
+                <li>poprawa widoku dla profilu klienta - dodanie zgód (5)</li>
+                <li>Wstępny zarys widoku dla modułu śledzenie (6)</li>
+              </ul>
+            </div>
+            <div class="d-block">
+              <h5>2020-12-29 - <span class="version">v0.0.2</span></h5>
+              <ul>
+                <li>opracowanie widoku ekranu początkowego (2)</li>
+                <li>opracowanie przykładowego widoku jednego z modułów (3)</li>
+                <li>opracowanie makiety widoku zakładki profilu klienta (4) </li>
+              </ul>
+            </div>
+            <div class="d-block">
+              <h5>2020-12-22 - <span class="version">v0.0.1</span></h5>
+              <ul>
+                <li>przygotowanie środowiska i szablonu głównego</li>
+                <li>wytworzenie makiety dla ekranu startowego (1)</li>
+                <li>wytworzenie makiety dla ekranów - podział na sekcje (nagłówek, main, stopka)</li>
+              </ul>
+            </div>
+          </div>
+
+        </section>
+    </main>
+    <footer></footer>
+
+    <script>
+        jQuery(document).ready(function(){
+
+          jQuery(document).on("click",".fa-cog",function(){
+            jQuery(this).parent().toggleClass("text-secondary text-danger");
+            console.log(jQuery(this).parents().attr("aria-resizeAPK"));
+            jQuery(".resizeAPK-"+jQuery(this).parent().attr("aria-resizeAPK")).toggleClass("d-none");
+          });
+          
+          $(function() {
+          /* ladowanie instrukcji przy pierwszym logowaniu) */
+          jQuery.getJSON("./instrukcja.json", function(d){
+            jQuery('<div/>', {
+                id: "carouselExampleIndicators",
+                "class": 'carousel slide',
+                 "data-ride": "carousel"
+            }).appendTo('.instrukcja');
+            jQuery('<ol/>', {
+                "class": 'carousel-indicators'
+            }).appendTo('#carouselExampleIndicators');
+            jQuery('<ol/>', {
+                "class": 'carousel-inner p-0'
+            }).appendTo('#carouselExampleIndicators');
+
+              $("#carouselExampleIndicators").carousel("pause").removeData();
+                jQuery.each(d.instrukcja,function(x,y){
+                  //console.log(x,y);
+                  jQuery('<li/>', {
+                        id: "info_"+y.id,
+                        "data-slide-to": x,
+                        "class": (x==0)?"active":""
+                    }).appendTo('.carousel-indicators');
+                  jQuery('<li/>', {
+                      id: "slide_"+y.id,
+                      "class": "carousel-item "+ ((x==0)?"active":""),
+                      "aria-slide": x
+                  }).appendTo('.carousel-inner').html(
+                    "<img src='"+y.img+"' class='w-100'/>"+
+                    "<div class='w-100 h-100 mt-3 mb-3 p-2'><h3>"+y.name+"</h3>"+y.description+"<br/><br/></div>"
+                  );
+
+                });
+              }).fail(function(){
+                console.log("nie załadowano instrukcji.");
+              });
+            });
+            $(".instrukcja_button").on("click",function(){
+              $("#carouselExampleIndicators").carousel($(this).attr("aria-action"));
+            });
+
+            $(document).bind('slid.bs.carousel',"#carouselExampleIndicators",function (e) {
+              var $this = $(this);
+              $('.instrukcja_button').show();
+              $(".start").hide();
+              if ($('.carousel-inner .carousel-item:last').hasClass('active')){
+                  $(".next").hide();
+                  $(".start").show();
+              } else if ($('.carousel-inner .carousel-item:first').hasClass('active')){
+                $(".prev").hide();
+              }
+              });
+          /**************************************************/
+
+          jQuery("#zarejestrujAPK").on("click",function(){
+            jQuery(this).prop("disabled",true).text("Wysłano kod!");
+            jQuery("#1id").prop("disabled",true);
+            jQuery("#akceptacjaRegulaminu").prop("disabled",true);
+            jQuery("#2tel").val($("#1tel").val());
+            jQuery(this).parents().find(".testaktyw").toggleClass("d-none");
+            
+            setTimeout(function() { 
+              var kod = Math.ceil(Math.random() * 1000000);
+              if(confirm("Twój kod to "+kod)){
+                jQuery("#2kod").val(kod);
+                $("#zarejestrujAPK").toggleClass("d-none");
+                $("#aktywujAPK").toggleClass("d-none");
+              } }, 1500);
+          });
+
+          jQuery(document).on("click","#aktywujAPK",function(){
+            jQuery(this).prop("disabled",true);
+            jQuery(".testaktyw").toggleClass("d-none").find("input").prop("disabled",true);
+            $("<p class='text-center p-2 m-0'>Aktywacja przebiegła pomyślnie!<br/> Uruchomiono usługę powiadomień PUSH dla tego numeru</p>").insertAfter($(".testaktyw").first());
+          });
+
+          function sprawdzenie_aktywacji(){
+            if(jQuery("#akceptacjaRegulaminu").is(":checked") && 
+              $("#1tel").val().length == 9
+            ){
+              jQuery("#zarejestrujAPK").prop("disabled",false);
+            }else{
+              jQuery("#zarejestrujAPK").prop("disabled",true);
+            }
+
+          }
+          jQuery(".veryfication_phone").keyup(function(){
+            jQuery(this).css("border-color",((this.value.length === 9)? "green":((this.value.length>0)?"red":"" ) ) ).css("background-color",((this.value.length === 9)? "lightgreen":((this.value.length>0)?"pink":"" )) );
+            jQuery(this).val(jQuery.trim(this.value) );
+            jQuery("#zalogujAPK").prop("disabled",(this.value.length === 9? false : true) );
+            sprawdzenie_aktywacji();
+          });
+
+          jQuery(".testlog111").keyup(function(){
+            if(this.value.length==0){
+              $(this).parents(".apk").find(".testlog").prop("disabled",false);
+            }else{
+              $(this).parents(".apk").find(".testlog").not(this).prop("disabled",true);
+            }
+          });
+
+          function validateEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]{2,5}$/.test(email)
+          }
+
+          jQuery(".veryfication_email").keyup(function(){
+            jQuery(this).css("border-color",((validateEmail(this.value))? "green":((this.value.length>0)?"red":"" )) ).css("background-color",(validateEmail(this.value)? "lightgreen":((this.value.length>0)?"pink":"" ) ));
+            jQuery("#zalogujAPK").prop("disabled",(validateEmail(this.value)? false : true) );
+          });
+
+          jQuery("#zalogujAPK").on("click",function(){
+            jQuery(this).prop("disabled",true).text("Wysłano kod!");
+            jQuery(".testlog").prop("disabled",true);
+            jQuery("#log_kod").parent().toggleClass("d-none");
+            
+            setTimeout(function() { 
+              var kod = Math.ceil(Math.random() * 1000000);
+              if(confirm("Twój kod to "+kod)){
+                jQuery("#log_kod").val(kod);
+                jQuery("#zalogujAPK").toggleClass("d-none");
+                jQuery("#logowanieAPK").toggleClass("d-none");
+              } }, 1500);
+          });
+          
+          jQuery("#logowanieAPK").on("click",function(){
+//            console.log($("input[name='rodzajLogowania']:checked").attr("aria-type"));
+            if($("input[name='rodzajLogowania']:checked").attr("aria-type")=="next"){
+              if(confirm("Czy chcesz skopiować ustawienia konta aplikacji z poprzedniego telefonu?")){
+                $(this).parents(".apk").find("div:nth-child(2)").html("<p class='text-center display-6 text-light p-2 m-0'>Ustawienia skopiowano pomyślnie!</p>");
+                if(confirm("Czy chcesz dokonać subskrypcji na nowy numer telefonu?")){
+                  $(this).parents(".apk").find("div:nth-child(2)").html("teraz przekierowuje do okna rejestracji PUSH czyli widok 1c");
+                }  
+              };
+            }else if($("input[name='rodzajLogowania']:checked").attr("aria-type")=="reset"){
+              $(this).parents(".apk").find("div:nth-child(2)").html("<p class='text-center display-6 text-light p-2 m-0'>Zalogowano pomyślnie!<br/><br/><small>Wszystkie ustawienia zostały przywrócone.</small></p>");
+            }else{
+              $(this).parents(".apk").find("div:nth-child(2)").html("<p class='text-center display-6 text-light p-2 m-0'>Zalogowano pomyślnie!</p>");
+            }
+            $(this).toggleClass("d-none");
+          });
+
+          jQuery("#akceptacjaRegulaminu").on("click",function(){
+            sprawdzenie_aktywacji();
+          });
+
+            jQuery(document).on("click",".apk-click-up",function(){
+                jQuery(".apk-change-"+jQuery(this).attr("aria-apk")).removeClass("col-6").addClass("col-12 h-75");
+            });
+            jQuery(document).on("click",".apk-click-down",function(){
+                jQuery(".apk-change-"+jQuery(this).attr("aria-apk")).removeClass("col-12 h-75").addClass("col-6");
+            });
+
+            jQuery('.fa-info-circle').on("click",function(i){
+                var mm = document.getElementById(jQuery(this).attr("aria-controls"));
+                mm.addEventListener('shown.bs.collapse', function () {
+                    jQuery(this).parent().parent(".parcel").addClass("bg-parcel");
+                });
+                mm.addEventListener('hidden.bs.collapse', function () {
+                    jQuery(this).parent().parent(".parcel").removeClass("bg-parcel");
+                });
+                
+            });
+            jQuery('.appVer').text(jQuery("#changelog").find(".version")[0].innerText);
+
+
+            jQuery('[class*="apk-change-"] div').mouseover(function(){
+              console.log("wielość obrazka W:"+jQuery(this).width()+"px, H: "+jQuery(this).height()+"px");
+              jQuery(".wiekoscIMG").text("Obrazek: W:"+jQuery(this).width()+"px, H: "+jQuery(this).height()+"px");
+            });
+        
+            jQuery(document).on("click",".close",function(){
+              jQuery(this).parents(".apk").find(".app-store").toggleClass("d-none");
+            });
+            jQuery(document).on("click",".fa-bell",function(){
+              console.log("PUK");
+              jQuery(this).parents(".apk").find(".notification").toggleClass("d-none");
+            });
+            jQuery(document).on("click",'[class*=pushID_]',function(){
+              jQuery(this).parents(".apk").find(".notification").toggleClass("d-none");
+              //console.log(jQuery(document).load("#showPushID_123462342334").offset());
+              //jQuery('html, body').animate({
+              //    scrollTop: jQuery("#showPushID_"+this.id).offset().top
+              //}, 1000);
+//              jQuery(this).find("[class*='fa-envelope']").toggleClass("d-none");
+              console.log(this);
+            });
+
+            /****** RSS *******/
+            var URL = 'https://tvn24.pl/najnowsze.xml';
+            
+            jQuery(".rssRefresh").on("click",function(){
+              
+              jQuery("#rssFeed").FeedEk({
+                FeedUrl: URL,//'https://www.nasa.gov/rss/dyn/breaking_news.rss',
+                MaxCount : 10,
+                ShowDesc : true,
+                ShowPubDate:true,
+                DescCharacterLimit:350,
+                TitleLinkTarget:'_blank',
+                DateFormat: 'MM-dd-yyyy',
+                DateFormatLang:'pl-PL'
+              });
+              jQuery("#rssFeed").next("div").remove();
+              jQuery("<div class='p-2 card small text-end'><sub class='p-3'>Źródło: "+URL.split("/")[2]+"</sub></div>").insertAfter("#rssFeed");
+              //  console.log(URL.split("/")[2]);
+            });
+            
+            jQuery(".rssRefresh").trigger("click");
+
+/*
+            $(function() {
+              var username ="Administrator";
+              var password = "";
+              $.ajax({
+                type: "get",
+                get: "http://5.149.192.30:8080/TML/index_1.html",
+                //url: "https://95.216.241.70:33358/mdatest/hs/rss/krakow_departure",
+               success: function(data) {
+                    
+                    console.log(data);
+                    //$("#show_table").html(data);
+                },
+                error: function(xhr, status) {
+                    
+                    //$("#show_table").html(status);
+                    console.log("error");
+                }
+              });
+            });
+
+*/
+            
+            
+            /******************/
+            
+            
+            /* OBSLUGA NADAJ PRZESYLKE */
+            jQuery("input[type='radio']").on("change",function(){
+              jQuery("#"+this.name).text(jQuery(this).attr("title"));
+              console.log(jQuery(this).attr("title"));
+              console.log(this.name);
+              //sprWarunek ((this.value)),"<=2");
+              disable_enable_button("nadaj_usluga_2",sprWarunek((this.value),"nadaj_usluga_2"));
+            });
+
+
+            /****************************/
+            /********* LOGIKA ***********/
+            /* napisać raz jeszcze dla tablicy true i false i szukać po input(name) **/
+            function sprWarunek(x,u){
+              if (u =="nadaj_usluga_2"){
+                return ((parseInt(x) > 2 || x == "OPZ")? true : false);
+              }
+            }
+
+
+            /****************************/
+
+            function disable_enable_button(name,result){
+              i = jQuery("#"+name);
+              i.prop("disabled",result);
+              if (i.is(":disabled")){
+                i.prop("checked",false);
+              }
+            }
+
+
+            var realValues = [0.5, 1, 2, 5, 10, 20, 30, 50];
+            var labelValues = ['do 0.5kg', 'do 1kg', 'ponad 1kg do 2kg', 'ponad 2kg do 5kg', 'ponad 5kg do 10kg','ponad 10kg do 20kg', 'ponad 20kg do 30kg', 'ponad 30kg do 50kg'];
+
+/*            
+            jQuery("#nadaj_masa_slider").slider({
+              max: 7,
+              min: 0,
+              step: 1,
+              create: function(){
+                jQuery("#nadaj_masa_info").text(labelValues[jQuery(this).slider("value")]);
+              },
+              slide: function(event,ui){
+                console.log(ui);
+                jQuery("#nadaj_masa_info").text(labelValues[ui.value]);
+              }
+            }).slider("pips",{
+              rest: "label",
+              labels: realValues
+            });
+*/
+
+            var returnWyniki;
+            jQuery(".widgetOWP").on("click",function(){
+              var dostawca = {
+            //		basemapProvider: 'OpenStreetMap',
+            //		geocoderProvider: 'Nominatim'
+              };
+              returnWyniki = this.name+"_OWP";
+              PPWidgetApp.toggleMap(PokazWynik,false,'','',dostawca);
+            });
+            
+            function PokazWynik(w){
+              console.log("GDZIE: "+returnWyniki);
+              jQuery("#"+returnWyniki).html("<div class='lead border text-mutted'><small class='small'><strong><u>"+w.name+"</u> ("+w.pni+")</strong><br/>"+w.street+"<br/>"+w.zipCode+" "+w.city+"<br/>"+w.province+"</small></lead>");
+              console.log(w);
+              return w;
+            }
+
+/*  OBSŁUGA PRZYCISKÓW)*/
+
+            jQuery(".wczytajSKLEP").on("click",function(){
+              jQuery(".app-store").empty().html("<div class='row'><div class='display-6 col-10'>Aplikacje</div><div class='col-2 text-right'><i class='close fas fa-times fa-2x'></i></div></div>");
+              jQuery.getJSON("./sklep.json", function(d){
+                jQuery.each(d,function(x,y){
+                  jQuery('<div/>', {
+                        id: "category_"+x.substring(0,2),
+                        "class": 'p-2'
+                    }).appendTo('.app-store').html("<h4 class='p-1 d-block border-bottom'>"+x.substring(3)+"</h4>");
+                  console.log("NN:"+x);
+                  jQuery.each(y,function(z,op){
+//                   jQuery.each(op,function(nr,n){
+                      jQuery('<table/>', {
+                        id: "module_"+op.id,
+                        "class": 'table table-striped small'
+                      }).appendTo('.app-store').html(
+                        "<tr><td class='col-2'><img class='fit-image' src='"+op.img+"'</td><td class='col-10 p-1'><h5 class='p-0 m-1'><button id='"+"app_"+op.id+"' class='btn btn-sm btn-oinline btn-outline-success m-1'>DODAJ</button>"+op.name+"</h5><small>"+op.description+"</small><i></i><br/></td></tr>"
+                      );
+//                      console.log(nr,n);
+  //                  });
+  
+                  });
+                });
+              }).fail(function(){
+                console.log("An error has occurred.");
+              });
+              jQuery(this).parents(".apk").find(".app-store").toggleClass("d-none");
+            });
+
+
+
+            jQuery(".wyslijPUSH").on("click",function(){
+                jQuery(this).prop("disabled",true).text("PUSH WYSŁANY!").toggleClass("btn-danger btn-outline-warning ");
+                jQuery(document).find('[class*=fa-bell]').parent().toggleClass("d-none");
+                jQuery.getJSON("./push.json", function(d){
+                jQuery.each(d,function(x,y){
+                  jQuery("<table/>",{
+                    "class": 'table-notify table table-striped small text-light P-0'
+                  }).appendTo(".notification");
+                  jQuery.each(y,function(z,op){
+                    console.log(op);
+                      jQuery('<tbody/>', {
+                        "class":"text-white pushID_"+op.id,
+                        "id": op.id
+                      }).appendTo('.table-notify').html(
+                        "<tr class='border-bottom text-light' ><td class='col-1'><i class='fa fa-envelope fa-2x'><i class='fa fa-envelope-open d-none fa-2x'></td><td class='col-10 p-1'><p class='m-0'>"+op.title+"</p><small>"+op.parcel+"</small></td><td class='col-1'><i class='fa fa-sign-in-alt'></td></tr>"
+                      );//.insertBefore("<tr>");
+/*                      jQuery("<tr/>",{
+                        "class":"pushID_"+op.id
+                      }).appendTo('.status_'+op.parcel+" tbody").html(
+                        "<td><b>"+op.title+"</b><br/>"+op.date+"</b><br/>"+op.info+
+                        ((op.img)?"<br/><img src="+op.img+" class='w-100'/><br/>":"")+
+                        ((op.btn)? op.btn :"")+"</td>"
+                      );            
+*/                      jQuery("<tr id='showPushID_"+op.id+"'><td><b>"+op.title+"</b><br/>"+op.date+"</b><br/>"+op.info+
+                        ((op.img)?"<br/><img src="+op.img+" class='w-100'/><br/>":"")+
+                        ((op.btn)? op.btn :"")+"</td></tr>").insertBefore('.status_'+op.parcel+" tbody tr:first");
+//                      Dodapisać dodanie komunikatu do przesyłki
+  //                  });
+  
+                  });
+                });
+              }).fail(function(){
+                console.log("An error has occurred. PUSH.json");
+              });
+            });
+        
+
+
+
+
+
+
+
+
+
+
+            
+      });
+
+    </script>
+
+  <style>
+    .carousel-indicators {
+      position: absolute; 
+      top: -20px;
+    }
+    .prev,.start{
+      display: none;
+    }
+  </style>
+</body>
+</html>

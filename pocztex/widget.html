@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Propozycja wyglądu widgetu NADAJ by Arkadiusz Śnieżek</title>
+    <meta name="description"  content="widget NADAJ by Arkadiusz Śnieżek" />
+    <script src="https://mapa.ecommerce.poczta-polska.pl/widget/scripts/ppwidget.js?ver=1.0"></script>
+    <script src="./js/jquery-3.5.1.js"></script>
+    <script src="./js/all.js" data-auto-replace-svg="nest"></script>
+    <link href="./js/bootstrap.min.css" rel="stylesheet" >
+    <script src="./js/popper.min.js" ></script>
+    <script src="./js/bootstrap.min.js" ></script>
+<!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+-->    <script src="./js/jquery-ui.js"></script>
+</head>
+<body class="bg-light">
+    <main class="container bg-light">
+            <div class="col-md-12 p-3 pb-0">
+                <ul class="col-md nav nav-tabs justify-content-md-start justify-content-center mb-0 pb-0" id="reklamacja-skladanie" role="tablist">
+                    <li class="nav-item nav-item-dropped ms-2 me-0 " role="presentation">
+                        <button class="nav-link active h5 border-bottom-0 p-3" id="nav-nadaj-step-1" data-bs-toggle="tab" data-bs-target="#nadaj-step-1" type="button" role="tab" aria-controls="nadaj-step-1" aria-selected="true">1 <span class="d-none d-md-inline">. Podstawowe</span></button>
+                    </li>
+                    <li class="nav-item nav-item-dropped ms-2 me-0" role="presentation">
+                        <button class="nav-link h5 p-3 border-bottom-0 d-none d-sm-block" id="nav-nadaj-step-2" data-bs-toggle="tab" data-bs-target="#nadaj-step-2" type="button" role="tab" aria-controls="nadaj-step-2" aria-selected="false" disabled>2 <span class="d-none d-md-inline">. Parametry</span></button>
+                    </li>
+                    <li class="nav-item nav-item-dropped ms-2 me-0" role="presentation">
+                        <button class="nav-link h5 p-3 border-bottom-0 d-none d-sm-block" id="nav-nadaj-step-3" data-bs-toggle="tab" data-bs-target="#nadaj-step-3" type="button" role="tab" aria-controls="nadaj-step-3" aria-selected="false" disabled>3 <span class="d-none d-md-inline">. Dane adresowe</span></button>
+                    </li>
+                    <li class="nav-item nav-item-dropped ms-2 me-0" role="presentation">
+                        <button class="nav-link h5 p-3 border-bottom-0 d-none d-sm-block" id="nav-nadaj-step-4" data-bs-toggle="tab" data-bs-target="#nadaj-step-4" type="button" role="tab" aria-controls="nadaj-step-4" aria-selected="false" disabled>4 <span class="d-none d-md-inline">. Podsumowanie</span></button>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-content bg-white mt-0 mb-0 m-3 border-top-0 border">
+                <div class="tab-pane fade p-md-5 active show" id="nadaj-step-1" role="tabpanel" aria-labelledby="nadaj-step-1">
+                    <div class="row g-2 mb-4">
+                        <h3 class="d-grid gap-2 p-2 bg-danger text-white mb-1">Podstawowe dane</h3>                
+                        <div class="p-2 card border-0 mb-2">
+                            <div class="d-block text-danger">Opłatę za nadanie ponosi:</div>
+                            <div class="row text-center mt-2 g-2">
+                                <div class="form-check col-md-6 p-1">
+                                    <input class="form-check-input d-none" type="radio" name="kto_placi" id="kto_placi_1" value="Nadawca" title="Nadawca" >
+                                    <label class="form-check-label border border-2 w-100 rounded p-3 h4 " for="kto_placi_1"><i class="fas fa-paper-plane"></i> NADAWCA</label>
+                                </div>
+                                <div class="form-check col-md-6 p-1">
+                                    <input class="form-check-input d-none" type="radio" name="kto_placi" id="kto_placi_2" value="Odbiorca" title="Odbiorca">
+                                    <label class="form-check-label border border-2 w-100 rounded p-3 h4" for="kto_placi_2"><i class="fas fa-people-carry"></i> ODBIORCA <sup class="h8" data-bs-toggle="tooltip" title="Tooltip dla Wioli :)"><i class="fa fa-info-circle text-secondary small" aria-hidden="true"></i></sup></label>
+                                </div>
+                            </div>
+                        </div>
+<!--                        <div class="p-2 card border-0 mb-2 g-2">
+                            <div class="row g-2">
+                                <div class="d-block text-danger">Kody pocztowe:</div>
+                                <div class="form-floating col-md-6 mb-1">
+                                    <input type="text" class="form-control" id="kod_nadawcy_1" name="kod_nadawcy" placeholder="XX-XXX">
+                                    <label for="kod_nadawcy">Nadawcy (format: XX-XXX)</label>
+                                </div>
+                                <div class="form-floating col-md-6 mb-1">
+                                    <input type="text" class="form-control" id="kod_odbiorcy_1" name="kod_odbiorcy" placeholder="XX-XXX">
+                                    <label for="kod_odbiorcy">Odbiorcy (format: XX-XXX)</label>
+                                </div>
+                            </div>
+                        </div>
+                    -->
+                        <div class="p-2 card border-0 mb-2 g-2">
+                            <div class="row g-2">
+                                <div class="d-block text-danger">Rodzaj przesyłki:</div>
+                                <div class="row text-center mt-2 g-0">
+                                    <div class="form-check col-md p-1">
+                                        <input class="form-check-input d-none" type="radio" name="masa_X" id="masa_typ_1" value="paczka" title="Paczka">
+                                        <label class="form-check-label border border-2 w-100 rounded p-3 h4" for="masa_typ_1"><i class="fas fa-box "></i> PACZKA</label>
+                                    </div>
+                                    <div class="form-check col-md p-1">
+                                        <input class="form-check-input d-none" type="radio" name="masa_X" id="masa_typ_2" value="koperta" title="Koperta">
+                                        <label class="form-check-label border border-2 w-100 rounded p-3 h4" for="masa_typ_2"><i class="fas fa-envelope"></i> KOPERTA</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="p-2 card border-0 mb-2 g-2">
+                            <div class="row g-2">
+                                <div class="d-block text-danger">Format przesyłki [W x D x S]:</div>
+                                <div class="row text-center mt-2 g-0 masa_typ_1 formatPrzesylka d-none">
+                                    <div class="form-check col-lg-2 col-md-4 col-6 p-1">
+                                        <input class="form-check-input d-none" type="radio" name="masa_0" id="masa_typ_1S" value="paczka" title="Paczka" data-m="20" data-w="10" data-d="38" data-s="64">
+                                        <label class="form-check-label border border-2 w-100 rounded p-3 h4" for="masa_typ_1S"><strong><i class="fas fa-box "></i> S</strong><p class="h6 mt-4">max 10x38x64 <br/>do 20 kg</p></label>
+                                    </div>
+                                    <div class="form-check col-lg-2 col-md-4 col-6 p-1">
+                                        <input class="form-check-input d-none" type="radio" name="masa_0" id="masa_typ_1M" value="paczka" title="Paczka" data-m="20" data-w="20" data-d="38" data-s="64">
+                                        <label class="form-check-label border border-2 w-100 rounded p-3 h4" for="masa_typ_1M"><strong><i class="fas fa-box"></i> M</strong><p class="h6 mt-4">max 20x38x64 <br/>do 20 kg</p></label>
+                                    </div>
+                                    <div class="form-check col-lg-2 col-md-4 col-6 p-1">
+                                        <input class="form-check-input d-none" type="radio" name="masa_0" id="masa_typ_1L" value="paczka" title="Paczka" data-m="20" data-w="40" data-d="38" data-s="64">
+                                        <label class="form-check-label border border-2 w-100 rounded p-3 h4" for="masa_typ_1L"><strong><i class="fas fa-box"></i> L</strong><p class="h6 mt-4">max 40x38x64 <br/>do 20 kg</p></label>
+                                    </div>
+                                    <div class="form-check col-lg-2 col-md-4 col-6 p-1">
+                                        <input class="form-check-input d-none" type="radio" name="masa_0" id="masa_typ_1XL" value="paczka" title="Paczka" data-m="20" data-w="60" data-d="60" data-s="70">
+                                        <label class="form-check-label border border-2 w-100 rounded p-3 h4" for="masa_typ_1XL"><strong><i class="fas fa-box"></i> XL</strong><p class="h6 mt-4">max 60x60x70 <br/>do 20 kg</p></label>
+                                    </div>
+                                    <div class="form-check col-lg-2 col-md-4 col-6 p-1">
+                                        <input class="form-check-input d-none" type="radio" name="masa_0" id="masa_typ_1XXL" value="paczka" title="Paczka" data-m="30" data-w="40" data-d="110" data-s="70">
+                                        <label class="form-check-label border border-2 w-100 rounded p-3 h4" for="masa_typ_1XXL"><strong><i class="fas fa-box"></i> 2XL</strong><p class="h6 mt-4">W+S+D &lt;= 250<br/>do 30 kg</p></label>
+                                    </div>
+                                    <div class="form-check col-lg-2 col-md-4 col-6 p-1">
+                                        <input class="form-check-input d-none" type="radio" name="masa_0" id="masa_typ_1NSTD" value="paczka" title="Paczka NSTD" data-m="50" data-w="20" data-d="110" data-s="110">
+                                        <label class="form-check-label border border-2 w-100 rounded p-3 h4" for="masa_typ_1NSTD"><strong><i class="fas fa-box"></i> NSTD</strong><p class="h6 mt-4">W+S+D => 250<br/>do 50 kg</p></label>
+                                    </div>
+                                </div>
+                                
+                                <div class="row text-center mt-2 g-0 masa_typ_2 formatListy d-none">
+                                    <div class="form-check col-lg-4 col-md-4 col-6 p-1">
+                                        <input class="form-check-input d-none" type="radio" name="masa_0" id="masa_typ_2S" value="koperta S" title="koperta S" data-m="2" data-w="2" data-d="16" data-s="23">
+                                        <label class="form-check-label border border-2 w-100 rounded p-3 h4" for="masa_typ_2S"><strong><i class="fas fa-envelope"></i> S</strong><p class="h6 mt-4">min 9x14 (DxS)<br/>max 2x16x23 <br/>do 2 kg</p></label>
+                                    </div>
+                                    
+                                    <div class="form-check col-lg-4 col-md-4 col-6 p-1">
+                                        <input class="form-check-input d-none" type="radio" name="masa_0" step="0.5" id="masa_typ_2M" value="koperta" title="koperta M" data-m="2" data-w="2" data-d="23" data-s="32.5">
+                                        <label class="form-check-label border border-2 w-100 rounded p-3 h4" for="masa_typ_2M"><strong><i class="fas fa-envelope"></i> M</strong><p class="h6 mt-4">min 9x14 (DxS)<br/>max 2x23x32,5 <br/>do 2 kg</p></label>
+                                    </div>
+                                    <div class="form-check col-lg-4 col-md-4 col-6 p-1">
+                                        <input class="form-check-input d-none" type="radio" name="masa_0" id="masa_typ_2L" value="koperta" title="koperta L" data-m="2" data-w="2" data-d="23" data-s="50">
+                                        <label class="form-check-label border border-2 w-100 rounded p-3 h4" for="masa_typ_2L"><strong><i class="fas fa-envelope"></i> L</strong><p class="h6 mt-4">W+S+D <= 90, <br/>D <= 60 <br/>do 2 kg</p></label>
+                                    </div>
+                                </div>
+                                <div class="d-block text-danger">Masa i wymiary przesyłki:</div>
+                                <div class="col-md-6 mb-1">
+                                    <label for="wymiar_2">Masa przesyłki do [kg]</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                          <button class="numDown btn btn-lg btn-outline-secondary" type="button">-</button>
+                                        </div>                                      
+                                        <input type="number" max="50" min="0" step="0.5" class="form-control" id="masa_1" name="masa" value="0" placeholder="kg">
+                                        <div class="input-group-append">
+                                            <button class="numUp btn btn-lg btn-outline-secondary" type="button">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-1 g-2">
+                                    <label for="wymiar_2">Długość np. 40 cm [D]</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                          <button class="numDown btn btn-lg btn-outline-secondary" type="button">-</button>
+                                        </div>                                      
+                                        <input type="number" class="form-control wymiar-przesylki" id="wymiar_1" min="1" value="0" name="wymiar_dlugosc" placeholder="cm">
+                                        <div class="input-group-append">
+                                            <button class="numUp btn btn-lg btn-outline-secondary" type="button">+</button>
+                                          </div>
+                                    </div>
+                                    
+                                    <label for="wymiar_2">Szerokość np. 40 cm [S]</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <button class="numDown btn btn-lg btn-outline-secondary" type="button">-</button>
+                                        </div> 
+                                        <input type="number" class="form-control wymiar-przesylki" id="wymiar_2" min="1" value="0" name="wymiar_szerokosc" placeholder="cm">
+                                        <div class="input-group-append">
+                                            <button class="numUp btn btn-lg btn-outline-secondary" type="button">+</button>
+                                        </div>
+                                    </div>
+
+                                    <label for="wymiar_2">Wysokość np. 20 cm [W]</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <button class="numDown btn btn-lg btn-outline-secondary" type="button">-</button>
+                                        </div> 
+                                        <input type="number" class="form-control wymiar-przesylki" id="wymiar_3" min="1" value="0" name="wymiar_wysokosc" placeholder="cm">
+                                        <div class="input-group-append">
+                                            <button class="numUp btn btn-lg btn-outline-secondary" type="button">+</button>
+                                        </div>
+                                    </div>
+                                    <!--
+                                        <div class="form-floating m-0 mb-1">
+                                        <input type="number" class="form-control wymiar-przesylki" id="wymiar_2" min="1" value="0" name="wymiar_szerokosc" placeholder="cm">
+                                        <label for="wymiar_2">S: Szerokość np. 40 cm</label>
+                                    </div>
+                                    <div class="form-floating m-0 mb-1">
+                                        <input type="number" class="form-control wymiar-przesylki" id="wymiar_3" min="1" value="0" name="wymiar_wysokosc" placeholder="cm">
+                                        <label for="wymiar_3">W: Wysokość np. 20 cm</label>
+                                    </div>
+                                    -->
+                                </div>
+                                <div class="row mt-2 g-2 ">
+                                    <div class="form-check col-md-6 pb-0 pt-0 form-switch d-flex align-items-bottom justify-content-start form-control-lg">
+                                        <input class="form-check-input col-2 text-danger" type="checkbox" name="NSTD_ksztalt" id="NSTD_1" >
+                                        <label class="form-check-label col-10 text-start h6 w-100 p-2" for="NSTD_1">Przesyłka niestandardowa (kształt przesyłki) <sup class="h8" data-bs-toggle="tooltip" title="Tooltip dla Wioli :)"><i class="fa fa-info-circle text-secondary small" aria-hidden="true"></i></sup></label>
+                                    </div>
+                                    <div class="form-check col-md-6 pt-0 pb-0 form-switch d-flex align-items-bottom justify-content-start form-control-lg">
+                                        <input class="form-check-input col-2 text-danger" type="checkbox" name="NSTD_wymiar" id="NSTD_2" disabled>
+                                        <label class="form-check-label col-10 text-start h6 w-100 p-2" for="NSTD_2">Przesyłka niestandardowa (wymiar przesyłki) 
+                                        <span class="small text-muted"><i>Opcja zostanie wybrana automatycznie, jeśli suma wymiarów przekroczy 200 cm. UWAGA! Rulon nie może przekraczać wymiarów 20cm x 157,5cm.</i></span></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--
+                        <h3 class="d-grid gap-2 p-2 bg-danger text-white mb-1">Typ usługi</h3>                
+                        <div class="p-2 card border-0 mb-2">
+                            <div class="row text-center mt-2 g-2">
+                                <div class="form-check col-md-6 p-1">
+                                    <input class="form-check-input d-none" type="radio" name="typ_uslugi" id="typ_uslugi_1" value="standardowa" title="standardowa" checked>
+                                    <label class="form-check-label border border-2 w-100 rounded p-2 h4" for="typ_uslugi_1"><i class="fas fa-calendar-day"></i> Normalny termin doręczenia</label>
+                                </div>
+                                <div class="form-check col-md-6 p-1">
+                                    <input class="form-check-input d-none" type="radio" name="typ_uslugi" id="typ_uslugi_2" value="nadzis" title="na dziś">
+                                    <label class="form-check-label border border-2 w-100 rounded p-2 h4" for="typ_uslugi_2"><i class="fas fa-clock"></i> Z opcją doręczenia "Na dziś"</label>
+                                    <span class="text-decoration-underline text-danger h4">Już od 15,99 zł</span>
+                                </div>
+                            </div>
+                        </div>
+                    -->
+                        
+                        
+                        <div class="navig col-12 d-flex justify-content-end">
+                            <button class="next-step btn btn-outline-success p-3" type="button" aria-controls="step-2">DALEJ</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane reklamacja fade p-4" id="nadaj-step-2" role="tabpanel" aria-labelledby="nadaj-step-2">
+                    <h3 class="d-grid gap-2 p-2 bg-danger text-white mb-2">Miejsce nadania przesyłki:</h3>
+                    <div class="p-2 card border-0 mb-2">
+                        <div class="row text-center mt-2 g-2">
+                            <span id="nadaj_miejsce_OWP" class="col-md d-none text-center small p-1 m-0"></span>
+                            <div class="form-check col-md-4 p-1 m-0 order-0">
+                                <input class="form-check-input d-none widgetOWP" type="radio" name="nadaj_miejsce" id="nadaj_miejsce_1" value="OP" data-order="1" title="Placówka Pocztowa">
+                                <label class="form-check-label border border-2 w-100 rounded p-2 h3 small text-sm-center text-start" for="nadaj_miejsce_1"><div class="row"><strong class="col-md-12 col-3 text-center"><i class="fas fa-store-alt fa-3x"></i></strong><span class="col-md-12 col-9 h4 p-2">Punkt nadania</span></div></label>
+                            </div>
+                            
+
+                            <div class="form-check col-md-4 p-1 m-0 order-1">
+                                <input class="form-check-input d-none widgetOWP" type="radio" name="nadaj_miejsce" id="nadaj_miejsce_2" value="OPZ" data-order="2" title="Automat">
+                                <label class="form-check-label border border-2 w-100 rounded p-2 h3 small text-sm-center text-start" for="nadaj_miejsce_2"><div class="row"><strong class="col-md-12 col-3 text-center"><i class="fas fa-map-pin fa-3x"></i></strong><span class="col-md-12 col-9 h4 p-2">Automat</span></div></label>
+                            </div>
+                            <div class="form-check col-md-4 p-1 m-0 order-2">
+                                <input class="form-check-input d-none" type="radio" name="nadaj_miejsce" id="nadaj_miejsce_3" value="PX" title="Kurier odbierze" >
+                                <label class="form-check-label border border-2 w-100 rounded p-2 h3 small text-sm-center text-start" for="nadaj_miejsce_3"><div class="row"><strong class="col-md-12 col-3 text-center"><i class="fas fa-shipping-fast fa-3x"></i></strong><span class="col-md-12 col-9 h4 p-2">Zamawiam kuriera</span></div></label>
+                            </div>
+                            <div class="collapse pocztex_adres row g-2 p-2 bg-light order-3" id="pocztex_adres_1">
+                                <h5>Podaj dane:</h5>
+                                <div class="form-floating col-md-4 m-0">
+                                    <input type="text" class="form-control" id="floatingInput103" placeholder="kod pocztowy" required>
+                                    <label for="floatingInput103">Kod pocztowy *</label>
+                                </div>
+                                <div class="form-floating col-md m-0">
+                                    <input type="text" class="form-control" id="floatingInput104" placeholder="Miejscowość" required list="data-floatingInput104">
+                                    <label for="floatingInput104">Miejscowość *</label>
+                                    <datalist id="data-floatingInput104">
+                                        <option value="Warszawa"></option>
+                                        <option value="Jasienica Rosielna"></option>
+                                        <option value="Kraków"></option>
+                                    </datalist>
+                                </div><!--
+                                <div class="col-md-2 m-0 d-grid d-block">
+                                    <button id="pocztex_sprawdz" type="button" class="btn btn-outline-danger">Sprawdź</button>
+                                </div>-->
+                            </div>
+                        </div>
+                        
+                        
+
+                        
+
+                    </div>
+            
+                    <h3 class="d-grid gap-2  p-2 bg-danger text-white mb-2">Miejsce dostawy przesyłki:</h3>
+                    <div class="p-2 card border-0 mb-2">
+                        <div class="row text-center mt-2 g-2">
+                            <span id="nadaj_odbior_OWP" class="d-block text-center small"></span>
+
+                            <div class="form-check col-md p-1 m-0 order-0">
+                                <input class="form-check-input d-none widgetOWP" type="radio" name="nadaj_odbior" id="nadaj_odbior_1" value="PO" data-order="1" title="Punkt Odbioru">
+                                <label class="form-check-label border border-2 w-100 rounded p-2 h3 small text-sm-center text-start" for="nadaj_odbior_1"><div class="row"><strong class="col-md-12 col-3 text-center"><i class="fas fa-map-marker-alt fa-3x"></i></strong><span class="col-md-12 col-9 h4 p-2">Punkt odbioru</span></div></label>
+                            </div>
+                            <div class="form-check col-md p-1 m-0 order-1">
+                                <input class="form-check-input d-none widgetOWP" type="radio" name="nadaj_odbior" id="nadaj_odbior_2" value="Automat" data-order="2" title="W punkcie nadawczym">
+                                <label class="form-check-label border border-2 w-100 rounded p-2 h3 small text-sm-center text-start" for="nadaj_odbior_2"><div class="row"><strong class="col-md-12 col-3 text-center"><i class="fas fa-map-pin fa-3x"></i></strong><span class="col-md-12 col-9 h4 p-2">Automat</span></div></label>
+                            </div>
+                            <div class="form-check col-md p-1 m-0 order-2">
+                                <input class="form-check-input d-none" type="radio" name="nadaj_odbior" id="nadaj_odbior_4" value="Skrzynka" title="Do skrzynki">
+                                <label class="form-check-label border border-2 w-100 rounded p-2 h3 small text-sm-center text-start" for="nadaj_odbior_4"><div class="row"><strong class="col-md-12 col-3 text-center"><i class="fa fa-envelope fa-3x"></i></strong><span class="col-md-12 col-9 h4 p-2">Do skrzynki</span></div></label>
+                            </div>
+                            <div class="form-check col-md p-1 m-0 order-3">
+                                <input class="form-check-input d-none" type="radio" name="nadaj_odbior" id="nadaj_odbior_3" value="DOM" title="Pod adres">
+                                <label class="form-check-label border border-2 w-100 rounded p-2 h3 small text-sm-center text-start" for="nadaj_odbior_3"><div class="row"><strong class="col-md-12 col-3 text-center"><i class="fas fa-home fa-3x"></i></strong><span class="col-md-12 col-9 h4 p-2">Pod adres</span></div></label>
+                            </div>
+                            
+                            <div class="collapse pocztex_adres row g-2 p-2 bg-light text-start order-3" id="pocztex_adres_2">
+                                <h5>Podaj dane:</h5>
+                                <div class="form-floating col-md-4 m-0">
+                                    <input type="text" class="form-control" id="floatingInput203" placeholder="kod pocztowy" required>
+                                    <label for="floatingInput203">Kod pocztowy *</label>
+                                </div>
+                                <div class="form-floating col-md m-0">
+                                    <input type="text" class="form-control" id="floatingInput204" placeholder="Miejscowość" required list="data-floatingInput204">
+                                    <label for="floatingInput204">Miejscowość *</label>
+                                    <datalist id="data-floatingInput204">
+                                        <option value="Warszawa"></option>
+                                        <option value="Jasienica Rosielna"></option>
+                                        <option value="Kraków"></option>
+                                    </datalist>
+                                </div>
+                                <!--<div class="col-md-2 m-0 d-grid d-block">
+                                    <button id="pocztex_sprawdz" type="button" class="btn btn-outline-danger">Sprawdź</button>
+                                </div>-->
+                            </div>
+                            
+
+                        
+
+                        </div>
+                    </div>
+                    <div class="collapse col-12 mt-2 g-2 p-0" id="wybor_pocztex">
+                        <h3 class="d-grid gap-2 p-2 bg-secondary text-white mb-2">Wybierz wariant przesyłki</h3>
+                        <div class="p-2 card border-0 mb-2">
+                            <div class="row text-center mt-2 g-2">
+                                <div class="form-check col-md-6 p-1">
+                                    <input class="form-check-input d-none" type="radio" name="typ_pocztex" id="typ_pocztex_1" value="pocztexkurier" title="Pocztex Kurier" checked>
+                                    <label class="form-check-label border border-2 w-100 rounded p-2 mb-0 h4" for="typ_pocztex_1">Pocztex Kurier (od 15,99zł)</label>
+                                </div>
+                                <div class="form-check col-md-6 p-1">
+                                    <input class="form-check-input d-none" type="radio" name="typ_pocztex" id="typ_pocztex_2" value="ec" title="Usługa eC" disabled>
+                                    <label class="form-check-label border border-2 w-100 rounded p-2 mb-0 h4" for="typ_pocztex_2">Usługa eC (od 5,99zł)</label>
+                                    <span class="text-muted small mt-0">usługa dostępna dla kogoś tam</span>
+                                </div>
+                                <div class="form-check col-md-6 p-1">
+                                    <input class="form-check-input d-none" type="radio" name="typ_pocztex" id="typ_pocztex_3" value="jutro9" title="Jutro do 9:00" >
+                                    <label class="form-check-label border border-2 w-100 rounded p-2 mb-0 h4" for="typ_pocztex_3">Doręczenie JUTRO do 9:00 </label>
+                                    <span class="text-muted small mt-0">przy nadaniu w odpowioedniej placówce pocztowej do godz. 15.</span>
+                                </div>
+                                <div class="form-check col-md-6 p-1">
+                                    <input class="form-check-input d-none" type="radio" name="typ_pocztex" id="typ_pocztex_4" value="jutro12" title="Jutro do 12:00" >
+                                    <label class="form-check-label border border-2 w-100 rounded p-2 mb-0 h4" for="typ_pocztex_4">Doręczenie JUTRO do 12:00</label>
+                                    <span class="text-muted small mt-0">przy nadaniu w odpowioedniej placówce pocztowej do godz. 15.</span>
+                                </div>
+                                <div class="form-check col-md-6 p-1">
+                                    <input class="form-check-input d-none" type="radio" name="typ_pocztex" id="typ_pocztex_5" value="pocztowa" title="Przesyłka pocztowa">
+                                    <label class="form-check-label border border-2 w-100 rounded p-2 mb-0 h4" for="typ_pocztex_5">Przesyłka pocztowa (od 13,00zł)</label>
+                                    <span class="text-muted small mt-0">usługa dostępna dla kogoś tam</span>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="d-grid gap-2 p-2 bg-secondary text-white mb-2">Usługi dodatkowe</h3>
+                        <div class="row mt-2">
+                            <div class="form-check ms-3 col-md-5 form-switch d-flex align-items-bottom justify-content-start form-control-lg">
+                                <input class="form-check-input text-danger" type="checkbox" name="uslugi_dodatkowe" id="dodatkowe_1" >
+                                <label class="form-check-label text-start h6 w-100 p-1" for="dodatkowe_1">Pobranie (+0,50 zł)</label>
+                            </div>
+                            <div class="form-check ms-3 col-md-5 form-switch d-flex align-items-bottom justify-content-start form-control-lg">
+                                <input class="form-check-input text-danger" type="checkbox" name="uslugi_dodatkowe" id="dodatkowe_2" >
+                                <label class="form-check-label text-start h6 w-100 p-2" for="dodatkowe_2">Wartość</label>
+                            </div>
+                            <div class="form-check ms-3 col-md-5 form-switch d-flex align-items-bottom justify-content-start form-control-lg">
+                                <input class="form-check-input text-danger" type="checkbox" name="uslugi_dodatkowe" id="dodatkowe_3" >
+                                <label class="form-check-label text-start h6 w-100 p-2" for="dodatkowe_3">Potwierdzenie odbioru (+1,00zł)</label>
+                            </div>
+                            <div class="form-check ms-3 col-md-5 form-switch d-flex align-items-bottom justify-content-start form-control-lg">
+                                <input class="form-check-input text-danger" type="checkbox" name="uslugi_dodatkowe" id="dodatkowe_4" >
+                                <label class="form-check-label text-start h6 w-100 p-2" for="dodatkowe_4">Potwierdzenie nadania (+0,50zł)</label>
+                            </div>
+                            <div class="form-check ms-3 col-md-5 form-switch d-flex align-items-bottom justify-content-start form-control-lg">
+                                <input class="form-check-input text-danger" type="checkbox" name="uslugi_dodatkowe" id="dodatkowe_5" >
+                                <label class="form-check-label text-start h6 w-100 p-2" for="dodatkowe_5">Ostrożnie (+2,00zł)</label>
+                            </div>
+                            <div class="form-check ms-3 col-md-5 form-switch d-flex align-items-bottom justify-content-start form-control-lg">
+                                <input class="form-check-input text-danger" type="checkbox" name="uslugi_dodatkowe" id="dodatkowe_6" >
+                                <label class="form-check-label text-start h6 w-100 p-2" for="dodatkowe_6">Sprawdzenie zawartości przy odbiorcy</label>
+                            </div>
+                            <div class="form-check ms-3 col-md-5 form-switch d-flex align-items-bottom justify-content-start form-control-lg">
+                                <input class="form-check-input text-danger" type="checkbox" name="uslugi_dodatkowe" id="dodatkowe_7" >
+                                <label class="form-check-label text-start h6 w-100 p-2" for="dodatkowe_7">Doręczenie we wskazanym dniu</label>
+                            </div>
+                            <div class="form-check ms-3 col-md-5 form-switch d-flex align-items-bottom justify-content-start form-control-lg">
+                                <input class="form-check-input text-danger" type="checkbox" name="uslugi_dodatkowe" id="dodatkowe_8" >
+                                <label class="form-check-label text-start h6 w-100 p-2" for="dodatkowe_8">Doręczenie do rąk własnych</label>
+                            </div>
+                            <div class="form-check ms-3 col-md-5 form-switch d-flex align-items-bottom justify-content-start form-control-lg">
+                                <input class="form-check-input text-danger" type="checkbox" name="uslugi_dodatkowe" id="dodatkowe_9" >
+                                <label class="form-check-label text-start h6 w-100 p-2" for="dodatkowe_9">Ubezpieczenie</label>
+                            </div>
+                            <div class="form-check ms-3 col-md-5 form-switch d-flex align-items-bottom justify-content-start form-control-lg">
+                                <input class="form-check-input text-danger" type="checkbox" name="uslugi_dodatkowe" id="dodatkowe_10" >
+                                <label class="form-check-label text-start h6 w-100 p-2" for="dodatkowe_10">Dokumenty zwrotne (+xx zł)</label>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="navig col-12 d-flex justify-content-between mt-4">
+                        <button class="prev-step btn btn-outline-dark p-3" type="button" aria-controls="step-1">WSTECZ</button>
+                        <button class="next-step btn btn-outline-success p-3" type="button" aria-controls="step-3">DALEJ</button>
+                    </div>
+                </div>
+
+                <div class="tab-pane reklamacja fade p-4" id="nadaj-step-3" role="tabpanel" aria-labelledby="nadaj-step-3">
+
+                    <h3 class="d-grid gap-2 border p-2 bg-danger text-white mb-2">Dane Odbiorcy</h3>
+                    <div class="form-floating col-12 mb-3 m-0">
+                        <input type="text" class="form-control" id="floatingInput11" placeholder="imię i nazwisko/nazwa" required>
+                        <label for="floatingInput11">Imię nazwisko / Nazwa</label>
+                    </div>
+                    <div class="row g-2">
+                        <div class="form-floating col-md-4 mb-2 m-0">
+                            <input type="text" class="form-control" id="floatingInput03" placeholder="kod pocztowy" required>
+                            <label for="floatingInput03">Kod pocztowy *</label>
+                        </div>
+                        <div class="form-floating col-md mb-3 m-0">
+                            <input type="text" class="form-control" id="floatingInput04" placeholder="Miejscowość" required>
+                            <label for="floatingInput04">Miejscowość *</label>
+                        </div>
+                    </div>
+                    <div class="row g-2">
+                        <div class="form-floating col-md-6 mb-2 m-0">
+                            <input type="text" class="form-control" id="floatingInput07" placeholder="ulica" required>
+                            <label for="floatingInput05">Ulica *</label>
+                        </div>
+                        <div class="form-floating col-md mb-2 m-0">
+                            <input type="text" class="form-control" id="floatingInput08" placeholder="nr budynku" required>
+                            <label for="floatingInput06">Nr budynku *</label>
+                        </div>
+                        <div class="form-floating col-md mb-3 m-0">
+                            <input type="text" class="form-control" id="floatingInput09" placeholder="nr mieszkania">
+                            <label for="floatingInput09">Nr mieszkania</label>
+                        </div>
+                    </div>
+                    <div class="row g-2">
+                        <div class="form-floating col-md m-0">
+                            <input type="number" class="form-control" id="odbiorca_telefon" placeholder="wpisz nr tel. kontaktowego" >
+                            <label for="odbiorca_telefon">Numer telefonu np. 48500600700</label>
+                            <div class="small text-center text-muted mb-2"><i>Na ten numer telefonu wyślemy informacje o nadaniu przesyłki</i></div>
+                        </div>
+                        <div class="form-floating col-md m-0">
+                            <input type="email" class="form-control" id="odbiorca_email" placeholder="wpisz adres email kontaktowego">
+                            <label for="odbiorca_email">Adres e-mail</label>
+                            <div class="small text-center text-muted mb-2"><i>Na podany powyżej adres wyślemy informacje o odbiorze i status przesyłki</i></div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="d-grid gap-2 border p-2 bg-danger text-white mb-2">Dane Nadawcy</h3>
+                    <div class="form-floating col-12 mb-3">
+                        <input type="text" class="form-control" id="floatingInput1" placeholder="imię i nazwisko/nazwa" required>
+                        <label for="floatingInput1">Imię nazwisko / Nazwa</label>
+                    </div>
+                    <div class="row g-2">
+                        <div class="form-floating col-md-4 mb-2 m-0">
+                            <input type="text" class="form-control" id="floatingInput86" placeholder="kod pocztowy" required>
+                            <label for="floatingInput86">Kod pocztowy *</label>
+                        </div>
+                        <div class="form-floating col-md mb-3 m-0">
+                            <input type="text" class="form-control" id="floatingInput87" placeholder="Miejscowość" required>
+                            <label for="floatingInput87">Miejscowość *</label>
+                        </div>
+                    </div>
+                    <div class="row g-2">
+                        <div class="form-floating col-md-6 mb-2 m-0">
+                            <input type="text" class="form-control" id="floatingInput88" placeholder="ulica" required>
+                            <label for="floatingInput88">Ulica *</label>
+                        </div>
+                        <div class="form-floating col-md mb-2 m-0">
+                            <input type="text" class="form-control" id="floatingInput89" placeholder="nr budynku" required>
+                            <label for="floatingInput89">Nr budynku *</label>
+                        </div>
+                        <div class="form-floating col-md mb-3 m-0">
+                            <input type="text" class="form-control" id="floatingInput90" placeholder="nr mieszkania">
+                            <label for="floatingInput90">Nr mieszkania</label>
+                        </div>
+                    </div>
+                    <div class="row g-2">
+                        <div class="form-floating col-md m-0">
+                            <input type="number" class="form-control" id="nadawca_telefon" placeholder="wpisz nr tel. kontaktowego" >
+                            <label for="nadawca_telefon">Numer telefonu np. 48500600700</label>
+                            <div class="small text-center text-muted mb-2"><i></i></div>
+                        </div>
+                        <div class="form-floating col-md m-0">
+                            <input type="email" class="form-control" id="nadawca_email" placeholder="wpisz adres email kontaktowego">
+                            <label for="nadawca_email">Adres e-mail</label>
+                            <div class="small text-center text-muted mb-2"><i>Na podany powyżej adres wyślemy etykietę oraz status przesyłki</i></div>
+                        </div>
+                    </div>
+
+
+                    <div class="navig col-12 d-flex justify-content-between">
+                        <button class="prev-step btn btn-outline-dark p-3" type="button" aria-controls="step-2">WSTECZ</button>
+                        <button class="next-step btn btn-outline-success p-3" type="button" aria-controls="step-4">DALEJ</button>
+                    </div>
+
+                </div>
+                
+                <div class="tab-pane reklamacja fade p-4" id="nadaj-step-4" role="tabpanel" aria-labelledby="nadaj-step-4">
+                    
+                    
+                    <h3 class="d-grid gap-2 p-2 bg-danger text-white mb-3">Podsumowanie</h3>
+                    <div class="d-block text-danger p-2 border-bottom">Podstawowe dane:</div>
+                    <div class="d-flex mt-2">
+                        <span class="col-md-6 col-7 d-block text-end small">Przesyłkę opłaca: </span>
+                        <span id="kto_placi" class="flex-fill text-start ms-2">Nadawca</span>                
+                    </div>
+                    <div class="d-flex mt-2">
+                        <span class="col-md-6 col-7 d-block text-end small">Kod pocztowy Nadawcy: </span>
+                        <span id="kod_nadawcy" class="flex-fill text-start ms-2">30-200</span>                
+                    </div>
+                    <div class="d-flex mt-2">
+                        <span class="col-md-6 col-7 d-block text-end small">Kod pocztowy Odbiorcy:</span>
+                        <span id="kod_odbiorcy" class="flex-fill text-start ms-2">94-102</span>                
+                    </div>
+                    <div class="d-flex mt-2">
+                        <span class="col-md-6 col-7 d-block text-end small">Masa przesyłki:</span>
+                        <span id="masa" class="flex-fill text-start ms-2">2 kg</span>                
+                    </div>
+                    <div class="d-flex mt-2">
+                        <span class="col-md-6 col-7 d-block text-end small ">Długość:</span>
+                        <span id="wymiar_1" class="flex-fill text-start ms-2">30 cm</span>                
+                    </div>
+                    <div class="d-flex mt-2">
+                        <span class="col-md-6 col-7 d-block text-end small">Szerokość:</span>
+                        <span id="wymiar_2" class="flex-fill text-start ms-2">20 cm</span>                
+                    </div>
+                    <div class="d-flex mt-2">
+                        <span class="col-md-6 col-7 d-block text-end small">Wysokość:</span>
+                        <span id="Wymiar 3" class="flex-fill text-start ms-2">10 cm</span>                
+                    </div>
+
+                    <div class="row pt-1">
+                        <span class="col-md-6 col-7 d-flex p-0 align-items-top justify-content-end p-0 text-end small">Parametry niestandardowe:</span>
+                        <span class="col-md-6 col-12 mt-1 small">
+                            <div class="form-check form-switch d-flex align-items-bottom justify-content-center text-center">
+                                <input class="form-check-input text-danger" type="checkbox" name="NSTD_ksztalt" disabled readonly>
+                                <label class="form-check-label text-start w-100 ms-1 p-1 small" for="NSTD_1">Przesyłka niestandardowa (kształt przesyłki)</label>
+                            </div>
+                            <div class="form-check form-switch d-flex align-items-bottom justify-content-center">
+                                <input class="form-check-input col-2 text-danger" type="checkbox" name="NSTD_wymiar" disabled readonly>
+                                <label class="form-check-label col-10 text-start w-100 ms-1 p-1 small" for="NSTD_2">Przesyłka niestandardowa (wymiar przesyłki) 
+                            </div>
+                        </span>                
+                    </div>
+                    <div class="d-flex mt-2">
+                        <span class="col-md-6 col-4 d-block text-end small">Typ usługi:</span>
+                        <span id="typ_uslugi" class="flex-fill text-start ms-2">Normalny termin doręczenia</span>                
+                    </div>
+                    
+                    <div class="d-block text-danger p-2 border-bottom">Parametry logistyczne:</div>
+                    <div class="d-flex mt-2">
+                        <span class="col-md-6 col-4 d-block text-end small">Gdzie chcesz nadać:</span>
+                        <span id="nadaj_miejsce" class="flex-fill text-start ms-2"><strong>Automat</strong><br/><i>Smartbox - automat w Biedronce (753349), ul. Berka Joselewicza 28, 31-031 Kraków, MAŁOPOLSKIE</i></span>                
+                    </div>
+                    <div class="d-flex mt-2">
+                        <span class="col-md-6 col-4 d-block text-end small">Gdzie chcesz odebrać:</span>
+                        <span id="nadaj_odbior" class="flex-fill text-start ms-2"><strong>Punkt odbioru</strong><br/><i>Sklep Lewiatan (723150), ul. Siennicka 26, 80-703 Gdańsk, POMORSKIE</i></span>                
+                    </div>
+
+                    <div class="d-block text-danger p-2 border-bottom">Dane adresowe:</div>
+                    <div class="d-flex mt-2">
+                        <span class="col-md-6 col-4 d-block text-end small">Odbiorca:</span>
+                        <span class="flex-fill text-start ms-2 row">
+                            <span id="floatingInput11" class="flex-fill p-0"><strong>Jan Kowalski</strong></span>
+                            <span id="floatingInput12" class="flex-fill p-0">94-120 Gdańsk</span>
+                            <span id="floatingInput13" class="flex-fill p-0">ul. Mikołaja Kopernika 33/12</span>
+                            <span id="floatingInput14" class="flex-fill p-0">600700800</span>
+                            <span id="floatingInput15" class="flex-fill p-0">jan.kowalski@poczta.pl</span>
+                        </span>
+                    </div>
+                    <div class="d-flex mt-2">
+                        <span class="col-md-6 col-4 d-block text-end small">Nadawca:</span>
+                        <span class="flex-fill text-start ms-2 row">
+                            <span id="floatingInput21" class="flex-fill p-0"><strong>Janusz Nowak</strong></span>
+                            <span id="floatingInput2" class="flex-fill p-0">30-200 Kraków</span>
+                            <span id="floatingInput23" class="flex-fill p-0">ul. Leśna 5</span>
+                            <span id="floatingInput24" class="flex-fill p-0">500600700</span>
+                            <span id="floatingInput25" class="flex-fill p-0">janusz.nowak@poczta.pl</span>
+                        </span>
+                    </div>
+                    
+                    <h3 class="d-grid gap-2 border p-2 bg-danger text-white mt-3 mb-2">Płatność</h3>
+                    <div class="row text-center mt-2 g-2">
+                        <div class="form-check col-md-6 p-1">
+                            <input class="form-check-input d-none" type="radio" name="platnosc" id="platnosc_1" value="Online" title="online">
+                            <label class="form-check-label border border-2 w-100 rounded p-2 h4" for="platnosc_1">online</label>
+                        </div>
+                        <div class="form-check col-md-6 p-1">
+                            <input class="form-check-input d-none" type="radio" name="platnosc" id="platnosc_2" value="zapłacę przy nadaniu" title="zapłacę przy nadaniu">
+                            <label class="form-check-label border border-2 w-100 rounded p-2 h4" for="platnosc_2">zapłacę przy nadaniu</label>
+                        </div>
+                    </div>
+                    <div class="row mt-2 ms-2 g-2 ">
+                        <div class="form-check col-12 pb-0 pt-0 form-switch d-flex align-items-bottom justify-content-start form-control-lg">
+                            <input class="form-check-input col-2 text-danger" type="checkbox" name="fvat" id="fvat" >
+                            <label class="form-check-label col-10 text-start h6 w-100 p-2" for="favt">Chcę fakturę VAT </label>
+                        </div>
+                    </div>
+                    <div class="collapse col-12 mt-2 g-2 p-0" id="wybor_faktura">
+                        <h3 class="d-grid gap-2 border p-2 bg-danger text-white mb-2">Dane do faktury VAT</h3>
+                        <div class="form-check col-md-12 form-switch d-flex align-items-bottom justify-content-start form-control-lg">
+                            <input class="form-check-input text-danger" type="checkbox" name="faktura_dane_nadawcy" id="faktura_dane_nadawcy_1" >
+                            <label class="form-check-label text-start h6 w-100 p-2" for="faktura_dane_nadawcy_1">Dane do faktury VAT takie same jak dane Nadawcy</label>
+                        </div>
+                        <div class="row text-center mt-2 g-2">
+                            <div class="form-floating col-md-6 m-0 mb-2 ">
+                                <select class="form-select" id="faktura_typ" aria-label="Floating label select example">
+                                    <option value="firma" selected>Firma</option>
+                                    <option value="osoba">Osoba prywatna</option>
+                                </select>
+                                <label for="faktura_typ">Rodzaj klienta</label>
+                            </div>
+                            <div class="form-floating col-md-6 mb-2 m-0">
+                                <input type="text" class="form-control" id="nip" name="nip" placeholder="nip" required>
+                                <label for="nip">NIP</label>
+                            </div>
+                        </div>
+                        <div class="form-floating col-12 mb-3 m-0">
+                            <input type="text" class="form-control" id="floatingInput111" placeholder="imię i nazwisko/nazwa" required>
+                            <label for="floatingInput111">Imię nazwisko / Nazwa</label>
+                        </div>
+                        <div class="row g-2">
+                            <div class="form-floating col-md-4 mb-2 m-0">
+                                <input type="text" class="form-control" id="floatingInput103" placeholder="kod pocztowy" required>
+                                <label for="floatingInput103">Kod pocztowy *</label>
+                            </div>
+                            <div class="form-floating col-md mb-3 m-0">
+                                <input type="text" class="form-control" id="floatingInput104" placeholder="Miejscowość" required>
+                                <label for="floatingInput104">Miejscowość *</label>
+                            </div>
+                        </div>
+                        <div class="row g-2">
+                            <div class="form-floating col-md-6 mb-2 m-0">
+                                <input type="text" class="form-control" id="floatingInput105" placeholder="ulica" required>
+                                <label for="floatingInput105">Ulica *</label>
+                            </div>
+                            <div class="form-floating col-md mb-2 m-0">
+                                <input type="text" class="form-control" id="floatingInput108" placeholder="nr budynku" required>
+                                <label for="floatingInput106">Nr budynku *</label>
+                            </div>
+                            <div class="form-floating col-md mb-3 m-0">
+                                <input type="text" class="form-control" id="floatingInput107" placeholder="nr mieszkania">
+                                <label for="floatingInput107">Nr mieszkania</label>
+                            </div>
+                        </div>
+                        <div class="row g-2">
+                            <div class="form-floating col-md m-0">
+                                <input type="text" class="form-control" name="kraj" id="kraj_1" placeholder="Kraj">
+                                <label for="email">Kraj</label>
+                                <div class="small text-center text-muted mb-2"><i></i></div>
+                            </div>
+                            <div class="form-floating col-md m-0">
+                                <input type="number" class="form-control" id="faktura_telefon" placeholder="wpisz nr tel. kontaktowego" >
+                                <label for="faktura_telefon">Numer telefonu np. 48500600700</label>
+                                <div class="small text-center text-muted mb-2"><i></i></div>
+                            </div>
+                        </div>
+                    
+                    </div>  
+
+
+
+                    <div class="d-flex justify-content-between mt-4 g-2">
+                        <button class="prev-step btn m-3 btn-outline-dark p-3" type="button" aria-controls="step-3">WSTECZ</button>
+                        <button class="oplacEtykiete m-3 btn btn-outline-success text-uppercase p-3" type="button">Opłać i generuj etykietę</button>
+                        <button class="generujEtykiete m-3 btn btn-outline-primary text-uppercase p-3" type="button">Generuj etykietę</button>
+                    </div>
+                </div>
+                <div class="tab-pane reklamacja fade p-4" id="nadaj-step-5" role="tabpanel" aria-labelledby="nadaj-step-5">
+                    
+
+                    
+
+                    <span id="nadaj_miejsce" class="d-block text-center small"></span>
+                    <span id="nadaj_miejsce_OWP" class="d-block text-center small"></span>
+        
+                    <span id="nadaj_odbior" class="d-block text-center small"></span>
+                    <span id="nadaj_odbior_OWP" class="d-block text-center small"></span>
+                    
+                    
+                </div>
+            </div>
+            <div class="row mt-0 mt-0 m-3 p-3 border-top-0 border bg-white h3 sticky-top">
+                <div class="col-md-9 col-4 p-2 text-md-end text-start">Wartość:</div>
+                <div id="wycena" class="col-md-3 col-8 p-1 text-md-start text-end display-6">15,99 PLN</div>
+            </div>
+        </div>
+
+</main>
+
+<script>
+jQuery(document).ready(function(){
+
+    jQuery(".oplacEtykiete,.generujEtykiete").hide();
+
+    jQuery(".numUp,.numDown").on("click",function(){
+        //let input = document.getElementById('theNumber')
+        var input = document.getElementById(jQuery(this).parents(".input-group").find("input[type='number']").attr("id"));
+        (jQuery(this).hasClass("numUp"))? input.stepUp() : input.stepDown();
+    });
+
+    jQuery(".prev-step").on("click", function(){
+        var param = "#nav-nadaj-"+$(this).attr("aria-controls");
+        $("#reklamacja-skladanie").find(".active").prop("disabled","disabled");
+        $("#reklamacja-skladanie").find(".active").toggleClass("d-none d-sm-block");
+        $(param).trigger("click");
+    });
+    
+    jQuery(".next-step").on("click", function(){
+        var param = "#nav-nadaj-"+$(this).attr("aria-controls");
+        $(param).prop("disabled","");
+        $(param).trigger("click");
+        $("#reklamacja-skladanie").find(".active").toggleClass("d-none d-sm-block");
+    });
+
+    jQuery("input[type='radio']").on("change",function(){
+        jQuery("#"+this.name).text(jQuery(this).attr("title"));
+        console.log(jQuery(this).attr("title"));
+        console.log(this.id);
+        
+        if (this.id == "masa_typ_1"){ 
+            jQuery('.formatPrzesylka').removeClass("d-none");
+            jQuery('.formatListy').addClass("d-none");
+        //    jQuery("."+this.id).find("input").first().trigger("click");
+        }
+        if (this.id == "masa_typ_2"){ 
+            jQuery('.formatPrzesylka').addClass("d-none");
+            jQuery('.formatListy').removeClass("d-none");
+        //    jQuery("."+this.id).find("input").first().trigger("click");
+        }
+        if (this.name == "masa_0"){
+            jQuery("input[name='masa']").val(jQuery(this).data("m"));
+            jQuery("input[name='wymiar_dlugosc']").val(jQuery(this).data("d"));
+            jQuery("input[name='wymiar_szerokosc']").val(jQuery(this).data("s"));
+            jQuery("input[name='wymiar_wysokosc']").val(jQuery(this).data("w"));
+        }
+        if (this.name == "platnosc"){
+            jQuery(".generujEtykiete").css("display",(this.id == "platnosc_2")? "block":"none");
+            jQuery(".oplacEtykiete").css("display",(this.id == "platnosc_1")? "block":"none");
+        }
+
+        //jQuery(this).find("input").first().attr("checked",true);
+        //sprWarunek ((this.value)),"<=2");
+//        disable_enable_button("nadaj_usluga_2",sprWarunek((this.value),"nadaj_usluga_2"));
+    });
+
+
+  function disable_enable_button(name,result){
+    i = jQuery("#"+name);
+    i.prop("disabled",result);
+    if (i.is(":disabled")){
+      i.prop("checked",false);
+    }
+  }
+
+  jQuery(".wymiar-przesylki").bind('change',function(){
+    var sum = 0;
+    $.each(jQuery(".wymiar-przesylki"),function(e,x){
+        sum = sum + parseInt(x.value);
+//        console.log(parseInt(x.value),sum);
+    });
+    jQuery("#NSTD_2").prop("disabled",((sum>200)? false : true)).prop("checked",((sum>200)? true : false)).prop("disabled",true);
+
+  });
+
+  jQuery(".widgetOWP").on("click",function(){
+    var dostawca = {
+  //		basemapProvider: 'OpenStreetMap',
+  //		geocoderProvider: 'Nominatim'
+    };
+    console.log("TUTAJ");
+    returnWyniki = this.name+"_OWP";
+    order = jQuery(this).data("order");
+    PPWidgetApp.toggleMap(PokazWynik,false,'','',dostawca);
+      console.log("weszlo"+order);
+      $("#pp-widget-iframe").on("load",function(a,b){
+        console.log(a,b);
+        console.log("załadowałem mape PP WIDGET");
+        jQuery(document).on("focus",".ppw-logo",function(){
+          $(this).remove();
+        })
+      });
+//      
+//    }
+    //jQuery(document).find(".ppw-container").first().addClass("AAA");
+  });
+  
+  function PokazWynik(w){
+    console.log("GDZIE: "+returnWyniki);
+    jQuery("#"+returnWyniki).removeClassWith("order-").html("<div class='lead border text-mutted'><small class='small'><strong><u>"+w.name+"</u> ("+w.pni+")</strong><br/>"+w.street+"<br/>"+w.zipCode+" "+w.city+" ("+w.province+")</small></lead>").removeClass("d-none").addClass("order-md-last order-"+order);
+    console.log(w);
+    return w;
+  }
+
+$("#floatingInput104,#floatingInput204").bind('change', function () {
+    jQuery("#wybor_pocztex").collapse('show');
+});
+
+  jQuery("input[name='nadaj_miejsce']").on("click",function(){
+    jQuery("#pocztex_adres_1").collapse((this.id === "nadaj_miejsce_3")?'show':'hide');
+    jQuery("#wybor_pocztex").collapse('hide');
+  });
+  jQuery("input[name='nadaj_odbior']").on("click",function(){
+    jQuery("#pocztex_adres_2").collapse((this.id === "nadaj_odbior_3")?'show':'hide');
+  });
+
+  jQuery("button#pocztex_sprawdz").on("click",function(){
+    jQuery("#wybor_pocztex").collapse('show');
+  });
+
+  jQuery("input[name='fvat']").on("change",function(){
+      console.log(this.value);
+    jQuery("#wybor_faktura").collapse((this.value == "on")?'show':'hide');
+    jQuery(this).val((this.value == "on")?'off':'on');
+  });
+
+
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+});
+
+$.fn.removeClassWith = function (filter) {
+    $(this).removeClass(function (index, className) {
+        return (className.match(new RegExp("\\S*" + filter + "\\S*", 'g')) || []).join(' ')
+    });
+    return this;
+};
+</script>
+<style>
+
+input[type="radio"]:checked + label, input[type="checkbox"]:not(.accept):checked + label{
+    border-color:#dc3545!important;
+ }
+
+</style>
+</body>
+</html>

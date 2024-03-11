@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Propozycja wyglądu aplikacji mobilnej by Arkadiusz Śnieżek</title>
+    <meta name="description"  content="Aplikacja mobilna PP SA" />
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" data-auto-replace-svg="nest"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+
+    <link href="./style.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script></head>
+
+<body class="bg-dark">
+    <header class="container display-4 bg-light pb-3 text-center">
+        Test API 1C by Arkadiusz Śnieżek
+    </header>
+    <main class="container pt-3" style="background-color: lightgrey;">
+        
+      <div class="apk border border-dark bg-danger">
+        <pre id="response"></pre>
+      </div>
+    </main>
+    <footer></footer>
+
+    <script>
+        jQuery(document).ready(function(){
+
+       
+            $(function() {
+              var username ="Administrator";
+              var password = "";
+              $.ajax({
+                method: "GET",
+                dataType: 'json',
+//        url: "https://kartelmedia.co.uk/kielce/url.php",
+                url: "http://10.29.21.5:8080/MDA/hs/isapi/GetLocalityid?locality_name=Kra&search_type=0",
+                //url: "https://95.216.241.70:33358/mdatest/hs/rss/krakow_departure",
+/*                dataType: "xml",
+/*                headers: {
+                  "Authorization": "Basic " + btoa(username + ":" + password)
+                },
+ */               success: function(data) {
+                    /* handle data here */
+                    console.log(data);
+                    $("#response").html(data);
+                },
+                error: function(xhr, status) {
+                    /* handle error here */
+                    //$("#show_table").html(status);
+                    console.log("error");
+                }
+              });
+            });
+
+
+            
+        
+
+
+
+
+
+
+
+
+
+
+            
+      });
+
+    </script>
+</body>
+</html>

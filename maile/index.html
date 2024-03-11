@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
+<head>
+<title>Pocztex - switcher</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<link href="https://fonts.cdnfonts.com/css/sansation"  rel="stylesheet" type="text/css" />
+<script src="./js/jquery.min.js"></script>
+<style>
+#page option{
+    padding: 2%;
+    color: red;
+}
+#page{
+    padding: 10px 5% 10px 10px;
+    font-size: 14pt;
+    border-radius: 3px;   
+}
+button{
+    margin: 2%; 
+    padding: 1%;
+}
+.d-none{
+    display: none;
+}
+.badge{
+    background-color: green;
+    color: white;
+    padding: 1%;
+    margin: 0 0 auto auto;
+    display: inline;
+}
+#kod_zst{
+    width:80%;
+    margin:0 auto;
+}
+#kod_zst > textarea{
+    width:100%;
+}
+</style>
+<script>
+
+jQuery(document).ready(function(){
+    get_content();
+    // console.log(jQuery("#switcher option:selected").val());
+
+    jQuery("#page").on('change',function(){
+        get_content();
+    });
+    jQuery("#podmiana").on('change',function(){
+        // console.log("czy zaznaczono: ");
+        get_content(this.checked);
+    })
+
+    jQuery(document).on('click',".copy",function(){
+        // console.log("kopiowanie: ");
+        var textToCopy = jQuery(this).parent().find("textarea").val();
+        var tempTextarea = $('<textarea>');
+        $('body').append(tempTextarea);
+        tempTextarea.val(textToCopy).select();
+        document.execCommand('copy');
+        tempTextarea.remove();
+        jQuery(this).parent().append("<p class='badge'>Skopiowano kod do pamięci</p>");
+    })
+
+    jQuery("#pobierz").on('click',function(){
+        jQuery("#kod_zst").toggleClass('d-none');
+        jQuery(this).text(jQuery("#kod_zst").hasClass("d-none") ? "Pobierz i skopiuj kod" : "SCHOWAJ KOD");
+    })
+
+    function disable_button(stan){
+        jQuery(document).find("#pobierz").prop("disabled", jQuery("#podmiana").is(':checked')? false : true );
+    }
+
+    function get_content(check){
+        disable_button(check);
+        // var token = "Basic " + window.btoa("ppsa:pocztex");
+        var wsad = {
+                "plik" : jQuery("#switcher option:selected").val(),
+                "podmiana" : (jQuery("#podmiana").is(':checked')? true : false)
+        }
+        // console.log(wsad);
+        jQuery.ajax({
+            method: "GET",
+            // beforeSend: function(xhrObj){
+            //     xhrObj.setRequestHeader('Authorization', token);                
+            // },
+            data: wsad,
+            dataType: 'json',
+            // contentType: "application/json",
+            crossDomain: true,
+            url: "./url.php",    
+            success: function(data) {
+                //console.log(data);
+                var body = data.tresc;
+                body = body.substring(body.indexOf("<body>")+6,body.indexOf("</body>"));
+                jQuery("#content").html(data.tresc);
+                disable_button(check);
+                
+                jQuery("#content").prepend("<div id='kod_zst' class='d-none'>");
+                
+                const kod_zst = jQuery(document).find("#kod_zst");
+                kod_zst.prepend("<textarea rows='20'>"+body);
+                kod_zst.append("<button class='copy'>Skopiuj kod");
+            },
+            error: function(xhr, status) {
+                console.log(status);
+            }
+        });
+    }
+});
+</script>
+</head>
+<body>
+
+    <div id="switcher" style="width: 100%; padding: 1%; padding-left: 2%; border-bottom: 1px solid grey;">
+        Wybierz szablon: <select id="page">
+            <optgroup label="Zmiany wg zepołu KEP + ">
+                <option value="automat-nadanie">Automat nadanie (odbiorca)</option>
+                <option value="automat-nadanie-nad">Automat nadanie (nadawca)</option>
+                <option value="automat-odbior">Automat odbior</option>
+                <option value="automat-powiadomienie-1">Automat powiadomienie 1</option>
+                <option value="automat-powiadomienie-2">Automat powiadomienie 2</option>
+                <option value="automat-powiadomienie-3">Automat doręczenie (podziękowanie)</option>
+                <option value="kurier-doreczenie">Kurier Doręczenie</option>
+                <option value="all-nadanie-nad">All nadanie (Nadawca) (swiadczenie)</option>
+                <option value="all-nadanie">All nadanie (odbiorca)</option>
+                <option value="all-potwierdzenie-dor">All potwierdzenie doręczenie (swiadczenie)</option>
+                <option value="all-potwierdzenie">All potwierdzenie doręczenie (odbiorca)</option>
+                <option value="awizacja">AWIZACJA</option>
+                <option value="zwrot">Kurier zwrot</option>
+                <option value="">=== do tego wdrożone    ===</option>
+                <option value="zabka-nadanie">Żabka nadanie odbiorca</option>
+                <option value="zabka-nadanie-nad">Żabka nadanie nadawca</option>
+                <option value="zabka-odbior">Żabka odbior</option>
+                <option value="zabka-powiadomienie-1">Żabka powiadomienie 1</option>
+                <option value="zabka-powiadomienie-2">Żabka powiadomienie 2</option>
+                <option value="zabka-powiadomienie-3">Żabka podziękowanie</option>
+                <option value="ZPO-nadanie">ZPO nadanie odbiorca</option>
+                <option value="ZPO-nadanie-nad">ZPO nadanie nadawca</option>
+                <option value="ZPO-odbior">ZPO odbior</option>
+                <option value="ZPO-powiadomienie-1">ZPO powiadomienie 1</option>
+                <option value="ZPO-powiadomienie-2">ZPO powiadomienie 2</option>
+                <option value="ZPO-powiadomienie-3">ZPO podziękowanie</option>  
+                <option value="pp-nadanie">Placowka PP NADANIE odbiorca</option>
+                <option value="pp-odbior">Placowka PP odbior</option>
+                <option value="pp-powiadomienie-1">Placówka PP powiadomienie 1</option>
+                <option value="pp-powiadomienie-2">Placówka PP powiadomienie 2</option>
+                <option value="pp-powiadomienie-3">Placówka PP podziękowanie</option>
+                <option value="enki-nadanie-kurier">ENKI nadanie u kuriera</option>
+                <option value="enki-nadanie-automat">ENKI nadanie w automacie</option>
+                <option value="enki-nadanie-poczta">ENKI nadanie w placówkce</option>
+                <option value="enki-nadanie-zpo">ENKI nadanie w punktach partnerskich</option>
+            </optgroup>
+            <optgroup label="Propozycje Śnieżka">
+                <option value="old_version2/a__zabka-nadanie">Żabka nadanie odbiorca</option>
+                <option value="old_version2/a__zabka-nadanie-nad">Żabka nadanie nadawca</option>
+                <option value="old_version2/a__zabka-odbior">Żabka odbior</option>
+                <option value="old_version2/a__zabka-powiadomienie-1">Żabka powiadomienie 1</option>
+                <option value="old_version2/a__zabka-powiadomienie-2">Żabka powiadomienie 2</option>
+                <option value="old_version2/a__zabka-powiadomienie-3">Żabka podziękowanie</option>
+                <option value="old_version2/a__ZPO-nadanie">ZPO nadanie odbiorca</option>
+                <option value="old_version2/a__ZPO-nadanie-nad">ZPO nadanie nadawca</option>
+                <option value="old_version2/a__ZPO-odbior">ZPO odbior</option>
+                <option value="old_version2/a__ZPO-powiadomienie-1">ZPO powiadomienie 1</option>
+                <option value="old_version2/a__ZPO-powiadomienie-2">ZPO powiadomienie 2</option>
+                <option value="old_version2/a__ZPO-powiadomienie-3">ZPO podziękowanie</option>
+                <option value="old_version2/a__automat-nadanie">Automat nadanie odbiorca</option>
+                <option value="old_version2/a__automat-nadanie-nad">Automat nadanie nadawca</option>
+                <option value="old_version2/a__automat-odbior">Automat odbior</option>
+                <option value="old_version2/a__automat-powiadomienie-1">Automat powiadomienie 1</option>
+                <option value="old_version2/a__automat-powiadomienie-2">Automat powiadomienie 2</option>
+                <option value="old_version2/a__automat-powiadomienie-3">Automat podziękowanie</option>
+                <option value="old_version2/a__pp-nadanie">Placowka PP NADANIE odbiorca</option>
+                <option value="old_version2/a__pp-odbior">Placowka PP odbior</option>
+                <option value="old_version2/a__ZPO-powiadomienie-3">Placówka PP podziękowanie</option>
+            </optgroup>
+            <optgroup label="Poprzednie wersje">
+                <option value="old/old_zabka-nadanie">Żabka nadanie</option>
+                <option value="old/old_zabka-odbior">Żabka odbior</option>
+                <option value="old/old_zabka-powiadomienie-1">Żabka powiadomienie 1</option>
+                <option value="old/old_zabka-powiadomienie-2">Żabka powiadomienie 2</option>
+                <option value="old/old_zabka-powiadomienie-3">Żabka podziękowanie</option>
+                <option value="old/old_ZPO-nadanie">ZPO nadanie</option>
+                <option value="old/old_ZPO-odbior">ZPO odbior</option>
+                <option value="old/old_ZPO-powiadomienie-1">ZPO powiadomienie 1</option>
+                <option value="old/old_ZPO-powiadomienie-2">ZPO powiadomienie 2</option>
+                <option value="old/old_ZPO-powiadomienie-3">ZPO podziękowanie</option>
+                <option value="old/old_automat-nadanie">Automat nadanie</option>
+                <option value="old/old_automat-odbior">Automat odbior</option>
+                <option value="old/old_automat-powiadomienie-1">Automat powiadomienie 1</option>
+                <option value="old/old_automat-powiadomienie-2">Automat powiadomienie 2</option>
+                <option value="old/old_automat-powiadomienie-3">Automat podziękowanie</option>
+            </optgroup>
+        </select>
+        <label for="podmiana"><input type="checkbox" name="podmiana" id="podmiana"  style="margin: 2%;"/> Pokaż wersję do ZST</label>
+        <button type="button" name="pobierz" id="pobierz" return-data=""  class="button" disabled> Pobierz i skopiuj kod</button>
+    </div>
+    <div id="content">
+
+    </div>
+  
+</body>

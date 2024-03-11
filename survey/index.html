@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
+<head>
+<title>Pocztex - Ankieta</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<link href="https://fonts.cdnfonts.com/css/sansation" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+<script src="https://use.fontawesome.com/releases/v6.4.2/js/all.js" data-auto-replace-svg="nest"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+<script src="https://momentjs.com/downloads/moment.js" ></script> 
+<link href="./survey.css" rel="stylesheet"></link>   
+<script>
+  //alert(location.href.split(/\?|#/)[0]);
+  var baseurl = location.href.split(/\?|#/)[0];//"https://kartelmedia.co.uk/owp/survey";
+    jQuery(document).ready(function(){
+      
+      //wyciąganie zmiennych z queryString
+      location.queryString = {};
+        location.search.substr(1).split("&").forEach(function (pair) {
+            if (pair === "") return;
+            var parts = pair.split("=");
+            location.queryString[parts[0]] = parts[1] && decodeURIComponent(parts[1].replace(/\+/g, " "));
+        });
+
+
+      // jQuery(document).on("change","input[type='radio']",function(){
+      //   alert(this.value);
+      // })
+      //obsługa hash
+      var hash = window.location.hash.substring(1);
+
+      function get_page(page, data){
+        jQuery('#loading').show();
+        var res = page.split("/");
+        console.log("Rozbieram hash");
+        console.log(res);
+
+        jQuery.ajax({
+          type: 'GET',
+          url: baseurl+'/url.php',
+          data:{
+            'action': 'get_page',
+            'name': res[1]
+          },
+          dataType: 'json'
+        })
+        .fail( function(dat){
+              console.log("ERROR!");
+              console.log(dat);
+              //window.location.hash= "#/listaPism/"+res[2]+"/"+res[3]+"/"+res[4];
+        })
+        .done( function(dat){
+            jQuery("#survey").html(dat.content);
+            console.log("Petla 1");
+            //console.log(dat);
+            if(res[0]=="failure"){
+              console.log("Petla 2: failure");
+              jQuery(document).find("#loading span").html("Ankieta jest już niedostępna dla Twojej przesyłki!<br/>The survey is no longer available for your shipment!");
+              jQuery(document).find("#loading div.fa-5x").html('<i class="fas fa-triangle-exclamation"></i>');
+              //jQuery(document).find(".survey").remove();
+              // jQuery(document).find("main").append("<div class='col-12 h6 p-5 text-center'>Ankieta jest już niedostępna dla Twojej przesyłki!<br/>The survey is no longer available for your shipment!</div>");
+              //jQuery('#loading').hide();
+            }else if (dat.content==false){
+              console.log("Petla 3: brak formularza");
+              jQuery(document).find("#loading span").html("Nie ma takiej ankiety!");
+              jQuery(document).find("#loading div.fa-5x").html('<i class="fas fa-triangle-exclamation"></i>');
+              // jQuery('#loading').hide();
+            }else if(res[0] !== "start" && (res[2] === undefined || res[2] == null || res[2] =="")){
+              console.log("Petla 4: brak tokenu");
+              jQuery(document).find(".survey").remove();
+              jQuery(document).find("main").append("<div class='col-12 h6 p-5 text-center'>Błędny identyfikator ankiety / Bad survey token</div>");
+              jQuery('#loading').hide();
+            }else if(res[2] && jQuery.cookie("surveyid-"+res[2]) == res[2]){
+              console.log("Petla 5: istnieje cookie");
+              console.log(jQuery.cookie("surveyid-"+res[2]));
+              jQuery(document).find(".survey").remove();
+              jQuery(document).find("main").append("<div class='col-12 h6 p-5 text-center'>Ankieta już została wypełniona. Dziękujemy!<br/>The survey has already been completed. Thank you!</div>");
+              jQuery('#loading').hide();
+            }else if(res[2]){
+              console.log("Petla 6: sprawdzam survey w chmurze");
+              checkSurvey(res[2],res[1],checkSurveyResponse)
+            }else{
+              jQuery('#loading').hide();
+            }
+          })
+      };
+
+      function checkSurveyResponse(a){
+        console.log(a);
+        if(a.code==202){
+          jQuery(document).find(".survey").remove();
+          jQuery(document).find("main").append("<div class='col-12 h6 p-5 text-center'>"+a.response+"</div>");
+          jQuery('#loading').hide();
+        }else if(a.code==200){
+            jQuery(document).find(".survey, input").show();
+            jQuery('#loading').hide();
+        }
+      }
+
+      jQuery(window).bind('hashchange', function(e) {
+        //jQuery('#loading').show();
+        var hash = window.location.hash.substring(1);
+        get_page(hash);
+      });
+	
+      if((hash == '' || hash== '/' || hash== 'start')){
+        window.location= "#start/welcome";
+        console.log("HASH: "+hash);
+        console.log("queryString: "+location.queryString);
+        jQuery('#loading').hide();
+      }else{
+        if (!location.queryString["failure"]){
+          get_page(hash);
+        }
+      }
+      // koniec obslugi hash
+
+
+        
+/*
+       //var surveyid = location.queryString["surveyId"];
+
+        // console.log("pobieram cookie");
+        // console.log( jQuery.cookie("surveyid-"+location.queryString["surveyId"]));//'surveyId'));
+        
+
+        if(location.queryString["failure"] || location.queryString["failure"]==""){
+          jQuery(".survey").remove();
+          jQuery("main").append("<div class='col-12 h6 p-5 text-center'>Ankieta jest już niedostępna dla Twojej przesyłki!<br/>The survey is no longer available for your shipment!</div>");
+        }else if(location.queryString["surveyId"] === undefined || location.queryString["surveyId"] == null || location.queryString["surveyId"] ==""){
+          jQuery(".survey").remove();
+          jQuery("main").append("<div class='col-12 h6 p-5 text-center'>Błędny identyfikator ankiety / Bad survey token</div>");
+        }else if(jQuery.cookie("surveyid-"+location.queryString["surveyId"]) == location.queryString["surveyId"]){
+          jQuery(".survey").remove();
+          jQuery("main").append("<div class='col-12 h6 p-5 text-center'>Ankieta już została wypełniona. Dziękujemy!<br/>The survey has already been completed. Thank you!</div>");
+        }else{
+          jQuery(".survey, input").show();
+        }
+*/
+
+        function checkSurvey(surveyId,formName,callback){
+          
+          jQuery.get({
+            url: "https://prod-44.westeurope.logic.azure.com/workflows/d4789678bf8e4211935b8c92eab9faf2/triggers/manual/paths/invoke/surveyId/"+surveyId+"/surveyType/"+formName+"/actionSurvey/check?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=EhSnxEyetLbt4jQFzV6mDRVKuXsRPC3Xz4HYywy5l0Q",
+            // data: {
+            //   "action": "check",
+            //   "surveyId" : surveyId
+            // },
+            async: true,
+            error: function(e) {
+              console.log('Error: Blad komunikacji E02');
+              console.log(e);
+              },
+            type: "POST",
+            dataType: 'json',
+            contentType: "application/json;charset=utf-8",
+            success: callback,
+            // function(data,callback){
+            //   if(data.code == 202){
+            //     console.log(data);
+            //     false;
+            //   }else{
+            //     console.log(data.response);
+            //     return true;
+            //   }
+            // }
+          });
+        }
+        jQuery(document).on('submit','form', przygotujDane); //przechwycenie 'submit' action
+
+        function przygotujDane(e){
+          var v = e.currentTarget;
+          e.preventDefault();
+          var res = hash.split("/");
+          var dane = jQuery(this).formToArray();
+          jQuery(v).prop("disabled",true);
+          // console.log(dane);
+        
+          jQuery.ajax({
+            url: "https://prod-44.westeurope.logic.azure.com/workflows/d4789678bf8e4211935b8c92eab9faf2/triggers/manual/paths/invoke/surveyId/"+res[2]+"/surveyType/"+res[1]+"/actionSurvey/save?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=EhSnxEyetLbt4jQFzV6mDRVKuXsRPC3Xz4HYywy5l0Q",
+            data: JSON.stringify(dane),
+            async: true,
+            error: function(e) {
+              console.log('Error: Blad komunikacji E01' );
+              console.log(e);
+              },
+            type: "POST",
+            dataType: 'json',
+            contentType: 'application/json',
+            success: function(data){
+              console.log(data);
+              if(data.code){
+                jQuery(document).find(".survey").remove();
+                jQuery(document).find("main").append("<div class='col-12 h6 p-5 text-center text-success'>"+data.response+"</div>");
+                console.log(data);
+                jQuery.cookie("surveyid-"+res[2],res[2]);
+              }else{
+                alert(data.response);
+              }
+            }
+          });
+        };
+
+
+    });
+
+function json2string(json){
+	return '?' +
+		Object.keys(json).map(function(key) {
+		return encodeURIComponent(key) + '=' +
+			encodeURIComponent(json[key]);
+	}).join('&');
+}
+
+
+//wlasna funkcja do sczytywania formularzy z unchecked input
+(function ($) {
+  $.fn.formToArray = function () {
+  var data ={};
+  jQuery(this).serializeArray().map( function(x){data[x.name] = (!isNaN(x.value) ? parseFloat(x.value) : x.value);} );
+//        console.log("++++++++++++czytam+++formularze+++++++");
+      jQuery(this).find("input[type='checkbox'],input.nfz-info:visible").each(function () { //:not(:checked)
+          data[this.name] = Boolean(this.checked);
+//				console.log(this.name+" ===> "+this.checked);
+      });
+
+      jQuery(this).find("select").each(function () { //:not(:checked)
+//                 data[this.name] = {"id" : parseInt(jQuery(this).find(":selected").val())};
+        data[this.name] = parseInt(jQuery(this).find(":selected").val() );
+//				console.log(this.name+" ===> "+this.checked);
+      });
+          return data;
+      };
+  })(jQuery);
+
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('input',"textarea")
+  // Loop over them and prevent submission
+  console.log("WPADAM DO VALIDATORA");
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+          console.log("WYSYLAM DANE")
+		  return false
+		}
+        form.classList.add('was-validated')
+		return true
+      }, false)
+    })
+})()
+</script>
+</head>
+<body class="bg-light">
+  <div id="loading">
+    <div class="position-absolute w-100 top-50 start-50 translate-middle text-center text-danger">
+      <div class="fa-5x">
+        <i class="fas fa-spinner fa-pulse"></i>
+      </div>
+      <span class="alert display-6">otwieram ankietę</span>
+    </div>
+  </div>
+  <div id="survey" class="container">
+  </div>
+</body></html>

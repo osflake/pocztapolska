@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+</head>
+<body>
+<form id="QWEASD" >
+    <main class="bg-white row p-4">
+        <div class="col-md-12 p-2 pb-0 display-5 text-md-end text-center">
+            <img alt="Logotyp" src="./logotyp-px.png" style="border:0;max-height:40px; width: auto; height: auto;" />
+        </div>
+        <div class="col-md-12 p-3 pb-0 display-6 text-center text-danger">
+            Ankieta satysfakcji klienta
+        </div>
+        <div class="col-md-12 p-4 text-center text-secondary">
+            <p>Twoja opinia jest dla nas ważna. <br/>
+            Ankieta aktywna jest przez 3 dni od doręczenia przesyłki.</p>
+            <p>Dziękujemy!</p>
+        </div>
+
+        <div class="survey col-md-12 p-3 pb-0 ">
+            <p class="d-block text-dark h5">1. Jak oceniasz szybkość i terminowość dostawy ostatniej przesyłki Pocztex? <small>(wymagane)</small></p>
+        </div>
+        
+        <div class="survey col-md-12 p-4 pt-2 pb-0 text-center">
+            <div class="d-block star-rating star-5 mx-auto">
+                <input type="radio" name="q1" value="1" class="required" required><i></i>
+                <input type="radio" name="q1" value="2" class="required" required><i></i>
+                <input type="radio" name="q1" value="3" class="required" required><i></i>
+                <input type="radio" name="q1" value="4" class="required" required><i></i>
+                <input type="radio" name="q1" value="5" class="required" required><i></i>
+            </div>
+            <!-- <small class="d-block p-2">1 - Niezgodnie z oczekiwaniami, 5 - Zgodnie z oczekiwaniami</small> -->
+            <small class="d-flex justify-content-between pt-2 ps-3 pe-3"><p>1 - Niezgodnie z oczekiwaniami</p><p> 5 - Zgodnie z oczekiwaniami</p></small>
+        </div>
+
+        <div class="survey col-md-12 p-3 pb-0 ">
+            <p class="d-block text-dark h5">2. Jak oceniasz jakość obsługi przez osobę doręczającą/wydającą przesyłkę Pocztex? <small class="text-dark">(wymagane)</small></p>
+        </div>
+        <div class="survey col-md-12 p-4 pt-2 pb-0 text-center">
+            <div class="d-block star-rating star-5 mx-auto">
+                <input type="radio" name="q2" value="1" class="required" required><i></i>
+                <input type="radio" name="q2" value="2" class="required" required><i></i>
+                <input type="radio" name="q2" value="3" class="required" required><i></i>
+                <input type="radio" name="q2" value="4" class="required" required><i></i>
+                <input type="radio" name="q2" value="5" class="required" required><i></i>
+            </div>
+            <!-- <small class="d-block p-2">1 - Bardzo źle, 5 - Bardzo dobrze</small> -->
+            <small class="d-flex justify-content-between pt-2 ps-3 pe-3"><p>1 - Bardoz źle</p><p> 5 - Bardzo dobrze</p></small>
+        </div>
+
+        <div class="survey col-md-12 p-3 pb-0 ">
+            <p class="d-block text-dark h5">3. Jakie czynniki wpłynęły na Twoją ocenę?</p>
+        </div>    
+        <div class="survey form-check form-check-inline-md-12 p-3 pt-0 pb-2">
+            <textarea rows="6" class="form-control" placeholder="wpisz treść" id="q3" name="q3"></textarea>
+        </div>
+
+        <div class="survey col-md-12 p-3 pb-0 ">
+            <p class="d-block text-dark h5">4. Na ile prawdopodobne jest, że polecisz Pocztex znajomemu lub rodzinie w oparciu o Twoje dotychczasowe doświadczenia? <small>(wymagane)</small></p>
+        </div>
+        <div class="survey col-md-12 p-3 pb-0 pt-0">
+            <div class="point-rating d-flex flex-row-reverse justify-content-center">
+                <input type="radio" id="q4_10" name="q4" value="10" class="required" required><label for="q4_10" class="p-2">10</label>
+                <input type="radio" id="q4_9" name="q4" value="9" class="required" required><label for="q4_9" class="p-2">9</label>
+                <input type="radio" id="q4_8" name="q4" value="8" class="required" required><label for="q4_8" class="p-2">8</label>
+                <input type="radio" id="q4_7" name="q4" value="7" class="required" required><label for="q4_7" class="p-2">7</label>
+                <input type="radio" id="q4_6" name="q4" value="6" class="required" required><label for="q4_6" class="p-2">6</label>
+                <input type="radio" id="q4_5" name="q4" value="5" class="required" required><label for="q4_5" class="p-2">5</label>
+                <input type="radio" id="q4_4" name="q4" value="4" class="required" required><label for="q4_4" class="p-2">4</label>
+                <input type="radio" id="q4_3" name="q4" value="3" class="required" required><label for="q4_3" class="p-2">3</label>
+                <input type="radio" id="q4_2" name="q4" value="2" class="required" required><label for="q4_2" class="p-2">2</label>
+                <input type="radio" id="q4_1" name="q4" value="1" class="required" required><label for="q4_1" class="p-2">1</label>
+            </div>
+            <small class="d-flex justify-content-between p-1"><p>1 - zdecydowanie nie polecę</p><p> 10 - na pewno polecę</p></small>
+        </div>
+    </div>
+
+    <div class="survey col-12 p-3 pt-5 d-flex justify-content-center">
+        <input id="sendSurvey" class=" btn btn-outline-danger p-2 ps-4 pe-4" type="submit" value="Wyślij opinię" />
+    </div>
+    
+  </main>
+  </form>
+  </body>
+  </html>

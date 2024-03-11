@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
+<head>
+<title>Pocztex - Allegro</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<link href="https://fonts.cdnfonts.com/css/sansation" rel="stylesheet" />
+
+<style>
+ body{
+    font-family: 'Sansation', sans-serif !important;
+}
+#promo td{ border: 1px solid lightgrey; padding: 1%;}
+ul{list-style: none;}
+ul li::before {
+  content: "\2022"; 
+  color: red;
+  font-weight: bold; 
+  display: inline-block; 
+  width: 1em; 
+  margin-left: -1em; 
+}
+</style>
+</head>
+
+<body">
+
+<table style="max-width: 100%; width: 650px !important; background-color: white; margin: 1% auto; border-spacing: 0px; font-family: Sansation;line-height: 150%;font-size: 1rem!important; font-style:italic;">
+    <tbody>
+        <tr style="padding: 0;">   
+            <td style="padding: 0%; width: 100%; vertical-align: middle;">
+                [PXAPMODB]
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 1% 8%;  vertical-align: middle; text-align: left;">
+                <p style="margin-top:5%;">Witaj,</p>
+                <p>miło nam poinformować, że Twoja przesyłka o numerze <strong>[ID]</strong> [T_KWOTA_POBRAN] [NADAWCA] czeka na odbiór w urządzeniu <strong>[T_PNI_NAZWA]</strong> do dnia <strong>[T_P_DATA_DO]</strong> do godz. <strong>[T_P_GODZ_DO]</strong>. [T_KWOTA_W_AUTO]</p>
+            </td>
+        </tr>
+        <tr style="background-color: #f9f9f9; ">
+            <td style="padding: 0% 8%;">
+                <h4 style="font-family: Sansation; display: block;">Miejsce odbioru</h4>
+            </td>
+        </tr>
+        <tr style="padding: 0% 8% 2% 8%; display: table; white-space: nowrap; width: 84%; background-color: #f9f9f9">   
+            <td style="display: table-row;">
+                <p style="display: table-cell; padding: 1%; width: 130px; text-align: center;">
+                    [PXAUTOLOGO]
+                </p>
+                <p style="display: table-cell;text-align: left;vertical-align: middle;line-height: 200%;padding-bottom: 2%;">
+                    [T_PNI_NAZWA], [T_PNI_ADRES]<br/>
+                    <small><a href="https://www.google.com/maps/place/[T_PNI_URL]/" style="text-decoration: none;font-style: normal;color: #d50000;" target="_blank">&#128269; Zobacz na mapie</a> 
+                    <a href="https://www.google.com/maps/dir//[T_PNI_URL_DO]/@[T_PNI_GPS_DO]z/" style="margin-left: 2%;text-decoration: none;color: #d50000;font-style: normal;" target="_blank">&#10145; Nawiguj </a></small>
+            </p>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="padding: 0% 8%;">
+                <h4 style="font-family: Sansation; display: bslock; ">Twój kod odbioru</h4> 
+                <p style="margin-top: 7%; text-align: center;"><span style="font-size:22pt; color: #d50000; margin: 0 2%; letter-spacing: 6pt ; text-align: center; font-weight: bold; padding: 3%;">[KOD_ODBIORU]</span></p>
+                <p style="margin-top: 4%; text-align: center;"><img src="https://prod-61.westeurope.logic.azure.com/workflows/a4d2a0f44db7442da43fdd34506f98e8/triggers/manual/paths/invoke/parcelID/[ID]/code/[KOD_ODBIORU]/type/2D?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=TtDPHsmrJdMcw8Q9GsezWHAwgEjSHpo4HVgQ41E--HA" style="max-width: 320px;" /></p>
+        </td>
+        </tr>   
+        <tr>
+            <td style="padding: 2% 8% 3% 8%; background-color: #f9f9f9;">
+                <h4 style="font-family: Sansation; display: block;">Jak odebrać przesyłkę?</h4> 
+                <table style="max-width: 100%; margin: 1% auto; border-spacing: 0px">
+                    <tr>   
+                        <td style="padding: 0 10px; text-align: center; vertical-align: top;">1.</td>
+                        <td style="padding: 0 2%;">Wybierz jeden z możliwych sposób:
+                            <ul style="margin: 1%;">
+                                <li>bezpośrednio w automacie poprzez wpisanie na ekranie urządzenia 6-cyfrowego kodu odbioru i numeru telefonu,</li>
+                                <li>skanując w czytniku otrzymany w e-mail kod QR,</li>
+                                <li>za pośrednictwem aplikacji Pocztex Mobile skanując kod QR lub wybierając opcje otwórz skrytkę zdalnie.</li>
+                        </td>
+                    </tr>
+                    <tr>   
+                        <td style="padding: 0 10px; text-align: center; vertical-align: top;">2.</td>
+                        <td style="padding: 0 2%;">Odbierz przesyłkę.</td>
+                    </tr>
+                    <tr>   
+                        <td style="padding: 0 10px; text-align: center; vertical-align: top;">3.</td>
+                        <td style="padding: 0 2%;">Zamknij skrytkę i potwierdź odbiór przesyłki na ekranie urządzenia.</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>     
+        <tr>
+            <td style="padding: 2% 8%;">
+                <p>Pozdrawiamy i dziękujemy za korzystanie z naszych usług.</p>
+                <p>Zespół Pocztex</p>
+            </td>
+        </tr>
+        
+        <tr style="padding: 0;">   
+            <td style="padding-top: 2%; width: 100%;">
+                [PXAPK]
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 1% 0; text-align: center;font-size: 8pt;width: 100%; font-weight: 200;vertical-align: middle; color: grey; background-color: #f9f9f9; line-height: 120%;">
+                <p style="font-weight: 400; margin: 1%;">Poczta Polska Spółka Akcyjna</p>
+                <p style="margin: 0;"><small>ul. Rodziny Hiszpańskich 8, 00-940 Warszawa NIP: 525-000-73-13, KRS: 0000334972<br/>
+                Sąd Rejestrowy: Sąd Rejonowy dla m.st. Warszawy kapitał zakładowy: 964.140.000, w&nbsp;całości&nbsp;wpłacony</small></p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+</body>
+</html>

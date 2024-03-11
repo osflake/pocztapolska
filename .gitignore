@@ -9,6 +9,7 @@ yarn-debug.log*
 yarn-error.log*
 yarn.lock
 package-lock.json
+./server-localhost/
 
 # Editor directories and files
 .DS_Store

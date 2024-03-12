@@ -24,7 +24,7 @@ $cont = array(
     "[T_PNI_URL]" => "ul.+Powstańców+3,+Kraków",
     "[T_PNI_GPS]" => "49.9304963,19.9497555",
 
-    "[NADAWCA]" => "Tani Ciuszek WSPÓLNICY",
+    "[T_NADAWCA]" => "Tani Ciuszek WSPÓLNICY",
     "[T_KWOTA_POBRAN]" => "(kwota pobrania: 120,20 zł)",
     "[POBRANIE_EMAIL]" => "(kwota pobrania: 120,20 zł)",
     "[T_KWOTA_W_AUTO]" => "<p>Kwotę pobranie opłacisz bezpośrednio w terminalu w automacie paczkowym.</p>",

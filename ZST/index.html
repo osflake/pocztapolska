@@ -20,10 +20,16 @@
             white-space: pre-wrap;
         }
         div.code > code{
-            color: lightgrey !important;
+            color: rgb(249, 243, 204) !important;
         }
         p{
             padding-top: 1rem;
+        }
+        .row:nth-child(odd){
+            background-color: #f5f3f3;
+        }
+        .row:nth-child(even){
+            background-color: #faf7ec;
         }
     </style>
 </head>
@@ -43,50 +49,53 @@
                 <h2 class="display-6 pt-1 pb-3">Wykaz metod i wdrożonych szablonów</h2>
 
                 <div class="row">
-                    <!-- <div class="col-12 h5 pt-3 pb-3 text-primary border-bottom"></div> -->
+                    <!-- <div class="col-12 h5 pt-4 pt-3 pb-3 text-primary border-bottom"></div> -->
                         <div class="p-2 col-12 col-sm-4 fw-bold border-bottom">Nazwa reguły / <code>Nazwa szablonu</code></div>
                         <div class="p-2 col-12 col-sm-1 fw-bold border-bottom">Kierunek</div>
                         <div class="p-2 col-12 col-sm-4 fw-bold border-bottom">Opis</div>
                         <div class="p-2 col-12 col-sm-2 fw-bold border-bottom">Zdarzenia inicjujące</div>
                         <div class="p-2 col-12 col-sm-1 fw-bold border-bottom">Status</div>
 
-                        <div class="p-2 col-12 text-brake h6">PREAWIZO_PX2.0_NADANA_NADAWCA_EMAIL_INDYW / <code>PX2.0_PREAWIZO_(all-nadanie-nad)</code></div>
-                        <div class="p-2 col-12 col-sm-4 d-flex align-items-center"><span class="text-secondary">PX6650455581(P_NM), PX6650559796(P_NM), PX6650657928(P_NAD), PX6650774245(P_NM), PX6652251985(P_NM 9:54 nie doszło), PX6652310499 (P_NAD )</span></div>
-                        <div class="p-2 col-12 col-sm-1 d-flex align-items-center">NAD</div>
+                        <div class="p-2 col-12 text-brake h5 pt-4">PREAWIZO_PX2.0_NADANA_NADAWCA_EMAIL_INDYW / <code>PX2.0_PREAWIZO_(all-nadanie-nad)</code></div>
+                        <div class="p-2 col-12 col-sm-4 "><span class="text-secondary">PX6650455581(P_NM), PX6650559796(P_NM), PX6650657928(P_NAD), PX6650774245(P_NM), PX6652251985(P_NM 9:54 nie doszło), PX6652310499 (P_NAD )</span></div>
+                        <div class="p-2 col-12 col-sm-1 fw-bolder">NAD</div>
                         <div class="p-2 col-12 col-sm-4 wrap">wysyłka maila do nadawcy <code>potwierdzenie nadania</code> dla wszystkich przesyłek nadanych (UP, Kurier, APM) z wykluczeniem klienta umownego, szablon 'multikanałowy'</div>
                         <div class="p-2 col-12 col-sm-2 ">P_NAD <br/>P_NM (test, usunięto)</div>
-                        <div class="p-2 col-12 col-sm-1 ">weryfikacja (208006)<br/>Wynik: <span class="text-success fw-bold">_?_</span></div>
-                        <div class="col-12 p-3 ps-5 pt-0 border-bottom text-secondary ">Wygenerowano przesyłkę z nadaniem masowym ze zdarzeniami P_NM oraz P_NAD. Nastepnie usunięto zdarzenie inicjujące P_NM i nadano przesyłkę P_NAD czy zadziałają reguły dla nadawcy (208006) i odbiorcy indywidualnego. Nastepnie wykonano nadanie masowe (P_NM) od klienta biznesowego (MRUmC: 208006) do biznesowego (MRUmC: 208006). Efektem powinno być wysłanie maila do odbiorcy, ale nie do nadawcy masowego. 
-                            <br/>Wynik: <span class="text-success fw-bold">POZYTYWNY</span></div>
-
-                        
-                        <div class="p-2 col-12 text-brake h6">PREAWIZO_PX2.0_RIAM_NAD_NADANIE_PX2_PUSH_EMAIL / <code>PX2.0_PREAWIZO_ODB_(all-nadanie)</code></div>
-                        <div class="p-2 col-12 col-sm-4 text-brake d-flex align-items-center"><span class="text-secondary">PX6650559796(P_NM), PX6650657928(P_NAD), PX6651019599(P_NM), PX6651050406(P_NM 13:40), <strong>PX6651159676(P_NM 14:24)</strong>, PX6652251985(P_NM doszło)</span></div>
-                        <div class="p-2 col-12 col-sm-1 d-flex align-items-center">ODB</div>
+                        <div class="p-2 col-12 col-sm-1 ">weryfikacja (208006)</div>
+                        <div class="col-12 p-3 ps-5 border-bottom border-danger border-2 text-secondary ">Wygenerowano przesyłkę z nadaniem masowym ze zdarzeniami P_NM oraz P_NAD. Nastepnie usunięto zdarzenie inicjujące P_NM i nadano przesyłkę P_NAD czy zadziałają reguły dla nadawcy (208006) i odbiorcy indywidualnego. Nastepnie wykonano nadanie masowe (P_NM) od klienta biznesowego (MRUmC: 208006) do biznesowego (MRUmC: 208006). Efektem powinno być wysłanie maila do odbiorcy, ale nie do nadawcy masowego. <br/><code>Grzegorz Dominiak/Piotr Gorajek: potrzebujemy dla zdarzenia P_NAD tag, który pobra Nazwę i ulicę z miastem Urzędu nadania np. <strong>UP 2, ul. Rodziny Hiszpańskich 8, Warszawa</strong></code> 
+                            <p class="text-end">WDROŻENIE: <span class="bg-warning text-dark p-2 fw-bold">208006</span> Wynik: <span class="text-dark bg-warning p-2 fw-bold">WERYFIKACJA URZ_NAD</span></p></div>
+                </div>
+                <div class="row"> 
+                        <div class="p-2 col-12 text-brake h5 pt-4">PREAWIZO_PX2.0_RIAM_NAD_NADANIE_PX2_PUSH_EMAIL / <code>PX2.0_PREAWIZO_ODB_(all-nadanie)</code></div>
+                        <div class="p-2 col-12 col-sm-4 text-brake "><span class="text-secondary">PX6650559796(P_NM), PX6650657928(P_NAD), PX6651019599(P_NM), PX6651050406(P_NM 13:40), <strong>PX6651159676(P_NM 14:24)</strong>, PX6652251985(P_NM doszło)</span></div>
+                        <div class="p-2 col-12 col-sm-1 fw-bolder">ODB</div>
                         <div class="p-2 col-12 col-sm-4 wrap">wysyłka maila do odbiorcy <code>potwierdzenie nadania</code> dla wszystkich przesyłek nadanych (UP, Kurier, APM) z wykluczeniem klienta umownego, szablon 'multikanałowy'</div>
-                        <div class="p-2 col-12 col-sm-2 d-flex align-items-center">P_NAD, P_NM, P_NMBS, P_NMBW</div>
-                        <div class="p-2 col-12 col-sm-1 d-flex align-items-center">weryfikacja (208006) <br/>Wynik: <span class="text-success fw-bold">_?_</span></div>
-                        <div class="col-12 p-3 ps-5 pt-0 border-bottom text-secondary ">Wygenerowano przesyłkę z nadaniem masowym ze zdarzeniami P_NM oraz P_NAD. Nastepnie wykonano nadanie masowe (P_NM) od klienta biznesowego (MRUmC: 208006) do biznesowego (MRUmC: 208006). Efektem powinno być wysłanie maila do odbiorcy, ale nie do nadawcy masowego. 
-                            <br/>Wynik: <span class="text-success fw-bold">POZYTYWNY</span></div>
-
-                        <div class="p-2 col-12 text-brake h6">PX2.0_Przekaz_do_doręczenia_SMS_PUSH_EMAIL / <code>PX2.0_przekaz_do_DOR_(kurier-doreczenie)</code></div>
-                        <div class="p-2 col-12 col-sm-4 text-brake d-flex align-items-center"><span class="text-secondary">PX6651050406 (P_WD)</span></div>
-                        <div class="p-2 col-12 col-sm-1 d-flex align-items-center">ODB</div>
-                        <div class="p-2 col-12 col-sm-4 d-flex align-items-center wrap">wysyłka maila <code>przekazano do doręczenia</code> dla wszystkich przesyłke, któ®e ma doręczyć kurier</div>
-                        <div class="p-2 col-12 col-sm-2 d-flex align-items-center">P_WD, P_WDML</div>
-                        <div class="p-2 col-12 col-sm-1 d-flex align-items-center">weryfikacja (208006)</div>
-                        <div class="col-12 p-3 ps-5 pt-0 border-bottom text-secondary ">Dla przesyłki PX6651050406 wygenerowano zdarzenie wydania do doręczenie P_WD. Odbiorca powinien otrzymać maila z informacją o wydaniu do doręczenia. 
-                            <br/>Wynik: <span class="text-success fw-bold">_oczekuje_</span></div>
-
-                        <div class="p-2 col-12 text-brake h6">PX2.0_RIAM_DORECZENIE_ODB_EMAIL_PUSH / <code>PX2.0_potwierdzenie_doręczenia_ODB (all-potwierdzenie)</code></div>
-                        <div class="p-2 col-12 col-sm-4 text-brake d-flex align-items-center"><span class="text-secondary">PX6651050406 (P_D)</span></div>
-                        <div class="p-2 col-12 col-sm-1 d-flex align-items-center">ODB</div>
-                        <div class="p-2 col-12 col-sm-4 d-flex align-items-center wrap">wysyłka maila <code>doręczono</code> dla wszystkich przesyłek</div>
-                        <div class="p-2 col-12 col-sm-2 d-flex align-items-center">P_D</div>
-                        <div class="p-2 col-12 col-sm-1 d-flex align-items-center">weryfikacja (208006)</div>
-                        <div class="col-12 p-3 ps-5 pt-0 border-bottom text-secondary ">Dla przesyłki PX6651050406 wygenerowano zdarzenie doręczenia P_D. Odbiorca powinien otrzymać maila z podziękowaniem. 
-                            <br/>Wynik: <span class="text-success fw-bold">_oczekuje_</span></div>
-
+                        <div class="p-2 col-12 col-sm-2 ">P_NAD, P_NM, P_NMBS, P_NMBW</div>
+                        <div class="p-2 col-12 col-sm-1 ">weryfikacja (208006) </div>
+                        <div class="col-12 p-3 ps-5 border-bottom border-danger border-2 text-secondary ">Wygenerowano przesyłkę z nadaniem masowym ze zdarzeniami P_NM oraz P_NAD. Nastepnie wykonano nadanie masowe (P_NM) od klienta biznesowego (MRUmC: 208006) do biznesowego (MRUmC: 208006). Efektem powinno być wysłanie maila do odbiorcy, ale nie do nadawcy masowego. 
+                            <p class="text-end">WDROŻENIE: <span class="bg-warning text-dark p-2 fw-bold">208006</span> Wynik: <span class="text-light bg-success p-2 fw-bold">POZYTYWNY</span></p></div>
+                    </div>
+                    <div class="row"> 
+                        <div class="p-2 col-12 text-brake h5 pt-4">PX2.0_Przekaz_do_doręczenia_SMS_PUSH_EMAIL / <code>PX2.0_przekaz_do_DOR_(kurier-doreczenie)</code></div>
+                        <div class="p-2 col-12 col-sm-4 text-brake "><span class="text-secondary">PX6651050406 (P_WD) PX6652310499(P_WD,P_A)</span></div>
+                        <div class="p-2 col-12 col-sm-1 fw-bolder">ODB</div>
+                        <div class="p-2 col-12 col-sm-4 wrap">wysyłka maila <code>przekazano do doręczenia</code> dla wszystkich przesyłke, które ma doręczyć kurier</div>
+                        <div class="p-2 col-12 col-sm-2 ">P_WD, P_WDML</div>
+                        <div class="p-2 col-12 col-sm-1 ">weryfikacja (208006) </div>
+                        <div class="col-12 p-3 ps-5 border-bottom border-danger border-2 text-secondary ">Dla przesyłki PX6651050406 wygenerowano zdarzenie wydania do doręczenie P_WD. Odbiorca powinien otrzymać maila z informacją o wydaniu do doręczenia. 
+                            <p>Wynik: <p class="text-end">WDROŻENIE: <span class="bg-warning text-dark p-2 fw-bold">208006</span> Wynik: <span class="text-light bg-success p-2 fw-bold">POZYTYWNY</span></p></div>
+                    </div>
+                    <div class="row"> 
+                        <div class="p-2 col-12 text-brake h5 pt-4">AWIZO_PX2.0 / <code>AWIZO_PX2.0_(awizacja)</code></div>
+                        <div class="p-2 col-12 col-sm-4 text-brake "><span class="text-secondary">PX6652310499 (P_KWD)</span></div>
+                        <div class="p-2 col-12 col-sm-1 fw-bolder">ODB</div>
+                        <div class="p-2 col-12 col-sm-4 wrap">wysyłka maila <code>doręczono</code> dla wszystkich przesyłek</div>
+                        <div class="p-2 col-12 col-sm-2 ">P_KWD, P_DKAO</div>
+                        <div class="p-2 col-12 col-sm-1 ">weryfikacja (208006)</div>
+                        <div class="col-12 p-3 ps-5 border-bottom border-danger border-2 text-secondary ">Dla przesyłki PX6652310499 wygenerowano zdarzenie doręczenia P_NAD, P_WD oraz P_KWD. Odbiorca powinien otrzymać maila z informacją o awizacji przesyłki w urzędzie pocztowym. 
+                            <p class="text-end">WDROŻENIE: <span class="bg-warning text-dark p-2 fw-bold">208006</span> Wynik: <span class="text-dark bg-warning p-2 fw-bold">WERYFIKACJA</span></p></div>
+                    </div>
+                    <div class="row"> 
 
 
                 </div>

@@ -23,7 +23,7 @@ jQuery(document).ready(function(){
         async function getData(url = "", data = {},responseJSON) {
           // Default options are marked with *
           
-          const response = await fetch(url+(data.length > 0 ?? '?'+jQuery.param(data)), {
+          const response = await fetch(url, {
             method: "GET", // *GET, POST, PUT, DELETE, etc.
             mode: "no-cors", // no-cors, *cors, same-origin
             cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
@@ -42,7 +42,7 @@ jQuery(document).ready(function(){
 
         var button = event.relatedTarget;
         var file = button.getAttribute('id');
-        var wsad = {"plik" : file,"podmiana" : '' };
+        var wsad = {"plik" : file,"podmiana" : false };
         console.log("/pocztapolska/maile/url.php"+'?'+jQuery.param(wsad));
         const content = await getData("/pocztapolska/maile/url.php"+'?'+jQuery.param(wsad));
         console.log(content);

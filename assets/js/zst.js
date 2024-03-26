@@ -56,13 +56,12 @@ jQuery(document).ready(function(){
     jQuery("#results").empty();
     jQuery(config).each(function( i, el ) {
       jQuery("#results").append("<div id='poz_"+i+"' class='row p-3'/>");
-      jQuery("#poz_"+i).append('<div class="p-2 col-12 h5 pt-4 d-flex flex-column flex-lg-row align-items-center gap-2 brake-txt"><button type="button" id="'+el.id+'" class="btn btn-dark btn-modal" data-bs-toggle="modal" data-bs-target="#modal-view">&#9993;</button>'+el.rule+' <code>'+el.template+'</code></div>');
+      jQuery("#poz_"+i).append('<div class="p-2 col-12 h5 pt-4 d-flex flex-column flex-lg-row align-items-center gap-2 brake-txt"><button type="button" id="'+el.id+'" class="btn btn-dark btn-modal" data-bs-toggle="modal" data-bs-target="#modal-view">&#x2709;</button>'+el.rule+' <code>'+el.template+'</code></div>');
       jQuery("#poz_"+i).append('<div class="p-3 pb-1 col-12 col-sm-8 wrap"><p class="d-block fw-bold">Opis:</p>'+el.description+'</div>');
       jQuery("#poz_"+i).append('<div class="p-3 pb-1 col-12 col-sm-4 text-end "><p class="d-block fw-bold">Zdarzenia inicjujące:</p>'+el.start_events+'</div>');
       jQuery("#poz_"+i).append('<div class="p-3 pb-1 col-12 "><p class="d-block fw-bold">Przesyłki</p><span class="text-secondary">'+el.parcels+'</span></div>');
       jQuery("#poz_"+i).append('<div id="tests_'+i+'" class="col-12 p-3 border-bottoms border-danger border-2 "/><p class="d-block fw-bold">Przebieg testów:</p>');
       jQuery(el.test_description).each(function(j,t){
-        console.log("#tests_"+i);
         jQuery("#tests_"+i).append('<p class="mb-2 p-0 text-secondary ">'+t+'</p>');
       });
       jQuery("#poz_"+i).append('<div id="prod_'+i+'" class="p-3 col-12 col-xl-5 d-flex justify-content-lg-start align-items-center flex-column flex-sm-row" />');

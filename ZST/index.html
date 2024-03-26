@@ -64,6 +64,8 @@
                     <div class="col-12 p-2"><code>Wynik: <span class="text-dark bg-warning p-2 fw-bold">WERYFIKACJA</span></code> - status w trakcie weryfikacji danego scenariusza testowego dla wszystkich klientów</div>
                     <div class="col-12 p-2"><code>Wynik: <span class="text-light bg-success p-2 fw-bold">POZYTYWNY</span></code> - pozytywny status weryfikacji wdrożenia scenariusza testowego dla wszystkich klientów </div>
                     <div class="col-12 p-2"><code>NAD / ODB</code> - kierunek komunikatu (NAD)awca / (ODB)iorca</div>
+                    <div class="col-12 p-2 d-flex"><p class="pb-0 pt-0 me-2 m-0 h3 p-2 fw-bold bg-success text-light">P</p> - wdrożenie produkcyjne</div>
+                    <div class="col-12 p-2 d-flex"><p class="pb-0 pt-0 me-2 m-0 h3 p-2 fw-bold bg-warning text-dark">T</p> - testy na produkcji dla klienta 208006</div>
                     <!-- <div class="col-12 p-2"><code>208006</code> - ID umowy klienta umownego do testów na środowisku produkcyjnym</div> -->
 
                 </div>
@@ -84,13 +86,18 @@
                         <div class="p-2 col-12 col-sm-1 ">weryfikacja (208006)</div>
                         <div class="col-12 p-3 ps-5 border-bottoms border-danger border-2 text-secondary ">Wygenerowano przesyłkę z nadaniem masowym ze zdarzeniami P_NM oraz P_NAD. Nastepnie usunięto zdarzenie inicjujące P_NM i nadano przesyłkę P_NAD czy zadziałają reguły dla nadawcy (208006) i odbiorcy indywidualnego. Nastepnie wykonano nadanie masowe (P_NM) od klienta biznesowego (MRUmC: 208006) do biznesowego (MRUmC: 208006). Efektem powinno być wysłanie maila do odbiorcy, ale nie do nadawcy masowego. 
                             <br/><code>Grzegorz Dominiak/Piotr Gorajek: potrzebujemy dla zdarzenia P_NAD tag, który pobra Nazwę i ulicę z miastem Urzędu nadania np. <strong>UP 2, ul. Rodziny Hiszpańskich 8, Warszawa</strong></code>
-                            <br/><code>2024-03-26</code> - otrzymaliśmy tagi dla zdarzenia, testujemy wysyłkę z potwierdzeniem urzędu nadania. Nadano dwie przesyłki ze zdarzeniami: PX6660602601(P_NM 11:17), PX6660626575(P_NAD 11:17). Dla przesyłki <code>PX6660626575(P_NAD)</code> powinien wyjść mail do nadawcy i odbiorcy. Dla przesyłki <code>PX6660602601(P_NM)</code> powinien wyjśc mail tylko dla odbiorcy.
+                            <hr class="m-0 p-0">
+                            <br/><code>2024-03-26</code> - otrzymaliśmy tagi dla zdarzenia, testujemy wysyłkę z potwierdzeniem urzędu nadania. Nadano dwie przesyłki ze zdarzeniami: PX6660602601(P_NM 11:17), PX6660626575(P_NAD 11:17). <br/>
+                            Dla przesyłki <code>PX6660626575(P_NAD)</code> powinien wyjść mail do nadawcy i odbiorcy. Reguła zadziałała <span class="text-success fw-bold">poprawnie</span>. Tagi działają <span class="text-success fw-bold">prawidłowo</span>.<br/>
+                            Dla przesyłki <code>PX6660602601(P_NM)</code> powinien wyjśc mail tylko dla odbiorcy. Reguła zadziałała <span class="text-success fw-bold">prawidłowo</span>.
                         </div>
 
-                        <div class="p-2 col-12 col-md-4 text-start">
+                        <div class="p-2 col-12 col-md-4 text-start d-flex align-items-center flex-column flex-sm-row">
+                            <p class="pb-0 pt-0 me-2 m-0 h3 p-2 fw-bold bg-success text-light">P</p>
                             <p>WDROŻENIE: <span class="bg-warning text-dark p-2 fw-bold">PROD</span> 
                             Wynik: <span class="text-dark bg-warning p-2 fw-bold">OCZEKUJE</span></p></div>
-                        <div class="p-2 col-12 col-md-8 text-end">
+                        <div class="p-2 col-12 col-md-8 justify-content-end d-flex align-items-center flex-column flex-sm-row">
+                            <p class="pb-0 pt-0 me-2 m-0 h3 p-2 fw-bold bg-warning text-dark">T</p>
                             <p>WDROŻENIE: <span class="bg-warning text-dark p-2 fw-bold">208006</span> 
                             Wynik (208006): <span class="text-dark bg-warning p-2 fw-bold">WERYFIKACJA T_URZAD_ZDARZ</span></p></div>
                 </div>
@@ -108,10 +115,12 @@
                         </div>
                             <!-- <p class="text-end">WDROŻENIE: <span class="bg-warning text-dark p-2 fw-bold">208006</span> Wynik:  -->
                     
-                        <div class="p-2 col-12 col-md-4 text-start">
+                        <div class="p-2 col-12 col-md-4 text-start d-flex align-items-center flex-column flex-sm-row">
+                            <p class="pb-0 pt-0 me-2 m-0 h3 p-2 fw-bold bg-success text-light">P</p>
                             <p>WDROŻENIE: <span class="bg-warning text-dark p-2 fw-bold">PROD</span> 
                             Wynik: <span class="text-dark bg-warning p-2 fw-bold">OCZEKUJE</span></p></div>
-                        <div class="p-2 col-12 col-md-8 text-end">
+                        <div class="p-2 col-12 col-md-8 justify-content-end d-flex align-items-center flex-column flex-sm-row">
+                            <p class="pb-0 pt-0 me-2 m-0 h3 p-2 fw-bold bg-warning text-dark">T</p>
                             <p>WDROŻENIE: <span class="bg-warning text-dark p-2 fw-bold">208006</span> 
                             Wynik (208006): <span class="text-light bg-success p-2 fw-bold">POZYTYWNY</span></p></div>
                     </div>
@@ -123,10 +132,13 @@
                         <div class="p-2 col-12 col-sm-2 ">P_NAD, P_NM, P_NMBS, P_NMBW <code>świadczenie: OP, OAPM</code></div>
                         <div class="p-2 col-12 col-sm-1 ">weryfikacja (208006) </div>
                         <div class="col-12 p-3 ps-5 border-bottoms border-danger border-2 text-secondary ">Wygenerowano przesyłkę z nadaniem ze zdarzeniami P_NAD. Nadanie od klienta biznesowego (MRUmC: 208006) do indywidualnego. Efektem powinno być wysłanie maila do odbiorcy z szablonem automat-nadanie. </div>
-                        <div class="p-2 col-12 col-md-4 text-start">
+                        
+                        <div class="p-2 col-12 col-md-4 text-start d-flex align-items-center flex-column flex-sm-row">
+                        <p class="pb-0 pt-0 me-2 m-0 h3 p-2 fw-bold bg-success text-light">P</p>
                             <p>WDROŻENIE: <span class="bg-warning text-dark p-2 fw-bold">PROD</span> 
                             Wynik: <span class="text-dark bg-warning p-2 fw-bold">OCZEKUJE</span></p></div>
-                        <div class="p-2 col-12 col-md-8 text-end">
+                        <div class="p-2 col-12 col-md-8 justify-content-end d-flex align-items-center flex-column flex-sm-row">
+                            <p class="pb-0 pt-0 me-2 m-0 h3 p-2 fw-bold bg-warning text-dark">T</p>
                             <p>WDROŻENIE: <span class="bg-warning text-dark p-2 fw-bold">208006</span> 
                             Wynik (208006): <span class="text-dark bg-warning p-2 fw-bold">Oczekuje na testy</span></p></div>
 
@@ -143,10 +155,12 @@
                         
                         </div>
                         
-                        <div class="p-2 col-12 col-md-4 text-start">
+                        <div class="p-2 col-12 col-md-4 text-start d-flex align-items-center flex-column flex-sm-row">
+                        <p class="pb-0 pt-0 me-2 m-0 h3 p-2 fw-bold bg-success text-light">P</p>
                             <p>WDROŻENIE: <span class="bg-success text-light p-2 fw-bold">PROD</span> 
                             Wynik: <span class="text-light bg-success p-2 fw-bold">POZYTYWNY</span></p></div>
-                        <div class="p-2 col-12 col-md-8 text-end">
+                        <div class="p-2 col-12 col-md-8 justify-content-end d-flex align-items-center flex-column flex-sm-row">
+                            <p class="pb-0 pt-0 me-2 m-0 h3 p-2 fw-bold bg-warning text-dark">T</p>
                             <p>WDROŻENIE: <span class="bg-warning text-dark p-2 fw-bold">208006</span> 
                             Wynik (208006): <span class="text-light bg-success p-2 fw-bold">POZYTYWNY</span></p></div>
                     </div>
@@ -162,10 +176,12 @@
                             <br/><code>Grzegorz Dominiak potrzebujemy dla zdarzenia P_NAD/P_KWD tag [T_URZAD_GPS], który zwróci nam koordynaty GPS dla urzędu zdarzenia. Dodatkowo potrzebuję dla tagu T_URZ_UL_ZDARZ dodać jeszcze po przecinku miasto urzędu zdarzenia.</code>
                         </div>
                     
-                        <div class="p-2 col-12 col-md-4 text-start">
+                        <div class="p-2 col-12 col-md-4 text-start d-flex align-items-center flex-column flex-sm-row">
+                        <p class="pb-0 pt-0 me-2 m-0 h3 p-2 fw-bold bg-success text-light">P</p>
                             <p>WDROŻENIE: <span class="bg-warning text-dark p-2 fw-bold">PROD</span> 
                             Wynik: <span class="text-dark bg-warning p-2 fw-bold">OCZEKUJE</span></p></div>
-                        <div class="p-2 col-12 col-md-8 text-end">
+                        <div class="p-2 col-12 col-md-8 justify-content-end d-flex align-items-center flex-column flex-sm-row">
+                            <p class="pb-0 pt-0 me-2 m-0 h3 p-2 fw-bold bg-warning text-dark">T</p>
                             <p>WDROŻENIE: <span class="bg-warning text-dark p-2 fw-bold">208006</span> 
                             Wynik (208006): <span class="text-light bg-danger p-2 fw-bold">WERYFIKACJA</span></p></div>
                     </div>
@@ -183,10 +199,12 @@
                             W dniu 25.03.2024r. o godz. 11:35 uruchomniono regułę. W pierwszej godzinie wysłano ok 20 tys. maili. ZST działało prawidłowo.
                         </div>
                         
-                        <div class="p-2 col-12 col-md-4 text-start">
+                        <div class="p-2 col-12 col-md-4 text-start d-flex align-items-center flex-column flex-sm-row">
+                        <p class="pb-0 pt-0 me-2 m-0 h3 p-2 fw-bold bg-success text-light">P</p>
                             <p>WDROŻENIE: <span class="bg-success text-light p-2 fw-bold">PROD</span> 
                             Wynik: <span class="text-light bg-success p-2 fw-bold">POZYTYWNY</span></p></div>
-                        <div class="p-2 col-12 col-md-8 text-end">
+                        <div class="p-2 col-12 col-md-8 justify-content-end d-flex align-items-center flex-column flex-sm-row">
+                            <p class="pb-0 pt-0 me-2 m-0 h3 p-2 fw-bold bg-warning text-dark">T</p>
                             <p>WDROŻENIE: <span class="bg-success text-light p-2 fw-bold">208006</span> 
                             Wynik (208006): <span class="text-light bg-success p-2 fw-bold">POZYTYWNY</span></p></div>
                     </div>

@@ -24,6 +24,10 @@ $cont = array(
     "[T_PNI_URL]" => "ul.+Powstańców+3,+Kraków",
     "[T_PNI_GPS]" => "49.9304963,19.9497555",
 
+    "[T_URZAD_ZDARZ]" => "UP Warszawa 33, ul. Rodziny Hiszoańskich 8, Warszawa",
+    "[T_URZAD_URL]" => "Up+Warszawa+33,ul.+Rodziny+Hiszpańskich+8,Warszawa",
+    "[T_URZAD_GPS]" => "49.9304963,19.9497555",
+
     "[T_NADAWCA]" => "Tani Ciuszek WSPÓLNICY",
     "[T_KWOTA_POBRAN]" => "(kwota pobrania: 120,20 zł)",
     "[POBRANIE_EMAIL]" => "(kwota pobrania: 120,20 zł)",

@@ -10,7 +10,9 @@
     <!-- <script src="https://use.fontawesome.com/releases/v6.4.2/js/all.js" async data-auto-replace-svg="nest"></script> -->
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css" >
     <script src="../assets/js/bootstrap.bundle.min.js" ></script>
-    
+    <script src="../assets/js/jquery.fancybox.min.js"></script>
+    <link rel="stylesheet" href="../assets/css/jquery.fancybox.css" />
+    <script src="../assets/js/zst.js"></script>
     <style>
         div.code{
             background-color: #212529;
@@ -32,6 +34,20 @@
         }
         .row:nth-child(even){
             background-color: #faf7ec;
+        }
+        .podglad{
+            padding: 10px;
+            background-color: crimson;
+            color: White;
+            cursor: pointer;
+        }
+        .podglad:before{
+            content: "<>";
+            color: #ff0000;
+            font-weight: bold; 
+            display: inline-block; 
+            width: 1em; 
+            margin-left: -1em; 
         }
     </style>
 </head>
@@ -79,7 +95,9 @@
                 </div>
                 <div class="row p-3">
                         <div class="p-2 col-12 text-brake h5 pt-4">PR_PREAWIZO_PX2.0_NADANA_NADAWCA_EMAIL_INDYW / <code>PX2.0_PREAWIZO_(all-nadanie-nad)</code></div>
-                        <div class="p-2 col-12 col-sm-1 fw-bolder text-center">NAD</div>
+                        <div class="p-2 col-12 col-sm-1 fw-bolder text-center">NAD <br/>
+                            <button type="button" id="all-nadanie-nad" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-view">VIEW</button>
+                        </div>
                         <div class="p-2 col-12 col-sm-4 "><span class="text-secondary">PX6650455581(P_NM), PX6650559796(P_NM), PX6650657928(P_NAD), PX6650774245(P_NM), PX6652251985(P_NM 9:54 nie doszło), PX6652310499 (P_NAD), PX6652920851(P_NAD), PX6660602601(P_NM), PX6660626575(P_NAD)</span></div>
                         <div class="p-2 col-12 col-sm-4 wrap">wysyłka maila do nadawcy <code>potwierdzenie nadania</code> dla wszystkich przesyłek nadanych (UP, Kurier, APM) z wykluczeniem klienta umownego, szablon 'multikanałowy'</div>
                         <div class="p-2 col-12 col-sm-2 ">P_NAD <br/>P_NM (test, usunięto)</div>
@@ -167,13 +185,15 @@
                     <div class="row p-3"> 
                         <div class="p-2 col-12 text-brake h5 pt-4">AWIZO_PX2.0 / <code>AWIZO_PX2.0_(awizacja)</code></div>
                         <div class="p-2 col-12 col-sm-1 fw-bolder text-center">ODB</div>
-                        <div class="p-2 col-12 col-sm-4 text-brake "><span class="text-secondary">PX6652310499(P_KWD), PX6652920851(P_KWD)</span></div>
+                        <div class="p-2 col-12 col-sm-4 text-brake "><span class="text-secondary">PX6652310499(P_KWD), PX6652920851(P_KWD), PX6660951139(P_KWD), PX6660735880(P_KWD)</span></div>
                         <div class="p-2 col-12 col-sm-4 wrap">wysyłka maila <code>AWIZO</code> dla wszystkich przesyłek</div>
                         <div class="p-2 col-12 col-sm-2 ">P_KWD, P_DKAO</div>
                         <div class="p-2 col-12 col-sm-1 ">weryfikacja (208006)</div>
                         <div class="col-12 p-3 ps-5 border-bottoms border-danger border-2 text-secondary ">Dla przesyłki PX6652310499 wygenerowano zdarzenie P_NAD, P_WD oraz P_KWD. Odbiorca powinien otrzymać maila z informacją o awizacji przesyłki w urzędzie pocztowym. 
                             Utworzono dodatkowe tagi wiadomości T_URZAD_ZDARZ, T_URZAD_URL, T_URZ_UL_ZDARZ <code>(brakuje [T_URZAD_GPS])</code>, które mają prezentować dane urzędu danego zdarzenia. Przy zdarzeniu <code>P_KWD</code> mail wygenerował się <span class="text-success fw-bold">poprawnie</span>, tylko potrzeba dopisać do <code>T_URZ_UL_ZDARZ</code> po przecinku miejscowość oraz <code>T_URZAD_GPS</code>.
                             <br/><code>Grzegorz Dominiak potrzebujemy dla zdarzenia P_NAD/P_KWD tag [T_URZAD_GPS], który zwróci nam koordynaty GPS dla urzędu zdarzenia. Dodatkowo potrzebuję dla tagu T_URZ_UL_ZDARZ dodać jeszcze po przecinku miasto urzędu zdarzenia.</code>
+                            <hr class="p-0 m-0">
+                            <br/><code>2024-03-26 </code> Dla przesyłek <code>PX6660951139, PX6660735880</code> nadano zdarzenie awiacji w placówce pocztowej. Mail z potwierdzeniem oraz prawidłowymi tagami jednostki zdarzenia wygenerował się  <span class="text-success fw-bold">prawidłowo</span>. Reguła zadziałała  <span class="text-success fw-bold">prawidłowo</span>.
                         </div>
                     
                         <div class="p-2 col-12 col-md-4 text-start d-flex align-items-center flex-column flex-sm-row">
@@ -182,8 +202,8 @@
                             Wynik: <span class="text-dark bg-warning p-2 fw-bold">OCZEKUJE</span></p></div>
                         <div class="p-2 col-12 col-md-8 justify-content-end d-flex align-items-center flex-column flex-sm-row">
                             <p class="pb-0 pt-0 me-2 m-0 h3 p-2 fw-bold bg-warning text-dark">T</p>
-                            <p>WDROŻENIE: <span class="bg-warning text-dark p-2 fw-bold">208006</span> 
-                            Wynik (208006): <span class="text-light bg-warning p-2 fw-bold">WERYFIKACJA</span></p></div>
+                            <p>WDROŻENIE: <span class="bg-success text-light p-2 fw-bold">208006</span> 
+                            Wynik (208006): <span class="text-light bg-success p-2 fw-bold">POZYTYWNY</span></p></div>
                     </div>
                     
                     <div class="row p-3"> 
@@ -213,6 +233,19 @@
             </article>
             
         </div>
+        <div class="modal fade" id="modal-view" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-scrollable">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="modal-title">Podgląd dla szablonu <strong></strong></h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  
+                </div>
+              </div>
+            </div>
+          </div>
     </main>
 <footer class="containter-fluid bg-dark text-light p-3 text-center">
     Copyright 2024

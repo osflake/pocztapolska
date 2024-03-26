@@ -42,16 +42,11 @@ jQuery(document).ready(function(){
 
         var button = event.relatedTarget;
         var file = button.getAttribute('id');
-        var wsad = {"plik" : file,"podmiana" : true };
-        console.log("POKAZUJE");
-        // console.log("URL: "+ url+(data.length > 0 ?? '?'+jQuery.param(data)));
-        console.log("URL2: /pocztapolska/maile/url.php"+(wsad? '?'+jQuery.param(wsad) : ''))
+        var wsad = {"plik" : file,"podmiana" : false };
         const content = await getData("/pocztapolska/maile/url.php"+(wsad? '?'+jQuery.param(wsad) : ''), {});
-        console.log (content);
         jQuery(".modal-body").html(content.tresc);
         jQuery(".modal-title > strong").html(file);
-        //get_content();
-
+        
       })();
 
 

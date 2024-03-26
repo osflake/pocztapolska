@@ -44,11 +44,9 @@ jQuery(document).ready(function(){
         var file = button.getAttribute('id');
         var wsad = {"plik" : file,"podmiana" : true };
         console.log("POKAZUJE");
-        console.log(file);
-        console.log(this);
         // console.log("URL: "+ url+(data.length > 0 ?? '?'+jQuery.param(data)));
-        console.log("URL2: /pocztapolska/maile/url.php"+(wsad.length > 0 ?? '?'+jQuery.param(wsad)))
-        const content = getData("/pocztapolska/maile/url.php", wsad);
+        console.log("URL2: /pocztapolska/maile/url.php"+(wsad? '?'+jQuery.param(wsad) : ''))
+        const content = getData("/pocztapolska/maile/url.php"+(wsad? '?'+jQuery.param(wsad) : ''), {});
         console.log (content);
         jQuery(".modal-body").html(wsad);
         jQuery(".modal-title > strong").html(file);

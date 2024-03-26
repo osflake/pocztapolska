@@ -9,6 +9,7 @@
     <script src="../assets/js/jquery-3.5.1.js"></script>
     <!-- <script src="https://use.fontawesome.com/releases/v6.4.2/js/all.js" async data-auto-replace-svg="nest"></script> -->
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css" >
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" ></script>
     <script src="../assets/js/bootstrap.bundle.min.js" ></script>
     <script src="../assets/js/jquery.fancybox.min.js"></script>
     <link rel="stylesheet" href="../assets/css/jquery.fancybox.css" />
@@ -60,6 +61,7 @@
             <article id="introduction" class="p-3 pt-1">
                 <h2 class="display-6 pt-1 pb-3">Wykaz metod i wdrożonych szablonów</h2>
                 
+                
                 <div class="col-12 h3 mb-2 d-flex justify-content-between">Legenda   <a class="btn btn-sm btn-outline-dark" data-bs-toggle="collapse" href="#legenda" role="button" aria-expanded="false" aria-controls="legenda">pokaż/ukryj</a></div>
                 <div class="collapse border mb-4" id="legenda">
                     
@@ -78,6 +80,23 @@
                     <div class="col-12 p-2 d-flex"><p class="pb-0 pt-0 me-2 m-0 h3 p-2 fw-bold bg-warning text-dark">T</p> - testy na produkcji dla klienta 208006</div>
                     <!-- <div class="col-12 p-2"><code>208006</code> - ID umowy klienta umownego do testów na środowisku produkcyjnym</div> -->
 
+                </div>
+                <div class="col-12 h4 p-3 pb-1 text-center">
+                    <button type="button" class="btn btn-outline-secondary mb-2" data-toggle="tooltip" data-placement="top" title="Rodzaj środowiska: PR (produkcja) / TE (test)">
+                        ŚRODOWISKO</button> _
+                    <button type="button" class="btn btn-outline-secondary mb-2" data-toggle="tooltip" data-placement="top" title="USŁUGA: PX2/PX/">
+                        USŁUGA</button> _
+                    <button type="button" class="btn btn-outline-secondary mb-2" data-toggle="tooltip" data-placement="top" title="Rodzaj/nazwa zdarzenia: PREAWIZ (preawizo), WYDDDOR (wydana do doręczenia), DOR (doręczenie), AWIZO ">
+                        RODZAJ</button> _
+                    <button type="button" class="btn btn-outline-secondary mb-2" data-toggle="tooltip" data-placement="top" title="Odbiorca komunikatu/Kierunek: ODB (odbiorca), NAD (nadawca)">
+                        KIERUNEK</button> _
+                    <button type="button" class="btn btn-outline-secondary mb-2" data-toggle="tooltip" data-placement="top" title="Kanały komunikacji: S (SMS), E (e-mail), P (PUSH)">
+                        KANAŁY</button> _
+                    <button type="button" class="btn btn-outline-secondary mb-2" data-toggle="tooltip" data-placement="top" title="Dodatkowe informacje: ALL (do wszystkich), APM (do automatów), INDYW (do klienta indywidualnego)">
+                        INFO</button>
+                </div>
+                <div class="h5 p-1 mb-4 text-center fw-bold"><code>przykład:</code>
+                    PR_PX2_PREAWIZ_NAD_SEP_INDYW
                 </div>
                 <div class="row p-3 pb-0">
                     <!-- <div class="col-12 h5 pt-4 pt-3 pb-3 text-primary border-bottom"></div> -->

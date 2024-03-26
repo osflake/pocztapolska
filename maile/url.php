@@ -41,14 +41,14 @@ $cont = array(
     "[T_P_GODZ_DO]" => "21:37",
     "[DATA_PRZE_7_K]" => "04.04.2024",
     "[KOD_ODBIORU]" => "662891",
-    "[TPODZIEKOWANIE]" => '<img alt="eMonitoring Pocztex" src="./header/T_PODZIEKOWANIE.jpg" style="width: 100%;border:0;" />',
-    "[TAWIZACJA]" => '<img alt="eMonitoring Pocztex" src="./header/T_AWIZACJA.jpg" style="width: 100%;border:0;" />',
-    "[PXKURIER]" => '<img alt="eMonitoring Pocztex" src="./header/T_KURIER.jpg" style="width: 100%;border:0;" />',
-    "[PXMULTINAD]" => '<img alt="eMonitoring Pocztex" src="./header/T_NADANIE.jpg" style="width: 100%;border:0;" />',
-    "[PXAPMODB]" => '<img alt="eMonitoring Pocztex" src="./header/T_AUTOMAT.jpg" style="width: 100%;border:0;" />',
-    "[PXAPK]" => '<img alt="eMonitoring Pocztex" src="./footer/aplikacja3.jpg" style="width: 100%; box-shadow: 2px 4px 5px #ccc" />',
-    "[PXOPINIA]" => '<img alt="eMonitoring Pocztex" src="./footer/opinia.jpg" style="width: 100%;box-shadow: 2px 4px 5px #ccc" />',
-    "[PXAUTOLOGO]" => '<img src="./ZPO/pocztex.png" style="height:40px; margin:2%; vertical-align: middle; "/>'
+    "[TPODZIEKOWANIE]" => '<img alt="eMonitoring Pocztex" src="/pocztapolska/maile/header/T_PODZIEKOWANIE.jpg" style="width: 100%;border:0;" />',
+    "[TAWIZACJA]" => '<img alt="eMonitoring Pocztex" src="/pocztapolska/maile/header/T_AWIZACJA.jpg" style="width: 100%;border:0;" />',
+    "[PXKURIER]" => '<img alt="eMonitoring Pocztex" src="/pocztapolska/maile/header/T_KURIER.jpg" style="width: 100%;border:0;" />',
+    "[PXMULTINAD]" => '<img alt="eMonitoring Pocztex" src="/pocztapolska/maile/header/T_NADANIE.jpg" style="width: 100%;border:0;" />',
+    "[PXAPMODB]" => '<img alt="eMonitoring Pocztex" src="/pocztapolska/maile/header/T_AUTOMAT.jpg" style="width: 100%;border:0;" />',
+    "[PXAPK]" => '<img alt="eMonitoring Pocztex" src="/pocztapolska/maile/footer/aplikacja3.jpg" style="width: 100%; box-shadow: 2px 4px 5px #ccc" />',
+    "[PXOPINIA]" => '<img alt="eMonitoring Pocztex" src="/pocztapolska/maile/footer/opinia.jpg" style="width: 100%;box-shadow: 2px 4px 5px #ccc" />',
+    "[PXAUTOLOGO]" => '<img src="/pocztapolska/maile/ZPO/pocztex.png" style="height:40px; margin:2%; vertical-align: middle; "/>'
 );
 if(!$_GET['podmiana'] || $_GET['podmiana'] == "false"){
  foreach ($cont as $key => $val){

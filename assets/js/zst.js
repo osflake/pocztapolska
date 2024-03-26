@@ -48,7 +48,7 @@ jQuery(document).ready(function(){
         console.log("URL2: /pocztapolska/maile/url.php"+(wsad? '?'+jQuery.param(wsad) : ''))
         const content = await getData("/pocztapolska/maile/url.php"+(wsad? '?'+jQuery.param(wsad) : ''), {});
         console.log (content);
-        jQuery(".modal-body").html(content);
+        jQuery(".modal-body").html(content.tresc);
         jQuery(".modal-title > strong").html(file);
         //get_content();
 

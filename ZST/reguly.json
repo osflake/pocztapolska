@@ -1,0 +1,154 @@
+[
+    {
+        "id": "all-nadanie-nad",
+        "rule": "PR_PREAWIZO_PX2.0_NADANA_NADAWCA_EMAIL_INDYW",
+        "template": "PX2.0_PREAWIZO_(all-nadanie-nad)",
+        "direction": "NAD",
+        "parcels": "PX6650455581(P_NM), PX6650559796(P_NM), PX6650657928(P_NAD), PX6650774245(P_NM), PX6652251985(P_NM 9:54 nie doszło), PX6652310499 (P_NAD), PX6652920851(P_NAD), PX6660602601(P_NM), PX6660626575(P_NAD)",
+        "description": "wysyłka maila do nadawcy <code>potwierdzenie nadania</code> dla wszystkich przesyłek nadanych (UP, Kurier, APM) z wykluczeniem klienta umownego, szablon 'multikanałowy'",
+        "start_events": "P_NAD",
+        "test_description": ["Wygenerowano przesyłkę z nadaniem masowym ze zdarzeniami P_NM oraz P_NAD. Nastepnie usunięto zdarzenie inicjujące P_NM i nadano przesyłkę P_NAD czy zadziałają reguły dla nadawcy (208006) i odbiorcy indywidualnego. Nastepnie wykonano nadanie masowe (P_NM) od klienta biznesowego (MRUmC: 208006) do biznesowego (MRUmC: 208006). Efektem powinno być wysłanie maila do odbiorcy, ale nie do nadawcy masowego.",
+                            "<code>Grzegorz Dominiak/Piotr Gorajek: potrzebujemy dla zdarzenia P_NAD tag, który pobra Nazwę i ulicę z miastem Urzędu nadania np. <strong>UP 2, ul. Rodziny Hiszpańskich 8, Warszawa</strong></code>",
+                            "<hr class='m-0 p-0'>",
+                            "<code>2024-03-26</code> - otrzymaliśmy tagi dla zdarzenia, testujemy wysyłkę z potwierdzeniem urzędu nadania. Nadano dwie przesyłki ze zdarzeniami: PX6660602601(P_NM 11: 17), PX6660626575(P_NAD 11: 17).",
+                            "Dla przesyłki <code>PX6660626575(P_NAD)</code> powinien wyjść mail do nadawcy i odbiorcy. Reguła zadziałała <span class='text-success fw-bold'>poprawnie</span>. Tagi działają <span class='text-success fw-bold'>prawidłowo</span>.",
+                            "Dla przesyłki <code>PX6660602601(P_NM)</code> powinien wyjśc mail tylko dla odbiorcy. Reguła zadziałała <span class='text-success fw-bold'>prawidłowo</span>."],
+        "production":{
+            "env": "PROD",
+            "env_flag": "success",
+            "sum" : "POZYTYWNY",
+            "sum_flag": "success"
+        },
+        "production_test": {
+            "env": "208006",
+            "env_flag": "success",
+            "sum" : "POZYTYWNY",
+            "sum_flag": "success"
+        }
+    },
+    {
+        "id": "all-nadanie",
+        "rule": "PR_PREAWIZO_PX2.0_RIAM_NAD_NADANIE_ALL_PUSH_EMAIL",
+        "template": "PX2.0_PREAWIZO_ODB_(all-nadanie)",
+        "direction": "ODB",
+        "parcels": "PX6650559796(P_NM), PX6650657928(P_NAD), PX6651019599(P_NM), PX6651050406(P_NM 13:40), <strong>PX6651159676(P_NM 14:24)</strong>, PX6652251985(P_NM doszło)</span>",
+        "description": "wysyłka maila do odbiorcy <code>potwierdzenie nadania</code> dla wszystkich przesyłek nadanych (UP, Kurier, APM), szablon 'multikanałowy'",
+        "start_events": "P_NAD, P_NM, P_NMBS, P_NMBW",
+        "test_description": 
+            ["Wygenerowano przesyłkę z nadaniem masowym ze zdarzeniami P_NM oraz P_NAD.",
+            "Nastepnie wykonano nadanie masowe (P_NM) od klienta biznesowego (MRUmC: 208006) do biznesowego (MRUmC: 208006).",
+            "Efektem powinno być wysłanie maila do odbiorcy, ale nie do nadawcy masowego. "],
+        "production":{
+            "env": "PROD",
+            "env_flag": "success",
+            "sum" : "POZYTYWNY",
+            "sum_flag": "success"
+        },
+        "production_test": {
+            "env": "208006",
+            "env_flag": "success",
+            "sum" : "POZYTYWNY",
+            "sum_flag": "success"
+        }
+    },
+    {
+        "id": "automat-nadanie",
+        "rule": "PREAWIZO_PX2.0_RIAM_NAD_NADANIE_APM_OWP",
+        "template": "PX2.0_PREAWIZO_ODB_APM(automat-nadanie)",
+        "direction": "ODB",
+        "parcels": "PX6650559796(P_NM), PX6650657928(P_NAD), PX6651019599(P_NM), PX6651050406(P_NM 13:40), <strong>PX6651159676(P_NM 14:24)</strong>, PX6652251985(P_NM doszło)</span>",
+        "description": "wysyłka maila do odbiorcy <code>potwierdzenie nadania</code> dla wszystkich przesyłek nadanych do APM, OWP - szablon 'APM'",
+        "start_events": "P_NAD, P_NM, P_NMBS, P_NMBW <code>świadczenie: OP, OAPM</code>",
+        "test_description": 
+            ["Wygenerowano przesyłkę z nadaniem ze zdarzeniami P_NAD. Nadanie od klienta biznesowego (MRUmC: 208006) do indywidualnego. Efektem powinno być wysłanie maila do odbiorcy z szablonem automat-nadanie"],
+        "production":{
+            "env": "PROD",
+            "env_flag": "warning",
+            "sum" : "OCZEKUJE",
+            "sum_flag": "warning"
+        },
+        "production_test": {
+            "env": "208006",
+            "env_flag": "warning",
+            "sum" : "Oczekuje na testy",
+            "sum_flag": "warning"
+        }
+    },
+    {
+        "id": "kurier-doreczenie",
+        "rule": "PR_PX2.0_Przekaz_do_doręczenia_SMS_PUSH_EMAIL",
+        "template": "PX2.0_przekaz_do_DOR_(kurier-doreczenie)",
+        "direction": "ODB",
+        "parcels": "PX6651050406 (P_WD) PX6652310499(P_WD,P_A), PX6652920851(P_WD)",
+        "description": "wysyłka maila <code>przekazano do doręczenia</code> dla wszystkich przesyłke, które ma doręczyć kurier",
+        "start_events": "P_WD, P_WDML",
+        "test_description": 
+            ["Dla przesyłki PX6651050406 wygenerowano zdarzenie wydania do doręczenie P_WD. Odbiorca powinien otrzymać maila z informacją o wydaniu do doręczenia. Przy zdarzeniu <code>P_WD</code> mail wygenerował się <span class='text-success fw-bold'>poprawnie</span>",
+            "W dniu 25.03.2024r. o godz. 11:35 uruchomiono produkcyjnie przekazanie do doręczenia. ZST działało prawidłowo, wysłano w pierwszej godzinie ok . 415 tys. maili."],
+        "production":{
+            "env": "PROD",
+            "env_flag": "success",
+            "sum" : "POZYTYWNY",
+            "sum_flag": "success"
+        },
+        "production_test": {
+            "env": "208006",
+            "env_flag": "success",
+            "sum" : "POZYTYWNY",
+            "sum_flag": "success"
+        }
+    },
+    {
+        "id": "awizacja",
+        "rule": "AWIZO_PX2.0",
+        "template": "AWIZO_PX2.0_(awizacja)",
+        "direction": "ODB",
+        "parcels": "PX6652310499(P_KWD), PX6652920851(P_KWD), PX6660951139(P_KWD), PX6660735880(P_KWD)",
+        "description": "wysyłka maila <code>AWIZO</code> dla wszystkich przesyłek",
+        "start_events": "P_KWD, P_DKAO",
+        "test_description": 
+            ["Dla przesyłki PX6652310499 wygenerowano zdarzenie P_NAD, P_WD oraz P_KWD. Odbiorca powinien otrzymać maila z informacją o awizacji przesyłki w urzędzie pocztowym.",
+            "Utworzono dodatkowe tagi wiadomości T_URZAD_ZDARZ, T_URZAD_URL, T_URZ_UL_ZDARZ <code>(brakuje [T_URZAD_GPS])</code>, które mają prezentować dane urzędu danego zdarzenia. Przy zdarzeniu <code>P_KWD</code> mail wygenerował się <span class='text-success fw-bold'>poprawnie</span>, tylko potrzeba dopisać do <code>T_URZ_UL_ZDARZ</code> po przecinku miejscowość oraz <code>T_URZAD_GPS</code>",
+            "<code>Grzegorz Dominiak potrzebujemy dla zdarzenia P_NAD/P_KWD tag [T_URZAD_GPS], który zwróci nam koordynaty GPS dla urzędu zdarzenia. Dodatkowo potrzebuję dla tagu T_URZ_UL_ZDARZ dodać jeszcze po przecinku miasto urzędu zdarzenia.</code>",
+            "<hr class='p-0 m-0'>",
+            "<code>2024-03-26 </code> Dla przesyłek <code>PX6660951139, PX6660735880</code> nadano zdarzenie awiacji w placówce pocztowej. Mail z potwierdzeniem oraz prawidłowymi tagami jednostki zdarzenia wygenerował się  <span class='text-success fw-bold'>prawidłowo</span>. Reguła zadziałała  <span class='text-success fw-bold'>prawidłowo</span>"],
+        "production":{
+            "env": "PROD",
+            "env_flag": "warning",
+            "sum" : "POZYTYWNY",
+            "sum_flag": "success"
+        },
+        "production_test": {
+            "env": "208006",
+            "env_flag": "success",
+            "sum" : "POZYTYWNY",
+            "sum_flag": "success"
+        }
+    },
+    {
+        "id": "all-potwierdzenie",
+        "rule": "PR_PX2.0_RIAM_DORECZENIE_ODB_EMAIL_PUSH",
+        "template": "PX2.0_POTW_DOR_ODB (all-potwierdzenie)",
+        "direction": "ODB",
+        "parcels": "PX6652310499 (P_OWU)",
+        "description": "wysyłka maila <code>doręczono</code> dla wszystkich przesyłek",
+        "start_events": "P_D, P_OWP, P_OWU",
+        "test_description": 
+            ["Dla przesyłki PX6652310499 wygenerowano zdarzenie doręczenia P_D, P_WD oraz P_KWD. Odbiorca powinien otrzymać maila z informacją z podziękowaniem za skorzystanie z usługi (multikanał).",
+            "Dla statusu <code>P_OWU</code> mail wygenerował się <span class='text-success fw-bold'>poprawnie</span>.",
+            "Dla statusu <code>P_D</code> mail wygenerował się <span class='text-success fw-bold'>poprawnie</span>. ",
+            "W dniu 25.03.2024r. o godz. 11:35 uruchomniono regułę. W pierwszej godzinie wysłano ok 20 tys. maili. ZST działało prawidłowo."],
+        "production":{
+            "env": "PROD",
+            "env_flag": "success",
+            "sum" : "POZYTYWNY",
+            "sum_flag": "success"
+        },
+        "production_test": {
+            "env": "208006",
+            "env_flag": "success",
+            "sum" : "POZYTYWNY",
+            "sum_flag": "success"
+        }
+    }
+]

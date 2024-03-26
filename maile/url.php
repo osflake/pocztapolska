@@ -50,7 +50,7 @@ $cont = array(
     "[PXOPINIA]" => '<img alt="eMonitoring Pocztex" src="./footer/opinia.jpg" style="width: 100%;box-shadow: 2px 4px 5px #ccc" />',
     "[PXAUTOLOGO]" => '<img src="./ZPO/pocztex.png" style="height:40px; margin:2%; vertical-align: middle; "/>'
 );
-if($_GET['podmiana'] == "false"){
+if(!$_GET['podmiana'] || $_GET['podmiana'] == "false"){
  foreach ($cont as $key => $val){
     $content = str_replace($key,$val,$content);
  }

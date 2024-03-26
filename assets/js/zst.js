@@ -43,6 +43,7 @@ jQuery(document).ready(function(){
         var button = event.relatedTarget;
         var file = button.getAttribute('id');
         var wsad = {"plik" : file,"podmiana" : false };
+        console.log("/pocztapolska/maile/url.php"+(wsad? '?'+jQuery.param(wsad) : ''), {});
         const content = await getData("/pocztapolska/maile/url.php"+(wsad? '?'+jQuery.param(wsad) : ''), {});
         jQuery(".modal-body").html(content.tresc);
         jQuery(".modal-title > strong").html(file);

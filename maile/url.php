@@ -48,7 +48,8 @@ $cont = array(
     "[PXAPMODB]" => '<img alt="eMonitoring Pocztex" src="/pocztapolska/maile/header/T_AUTOMAT.jpg" style="width: 100%;border:0;" />',
     "[PXAPK]" => '<img alt="eMonitoring Pocztex" src="/pocztapolska/maile/footer/aplikacja3.jpg" style="width: 100%; box-shadow: 2px 4px 5px #ccc" />',
     "[PXOPINIA]" => '<img alt="eMonitoring Pocztex" src="/pocztapolska/maile/footer/opinia.jpg" style="width: 100%;box-shadow: 2px 4px 5px #ccc" />',
-    "[PXAUTOLOGO]" => '<img src="/pocztapolska/maile/ZPO/pocztex.png" style="height:40px; margin:2%; vertical-align: middle; "/>'
+    "[PXAUTOLOGO]" => '<img src="/pocztapolska/maile/ZPO/pocztex.png" style="height:40px; margin:2%; vertical-align: middle; "/>',
+    "[EASTER24]" => '<img src="/pocztapolska/maile/footer/footer-easter.jpg" style="height:40px; margin:2%; vertical-align: middle; "/>'
 );
 if(!$_GET['podmiana'] || $_GET['podmiana'] == "false"){
  foreach ($cont as $key => $val){

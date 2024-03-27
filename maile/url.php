@@ -28,7 +28,7 @@ $cont = array(
     "[T_URZAD_URL]" => "Up+Warszawa+33,ul.+Rodziny+Hiszpańskich+8,Warszawa",
     "[T_URZAD_GPS]" => "49.9304963,19.9497555",
 
-    "[T_NADAWCA]" => "Tani Ciuszek WSPÓLNICY",
+    "[T_NADAWCA]" => "od <strong>Tani Ciuszek WSPÓLNICY</strong>",
     "[T_KWOTA_POBRAN]" => "(kwota pobrania: 120,20 zł)",
     "[POBRANIE_EMAIL]" => "(kwota pobrania: 120,20 zł)",
     "[T_KWOTA_W_AUTO]" => "<p>Kwotę pobranie opłacisz bezpośrednio w terminalu w automacie paczkowym.</p>",

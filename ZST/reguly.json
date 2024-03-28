@@ -99,6 +99,29 @@
         }
     },
     {
+        "id": "all-potwierdzenie-dor",
+        "rule": "PR_PX2.0_potwierdzenie_doręczenia_EMAIL_SW",
+        "template": "PR_PX2.0_potwierdzenie_dor_NAD_ALL (all-potwierdzenie-dor)",
+        "direction": "Adresat wiadomości",
+        "parcels": "<code>ZWERYFIKOWAĆ PRZESYŁKI</code>",
+        "description": "wysyłka maila <code>potwierdzenie doręczenia</code> dla wszystkich przesyłek, które mają wykupione świadczenie <code>PDEML</code>",
+        "start_events": "P_D, P_OWP, P_OWU <br/><code>świadczenie PDEML</code>",
+        "test_description": 
+            ["oczekuje"],
+        "production":{
+            "env": "PROD",
+            "env_flag": "success",
+            "sum" : "POZYTYWNY",
+            "sum_flag": "success"
+        },
+        "production_test": {
+            "env": "208006",
+            "env_flag": "success",
+            "sum" : "POZYTYWNY",
+            "sum_flag": "success"
+        }
+    },
+    {
         "id": "awizacja",
         "rule": "AWIZO_PX2.0",
         "template": "AWIZO_PX2.0_(awizacja)",
@@ -149,6 +172,150 @@
             "env_flag": "success",
             "sum" : "POZYTYWNY",
             "sum_flag": "success"
+        }
+    },
+
+
+    {
+        "id": "automat-nadanie-nad",
+        "rule": "PREAWIZO_PX2.0_RIAM_NAD_NADANIE_APM_OWP",
+        "template": "PX2.0_PREAWIZO_ODB_APM(automat-nadanie)",
+        "direction": "NAD",
+        "parcels": "PX6662820982 (P_NM)",
+        "description": "wysyłka maila <code>nadano</code> dla wszystkich przesyłek do APM",
+        "start_events": "P_NAD <br/><code>świadczenie: OP, OAPM</code>",
+        "test_description": 
+            ["Dla przesyłki PX6662820982 wygenerowano zdarzenie nadania masowego P_NM. Nadawca nie powinien otrzymać maila z tego nadania masowego. reguła zadziałała <span class='text-success fw-bold'>poprawnie</span>."],
+        "production":{
+            "env": "PROD",
+            "env_flag": "warning",
+            "sum" : "OCZEKUJE",
+            "sum_flag": "warning"
+        },
+        "production_test": {
+            "env": "208006",
+            "env_flag": "success",
+            "sum" : "POZYTYWNY",
+            "sum_flag": "success"
+        }
+    },
+    {
+        "id": "automat-nadanie",
+        "rule": "PREAWIZO_PX2.0_RIAM_PUSH_NADANA_ODB_APM",
+        "template": "PX2.0_PREAWIZO_(automat-nadanie)",
+        "direction": "ODB",
+        "parcels": "PX6662820982 (P_NM)",
+        "description": "wysyłka maila <code>nadano</code> dla wszystkich przesyłek do APM",
+        "start_events": "P_NAD, P_NM, P_NMBS, P_NMBW <br/><code>świadczenie: OP, OAPM</code>",
+        "test_description": 
+            ["Dla przesyłki PX6662820982 wygenerowano zdarzenie nadania masowego P_NM. Odbiorca powinien otrzymać maila z tego nadania masowego. Reguła zadziałała <span class='text-success fw-bold'>poprawnie</span>."],
+        "production":{
+            "env": "PROD",
+            "env_flag": "warning",
+            "sum" : "OCZEKUJE",
+            "sum_flag": "warning"
+        },
+        "production_test": {
+            "env": "208006",
+            "env_flag": "success",
+            "sum" : "POZYTYWNY",
+            "sum_flag": "success"
+        }
+    },
+    {
+        "id": "automat-nadanie",
+        "rule": "PREAWIZO_PX2.0_RIAM_PUSH_NADANA_ODB_APM",
+        "template": "PX2.0_PREAWIZO_(automat-nadanie)",
+        "direction": "ODB",
+        "parcels": "PX6662820982 (P_NM)",
+        "description": "wysyłka maila <code>nadano</code> dla wszystkich przesyłek do APM",
+        "start_events": "P_NAD, P_NM, P_NMBS, P_NMBW <br/><code>świadczenie: OP, OAPM</code>",
+        "test_description": 
+            ["Dla przesyłki PX6662820982 wygenerowano zdarzenie nadania masowego P_NM. Odbiorca powinien otrzymać maila z tego nadania masowego. Reguła zadziałała <span class='text-success fw-bold'>poprawnie</span>."],
+        "production":{
+            "env": "PROD",
+            "env_flag": "warning",
+            "sum" : "OCZEKUJE",
+            "sum_flag": "warning"
+        },
+        "production_test": {
+            "env": "208006",
+            "env_flag": "success",
+            "sum" : "POZYTYWNY",
+            "sum_flag": "success"
+        }
+    },
+    {
+        "id": "automat-nadanie",
+        "rule": "PREAWIZO_PX2.0_RIAM_PUSH_NADANA_ODB_APM",
+        "template": "PX2.0_PREAWIZO_(automat-nadanie)",
+        "direction": "ODB",
+        "parcels": "PX6662820982 (P_NM)",
+        "description": "wysyłka maila <code>nadano</code> dla wszystkich przesyłek do APM",
+        "start_events": "P_NAD, P_NM, P_NMBS, P_NMBW <br/><code>świadczenie: OP, OAPM</code>",
+        "test_description": 
+            ["Dla przesyłki PX6662820982 wygenerowano zdarzenie nadania masowego P_NM. Odbiorca powinien otrzymać maila z tego nadania masowego. Reguła zadziałała <span class='text-success fw-bold'>poprawnie</span>."],
+        "production":{
+            "env": "PROD",
+            "env_flag": "warning",
+            "sum" : "OCZEKUJE",
+            "sum_flag": "warning"
+        },
+        "production_test": {
+            "env": "208006",
+            "env_flag": "success",
+            "sum" : "POZYTYWNY",
+            "sum_flag": "success"
+        }
+    },
+    {
+        "id": "all-nadanie",
+        "rule": "<p class='pe-3'>AAA_PREAWIZO_PX2_ODB_ALL_P+E(30) <span class='bg-warning text-dark d-block p-1 mt-1'>(TESTUJEMY osobną regułe dla P+E)</span></p>",
+        "template": "PX2.0_PREAWIZO_ODB_(all-nadanie)",
+        "direction": "ODB",
+        "parcels": "PX6663920155 (P_NAD), PX6663973890 (P_NAD)",
+        "description": "wysyłka maila oraz push <code>nadano</code> dla wszystkich nadanych PX2.0",
+        "start_events": "P_NAD, P_NM, P_NMBS, P_NMBW",
+        "test_description": 
+            ["Dla przesyłki PX6663920155 <code>(odbiorca posiada Pocztex Mobile)</code> wygenerowano zdarzenie nadania indywidualnego P_NAD. Odbiorca i nadawca powinien otrzymać <strong>maila oraz PUSH</strong>. Reguła zadziałała <span class='text-success fw-bold'>poprawnie</span>.",
+            "Odbiorca: <br/><a href='./screen/PX6663920155_AAA_MAIL_ODB_REG.png' data-fancybox ><img src='./screen/PX6663920155_AAA_MAIL_ODB_REG.png' height='90px' /></a> <a href='./screen/PX6663920155_AAA_PUSH_ODB_REG.png' data-fancybox ><img src='./screen/PX6663920155_AAA_PUSH_ODB_REG.png' height='90px' /></a> <a href='./screen/PX6663920155_AAA_MAIL_ODB.png' data-fancybox ><img src='./screen/PX6663920155_AAA_MAIL_ODB.png' height='90px' /></a>",
+            "Nadawca: <br/><a href='./screen/PX6663920155_AAA_MAIL_NAD_REG.png' data-fancybox ><img src='./screen/PX6663920155_AAA_MAIL_NAD_REG.png' height='90px' /></a> <a href='./screen/PX6663920155_AAA_MAIL_NAD.png' data-fancybox ><img src='./screen/PX6663920155_AAA_MAIL_NAD.png' height='90px' /></a>",
+            "Dla przesyłki PX6663973890 <code>(odbiorca NIE POSIADA Pocztex Mobile)</code> wygenerowano zdarzenie nadania indywidaulnego P_NAD. Odbiorca i nadawca powinien otrzymać <strong>maila oraz SMS</strong>. Reguła <span class='bg-danger p-1 text-light fw-bold'>nie powinna zadziałać</span>. Test <span class='text-success fw-bold'>pozytywny</span>."],
+        "production":{
+            "env": "PROD",
+            "env_flag": "warning",
+            "sum" : "OCZEKUJE",
+            "sum_flag": "warning"
+        },
+        "production_test": {
+            "env": "208006",
+            "env_flag": "warning",
+            "sum" : "TEST",
+            "sum_flag": "warning"
+        }
+    },
+    {
+        "id": "all-nadanie",
+        "rule": "<p class='pe-3'>AAA_PREAWIZO_PX2_ODB_ALL_S+E(30) <span class='bg-warning text-dark d-block p-1 mt-1'>(TESTUJEMY osobną regułe dla S+E)</span></p>",
+        "template": "PX2.0_PREAWIZO_ODB_(all-nadanie)",
+        "direction": "ODB",
+        "parcels": "PX6663920155 (P_NAD), PX6663973890 (P_NAD)",
+        "description": "wysyłka maila oraz push <code>nadano</code> dla wszystkich nadanych PX2.0",
+        "start_events": "P_NAD, P_NM, P_NMBS, P_NMBW",
+        "test_description": 
+            ["Dla przesyłki PX6663920155 <code>(odbiorca posiada Pocztex Mobile)</code> wygenerowano zdarzenie nadania indywidaulnego P_NAD. Odbiorca i nadawca powinien otrzymać <strong>maila oraz PUSH</strong>. Reguła <span class='bg-danger p-1 text-light fw-bold'>nie powinna zadziałać</span>. Test <span class='text-success fw-bold'>pozytywny</span>.",
+            "Dla przesyłki PX6663973890 <code>(odbiorca NIE POSIADA Pocztex Mobile)</code> wygenerowano zdarzenie nadania indywidaulnego P_NAD. Odbiorca i nadawca powinien otrzymać <strong>maila oraz SMS</strong>. Reguła zadziałała <span class='text-success fw-bold'>poprawnie</span>."],
+        "production":{
+            "env": "PROD",
+            "env_flag": "warning",
+            "sum" : "OCZEKUJE",
+            "sum_flag": "warning"
+        },
+        "production_test": {
+            "env": "208006",
+            "env_flag": "warning",
+            "sum" : "TEST",
+            "sum_flag": "warning"
         }
     }
 ]
